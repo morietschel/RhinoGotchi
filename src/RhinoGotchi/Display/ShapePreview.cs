@@ -8,52 +8,53 @@ using RhinoGotchi.Content;
 namespace RhinoGotchi.Display
 {
     /// <summary>
-    /// Draws a "What Made This?" round in a perspective viewport without adding anything to the document.
-    /// Inputs are orange, results are blue. The view is restored when the preview stops.
+    /// Draws game rounds and command demos in a perspective viewport without adding anything to the
+    /// document. Inputs are orange, results blue, guides dotted and pick points numbered dots.
+    /// A preview session starts on the first Show and ends with Stop, which restores the view.
     /// </summary>
     internal static class ShapePreview
     {
         private static readonly PreviewConduit Conduit = new PreviewConduit();
         private static RhinoView? _view;
+        private static Transform _move = Transform.Identity;
 
-        public static void Show(RhinoDoc doc, ShapeGeometry shape)
+        public static void Show(RhinoDoc doc, ShapeGeometry frame) => Show(doc, frame, frame.GetBoundingBox());
+
+        /// <summary>Draws a frame and zooms to <paramref name="focus"/> (pass the same box for every step to keep the camera still).</summary>
+        public static void Show(RhinoDoc doc, ShapeGeometry frame, BoundingBox focus)
         {
-            var box = BoundingBox.Empty;
-            foreach (var geo in shape.Inputs.Concat(shape.Results))
-                box.Union(geo.GetBoundingBox(true));
-
-            // Put the preview beside the existing model so it doesn't overlap anything.
-            var docBox = doc.Objects.BoundingBox;
-            var move = Transform.Identity;
-            if (docBox.IsValid)
-            {
-                double gap = 0.25 * System.Math.Max(docBox.Diagonal.Length, box.Diagonal.Length);
-                move = Transform.Translation(new Vector3d(
-                    docBox.Max.X + gap - box.Min.X,
-                    docBox.Center.Y - box.Center.Y,
-                    docBox.Min.Z - box.Min.Z));
-            }
-
-            Conduit.Inputs = shape.Inputs.Select(g => Moved(g, move)).ToArray();
-            Conduit.Results = shape.Results.Select(g => Moved(g, move)).ToArray();
-            box.Transform(move);
-            Conduit.Box = box;
-            Conduit.Enabled = true;
+            if (!focus.IsValid)
+                focus = frame.GetBoundingBox();
+            if (!focus.IsValid)
+                return;
 
             if (_view == null)
             {
                 _view = FindPerspective(doc);
                 if (_view == null)
                     return;
+                _move = PlaceBesideModel(doc, focus);
                 doc.Views.ActiveView = _view;
                 _view.ActiveViewport.PushViewProjection();
             }
+
+            var shown = frame.Transformed(_move);
+            var box = focus;
+            box.Transform(_move);
+            box.Union(shown.GetBoundingBox());
+
+            Conduit.Frame = shown;
+            Conduit.Box = box;
+            Conduit.Enabled = true;
 
             var zoom = box;
             zoom.Inflate(box.Diagonal.Length * 0.15);
             _view.ActiveViewport.ZoomBoundingBox(zoom);
             _view.Redraw();
         }
+
+        /// <summary>A copy of demo geometry placed where the preview draws it, for adding to the model.</summary>
+        public static GeometryBase ToPreviewSpace(GeometryBase g) => ShapeGeometry.Moved(g, _move);
 
         public static void Stop()
         {
@@ -67,14 +68,21 @@ namespace RhinoGotchi.Display
                 _view.Redraw();
                 _view = null;
             }
+            _move = Transform.Identity;
             RhinoDoc.ActiveDoc?.Views.Redraw();
         }
 
-        private static GeometryBase Moved(GeometryBase g, Transform xf)
+        /// <summary>Puts the preview to the right of the existing model so it doesn't overlap anything.</summary>
+        private static Transform PlaceBesideModel(RhinoDoc doc, BoundingBox box)
         {
-            var copy = g.Duplicate();
-            copy.Transform(xf);
-            return copy;
+            var docBox = doc.Objects.BoundingBox;
+            if (!docBox.IsValid)
+                return Transform.Identity;
+            double gap = 0.25 * System.Math.Max(docBox.Diagonal.Length, box.Diagonal.Length);
+            return Transform.Translation(new Vector3d(
+                docBox.Max.X + gap - box.Min.X,
+                docBox.Center.Y - box.Center.Y,
+                docBox.Min.Z - box.Min.Z));
         }
 
         private static RhinoView? FindPerspective(RhinoDoc doc)
@@ -90,11 +98,12 @@ namespace RhinoGotchi.Display
         {
             private static readonly Color InputColor = Color.FromArgb(235, 130, 40);
             private static readonly Color ResultColor = Color.FromArgb(60, 120, 200);
+            private static readonly Color GuideColor = Color.FromArgb(90, 90, 90);
+            private static readonly Color MarkColor = Color.FromArgb(40, 45, 50);
             private static readonly DisplayMaterial InputMaterial = new DisplayMaterial(InputColor, 0.75);
             private static readonly DisplayMaterial ResultMaterial = new DisplayMaterial(Color.FromArgb(120, 170, 230), 0.1);
 
-            public GeometryBase[] Inputs = new GeometryBase[0];
-            public GeometryBase[] Results = new GeometryBase[0];
+            public ShapeGeometry Frame = new ShapeGeometry();
             public BoundingBox Box = BoundingBox.Empty;
 
             protected override void CalculateBoundingBox(CalculateBoundingBoxEventArgs e)
@@ -105,10 +114,18 @@ namespace RhinoGotchi.Display
 
             protected override void PostDrawObjects(DrawEventArgs e)
             {
-                foreach (var g in Results)
+                foreach (var g in Frame.Results)
                     Draw(e.Display, g, ResultColor, ResultMaterial, 3);
-                foreach (var g in Inputs)
+                foreach (var g in Frame.Inputs)
                     Draw(e.Display, g, InputColor, InputMaterial, 4);
+                foreach (var line in Frame.Guides)
+                    e.Display.DrawDottedLine(line, GuideColor);
+            }
+
+            protected override void DrawForeground(DrawEventArgs e)
+            {
+                foreach (var mark in Frame.Marks)
+                    e.Display.DrawDot(mark.Point, mark.Label, MarkColor, Color.White);
             }
 
             private static void Draw(DisplayPipeline display, GeometryBase g, Color color, DisplayMaterial material, int curveThickness)
@@ -121,6 +138,12 @@ namespace RhinoGotchi.Display
                     case Brep b:
                         display.DrawBrepShaded(b, material);
                         display.DrawBrepWires(b, color, -1);
+                        break;
+                    case Mesh m:
+                        display.DrawMeshShaded(m, material);
+                        break;
+                    case Rhino.Geometry.Point p:
+                        display.DrawPoint(p.Location, color);
                         break;
                 }
             }

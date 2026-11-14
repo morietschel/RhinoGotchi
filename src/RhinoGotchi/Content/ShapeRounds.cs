@@ -6,13 +6,6 @@ using Rhino.Geometry;
 
 namespace RhinoGotchi.Content
 {
-    /// <summary>Geometry for one round: what you start with, and what the command produced.</summary>
-    internal sealed class ShapeGeometry
-    {
-        public List<GeometryBase> Inputs { get; } = new List<GeometryBase>();
-        public List<GeometryBase> Results { get; } = new List<GeometryBase>();
-    }
-
     internal sealed class ShapeRound
     {
         private readonly Func<double, ShapeGeometry> _build;
@@ -140,12 +133,13 @@ namespace RhinoGotchi.Content
                 }),
 
             new ShapeRound("BooleanDifference",
-                "BooleanDifference subtracts one solid from another. Here the orange sphere was cut out of a box. Both must be closed solids.",
+                "BooleanDifference subtracts one solid from another. Here the sphere was cut out of the box. Both must be closed solids.",
                 tol =>
                 {
                     var g = new ShapeGeometry();
                     var box = new Box(Plane.WorldXY, new Interval(0, 6), new Interval(0, 6), new Interval(0, 6)).ToBrep();
                     var sphere = new Sphere(new Point3d(6, 6, 6), 3.5).ToBrep();
+                    g.Inputs.Add(box);
                     g.Inputs.Add(sphere);
                     var diff = Brep.CreateBooleanDifference(box, sphere, tol);
                     if (diff != null) g.Results.AddRange(diff);

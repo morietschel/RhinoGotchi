@@ -28,6 +28,25 @@ namespace RhinoGotchi.UI
         public static Label Muted(string text) =>
             new Label { Text = text, Wrap = WrapMode.Word, TextColor = SystemColors.DisabledText };
 
+        public static readonly Color Miss = Color.FromArgb(105, 110, 116);   // not part of the answer
+        public static readonly Color Selected = Color.FromArgb(58, 71, 80);  // a filled slot
+        public static readonly Color Light = Colors.White;
+
+        /// <summary>A colored tile with centered text, e.g. a slot in Build Order. Width 0 stretches to fill its cell.</summary>
+        public static Panel Chip(string text, Color back, Color fore, int width = 0, int height = 30)
+        {
+            var label = new Label
+            {
+                Text = text,
+                TextColor = fore,
+                Font = new Font(SystemFont.Bold, 8),
+                TextAlignment = TextAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Wrap = WrapMode.Character,
+            };
+            return new Panel { BackgroundColor = back, Size = new Size(width > 0 ? width : -1, height), Content = label };
+        }
+
         /// <summary>A colored card with padding for explanations and results.</summary>
         public static Panel Card(Color back, params Control[] rows)
         {
@@ -60,18 +79,35 @@ namespace RhinoGotchi.UI
             return row;
         }
 
+        /// <summary>Lays controls out left to right, wrapping every <paramref name="columns"/>.</summary>
+        public static TableLayout Grid(int columns, params Control[] controls)
+        {
+            var table = new TableLayout { Spacing = new Size(4, 4) };
+            for (int i = 0; i < controls.Length; i += columns)
+            {
+                var row = new TableRow();
+                for (int j = i; j < System.Math.Min(i + columns, controls.Length); j++)
+                    row.Cells.Add(new TableCell(controls[j], true));
+                for (int j = controls.Length; j < i + columns; j++)
+                    row.Cells.Add(new TableCell(null, true));
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+
         /// <summary>"Try it in Rhino" and "Help page" buttons for a command.</summary>
         public static StackLayout CommandButtons(string command) => Row(
             Button($"Try {command}", () => RhinoActions.Run(command)),
             Button("Help page", () => RhinoActions.OpenHelp(command)));
 
         /// <summary>Gives a view the standard padding and a header with a back button.</summary>
-        public static void SetUpPage(StackLayout page, RhinoGotchiPanel host, string title, string subtitle)
+        public static void SetUpPage(StackLayout page, RhinoGotchiPanel host, string title, string subtitle,
+            string backText = "← Home", Action? back = null)
         {
             page.Padding = 12;
             page.Spacing = 8;
             page.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            page.Items.Add(new StackLayoutItem(Button("← Games", host.ShowHome), HorizontalAlignment.Left));
+            page.Items.Add(new StackLayoutItem(Button(backText, back ?? host.ShowHome), HorizontalAlignment.Left));
             page.Items.Add(Title(title));
             page.Items.Add(Muted(subtitle));
         }

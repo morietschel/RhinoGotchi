@@ -6,11 +6,13 @@ namespace RhinoGotchi.Core
     internal static class Games
     {
         public const string Shape = "shape";
-        public static readonly string[] All = { Shape };
+        public const string Order = "order";
+        public static readonly string[] All = { Shape, Order };
 
         public static string Title(string game) => game switch
         {
             Shape => "What Made This?",
+            Order => "Build Order",
             _ => game,
         };
     }

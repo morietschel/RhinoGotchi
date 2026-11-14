@@ -36,6 +36,9 @@ namespace RhinoGotchi.UI
         internal void Navigate(Control view)
         {
             (_view as IGameView)?.Leave();
+            // Views can be revisited (e.g. back to the Library), so detach from the old scroller first.
+            if (view.Parent is Scrollable oldScroller)
+                oldScroller.Content = null;
             _view = view;
             Content = new Scrollable
             {

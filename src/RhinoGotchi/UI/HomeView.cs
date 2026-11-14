@@ -1,3 +1,4 @@
+using System.Linq;
 using System;
 using Eto.Forms;
 using RhinoGotchi.Content;
@@ -19,9 +20,14 @@ namespace RhinoGotchi.UI
             Items.Add(Theme.Title("RhinoGotchi"));
             Items.Add(Theme.Muted($"Daily games for learning Rhino · {DateTime.Today:dddd, MMMM d}"));
 
-            Items.Add(Theme.Heading("Today's game"));
+            Items.Add(Theme.Heading("Today's games"));
+            Items.Add(GameCard(Games.Order, "See a finished object and put the commands that built it in the right order.",
+                () => host.Navigate(new BuildOrderView(host, practice: false))));
             Items.Add(GameCard(Games.Shape, "Look at the viewport and name the command that made the shape.",
                 () => host.Navigate(new ShapeQuizView(host, practice: false))));
+
+            Items.Add(Theme.Heading("Learn"));
+            Items.Add(LibraryCard(() => host.Navigate(new LibraryView(host))));
 
             Items.Add(Theme.Heading("Tip of the day"));
             var tip = Theme.Body(Tips.All[_tip]);
@@ -60,6 +66,29 @@ namespace RhinoGotchi.UI
             {
                 Spacing = new Eto.Drawing.Size(8, 0),
                 Rows = { new TableRow(new TableCell(body, true), new TableCell(playButton)) },
+            };
+            return new GroupBox { Content = layout, Padding = 8 };
+        }
+
+        private static Control LibraryCard(Action open)
+        {
+            int commands = CommandCatalog.Categories.Sum(c => c.Commands.Count);
+            int demos = CommandCatalog.Categories.Sum(c => c.Commands.Count(e => e.HasDemo));
+            var body = new StackLayout
+            {
+                Spacing = 3,
+                HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                Items =
+                {
+                    new Label { Text = "Command Library", Font = Theme.HeadingFont },
+                    Theme.Body("Curves, Solids and Transform commands: see how each one works, then try it."),
+                    Theme.Muted($"{commands} commands · {demos} step-by-step demos"),
+                },
+            };
+            var layout = new TableLayout
+            {
+                Spacing = new Eto.Drawing.Size(8, 0),
+                Rows = { new TableRow(new TableCell(body, true), new TableCell(Theme.Button("Open", open))) },
             };
             return new GroupBox { Content = layout, Padding = 8 };
         }
