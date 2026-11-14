@@ -12,18 +12,27 @@ namespace GotchiHouse
     /// The panel content, drawn as an egg-shaped virtual-pet device: a green shell,
     /// an LCD screen with the key axon of the house and the current instructions,
     /// and three buttons (BACK, GO, NEXT).
-    /// The axon shows built parts solid and the rest as a ghost.
+    /// The axon shows built parts solid and the rest as a ghost, and plays a short
+    /// looping demo of the clicks for the current step.
     /// </summary>
     internal sealed class GotchiDevice : Drawable
     {
         private const float EggAspect = 1.34f; // height / width
         private const int Back = 0, Go = 1, Next = 2;
 
+        /// <summary>Seconds per loop of a one-part demo, and of the whole-house demo.</summary>
+        private const double PartLoop = 5.0, HouseLoop = 9.0;
+
         private int _page;
         private int _lastCurrentPage;
         private int _hover = -1;
         private readonly PointF[] _buttonCenters = new PointF[3];
         private float _buttonRadius;
+
+        // Animation clock for the demo on the screen
+        private readonly UITimer _timer = new UITimer { Interval = 1.0 / 30 };
+        private readonly System.Diagnostics.Stopwatch _clock = System.Diagnostics.Stopwatch.StartNew();
+        private double _time;
 
         public GotchiDevice()
         {
@@ -32,12 +41,29 @@ namespace GotchiHouse
             _page = _lastCurrentPage = HouseSession.CurrentPageIndex;
             HouseSession.Changed += OnSessionChanged;
             SizeChanged += (s, e) => Invalidate();
+            _timer.Elapsed += (s, e) => Invalidate();
+        }
+
+        protected override void OnLoadComplete(EventArgs e)
+        {
+            base.OnLoadComplete(e);
+            _timer.Start();
+        }
+
+        protected override void OnUnLoad(EventArgs e)
+        {
+            _timer.Stop();
+            base.OnUnLoad(e);
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 HouseSession.Changed -= OnSessionChanged;
+                _timer.Stop();
+                _timer.Dispose();
+            }
             base.Dispose(disposing);
         }
 
@@ -53,6 +79,7 @@ namespace GotchiHouse
             {
                 _page = current; // progress moved: jump to the new step
                 _lastCurrentPage = current;
+                _clock.Restart(); // start the new step's demo from the beginning
             }
             _page = Math.Min(_page, MaxPage);
             Invalidate();
@@ -113,10 +140,12 @@ namespace GotchiHouse
             if (button == Back)
             {
                 _page--;
+                _clock.Restart();
             }
             else if (button == Next)
             {
                 _page++;
+                _clock.Restart();
             }
             else
             {
@@ -144,9 +173,13 @@ namespace GotchiHouse
 
         protected override void OnPaint(PaintEventArgs e) => Render(e.Graphics, Width, Height);
 
-        /// <summary>Draws the whole device into a <paramref name="width"/> x <paramref name="height"/> area.</summary>
-        internal void Render(Graphics g, float Width, float Height)
+        /// <summary>
+        /// Draws the whole device into a Width x Height area, with the demo animation at
+        /// <paramref name="time"/> seconds (default: the live clock).
+        /// </summary>
+        internal void Render(Graphics g, float Width, float Height, double? time = null)
         {
+            _time = time ?? _clock.Elapsed.TotalSeconds;
             g.AntiAlias = true;
             g.FillRectangle(Palette.Paper, 0, 0, Width, Height);
 
@@ -234,9 +267,9 @@ namespace GotchiHouse
             g.DrawLine(new Pen(Palette.Ink, 1.2f * s), c.X, y, c.Right, y);
             y += 4 * s;
 
-            // Key axon of the house
-            var art = new RectangleF(c.X, y, c.Width, c.Height * 0.44f);
-            DrawHouse(g, art, s, done);
+            // Key axon of the house, with the demo
+            var art = new RectangleF(c.X, y, c.Width, c.Height * 0.47f);
+            DrawHouse(g, art, s, page, _time);
             y = art.Bottom + 4 * s;
 
             if (done)
@@ -258,21 +291,17 @@ namespace GotchiHouse
             }
             y += 3 * s;
 
-            if (page.Inputs.Length > 0)
+            // The points to click, numbered like the glowing points in the viewport
+            Font label = font(9f, true);
+            int step = 1;
+            foreach (TutorialInput input in page.Inputs)
             {
-                Font value = font(9.5f, true);
-                Font hint = font(8f, false);
-                float valueWidth = page.Inputs.Max(i => g.MeasureString(value, i.Value).Width) + 10 * s;
-                int step = 1;
-                foreach (TutorialInput input in page.Inputs)
-                {
-                    string number = $"{step++}";
-                    g.FillEllipse(Palette.Ink, c.X, y + 1.5f * s, 12 * s, 12 * s);
-                    DrawCentered(g, small, Palette.Paper, number, c.X + 6 * s, y + 1.5f * s + (12 * s - small.LineHeight) / 2);
-                    g.DrawText(value, Palette.Ink, c.X + 17 * s, y, input.Value);
-                    g.DrawText(hint, Palette.Leaf, c.X + 17 * s + valueWidth, y + (value.LineHeight - hint.LineHeight) / 2, input.Hint);
-                    y += value.LineHeight + 2 * s;
-                }
+                float d = 12 * s, top = y + (label.LineHeight - d) / 2;
+                g.FillEllipse(Palette.Shell, c.X, top, d, d);
+                g.DrawEllipse(new Pen(Palette.Ink, 1.2f * s), c.X, top, d, d);
+                DrawCentered(g, small, Palette.Ink, $"{step++}", c.X + d / 2, top + (d - small.LineHeight) / 2);
+                g.DrawText(label, Palette.Ink, c.X + d + 6 * s, y, input.Label);
+                y += label.LineHeight + 2 * s;
             }
 
             g.RestoreTransform();
@@ -293,41 +322,67 @@ namespace GotchiHouse
             }
         }
 
+        // ---------------------------------------------------------------- key axon + demo
+
         /// <summary>
         /// Draws the house as a key axon, seen from the same direction as the Axon
-        /// viewport. Built parts are solid (white faces, black edges); parts still to
-        /// build are a dashed ghost, the current one in black, later ones in green.
+        /// viewport. Built parts are solid (white and green faces, black edges); parts still
+        /// to build are a dashed ghost. On the welcome page the whole house builds itself in a
+        /// loop; on a build page the current part does, with a cursor showing each click.
         /// </summary>
-        private static void DrawHouse(Graphics g, RectangleF area, float s, bool celebrate)
+        private static void DrawHouse(Graphics g, RectangleF area, float s, TutorialPage page, double t)
         {
             Vector3d right = HouseModel.ViewRight, up = HouseModel.ViewUp, dir = HouseModel.ViewDirection;
 
-            // Fit the projected house into the area
+            // Fit the projected house into the area (fixed, so the demo doesn't rescale)
             var all = HouseModel.Parts.SelectMany(p => p.Vertices).ToArray();
             float minX = all.Min(p => Dot(p, right)), maxX = all.Max(p => Dot(p, right));
             float minY = all.Min(p => -Dot(p, up)), maxY = all.Max(p => -Dot(p, up));
-            float scale = Math.Min(area.Width / (maxX - minX), area.Height / (maxY - minY)) * 0.92f;
+            float scale = Math.Min(area.Width / (maxX - minX), area.Height / (maxY - minY)) * 0.96f;
             float ox = area.X + area.Width / 2 - (minX + maxX) / 2 * scale;
             float oy = area.Y + area.Height / 2 - (minY + maxY) / 2 * scale;
             PointF P(Point3d p) => new PointF(ox + Dot(p, right) * scale, oy - Dot(p, up) * scale);
 
-            HousePart? current = HouseSession.CurrentPart;
+            // What the demo shows right now
+            HousePart? demoPart = null;
+            double u = 0;
+            Func<HousePart, bool> shownBuilt = HouseSession.IsBuilt;
+            if (page.Kind == PageKind.Welcome)
+            {
+                double phase = t % HouseLoop / HouseLoop;
+                if (phase < 0.45) { demoPart = HousePart.Walls; u = phase / 0.45; }
+                else if (phase < 0.9) { demoPart = HousePart.Roof; u = (phase - 0.45) / 0.45; }
+                shownBuilt = p => phase >= 0.9 || (p == HousePart.Walls && phase >= 0.45);
+            }
+            else if (page.Kind == PageKind.Build && page.Part.HasValue && !HouseSession.IsBuilt(page.Part.Value))
+            {
+                demoPart = page.Part;
+                u = t % PartLoop / PartLoop;
+            }
+            HousePart? highlighted = demoPart ?? (HouseSession.Started ? HouseSession.CurrentPart : null);
 
             // 1. Ghost fills
-            foreach (PartShape part in HouseModel.Parts.Where(p => !HouseSession.IsBuilt(p.Part)))
-                foreach (int[] face in part.Faces.Where(f => Facing(part, f, dir)))
+            foreach (PartShape part in HouseModel.Parts.Where(p => !shownBuilt(p.Part)))
+                foreach (int[] face in part.Faces.Where(f => Facing(part.Vertices, f, dir)))
                     g.FillPolygon(Palette.GhostFill, face.Select(i => P(part.Vertices[i])).ToArray());
 
-            // 2. Built faces, far to near
+            // 2. Solid faces (built parts + the demo shape), far to near
             var faces = new List<(double depth, PointF[] points, Color fill)>();
-            foreach (PartShape part in HouseModel.Parts.Where(p => HouseSession.IsBuilt(p.Part)))
+            void AddSolid(Point3d[] vertices, int[][] faceList)
             {
-                foreach (int[] face in part.Faces.Where(f => Facing(part, f, dir)))
+                foreach (int[] face in faceList.Where(f => Facing(vertices, f, dir)))
                 {
-                    Point3d centroid = Centroid(part, face);
-                    faces.Add((Dot(centroid, dir), face.Select(i => P(part.Vertices[i])).ToArray(), Shade(Normal(part, face))));
+                    Point3d centroid = Centroid(vertices, face);
+                    faces.Add((Dot(centroid, dir), face.Select(i => P(vertices[i])).ToArray(), Shade(Normal(vertices, face))));
                 }
             }
+            foreach (PartShape part in HouseModel.Parts.Where(p => shownBuilt(p.Part)))
+                AddSolid(part.Vertices, part.Faces);
+
+            Demo? demo = demoPart.HasValue ? Demo.At(demoPart.Value, u) : null;
+            if (demo?.Solid != null)
+                AddSolid(demo.Solid, demo.Faces);
+
             var edgePen = new Pen(Palette.Ink, 1.6f * s) { LineJoin = PenLineJoin.Round };
             foreach (var f in faces.OrderByDescending(f => f.depth))
             {
@@ -335,11 +390,19 @@ namespace GotchiHouse
                 g.DrawPolygon(edgePen, f.points);
             }
 
-            // 3. Ghost edges, dashed
-            foreach (PartShape part in HouseModel.Parts.Where(p => !HouseSession.IsBuilt(p.Part)))
+            // A flat base while the demo drags it out
+            if (demo?.Flat != null)
             {
-                bool isCurrent = part.Part == current && HouseSession.Started;
-                var pen = new Pen(isCurrent ? Palette.Ink : Palette.Leaf, (isCurrent ? 1.3f : 1f) * s)
+                PointF[] flat = demo.Flat.Select(P).ToArray();
+                g.FillPolygon(Palette.Mint, flat);
+                g.DrawPolygon(edgePen, flat);
+            }
+
+            // 3. Ghost edges, dashed
+            foreach (PartShape part in HouseModel.Parts.Where(p => !shownBuilt(p.Part)))
+            {
+                bool isHighlighted = part.Part == highlighted;
+                var pen = new Pen(isHighlighted ? Palette.Ink : Palette.Leaf, (isHighlighted ? 1.3f : 1f) * s)
                 {
                     DashStyle = DashStyles.Dash,
                 };
@@ -347,32 +410,159 @@ namespace GotchiHouse
                     g.DrawLine(pen, P(part.Vertices[a]), P(part.Vertices[b]));
             }
 
-            if (celebrate)
+            // 4. Click points, ripples and the cursor
+            if (demo != null)
             {
-                DrawSparkle(g, area.X + area.Width * 0.12f, area.Y + area.Height * 0.25f, 6 * s);
-                DrawSparkle(g, area.X + area.Width * 0.88f, area.Y + area.Height * 0.20f, 7 * s);
-                DrawSparkle(g, area.X + area.Width * 0.82f, area.Y + area.Height * 0.78f, 5 * s);
-                DrawSparkle(g, area.X + area.Width * 0.18f, area.Y + area.Height * 0.80f, 4 * s);
+                TutorialInput[] inputs = TutorialPage.ForPart(demo.Part).Inputs;
+                for (int i = 0; i < inputs.Length; i++)
+                {
+                    PointF p = P(inputs[i].At);
+                    bool clicked = u >= Demo.ClickAt[i];
+                    float r = (clicked ? 4.5f : 3.5f) * s;
+                    g.FillEllipse(clicked ? Palette.Shell : Palette.Screen, p.X - r, p.Y - r, 2 * r, 2 * r);
+                    g.DrawEllipse(new Pen(Palette.Ink, 1.2f * s), p.X - r, p.Y - r, 2 * r, 2 * r);
+
+                    double since = u - Demo.ClickAt[i];
+                    if (since >= 0 && since < 0.1)
+                    {
+                        float rr = (float)(4 + since / 0.1 * 12) * s;
+                        int alpha = (int)(255 * (1 - since / 0.1));
+                        g.DrawEllipse(new Pen(Color.FromArgb(0x14, 0x14, 0x14, alpha), 1.5f * s), p.X - rr, p.Y - rr, 2 * rr, 2 * rr);
+                    }
+                }
+                if (demo.Cursor.HasValue)
+                    DrawCursor(g, P(demo.Cursor.Value), s);
+            }
+
+            if (page.Kind == PageKind.Done)
+            {
+                DrawSparkle(g, area.X + area.Width * 0.12f, area.Y + area.Height * 0.25f, Twinkle(6, t, 0) * s);
+                DrawSparkle(g, area.X + area.Width * 0.88f, area.Y + area.Height * 0.20f, Twinkle(7, t, 1) * s);
+                DrawSparkle(g, area.X + area.Width * 0.82f, area.Y + area.Height * 0.78f, Twinkle(5, t, 2) * s);
+                DrawSparkle(g, area.X + area.Width * 0.18f, area.Y + area.Height * 0.80f, Twinkle(4, t, 3) * s);
             }
         }
 
+        /// <summary>
+        /// One frame of a part's demo, for progress <c>u</c> through the loop (0..1):
+        /// move to click 1, drag the base out to click 2, pull up to click 3, hold.
+        /// </summary>
+        private sealed class Demo
+        {
+            /// <summary>When each of the three clicks happens, as a fraction of the loop.</summary>
+            public static readonly double[] ClickAt = { 0.12, 0.45, 0.77 };
+
+            public HousePart Part;
+            public Point3d[]? Solid;     // vertices of the growing solid, or null
+            public int[][] Faces = new int[0][];
+            public Point3d[]? Flat;      // the base polygon while it has no height yet
+            public Point3d? Cursor;
+
+            public static Demo At(HousePart part, double u)
+            {
+                TutorialInput[] inputs = TutorialPage.ForPart(part).Inputs;
+                Point3d p0 = inputs[0].At, p1 = inputs[1].At, p2 = inputs[2].At;
+
+                double grow = Ease((u - ClickAt[0]) / (ClickAt[1] - ClickAt[0]));
+                double rise = Ease((u - (ClickAt[1] + 0.05)) / (ClickAt[2] - ClickAt[1] - 0.05));
+                var demo = new Demo { Part = part };
+
+                if (part == HousePart.Walls)
+                {
+                    // Base from p0 towards p1, then height up to p2
+                    Point3d q = p0 + (p1 - p0) * grow;
+                    double z = p0.Z + (p2.Z - p0.Z) * rise;
+                    Point3d[] ring =
+                    {
+                        new Point3d(p0.X, p0.Y, p0.Z), new Point3d(q.X, p0.Y, p0.Z),
+                        new Point3d(q.X, q.Y, p0.Z), new Point3d(p0.X, q.Y, p0.Z),
+                    };
+                    if (rise > 0.01)
+                    {
+                        demo.Solid = ring.Concat(ring.Select(v => new Point3d(v.X, v.Y, z))).ToArray();
+                        demo.Faces = HouseModel.Walls.Faces;
+                    }
+                    else if (grow > 0.01)
+                    {
+                        demo.Flat = ring;
+                    }
+                    demo.Cursor = Track(u, p0, q, new Point3d(q.X, q.Y, z));
+                }
+                else
+                {
+                    // Square base centred on p0 with a corner growing towards p1, then apex up to p2
+                    Vector3d d = (p1 - p0) * grow;
+                    var turned = new Vector3d(-d.Y, d.X, 0);
+                    Point3d[] ring = { p0 + d, p0 + turned, p0 - d, p0 - turned };
+                    Point3d apex = p0 + (p2 - p0) * rise;
+                    if (rise > 0.01)
+                    {
+                        demo.Solid = ring.Concat(new[] { apex }).ToArray();
+                        demo.Faces = HouseModel.Roof.Faces;
+                    }
+                    else if (grow > 0.01)
+                    {
+                        demo.Flat = ring;
+                    }
+                    demo.Cursor = Track(u, p0, p0 + d, apex);
+                }
+
+                if (u > 0.92)
+                    demo.Cursor = null; // pause on the finished part before looping
+                return demo;
+            }
+
+            /// <summary>Where the cursor is: gliding in to click 1, then following the drag.</summary>
+            private static Point3d Track(double u, Point3d first, Point3d dragging, Point3d lifting)
+            {
+                if (u < ClickAt[0])
+                {
+                    Point3d start = first + new Vector3d(-6, -6, 6);
+                    return start + (first - start) * Ease(u / ClickAt[0]);
+                }
+                return u < ClickAt[1] + 0.05 ? dragging : lifting;
+            }
+
+            private static double Ease(double x)
+            {
+                x = Math.Max(0, Math.Min(1, x));
+                return x * x * (3 - 2 * x);
+            }
+        }
+
+        /// <summary>A small arrow pointer with its tip at <paramref name="tip"/>.</summary>
+        private static void DrawCursor(Graphics g, PointF tip, float s)
+        {
+            float k = 0.9f * s;
+            PointF[] shape =
+            {
+                new PointF(0, 0), new PointF(0, 15), new PointF(4, 11.5f), new PointF(7, 17.5f),
+                new PointF(9.5f, 16.5f), new PointF(6.5f, 10.5f), new PointF(11, 10.5f),
+            };
+            PointF[] points = shape.Select(p => new PointF(tip.X + p.X * k, tip.Y + p.Y * k)).ToArray();
+            g.FillPolygon(Palette.Paper, points);
+            g.DrawPolygon(new Pen(Palette.Ink, 1.2f * s) { LineJoin = PenLineJoin.Round }, points);
+        }
+
+        private static float Twinkle(float size, double t, int i) => (float)(size * (0.65 + 0.35 * Math.Sin(t * 4 + i * 1.7)));
+
         private static float Dot(Point3d p, Vector3d v) => (float)(p.X * v.X + p.Y * v.Y + p.Z * v.Z);
 
-        private static Point3d Centroid(PartShape part, int[] face)
+        private static Point3d Centroid(Point3d[] vertices, int[] face)
         {
             var sum = Point3d.Origin;
             foreach (int i in face)
-                sum += part.Vertices[i];
+                sum += vertices[i];
             return sum / face.Length;
         }
 
         /// <summary>Newell's method; faces are counter-clockwise from outside, so this points out.</summary>
-        private static Vector3d Normal(PartShape part, int[] face)
+        private static Vector3d Normal(Point3d[] vertices, int[] face)
         {
             var n = Vector3d.Zero;
             for (int i = 0; i < face.Length; i++)
             {
-                Point3d a = part.Vertices[face[i]], b = part.Vertices[face[(i + 1) % face.Length]];
+                Point3d a = vertices[face[i]], b = vertices[face[(i + 1) % face.Length]];
                 n.X += (a.Y - b.Y) * (a.Z + b.Z);
                 n.Y += (a.Z - b.Z) * (a.X + b.X);
                 n.Z += (a.X - b.X) * (a.Y + b.Y);
@@ -380,7 +570,7 @@ namespace GotchiHouse
             return HouseModel.Normalized(n);
         }
 
-        private static bool Facing(PartShape part, int[] face, Vector3d dir) => Normal(part, face) * dir < 0;
+        private static bool Facing(Point3d[] vertices, int[] face, Vector3d dir) => Normal(vertices, face) * dir < 0;
 
         private static readonly Vector3d Light = HouseModel.Normalized(new Vector3d(-0.2, -0.7, 0.7));
 

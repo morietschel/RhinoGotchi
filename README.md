@@ -9,11 +9,17 @@ building a simple pitched-roof house from two shapes:
 
 ## How it plays
 
+- The device's screen plays a short looping **demo** of each step: a cursor clicks
+  the points and the shape grows from them. The welcome screen demos the whole house.
 - **START** turns the Perspective viewport into an **Axon** view (parallel
-  projection from the south-west) in a minimal green/white/black display mode,
+  projection from the south-east) in a minimal green/white/black display mode,
   and shows the finished house there as a green **ghost**.
-- Each step shows exactly what to type. **GO** starts the command for you.
-  Green dots in the viewport show where each typed value lands.
+- **GO** starts the step's command. In the Axon view the points to click glow
+  green and are numbered, with **arrows** from one click to the next and a
+  **label** on each ("1 first corner", "2 opposite corner", "3 height").
+  Point osnap is switched on while you build, and locked guide points sit under
+  the glowing points, so your clicks land exactly. Your osnap settings come back
+  when the house is finished.
 - The key axon on the device's screen mirrors the model: the parts you've built
   turn solid and the rest stay ghosted. The two squares in the corner count the
   parts you've built.
@@ -25,7 +31,7 @@ building a simple pitched-roof house from two shapes:
 
 1. Install the plugin (see below).
 2. In Rhino, type `GotchiHouse`. The panel opens and docks like any Rhino panel.
-3. Press **START**.
+3. Press **START**. (Or type `GotchiHouseStart` to start without the panel.)
 
 ## Font
 
@@ -68,12 +74,13 @@ GotchiHouse.sln
 src/GotchiHouse/
   GotchiHousePlugin.cs   plugin class: registers the panel, starts tracking
   GotchiHouseCommand.cs  GotchiHouse command: opens the panel
+  GotchiHouseStartCommand.cs  GotchiHouseStart command: starts without the panel
   GotchiHousePanel.cs    the dockable panel (hosts GotchiDevice)
-  GotchiDevice.cs        draws the device: shell, screen, key axon, buttons
-  TutorialPage.cs        the pages: text, values to type, command to run
+  GotchiDevice.cs        draws the device: shell, screen, key axon + demo animation, buttons
+  TutorialPage.cs        the pages: text, points to click, arrows, command to run
   HouseModel.cs          the goal geometry and how a built part is recognised
-  HouseSession.cs        progress tracking, Axon view and display mode setup
-  HouseGhostConduit.cs   the ghost house and value dots in the viewports
+  HouseSession.cs        progress tracking, guide points, osnap, Axon view, display mode
+  HouseGhostConduit.cs   the ghost house, glowing points, arrows and labels in the viewports
   Palette.cs             colours and font
   Resources/GotchiHouse.ico  panel tab icon
 ```

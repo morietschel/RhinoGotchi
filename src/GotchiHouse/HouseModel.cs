@@ -139,8 +139,12 @@ namespace GotchiHouse
 
         public static PartShape Get(HousePart part) => part == HousePart.Walls ? Walls : Roof;
 
-        /// <summary>The direction the axon camera looks in (from the south-west, above).</summary>
-        public static readonly Vector3d ViewDirection = Normalized(new Vector3d(1, 1, -1));
+        /// <summary>
+        /// The direction the axon camera looks in: from the south-east, above. From here the
+        /// box's base diagonal (0,0) to (10,10) runs left to right across the screen, so the
+        /// "first corner → opposite corner" arrow reads clearly.
+        /// </summary>
+        public static readonly Vector3d ViewDirection = Normalized(new Vector3d(-1, 1, -1));
 
         /// <summary>Screen right and up for <see cref="ViewDirection"/>.</summary>
         public static readonly Vector3d ViewRight = Normalized(Vector3d.CrossProduct(ViewDirection, Vector3d.ZAxis));

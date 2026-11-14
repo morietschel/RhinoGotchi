@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Rhino;
+using Rhino.ApplicationSettings;
+using Rhino.Commands;
 using Rhino.Display;
 using Rhino.DocObjects;
 using Rhino.Geometry;
@@ -9,14 +13,23 @@ namespace GotchiHouse
     /// <summary>
     /// Tutorial state shared by the panel and the viewport ghost: whether it has
     /// started and which parts of the house the document already contains.
+    /// While a part is being built, locked guide points sit where the player
+    /// should click, and Point osnap is on, so clicks land exactly.
     /// </summary>
     public static class HouseSession
     {
         public const string DisplayModeName = "GotchiHouse";
         public const string AxonViewName = "Axon";
+        private const string GuideLayerName = "GotchiHouse guides";
 
         private static HouseGhostConduit? _ghost;
         private static bool _dirty;
+
+        private static readonly List<Guid> _guideIds = new List<Guid>();
+        private static HousePart? _guidesFor;
+
+        private static bool? _savedOsnap;
+        private static OsnapModes _savedOsnapModes;
 
         public static bool Started { get; private set; }
         public static bool WallsBuilt { get; private set; }
@@ -51,10 +64,16 @@ namespace GotchiHouse
             RhinoDoc.EndOpenDocument += (s, e) => _dirty = true;
             RhinoDoc.NewDocument += (s, e) => _dirty = true;
             RhinoDoc.CloseDocument += (s, e) => Stop();
+            // React as soon as Box / Pyramid / Undo finish, not only when Rhino goes idle.
+            Command.EndCommand += (s, e) =>
+            {
+                if (e.Document != null && Started)
+                    Refresh(e.Document, forceNotify: false);
+            };
             RhinoApp.Idle += OnIdle;
         }
 
-        /// <summary>Sets up the axon view, turns the ghost on and checks progress.</summary>
+        /// <summary>Sets up the axon view, snapping and guides, turns the ghost on and checks progress.</summary>
         public static void Start(RhinoDoc doc)
         {
             Started = true;
@@ -68,6 +87,9 @@ namespace GotchiHouse
         {
             if (_ghost != null)
                 _ghost.Enabled = false;
+            _guideIds.Clear(); // the document is going away; nothing to delete
+            _guidesFor = null;
+            RestoreSnapping();
             bool wasStarted = Started;
             Started = false;
             if (wasStarted)
@@ -80,7 +102,7 @@ namespace GotchiHouse
             if (view == null)
                 return;
             BoundingBox box = HouseModel.Bounds;
-            box.Inflate(4);
+            box.Inflate(5);
             view.ActiveViewport.ZoomBoundingBox(box);
             view.Redraw();
         }
@@ -103,10 +125,20 @@ namespace GotchiHouse
             WallsBuilt = walls;
             RoofBuilt = roof;
 
+            if (Started)
+            {
+                if (Complete)
+                    RestoreSnapping();
+                else
+                    EnableSnapping();
+            }
+            bool guidesChanged = UpdateGuides(doc);
+            _dirty = false; // our own guide edits don't need another pass
+
             if (Started && !wasComplete && Complete)
                 RhinoApp.WriteLine("[GotchiHouse] Home sweet home! You built the whole house.");
 
-            if (changed || forceNotify)
+            if (changed || guidesChanged || forceNotify)
             {
                 doc.Views.Redraw();
                 Changed?.Invoke();
@@ -154,12 +186,96 @@ namespace GotchiHouse
             return (walls, roof);
         }
 
+        // ------------------------------------------------------------ guide points
+
+        /// <summary>
+        /// Keeps one locked point object at each click location of the part being built.
+        /// Osnaps snap to locked objects, so a click near the glowing point lands on it exactly.
+        /// Returns true when the guides changed.
+        /// </summary>
+        private static bool UpdateGuides(RhinoDoc doc)
+        {
+            HousePart? want = Started ? CurrentPart : null;
+            bool intact = _guideIds.All(id => doc.Objects.FindId(id) != null);
+            if (want == _guidesFor && intact)
+                return false;
+
+            RemoveGuides(doc);
+            _guidesFor = want;
+            if (want == null)
+            {
+                int layerIndex = doc.Layers.FindName(GuideLayerName)?.Index ?? -1;
+                if (layerIndex >= 0)
+                    doc.Layers.Delete(layerIndex, true);
+                return true;
+            }
+
+            var attributes = new ObjectAttributes
+            {
+                LayerIndex = GuideLayer(doc),
+                Mode = ObjectMode.Locked,
+                Name = "GotchiHouse guide",
+            };
+            foreach (TutorialInput input in TutorialPage.ForPart(want.Value).Inputs)
+            {
+                Guid id = doc.Objects.AddPoint(input.At, attributes);
+                if (id != Guid.Empty)
+                    _guideIds.Add(id);
+            }
+            return true;
+        }
+
+        private static void RemoveGuides(RhinoDoc doc)
+        {
+            foreach (Guid id in _guideIds)
+            {
+                if (doc.Objects.FindId(id) == null)
+                    continue;
+                doc.Objects.Unlock(id, true);
+                doc.Objects.Delete(id, true);
+            }
+            _guideIds.Clear();
+        }
+
+        private static int GuideLayer(RhinoDoc doc)
+        {
+            Layer? layer = doc.Layers.FindName(GuideLayerName);
+            if (layer != null)
+                return layer.Index;
+            return doc.Layers.Add(new Layer { Name = GuideLayerName, Color = Palette.RhinoGreen });
+        }
+
+        // ------------------------------------------------------------ snapping
+
+        /// <summary>Turns osnap on with Point added; remembers the player's settings once.</summary>
+        private static void EnableSnapping()
+        {
+            if (_savedOsnap == null)
+            {
+                _savedOsnap = ModelAidSettings.Osnap;
+                _savedOsnapModes = ModelAidSettings.OsnapModes;
+            }
+            ModelAidSettings.Osnap = true;
+            ModelAidSettings.OsnapModes = _savedOsnapModes | OsnapModes.Point;
+        }
+
+        private static void RestoreSnapping()
+        {
+            if (_savedOsnap == null)
+                return;
+            ModelAidSettings.Osnap = _savedOsnap.Value;
+            ModelAidSettings.OsnapModes = _savedOsnapModes;
+            _savedOsnap = null;
+        }
+
+        // ------------------------------------------------------------ view
+
         private static RhinoView? FindAxonView(RhinoDoc doc) =>
             doc.Views.Find(AxonViewName, false);
 
         /// <summary>
         /// Turns the Perspective viewport into a parallel (axonometric) view from the
-        /// south-west, names it Axon, and gives it the GotchiHouse display mode.
+        /// south-east, names it Axon, and gives it the GotchiHouse display mode.
         /// </summary>
         private static void SetUpAxonView(RhinoDoc doc)
         {
