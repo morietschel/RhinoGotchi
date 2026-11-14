@@ -35,11 +35,25 @@ Output:
 
 Then type `RhinoGotchi`, pick two points, and a line is added.
 
-## Debug
+## Debug in VS Code (Mac and Windows)
 
-`src/RhinoGotchi/Properties/launchSettings.json` has profiles that start Rhino 8
-on Windows (.NET 7+ or .NET Framework) and on Mac with the build output on
-`RHINO_PACKAGE_DIRS`. In Visual Studio / Rider pick a profile and press F5.
+1. Install the recommended extensions (VS Code prompts you): **C#** and **C# Dev Kit**.
+2. Open the `RhinoGotchi` folder, go to Run and Debug, pick a configuration, press F5:
+   - **Rhino 8 (.NET 7+) - Mac / Windows**: builds `net7.0` and starts Rhino 8
+     (`/Applications/Rhino 8.app` on Mac, `C:\Program Files\Rhino 8` on Windows).
+   - **Rhino 8 (.NET Framework) - Windows**: builds `net48` and starts Rhino 8 with `/netfx`.
+3. Type `RhinoGotchi` in Rhino. Breakpoints in the command hit.
+
+Rhino finds the plugin through `RHINO_PACKAGE_DIRS`, which points at the Debug
+build folder, so you don't install anything. Stop debugging (or quit Rhino)
+before rebuilding, because Rhino locks the loaded `.rhp`.
+
+If Rhino 8 is installed somewhere else, edit `program` in `.vscode/launch.json`.
+
+## Debug in Visual Studio / Rider
+
+`src/RhinoGotchi/Properties/launchSettings.json` has the same three profiles.
+Pick one and press F5.
 
 ## Layout
 
@@ -51,6 +65,7 @@ src/RhinoGotchi/
   RhinoGotchiCommand.cs     sample command: draw a line between two points
   Properties/AssemblyInfo.cs   plugin GUID + Plug-in Manager info
   Properties/launchSettings.json
+.vscode/                    launch.json (F5 into Rhino), tasks.json (builds)
 ```
 
 ## Cross-platform notes
