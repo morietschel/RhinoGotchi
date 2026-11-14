@@ -489,9 +489,8 @@ namespace RhinoGotchi.UI
             float footerH = Pad + ButtonH + 4 + 10 + 40 + Pad;
             float top = Math.Max(footerTop, h - footerH);
             g.DrawLine(new Pen(_t.Border, 2), 0, top, w, top);
-            int level = _game.PlayingLevel;
             ChunkyButton(g, new RectangleF(Pad, top + Pad, w - 2 * Pad, ButtonH), "TRY AGAIN", _t.Ink, _t.InkShadow, _t.OnInk, "primary",
-                () => _game.StartLesson(level));
+                _game.RetryLesson);
             OutlineButton(g, new RectangleF(Pad, top + Pad + ButtonH + 14, w - 2 * Pad, 40), "BACK TO MAP", "map", _game.BackToMap);
             return footerTop + footerH;
         }

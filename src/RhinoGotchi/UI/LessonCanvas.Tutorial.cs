@@ -112,7 +112,7 @@ namespace RhinoGotchi.UI
             if (running)
                 OutlineButton(g, left, "START OVER", "restart", _session.StartBuild);
             else
-                OutlineButton(g, left, "MAP", "map", _game.BackToMap);
+                OutlineButton(g, left, "BACK", "map", _game.BackToMap);
             OutlineButton(g, right, "SKIP", "skip", _session.Continue);
             return footerTop + footerH;
         }

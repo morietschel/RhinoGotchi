@@ -80,6 +80,35 @@ namespace RhinoGotchi.Lessons
             Play(new LessonSession(LessonCatalog.PlacementTest(), isPlacement: true), -1);
         }
 
+        /// <summary>PlayingLevel while a Klosterneuburg tutorial (not a campaign level) is being played.</summary>
+        public const int ProjectLevel = -2;
+
+        private Lesson? _projectLesson;
+
+        /// <summary>True while a Klosterneuburg tutorial lesson is being played.</summary>
+        public bool PlayingProject => Session != null && PlayingLevel == ProjectLevel;
+
+        /// <summary>
+        /// Plays a lesson from outside the campaign map (the Klosterneuburg tutorials). It earns XP and
+        /// keeps the streak like any lesson, but doesn't count as a campaign level. Leaving it (BACK,
+        /// the close button or CONTINUE at the end) ends the session; the page that started it then
+        /// shows itself again.
+        /// </summary>
+        public void PlayProject(Lesson lesson)
+        {
+            _projectLesson = lesson;
+            Play(new LessonSession(lesson), ProjectLevel);
+        }
+
+        /// <summary>Plays the same lesson again (after running out of hearts).</summary>
+        public void RetryLesson()
+        {
+            if (PlayingLevel == ProjectLevel && _projectLesson != null)
+                PlayProject(_projectLesson);
+            else
+                StartLesson(PlayingLevel);
+        }
+
         public void StartLesson(int levelIndex)
         {
             if (levelIndex < 0 || levelIndex >= LessonCatalog.All.Count || Progress.StateOf(levelIndex) == LevelState.Locked)

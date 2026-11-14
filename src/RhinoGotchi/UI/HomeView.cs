@@ -114,6 +114,14 @@ namespace RhinoGotchi.UI
                 RightAccent = true,
             });
 
+            int tutorialsDone = Tutorials.TutorialCatalog.Cores.Count(t => Tutorials.TutorialProgress.Get(t.Id).Completed);
+            _tabContent.Items.Add(new ListRow("Klosterneuburg Tutorials", "12 commands on a real building · RUN, click, check",
+                Glyph.Cube, 3, () => _host.Navigate(new KlosterneuburgView(_host)))
+            {
+                Right = $"{tutorialsDone}/{Tutorials.TutorialCatalog.Count}",
+                RightAccent = true,
+            });
+
             var cats = CommandCatalog.Categories;
             int commands = cats.Sum(c => c.Commands.Count);
             int demos = cats.Sum(c => c.Commands.Count(e => e.HasDemo));

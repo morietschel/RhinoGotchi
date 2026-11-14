@@ -158,7 +158,7 @@ Type `Gotchi` to jump straight to it (or pick it on the Learning tab).
   plugin's settings, per user on this machine, so it survives a Rhino restart. A lesson
   is saved as soon as you reach its complete screen.
 
-Levels live in `src/RhinoGotchi/Lessons/LessonCatalog.cs` (10 levels, plus 3 project levels below): Curves,
+Levels live in `src/RhinoGotchi/Lessons/LessonCatalog.cs` (10 levels): Curves,
 Solids (includes the Box build level), Surfaces, Sweeps & Pipes, Editing Solids,
 Curve Tools, Transforms, Surface Tools, Advanced Solids, Mastery.
 
@@ -173,19 +173,20 @@ Three question types, from easy to hard:
 The placement test asks each level's first two questions, so it ramps from
 pick-the-icon to scenarios and shows an EASY / MEDIUM / HARD marker.
 
-### Project levels: Klosterneuburg
+### Klosterneuburg Tutorials (separate from the campaign)
 
-Three project levels after Mastery teach twelve commands on a real building, the
-Klosterneuburg pavilion (`V18 P020 - Klosterneuburg_Final.3dm`, metres). They are open
-from the start, don't block the main path and aren't in the placement test.
+A separate entry on the Learning tab, **Klosterneuburg Tutorials**, teaches twelve commands on
+a real building, the Klosterneuburg pavilion (`V18 P020 - Klosterneuburg_Final.3dm`, metres).
+It isn't part of the campaign map or the placement test; finished tutorials still earn XP.
 
-| Level | Tutorials, easiest first |
+| Part | Tutorials, easiest first |
 | --- | --- |
-| Klosterneuburg: Details | 1 BooleanDifference (steel plate) · 2 Pipe (handrail) · 3 OffsetSrf (glass) · 4 ArrayPolar (beam setting-out) |
-| Klosterneuburg: Structure | 5 ArrayCrv (balustrade) · 6 Contour (roof slices) · 7 Intersect (rib profile) · 8 Sweep1 (edge beam) |
-| Klosterneuburg: Surfaces | 9 Sweep2 (ramp) · 10 FlowAlongSrf (joists) · 11 Loft (roof) · 12 NetworkSrf (roof) |
+| Details | 1 BooleanDifference (steel plate) · 2 Pipe (handrail) · 3 OffsetSrf (glass) · 4 ArrayPolar (beam setting-out) |
+| Structure | 5 ArrayCrv (balustrade) · 6 Contour (roof slices) · 7 Intersect (rib profile) · 8 Sweep1 (edge beam) |
+| Surfaces | 9 Sweep2 (ramp) · 10 FlowAlongSrf (joists) · 11 Loft (roof) · 12 NetworkSrf (roof) |
 
-Each tutorial is a quiz card on its command, then two build cards played like FinGotchi:
+Tap a tutorial to play it as a short lesson on the campaign's card screen: a quiz card on its
+command, then two build cards played like FinGotchi (leaving it returns to the list):
 
 - **Core card:** the input is prepared. A headline, one line, at most three steps, and a
   yellow **RUN** button that starts the command with the right objects already picked
@@ -209,7 +210,8 @@ Numbers in tutorial text and feedback always use a decimal point (0.024, never 0
 
 Code: `Tutorials/Content/Cards.cs` (the 24 cards), `Tutorials/Content/Shapes.cs`
 (geometry from the model), `Tutorials/Evaluators/CardChecks.cs` (the live checks),
-`Tutorials/TutorialLevels.cs` (set-up, Run), `UI/LessonCanvas.Tutorial.cs` (the card).
+`Tutorials/TutorialLevels.cs` (set-up, Run), `UI/LessonCanvas.Tutorial.cs` (the card),
+`UI/KlosterneuburgView.cs` (the list page).
 
 ## Debug in VS Code (Mac and Windows)
 

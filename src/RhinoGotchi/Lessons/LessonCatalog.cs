@@ -12,7 +12,6 @@ namespace RhinoGotchi.Lessons
     public static class LessonCatalog
     {
         // Look-alike commands for the quiz card before each tutorial (commands with a quiz icon only).
-        // Declared before All: static fields initialise in order, and All's Project() reads this.
         private static readonly Dictionary<string, string[]> LookAlikes = new Dictionary<string, string[]>
         {
             ["BooleanDifference"] = new[] { "BooleanUnion", "BooleanIntersection", "Trim" },
@@ -38,9 +37,6 @@ namespace RhinoGotchi.Lessons
             SurfaceTools(),
             AdvancedSolids(),
             Mastery(),
-            Project("klosterneuburg-details", "Klosterneuburg: Details", "BooleanDifference, Pipe, OffsetSrf, ArrayPolar", 1, 4),
-            Project("klosterneuburg-structure", "Klosterneuburg: Structure", "ArrayCrv, Contour, Intersect, Sweep1", 5, 8),
-            Project("klosterneuburg-surfaces", "Klosterneuburg: Surfaces", "Sweep2, FlowAlongSrf, Loft, NetworkSrf", 9, 12),
         };
 
         public static int IndexOf(string lessonId)
@@ -160,20 +156,38 @@ namespace RhinoGotchi.Lessons
         }
 
         /// <summary>
-        /// A project lesson built on the Klosterneuburg model: for each tutorial, a quiz card on its
-        /// command (when the command has a quiz icon), the core card, then the challenge card.
+        /// One Klosterneuburg tutorial as a short lesson, played from the Klosterneuburg Tutorials page
+        /// (not on the campaign map): a quiz card on its command (when the command has a quiz icon),
+        /// the core card, then the challenge card unless <paramref name="coreOnly"/>.
         /// </summary>
-        private static Lesson Project(string id, string title, string subtitle, int first, int last)
+        public static Lesson TutorialLesson(Tutorials.Tutorial core, bool coreOnly = false)
         {
-            var lesson = new Lesson { Id = id, Title = title, Subtitle = subtitle, IsProject = true };
-            foreach (var core in Tutorials.TutorialCatalog.Cores.Where(t => t.Number >= first && t.Number <= last))
+            var lesson = new Lesson
             {
-                if (LookAlikes.TryGetValue(core.MainCommand, out string[]? alike))
-                    lesson.Steps.Add(Quiz(core.MainCommand, alike));
-                lesson.Steps.Add(new TutorialBuildStep(core));
-                if (Tutorials.TutorialCatalog.ChallengeOf(core) is Tutorials.Tutorial challenge)
-                    lesson.Steps.Add(new TutorialBuildStep(challenge));
-            }
+                Id = $"klosterneuburg-{core.Number:00}",
+                Title = $"Klosterneuburg {core.Number}: {core.Title}",
+                Subtitle = core.MainCommand,
+                IsProject = true,
+            };
+            if (LookAlikes.TryGetValue(core.MainCommand, out string[]? alike))
+                lesson.Steps.Add(Quiz(core.MainCommand, alike));
+            lesson.Steps.Add(new TutorialBuildStep(core));
+            if (!coreOnly && Tutorials.TutorialCatalog.ChallengeOf(core) is Tutorials.Tutorial challenge)
+                lesson.Steps.Add(new TutorialBuildStep(challenge));
+            return lesson;
+        }
+
+        /// <summary>Just one card (e.g. a challenge replayed on its own) as a lesson.</summary>
+        public static Lesson CardLesson(Tutorials.Tutorial card)
+        {
+            var lesson = new Lesson
+            {
+                Id = card.Id,
+                Title = $"Klosterneuburg {card.Number}: {card.Title}",
+                Subtitle = card.MainCommand,
+                IsProject = true,
+            };
+            lesson.Steps.Add(new TutorialBuildStep(card));
             return lesson;
         }
 
