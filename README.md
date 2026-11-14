@@ -41,16 +41,18 @@ tip of the day, stats, and a reset action.
 
 ## Leaderboard
 
-Daily games earn points (practice rounds don't). Players pick a public name and a small
-icon, then appear on a **Global** board (points across all games) and one board per game.
+Each board shows every player's best round in that game, and the **Global** board adds a
+player's bests together. Players pick a public name and a small icon to appear.
 
-| Game | Points per daily |
+| Game | Score for a round |
 | --- | --- |
 | What Made This? | 20 per right answer (max 100) |
 | Build Order | 100 for a first-try solve, 20 fewer per extra try, 10 fewer with the hint |
+| Deep Cut | the round's points (up to 5,000) |
 
-Points and the profile are kept in the plugin settings and pushed as full totals, so a
-failed upload is made up for by the next one. Each game scores once per day.
+When a round, daily or practice, beats the player's best for that game, the new best is
+saved and pushed straight away. Bests and the profile are kept in the plugin settings and
+pushed in full each time, so a failed upload is made up for by the next one.
 
 **One-time setup.** The backend is a free Firebase Realtime Database (Spark plan, no card):
 
@@ -71,7 +73,7 @@ icons/{playerId}          = "base64 PNG or JPEG, 48×48"
 ```
 
 `board` is a game key or `global`. To add a game: add its key to `Games` in
-`Core/Progress.cs` and call `Leaderboard.Award(game, points)` when a daily round ends.
+`Core/Progress.cs` and call `Leaderboard.Report(game, score)` when a round ends.
 `Core/LeaderboardClient.cs` and `Core/MiniJson.cs` have no Rhino dependencies and can be
 copied into another project as is.
 

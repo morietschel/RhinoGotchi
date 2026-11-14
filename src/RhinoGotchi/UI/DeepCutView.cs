@@ -362,6 +362,8 @@ namespace RhinoGotchi.UI
             string result = $"{_total} pts";
             if (!_practice)
                 Progress.Record(Games.Deep, hits >= PassHits, result);
+            // Practice rounds count for the leaderboard too: it shows your best round.
+            bool newBest = Leaderboard.Report(Games.Deep, _total);
 
             UpdateHeader();
             _hud.Clock = false;
@@ -390,6 +392,8 @@ namespace RhinoGotchi.UI
                     })));
             }
             _feedback.Items.Add(Theme.Box(table, padding: 12));
+            if (newBest)
+                _feedback.Items.Add(LeaderboardView.NewBestRow(_host, _total));
             _feedback.Items.Add(PracticeButton());
         }
 

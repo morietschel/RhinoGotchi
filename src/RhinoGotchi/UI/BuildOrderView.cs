@@ -217,19 +217,17 @@ namespace RhinoGotchi.UI
             Redraw();
 
             string result = (won ? $"{_history.Count}/{MaxTries}" : $"X/{MaxTries}") + (_hinted ? " with hint" : "");
-            int earned = 0;
             if (!_practice)
-            {
                 Progress.Record(Games.Order, won, result);
-                // 100 points for a first-try solve, 20 fewer per extra try, 10 fewer with the hint.
-                if (won)
-                    earned = Leaderboard.Award(Games.Order, 100 - 20 * (_history.Count - 1) - (_hinted ? 10 : 0));
-            }
+            // 100 points for a first-try solve, 20 fewer per extra try, 10 fewer with the hint.
+            // Practice rounds count for the leaderboard too: it shows your best round.
+            int points = won ? 100 - 20 * (_history.Count - 1) - (_hinted ? 10 : 0) : 0;
+            bool newBest = Leaderboard.Report(Games.Order, points);
 
             var recipe = _recipe!;
             _end.Items.Clear();
-            if (earned > 0)
-                _end.Items.Add(LeaderboardView.EarnedRow(_host, earned));
+            if (newBest)
+                _end.Items.Add(LeaderboardView.NewBestRow(_host, points));
             _end.Items.Add(Theme.Card(won ? Theme.Hit : Theme.Tile,
                 Theme.Heading(recipe.Title),
                 Theme.Body(recipe.ChainText),

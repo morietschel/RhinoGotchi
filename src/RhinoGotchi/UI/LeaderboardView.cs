@@ -27,13 +27,13 @@ namespace RhinoGotchi.UI
         {
             _host = host;
             Theme.SetUpPage(this, host, "Leaderboard",
-                "Daily games earn points. Practice rounds are just for fun.");
+                "Your best score in each game. Global adds them up.");
 
             if (!Leaderboard.IsConfigured)
             {
                 Items.Add(Theme.Card(Theme.Tile,
                     Theme.Heading("Not online yet"),
-                    Theme.Body($"This build isn't connected to a leaderboard. You have {Leaderboard.TotalPoints} points saved on this computer; they'll show up once it is.")));
+                    Theme.Body($"This build isn't connected to a leaderboard. Your best scores are saved on this computer and will show up once it is.")));
                 return;
             }
 
@@ -61,10 +61,10 @@ namespace RhinoGotchi.UI
             LoadBoard(_lastTab);
         }
 
-        /// <summary>The "+N points" line shown when a daily game ends, with a way to the boards.</summary>
-        public static Control EarnedRow(RhinoGotchiPanel host, int earned) => Theme.Row(
-            new Pill($"+{earned} points", Palette.Current.Gold, Glyph.Trophy),
-            Theme.Button("Leaderboard", () => host.Navigate(new LeaderboardView(host))));
+        /// <summary>The "New best" line shown when a round beats the player's record, with a way to the boards.</summary>
+        public static Control NewBestRow(RhinoGotchiPanel host, int score) => Theme.Row(
+            new Pill($"New best: {score:N0}", Palette.Current.Gold, Glyph.Trophy),
+            Theme.Button(Leaderboard.HasProfile ? "Leaderboard" : "Join the leaderboard", () => host.Navigate(new LeaderboardView(host))));
 
         private Control ProfileCard()
         {
@@ -73,7 +73,7 @@ namespace RhinoGotchi.UI
             {
                 return Theme.Card(p.Gold,
                     Theme.Heading("Join the leaderboard"),
-                    Theme.Body($"Pick a name and an icon to appear here. You have {Leaderboard.TotalPoints} points so far."),
+                    Theme.Body($"Pick a name and an icon to appear here. Your best scores add up to {Leaderboard.Total:N0}."),
                     Theme.Primary("Set up my profile", EditProfile));
             }
 
@@ -88,10 +88,11 @@ namespace RhinoGotchi.UI
                         new TableCell(new StackLayout
                         {
                             Spacing = 4,
+                            HorizontalContentAlignment = HorizontalAlignment.Stretch,
                             Items =
                             {
                                 Theme.Heading(Leaderboard.Name),
-                                new Pill($"{Leaderboard.TotalPoints} points", p.Gold, Glyph.Trophy),
+                                new StackLayoutItem(new Pill($"{Leaderboard.Total:N0} points", p.Gold, Glyph.Trophy), HorizontalAlignment.Left),
                             },
                         }, true),
                         new TableCell(Centered(Theme.Button("Edit", EditProfile)))),
@@ -193,7 +194,7 @@ namespace RhinoGotchi.UI
 
             if (Leaderboard.HasProfile && entries.All(e => e.PlayerId != me))
             {
-                int mine = board == LeaderboardClient.GlobalBoard ? Leaderboard.TotalPoints : Leaderboard.Points(board);
+                int mine = board == LeaderboardClient.GlobalBoard ? Leaderboard.Total : Leaderboard.Best(board);
                 stack.Items.Add(Theme.Muted(mine > 0
                     ? $"You have {mine:N0} points here. Keep playing to reach the top {TopCount}!"
                     : "You have no points on this board yet."));

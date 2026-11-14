@@ -17,7 +17,7 @@ namespace RhinoGotchi.UI
     {
         private const int RoundCount = 5;
         private const int PassScore = 3;
-        /// <summary>Leaderboard points for each right answer in the daily round.</summary>
+        /// <summary>Leaderboard points for each right answer in a round.</summary>
         private const int PointsPerAnswer = 20;
 
         private sealed class Round
@@ -185,12 +185,11 @@ namespace RhinoGotchi.UI
             _playing = false;
             ShapePreview.Stop();
             string result = $"{_score}/{_rounds.Count}";
-            int earned = 0;
             if (!_practice)
-            {
                 Progress.Record(Games.Shape, _score >= PassScore, result);
-                earned = Leaderboard.Award(Games.Shape, _score * PointsPerAnswer);
-            }
+            // Practice rounds count for the leaderboard too: it shows your best round.
+            int points = _score * PointsPerAnswer;
+            bool newBest = Leaderboard.Report(Games.Shape, points);
 
             UpdateHud();
             _prompt.Visible = false;
@@ -201,8 +200,8 @@ namespace RhinoGotchi.UI
                 Theme.Body(_score == _rounds.Count
                     ? "Perfect. You know your surfacing tools."
                     : "Tap Try on a command you missed to build the shape yourself.")));
-            if (earned > 0)
-                _feedback.Items.Add(LeaderboardView.EarnedRow(_host, earned));
+            if (newBest)
+                _feedback.Items.Add(LeaderboardView.NewBestRow(_host, points));
             _feedback.Items.Add(PracticeButton());
         }
 

@@ -151,7 +151,7 @@ namespace RhinoGotchi.UI
                 "Global and per-game boards", Glyph.Trophy, 1,
                 () => _host.Navigate(new LeaderboardView(_host)))
             {
-                Right = $"{Leaderboard.TotalPoints:N0} pts",
+                Right = $"{Leaderboard.Total:N0} pts",
                 RightAccent = true,
             });
 

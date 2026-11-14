@@ -8,10 +8,10 @@ using Rhino;
 namespace RhinoGotchi.Core
 {
     /// <summary>
-    /// This player's side of the shared leaderboard: their profile (name and icon) and the points
-    /// they have earned per game, kept in the plugin settings and pushed to the server.
+    /// This player's side of the shared leaderboard: their profile (name and icon) and their best
+    /// score in each game, kept in the plugin settings and pushed to the server.
     ///
-    /// The local totals are the source of truth. Every sync sends the full totals, so a push that
+    /// The local bests are the source of truth. Every sync sends all of them, so a push that
     /// fails (offline, server down) is simply made up for by the next one.
     /// </summary>
     internal static class Leaderboard
@@ -93,26 +93,26 @@ namespace RhinoGotchi.Core
 
         // ---------------- Points ----------------
 
-        public static int Points(string game) => Settings?.GetInteger("lb.points." + game, 0) ?? 0;
+        /// <summary>This player's best score in a game. That is their row on the game's board.</summary>
+        public static int Best(string game) => Settings?.GetInteger("lb.best." + game, 0) ?? 0;
 
-        public static int TotalPoints => Games.All.Sum(Points);
+        /// <summary>The sum of the bests: the player's row on the Global board.</summary>
+        public static int Total => Games.All.Sum(Best);
 
         /// <summary>
-        /// Adds a daily game's points to this player's totals and syncs. Each game scores once per
-        /// day (tracked apart from the stats, so resetting stats can't be used to score twice).
-        /// Returns the points actually added.
+        /// Call when a round ends, daily or practice. If the score beats the player's best for that
+        /// game it is saved and the boards are updated straight away. Returns true for a new best.
         /// </summary>
-        public static int Award(string game, int points)
+        public static bool Report(string game, int score)
         {
             var s = Settings;
-            if (s == null || points <= 0 || s.GetString("lb.day." + game, "") == Daily.TodayKey)
-                return 0;
+            if (s == null || score <= Best(game))
+                return false;
 
-            s.SetInteger("lb.points." + game, Points(game) + points);
-            s.SetString("lb.day." + game, Daily.TodayKey);
+            s.SetInteger("lb.best." + game, score);
             RhinoGotchiPlugin.Instance?.SaveSettings();
             Sync();
-            return points;
+            return true;
         }
 
         // ---------------- Sync ----------------
@@ -133,8 +133,8 @@ namespace RhinoGotchi.Core
             bool sendIcon = s.GetBool("lb.iconDirty", false);
             var scores = new List<KeyValuePair<string, int>>();
             foreach (var game in Games.All)
-                scores.Add(new KeyValuePair<string, int>(game, Points(game)));
-            scores.Add(new KeyValuePair<string, int>(LeaderboardClient.GlobalBoard, TotalPoints));
+                scores.Add(new KeyValuePair<string, int>(game, Best(game)));
+            scores.Add(new KeyValuePair<string, int>(LeaderboardClient.GlobalBoard, Total));
 
             try
             {
