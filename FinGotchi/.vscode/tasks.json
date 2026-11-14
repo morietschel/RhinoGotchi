@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build net7.0",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "${workspaceFolder}/src/GotchiFins/GotchiFins.csproj", "-c", "Debug", "-f", "net7.0", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build net48",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "${workspaceFolder}/src/GotchiFins/GotchiFins.csproj", "-c", "Debug", "-f", "net48", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build all",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "${workspaceFolder}/GotchiFins.sln", "-c", "Debug", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
