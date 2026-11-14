@@ -18,13 +18,13 @@ namespace RhinoGotchi.UI
         private readonly RhinoGotchiPanel _host;
         private readonly CommandDemo? _demo;
         private readonly RhinoDoc? _doc;
-        private readonly List<Button> _chainButtons = new List<Button>();
+        private readonly List<ChunkyButton> _chainButtons = new List<ChunkyButton>();
         private int _stage;
 
         private readonly Label _stageLabel = Theme.Heading("");
         private readonly Label _stageText = Theme.Body("");
-        private readonly Button _prev = new Button { Text = "◀ Back" };
-        private readonly Button _next = new Button { Text = "Next ▶" };
+        private readonly ChunkyButton _prev = new ChunkyButton { Text = "◀ Back" };
+        private readonly ChunkyButton _next = new ChunkyButton { Text = "Next ▶", Kind = ButtonKind.Secondary };
         private readonly StackLayout _stageButtons = new StackLayout { Spacing = 6, HorizontalContentAlignment = HorizontalAlignment.Stretch };
 
         public RecipeView(RhinoGotchiPanel host, Recipe recipe, Control back)
@@ -45,7 +45,7 @@ namespace RhinoGotchi.UI
             foreach (var command in recipe.Chain)
             {
                 string c = command;
-                var button = new Button { Text = c };
+                var button = new ChunkyButton { Text = c };
                 button.Click += (s, e) => GoTo(_demo.Steps.FindIndex(st => st.Command == c));
                 _chainButtons.Add(button);
             }
@@ -81,11 +81,11 @@ namespace RhinoGotchi.UI
             _prev.Enabled = _stage > 0;
             _next.Enabled = _stage < _demo.Steps.Count - 1;
             foreach (var b in _chainButtons)
-                b.Text = (b.Text.TrimStart('▶', ' ') == command ? "▶ " : "") + b.Text.TrimStart('▶', ' ');
+                b.Kind = b.Text == command ? ButtonKind.Selected : ButtonKind.Outline;
 
             _stageButtons.Items.Clear();
             var entry = CommandCatalog.Find(command);
-            var row = Theme.Row(Theme.Button($"Try {command}", () => RhinoActions.Run(command)));
+            var row = Theme.Row(Theme.Primary($"Try {command}", () => RhinoActions.Run(command)));
             if (entry != null)
                 row.Items.Add(Theme.Button($"How {command} works", () => _host.Navigate(new CommandView(_host, entry, this))));
             _stageButtons.Items.Add(row);

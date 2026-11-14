@@ -40,8 +40,12 @@ namespace RhinoGotchi.UI
             if (view.Parent is Scrollable oldScroller)
                 oldScroller.Content = null;
             _view = view;
+            var background = Palette.Current.Background;
+            BackgroundColor = background;
+            view.BackgroundColor = background;
             Content = new Scrollable
             {
+                BackgroundColor = background,
                 Content = view,
                 Border = BorderType.None,
                 ExpandContentWidth = true,

@@ -116,7 +116,7 @@ namespace RhinoGotchi.UI
             _roundLabel.Text = $"Round {_index + 1} of {_rounds.Count} · Score {_score}";
             _feedback.Items.Clear();
 
-            var buttons = new List<Button>();
+            var buttons = new List<ChunkyButton>();
             var table = new TableLayout { Spacing = new Size(6, 6) };
             for (int i = 0; i < round.Options.Count; i += 2)
             {
@@ -124,7 +124,7 @@ namespace RhinoGotchi.UI
                 for (int j = i; j < Math.Min(i + 2, round.Options.Count); j++)
                 {
                     string option = round.Options[j];
-                    var button = new Button { Text = option, Height = 34 };
+                    var button = new ChunkyButton { Text = option, Height = 34 };
                     button.Click += (s, e) => Answer(round, option, buttons);
                     buttons.Add(button);
                     row.Cells.Add(new TableCell(button, true));
@@ -137,7 +137,7 @@ namespace RhinoGotchi.UI
                 ShapePreview.Show(_doc, round.Geometry);
         }
 
-        private void Answer(Round round, string option, List<Button> buttons)
+        private void Answer(Round round, string option, List<ChunkyButton> buttons)
         {
             bool right = option == round.Shape.Command;
             if (right)
@@ -146,22 +146,29 @@ namespace RhinoGotchi.UI
             foreach (var b in buttons)
             {
                 b.Enabled = false;
+                var p = Palette.Current;
                 if (b.Text == round.Shape.Command)
+                {
+                    b.SetColors(p.Green, p.GreenShadow, Colors.White);
                     b.Text = "✓ " + b.Text;
+                }
                 else if (b.Text == option)
+                {
+                    b.SetColors(p.Red, p.RedShadow, Colors.White);
                     b.Text = "✗ " + b.Text;
+                }
             }
             _roundLabel.Text = $"Round {_index + 1} of {_rounds.Count} · Score {_score}";
 
             _feedback.Items.Clear();
-            _feedback.Items.Add(Theme.Card(right ? Theme.Hit : Theme.Near,
+            _feedback.Items.Add(Theme.Card(right ? Theme.Hit : Palette.Current.Red,
                 new Label { Text = right ? $"Right: {round.Shape.Command}" : $"It was {round.Shape.Command}", Font = Theme.HeadingFont },
                 Theme.Body(round.Shape.Explanation)));
             _feedback.Items.Add(Theme.CommandButtons(round.Shape.Command));
 
             bool last = _index == _rounds.Count - 1;
             _feedback.Items.Add(new StackLayoutItem(
-                Theme.Button(last ? "See score" : "Next shape →", () =>
+                Theme.Secondary(last ? "See score" : "Next shape →", () =>
                 {
                     if (last)
                         Finish();

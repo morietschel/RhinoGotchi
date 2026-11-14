@@ -36,7 +36,7 @@ namespace RhinoGotchi.UI
         private readonly Label _message = Theme.Body("");
         private readonly Label _triesLabel = Theme.Muted("");
         private readonly StackLayout _controls;
-        private readonly Button _hintButton;
+        private readonly ChunkyButton _hintButton;
         private readonly StackLayout _end = new StackLayout { Spacing = 8, HorizontalContentAlignment = HorizontalAlignment.Stretch };
 
         public BuildOrderView(RhinoGotchiPanel host, bool practice)
@@ -55,7 +55,7 @@ namespace RhinoGotchi.UI
                 Items.Add(Theme.Body($"You've played today's Build Order ({stats.LastResult}). A new one arrives tomorrow."));
                 Items.Add(PracticeButton());
                 _controls = new StackLayout();
-                _hintButton = new Button();
+                _hintButton = new ChunkyButton();
                 return;
             }
 
@@ -74,11 +74,11 @@ namespace RhinoGotchi.UI
                 }
             }
 
-            _hintButton = Theme.Button("Hint: show the first command", Hint);
+            _hintButton = Theme.Secondary("Hint: show the first command", Hint);
             _controls = Theme.Row(
                 Theme.Button("Undo", () => { if (_guess.Count > 0) _guess.RemoveAt(_guess.Count - 1); Redraw(); }),
                 Theme.Button("Clear", () => { _guess.Clear(); Redraw(); }),
-                Theme.Button("Check", Check));
+                Theme.Primary("Check", Check));
 
             if (_recipe == null || _demo == null)
             {
@@ -132,7 +132,7 @@ namespace RhinoGotchi.UI
 
             var buttons = _bank.Select(command =>
             {
-                var b = new Button { Text = command, Enabled = !_over && !_guess.Contains(command) && _guess.Count < _recipe.Chain.Length };
+                var b = new ChunkyButton { Text = command, Enabled = !_over && !_guess.Contains(command) && _guess.Count < _recipe.Chain.Length };
                 b.Click += (s, e) => { _guess.Add(command); _message.Text = ""; Redraw(); };
                 return (Control)b;
             }).ToArray();
@@ -210,11 +210,11 @@ namespace RhinoGotchi.UI
             var recipe = _recipe!;
             _end.Items.Clear();
             _end.Items.Add(Theme.Card(won ? Theme.Hit : Theme.Tile,
-                new Label { Text = recipe.Title, Font = Theme.HeadingFont },
+                Theme.Heading(recipe.Title),
                 Theme.Body(recipe.ChainText),
                 Theme.Body(recipe.Summary)));
             _end.Items.Add(new StackLayoutItem(
-                Theme.Button("Watch it get built, step by step", () => _host.Navigate(new RecipeView(_host, recipe, this))),
+                Theme.Primary("Watch it get built, step by step", () => _host.Navigate(new RecipeView(_host, recipe, this))),
                 HorizontalAlignment.Left));
             _end.Items.Add(PracticeButton());
         }

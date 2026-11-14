@@ -53,8 +53,8 @@ namespace RhinoGotchi.UI
             if (stats.CurrentStreak > 0)
                 status += $" · {stats.CurrentStreak}-day streak";
 
-            var title = new Label { Text = Games.Title(game), Font = Theme.HeadingFont };
-            var playButton = Theme.Button(stats.PlayedToday ? "View" : "Play", play);
+            var title = Theme.Heading(Games.Title(game));
+            var playButton = stats.PlayedToday ? Theme.Button("View", play) : Theme.Primary("Play", play);
 
             var body = new StackLayout
             {
@@ -67,7 +67,7 @@ namespace RhinoGotchi.UI
                 Spacing = new Eto.Drawing.Size(8, 0),
                 Rows = { new TableRow(new TableCell(body, true), new TableCell(playButton)) },
             };
-            return new GroupBox { Content = layout, Padding = 8 };
+            return Theme.Box(layout);
         }
 
         private static Control LibraryCard(Action open)
@@ -80,7 +80,7 @@ namespace RhinoGotchi.UI
                 HorizontalContentAlignment = HorizontalAlignment.Stretch,
                 Items =
                 {
-                    new Label { Text = "Command Library", Font = Theme.HeadingFont },
+                    Theme.Heading("Command Library"),
                     Theme.Body("Curves, Solids and Transform commands: see how each one works, then try it."),
                     Theme.Muted($"{commands} commands · {demos} step-by-step demos"),
                 },
@@ -88,9 +88,9 @@ namespace RhinoGotchi.UI
             var layout = new TableLayout
             {
                 Spacing = new Eto.Drawing.Size(8, 0),
-                Rows = { new TableRow(new TableCell(body, true), new TableCell(Theme.Button("Open", open))) },
+                Rows = { new TableRow(new TableCell(body, true), new TableCell(Theme.Primary("Open", open))) },
             };
-            return new GroupBox { Content = layout, Padding = 8 };
+            return Theme.Box(layout);
         }
 
         private static void ConfirmReset(RhinoGotchiPanel host)
