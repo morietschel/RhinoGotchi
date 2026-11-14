@@ -21,8 +21,8 @@ namespace RhinoGotchi.UI
         private readonly List<ChunkyButton> _chainButtons = new List<ChunkyButton>();
         private int _stage;
 
-        private readonly Label _stageLabel = Theme.Heading("");
-        private readonly Label _stageText = Theme.Body("");
+        private readonly Words _stageLabel = Theme.Heading("");
+        private readonly Words _stageText = Theme.Body("");
         private readonly ChunkyButton _prev = new ChunkyButton { Text = "◀ Back" };
         private readonly ChunkyButton _next = new ChunkyButton { Text = "Next ▶", Kind = ButtonKind.Secondary };
         private readonly StackLayout _stageButtons = new StackLayout { Spacing = 6, HorizontalContentAlignment = HorizontalAlignment.Stretch };

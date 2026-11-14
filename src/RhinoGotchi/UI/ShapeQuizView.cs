@@ -43,7 +43,9 @@ namespace RhinoGotchi.UI
         private bool _playing;
         private bool _started;
 
-        private readonly Label _roundLabel = Theme.Heading("");
+        private readonly GameHud _hud = new GameHud();
+        private readonly List<bool> _answers = new List<bool>();
+        private readonly StackLayout _prompt = new StackLayout { Spacing = 4, HorizontalContentAlignment = HorizontalAlignment.Stretch };
         private readonly Panel _optionsHost = new Panel();
         private readonly StackLayout _feedback = new StackLayout { Spacing = 8, HorizontalContentAlignment = HorizontalAlignment.Stretch };
 
@@ -53,14 +55,14 @@ namespace RhinoGotchi.UI
             _practice = practice;
             _doc = RhinoDoc.ActiveDoc;
 
-            Theme.SetUpPage(this, host,
-                practice ? "What Made This? · Practice" : "What Made This?",
-                "Look at the viewport. Orange is what you start with, blue is the result. Which command made it?");
+            Theme.SetUpPage(this, host, practice ? "What Made This? · Practice" : "What Made This?", "");
 
             var stats = Progress.Get(Games.Shape);
             if (!practice && stats.PlayedToday)
             {
-                Items.Add(Theme.Body($"You've played today's round ({stats.LastResult}). A new one arrives tomorrow."));
+                Items.Add(Theme.Card(Theme.Tile,
+                    Theme.Heading($"Today's round is done: {stats.LastResult}"),
+                    Theme.Muted("A new one arrives tomorrow.")));
                 Items.Add(PracticeButton());
                 return;
             }
@@ -71,10 +73,14 @@ namespace RhinoGotchi.UI
             }
 
             BuildRounds(Daily.Rng(Games.Shape, practice), _doc.ModelAbsoluteTolerance);
-            Items.Add(_roundLabel);
+            var p = Palette.Current;
+            _prompt.Items.Add(Theme.Heading("Which command made the blue shape?"));
+            _prompt.Items.Add(new Legend(("what you start with", p.Orange), ("the result", p.Blue)));
+
+            Items.Add(_hud);
+            Items.Add(_prompt);
             Items.Add(_optionsHost);
             Items.Add(_feedback);
-            Items.Add(Theme.Muted("Nothing is added to your model. The preview disappears and your view comes back when you leave."));
             _playing = _rounds.Count > 0;
         }
 
@@ -112,75 +118,66 @@ namespace RhinoGotchi.UI
             }
         }
 
+        private void UpdateHud()
+        {
+            var pips = Enumerable.Range(0, _rounds.Count).Select(i =>
+                i < _answers.Count ? (_answers[i] ? Pip.Good : Pip.Bad) : i == _index && _playing ? Pip.Now : Pip.Todo);
+            _hud.Set(_playing ? $"ROUND {_index + 1} OF {_rounds.Count}" : "FINISHED", $"{_score} right", pips);
+        }
+
         private void ShowRound()
         {
             var round = _rounds[_index];
-            _roundLabel.Text = $"Round {_index + 1} of {_rounds.Count} · Score {_score}";
+            UpdateHud();
             _feedback.Items.Clear();
 
-            var buttons = new List<ChunkyButton>();
-            var table = new TableLayout { Spacing = new Size(6, 6) };
-            for (int i = 0; i < round.Options.Count; i += 2)
+            var tiles = new List<OptionTile>();
+            foreach (string option in round.Options)
             {
-                var row = new TableRow();
-                for (int j = i; j < Math.Min(i + 2, round.Options.Count); j++)
-                {
-                    string option = round.Options[j];
-                    var button = new ChunkyButton { Text = option, Height = 34 };
-                    button.Click += (s, e) => Answer(round, option, buttons);
-                    buttons.Add(button);
-                    row.Cells.Add(new TableCell(button, true));
-                }
-                table.Rows.Add(row);
+                var entry = CommandCatalog.Find(option);
+                var tile = new OptionTile(option, entry != null ? CommandIcons.Get(entry, 68) : null);
+                tile.Click += (s, e) => Answer(round, option, tiles);
+                tiles.Add(tile);
             }
-            _optionsHost.Content = table;
+            _optionsHost.Content = Theme.Grid(2, tiles.Cast<Control>().ToArray());
 
             if (_doc != null)
                 ShapePreview.Show(_doc, round.Geometry);
         }
 
-        private void Answer(Round round, string option, List<ChunkyButton> buttons)
+        private void Answer(Round round, string option, List<OptionTile> tiles)
         {
             bool right = option == round.Shape.Command;
             if (right)
                 _score++;
+            _answers.Add(right);
 
-            foreach (var b in buttons)
+            foreach (var tile in tiles)
             {
-                b.Enabled = false;
-                var p = Palette.Current;
-                if (b.Text == round.Shape.Command)
-                {
-                    b.SetColors(p.Green, p.GreenShadow, Colors.White);
-                    b.Text = "✓ " + b.Text;
-                }
-                else if (b.Text == option)
-                {
-                    b.SetColors(p.Red, p.RedShadow, Colors.White);
-                    b.Text = "✗ " + b.Text;
-                }
+                tile.Locked = true;
+                tile.State = tile.CommandName == round.Shape.Command ? TileState.Right
+                    : tile.CommandName == option ? TileState.Wrong : TileState.Faded;
             }
-            _roundLabel.Text = $"Round {_index + 1} of {_rounds.Count} · Score {_score}";
-
-            _feedback.Items.Clear();
-            _feedback.Items.Add(Theme.Card(right ? Theme.Hit : Palette.Current.Red,
-                new Label { Text = right ? $"Right: {round.Shape.Command}" : $"It was {round.Shape.Command}", Font = Theme.HeadingFont },
-                Theme.Body(round.Shape.Explanation)));
-            _feedback.Items.Add(Theme.CommandButtons(round.Shape.Command));
+            UpdateHud();
 
             bool last = _index == _rounds.Count - 1;
-            _feedback.Items.Add(new StackLayoutItem(
-                Theme.Secondary(last ? "See score" : "Next shape →", () =>
+            _feedback.Items.Clear();
+            _feedback.Items.Add(Theme.Card(right ? Theme.Hit : Palette.Current.Red,
+                Theme.Heading(right ? $"Yes, {round.Shape.Command}" : $"It was {round.Shape.Command}"),
+                Theme.Body(round.Shape.Explanation)));
+            _feedback.Items.Add(Theme.Primary(last ? "See my score" : "Next shape →", () =>
+            {
+                if (last)
+                    Finish();
+                else
                 {
-                    if (last)
-                        Finish();
-                    else
-                    {
-                        _index++;
-                        ShowRound();
-                    }
-                }),
-                HorizontalAlignment.Left));
+                    _index++;
+                    ShowRound();
+                }
+            }));
+            _feedback.Items.Add(Theme.Row(
+                Theme.Secondary($"Try {round.Shape.Command}", () => RhinoActions.Run(round.Shape.Command)),
+                Theme.Button("Help page", () => RhinoActions.OpenHelp(round.Shape.Command))));
         }
 
         private void Finish()
@@ -195,14 +192,15 @@ namespace RhinoGotchi.UI
                 earned = Leaderboard.Award(Games.Shape, _score * PointsPerAnswer);
             }
 
-            _roundLabel.Text = "Finished";
+            UpdateHud();
+            _prompt.Visible = false;
             _optionsHost.Content = null;
             _feedback.Items.Clear();
             _feedback.Items.Add(Theme.Card(_score >= PassScore ? Theme.Hit : Theme.Tile,
-                new Label { Text = $"You scored {result}", Font = Theme.HeadingFont },
+                Theme.Heading($"{_score} of {_rounds.Count} right"),
                 Theme.Body(_score == _rounds.Count
                     ? "Perfect. You know your surfacing tools."
-                    : "Use Try on any command to build the shape yourself next time.")));
+                    : "Tap Try on a command you missed to build the shape yourself.")));
             if (earned > 0)
                 _feedback.Items.Add(LeaderboardView.EarnedRow(_host, earned));
             _feedback.Items.Add(PracticeButton());

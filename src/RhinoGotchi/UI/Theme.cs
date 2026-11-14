@@ -26,14 +26,17 @@ namespace RhinoGotchi.UI
         public static Font HeadingFont => new Font(SystemFont.Bold, 11);
         public static Font BodyFont => new Font(SystemFont.Default, 10);
 
-        public static Label Title(string text) => new Label { Text = text, Wrap = WrapMode.Word, Font = TitleFont, TextColor = P.Text };
+        // Text is drawn by hand (see Words): Eto's wrapping Label misbehaves on the Mac.
+        public static Words Title(string text) => new Words(text, TitleFont, P.Text);
 
-        public static Label Heading(string text) => new Label { Text = text, Wrap = WrapMode.Word, Font = HeadingFont, TextColor = P.Text };
+        public static Words Heading(string text) => new Words(text, HeadingFont, P.Text);
 
-        public static Label Body(string text) => new Label { Text = text, Wrap = WrapMode.Word, Font = BodyFont, TextColor = P.Text };
+        public static Words Body(string text) => new Words(text, BodyFont, P.Text);
 
-        public static Label Muted(string text) =>
-            new Label { Text = text, Wrap = WrapMode.Word, Font = BodyFont, TextColor = P.SubtleText };
+        public static Words Muted(string text) => new Words(text, BodyFont, P.SubtleText);
+
+        /// <summary>Small print: notes and links.</summary>
+        public static Words Small(string text) => new Words(text, new Font(SystemFont.Default, 8.5f), P.SubtleText);
 
         /// <summary>A tile with centered bold text, e.g. a Build Order slot. Width 0 stretches to fill its cell.</summary>
         public static ChunkyButton Chip(string text, Color back, Color fore, int width = 0, int height = 34)
@@ -56,11 +59,8 @@ namespace RhinoGotchi.UI
             bool first = true;
             foreach (var row in rows)
             {
-                if (row is Label l)
-                {
-                    l.TextColor = first && !neutral ? Darken(accent, 0.15f) : P.Text;
-                    l.Wrap = WrapMode.Word; // a long line must wrap, not widen the page
-                }
+                if (row is Words text && first && !neutral)
+                    text.TextColor = Darken(accent, 0.15f);
                 first = false;
                 stack.Items.Add(row);
             }
@@ -115,9 +115,9 @@ namespace RhinoGotchi.UI
             page.Spacing = 10;
             page.BackgroundColor = P.Background;
             page.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            page.Items.Add(new StackLayoutItem(Button(backText, back ?? host.ShowHome), HorizontalAlignment.Left));
-            page.Items.Add(Title(title));
-            page.Items.Add(Muted(subtitle));
+            page.Items.Add(new PageHeader(title, back ?? host.ShowHome));
+            if (subtitle.Length > 0)
+                page.Items.Add(Muted(subtitle));
         }
 
         public static Color Darken(Color c, float amount) =>

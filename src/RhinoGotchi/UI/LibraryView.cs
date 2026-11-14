@@ -15,8 +15,8 @@ namespace RhinoGotchi.UI
         private int _tab;
         private readonly TextBox _search = new TextBox { PlaceholderText = "Search commands" };
         private readonly CheckBox _demosOnly = new CheckBox { Text = "Only commands with a demo" };
-        private readonly Label _blurb = Theme.Muted("");
-        private readonly Label _count = Theme.Muted("");
+        private readonly Words _blurb = Theme.Muted("");
+        private readonly Words _count = Theme.Muted("");
         private readonly StackLayout _list = new StackLayout { Spacing = 6, HorizontalContentAlignment = HorizontalAlignment.Stretch };
 
         public LibraryView(RhinoGotchiPanel host, int startTab = 0)

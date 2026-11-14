@@ -110,7 +110,9 @@ namespace RhinoGotchi.UI
             BackgroundColor = background;
             view.BackgroundColor = background;
             _scroller.BackgroundColor = background;
-            _scroller.ExpandContentHeight = view is IFillView;
+            // Always let the page fill the panel's height. A page shorter than the panel otherwise
+            // drops to the bottom of the scroll area on the Mac, leaving a blank gap above it.
+            _scroller.ExpandContentHeight = true;
             FitWidth();
             _scroller.Content = view;
             FitWidth();

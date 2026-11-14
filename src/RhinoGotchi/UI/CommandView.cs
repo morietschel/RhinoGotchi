@@ -21,12 +21,12 @@ namespace RhinoGotchi.UI
         private readonly RhinoDoc? _doc;
         private int _step;
 
-        private readonly Label _stepLabel = Theme.Heading("");
-        private readonly Label _stepText = Theme.Body("");
+        private readonly Words _stepLabel = Theme.Heading("");
+        private readonly Words _stepText = Theme.Body("");
         private readonly ChunkyButton _prev = new ChunkyButton { Text = "◀ Back" };
         private readonly ChunkyButton _next = new ChunkyButton { Text = "Next ▶", Kind = ButtonKind.Secondary };
-        private readonly Label _status = Theme.Muted("");
-        private readonly Label _findStatus = Theme.Muted("");
+        private readonly Words _status = Theme.Muted("");
+        private readonly Words _findStatus = Theme.Muted("");
 
         public CommandView(RhinoGotchiPanel host, CommandEntry entry, Control back)
         {

@@ -11,7 +11,7 @@ namespace RhinoGotchi.UI
         private readonly RhinoGotchiPanel _host;
         private readonly TextBox _name;
         private readonly AvatarView _preview;
-        private readonly Label _message = Theme.Muted("");
+        private readonly Words _message = Theme.Muted("");
         private readonly ChunkyButton _save;
         private string _icon = Leaderboard.Icon;
 
@@ -47,6 +47,7 @@ namespace RhinoGotchi.UI
                         new TableCell(new StackLayout
                         {
                             Spacing = 6,
+                            HorizontalContentAlignment = HorizontalAlignment.Stretch,
                             Items =
                             {
                                 Theme.Muted($"Any picture works. It is cropped to a square and shrunk to {Avatars.Pixels}×{Avatars.Pixels} pixels."),

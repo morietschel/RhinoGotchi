@@ -6,7 +6,7 @@ namespace RhinoGotchi.UI
     /// <summary>Plugin settings. For now: which OpenAI key Deep Cut's judge uses.</summary>
     internal sealed class SettingsView : StackLayout
     {
-        private readonly Label _status = Theme.Body("");
+        private readonly Words _status = Theme.Body("");
 
         public SettingsView(RhinoGotchiPanel host)
         {

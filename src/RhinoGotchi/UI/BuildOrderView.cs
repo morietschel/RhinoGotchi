@@ -30,11 +30,11 @@ namespace RhinoGotchi.UI
         private bool _hinted;
         private bool _over;
 
-        private readonly StackLayout _historyArea = new StackLayout { Spacing = 4 };
+        private readonly StackLayout _historyArea = new StackLayout { Spacing = 4, HorizontalContentAlignment = HorizontalAlignment.Stretch };
         private readonly Panel _slotsRow = new Panel();
         private readonly Panel _bankHost = new Panel();
-        private readonly Label _message = Theme.Body("");
-        private readonly Label _triesLabel = Theme.Muted("");
+        private readonly Words _message = Theme.Body("");
+        private readonly GameHud _hud = new GameHud();
         private readonly Control _controls;
         private readonly ChunkyButton _hintButton;
         private readonly StackLayout _end = new StackLayout { Spacing = 8, HorizontalContentAlignment = HorizontalAlignment.Stretch };
@@ -45,14 +45,14 @@ namespace RhinoGotchi.UI
             _practice = practice;
             _doc = RhinoDoc.ActiveDoc;
 
-            Theme.SetUpPage(this, host,
-                practice ? "Build Order · Practice" : "Build Order",
-                "The blue object in the viewport was built from scratch with a chain of commands. Pick them in the order they were used.");
+            Theme.SetUpPage(this, host, practice ? "Build Order · Practice" : "Build Order", "");
 
             var stats = Progress.Get(Games.Order);
             if (!practice && stats.PlayedToday)
             {
-                Items.Add(Theme.Body($"You've played today's Build Order ({stats.LastResult}). A new one arrives tomorrow."));
+                Items.Add(Theme.Card(Theme.Tile,
+                    Theme.Heading($"Today's build is done: {stats.LastResult}"),
+                    Theme.Muted("A new one arrives tomorrow.")));
                 Items.Add(PracticeButton());
                 _controls = new StackLayout();
                 _hintButton = new ChunkyButton();
@@ -74,11 +74,20 @@ namespace RhinoGotchi.UI
                 }
             }
 
-            _hintButton = Theme.Secondary("Hint: show the first command", Hint);
-            _controls = Theme.Row(
-                Theme.Button("Undo", () => { if (_guess.Count > 0) _guess.RemoveAt(_guess.Count - 1); Redraw(); }),
-                Theme.Button("Clear", () => { _guess.Clear(); Redraw(); }),
-                Theme.Primary("Check", Check));
+            _hintButton = Theme.Button("Hint", Hint);
+            _controls = new StackLayout
+            {
+                Spacing = 8,
+                HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                Items =
+                {
+                    Theme.Primary("Check", Check),
+                    Theme.Row(
+                        Theme.Button("Undo", () => { if (_guess.Count > 0) _guess.RemoveAt(_guess.Count - 1); Redraw(); }),
+                        Theme.Button("Clear", () => { _guess.Clear(); Redraw(); }),
+                        _hintButton),
+                },
+            };
 
             if (_recipe == null || _demo == null)
             {
@@ -93,17 +102,15 @@ namespace RhinoGotchi.UI
                 .Take(Decoys);
             _bank.AddRange(Daily.Shuffle(_recipe.Chain.Concat(decoys), rng));
 
-            Items.Add(Theme.Heading($"Build this in {_recipe.Chain.Length} commands"));
-            Items.Add(Theme.Muted("Tip: work backwards. What was the last thing done to the object?"));
+            Items.Add(_hud);
+            Items.Add(Theme.Heading("Which commands built the blue object, in order?"));
             Items.Add(_historyArea);
-            Items.Add(Theme.Muted("Your order:"));
+            Items.Add(new SectionLabel("YOUR ORDER"));
             Items.Add(_slotsRow);
-            Items.Add(Theme.Muted("Commands (tap to add):"));
+            Items.Add(new SectionLabel("COMMANDS", "tap to add"));
             Items.Add(_bankHost);
-            Items.Add(_controls);
-            Items.Add(_triesLabel);
-            Items.Add(new StackLayoutItem(_hintButton, HorizontalAlignment.Left));
             Items.Add(_message);
+            Items.Add(_controls);
             Items.Add(_end);
             Redraw();
         }
@@ -125,10 +132,10 @@ namespace RhinoGotchi.UI
             for (int i = 0; i < _recipe.Chain.Length; i++)
             {
                 bool filled = i < _guess.Count;
-                slots.Add(Theme.Chip(filled ? $"{i + 1}. {_guess[i]}" : $"{i + 1}. ?",
-                    filled ? Theme.Selected : Theme.Tile, filled ? Theme.Light : Theme.TileText, 0, 34));
+                slots.Add(Theme.Chip(filled ? $"{i + 1}. {_guess[i]}" : $"{i + 1}",
+                    filled ? Theme.Selected : Theme.Tile, filled ? Theme.P.SelectedText : Theme.P.DisabledText, 0, 38));
             }
-            _slotsRow.Content = Theme.Grid(3, slots.ToArray());
+            _slotsRow.Content = Theme.Grid(2, slots.ToArray());
 
             var buttons = _bank.Select(command =>
             {
@@ -136,9 +143,15 @@ namespace RhinoGotchi.UI
                 b.Click += (s, e) => { _guess.Add(command); _message.Text = ""; Redraw(); };
                 return (Control)b;
             }).ToArray();
-            _bankHost.Content = Theme.Grid(3, buttons);
+            _bankHost.Content = Theme.Grid(2, buttons);
 
-            _triesLabel.Text = $"Tries left: {MaxTries - _history.Count}";
+            // One pip per try: red for a miss, green for the solve.
+            int left = MaxTries - _history.Count;
+            bool solved = _over && _history.Count > 0 && _history[_history.Count - 1].SequenceEqual(_recipe.Chain);
+            var pips = Enumerable.Range(0, MaxTries).Select(i =>
+                i < _history.Count ? (solved && i == _history.Count - 1 ? Pip.Good : Pip.Bad)
+                : i == _history.Count && !_over ? Pip.Now : Pip.Todo);
+            _hud.Set($"BUILD IN {_recipe.Chain.Length} COMMANDS", _over ? (solved ? "Solved" : "Out of tries") : left == 1 ? "Last try" : $"{left} tries", pips);
         }
 
         private void Hint()
@@ -168,18 +181,18 @@ namespace RhinoGotchi.UI
             int right = attempt.Where((c, i) => c == _recipe.Chain[i]).Count();
             if (right == _recipe.Chain.Length)
             {
-                _message.Text = _history.Count == 1 ? "Perfect build order on the first try!" : $"Solved in {_history.Count} tries.";
+                _message.Text = _history.Count == 1 ? "First try!" : "";
                 Finish(true);
             }
             else if (_history.Count >= MaxTries)
             {
-                _message.Text = "Out of tries. Here's how it was built:";
+                _message.Text = "";
                 Finish(false);
             }
             else
             {
                 int used = attempt.Count(c => _recipe.Uses(c));
-                _message.Text = $"{right} in the right place, {used - right} used but in the wrong place.";
+                _message.Text = $"{right} in the right place · {used - right} in the wrong place";
                 Redraw();
             }
         }
@@ -191,15 +204,15 @@ namespace RhinoGotchi.UI
             for (int i = 0; i < attempt.Length; i++)
             {
                 var color = attempt[i] == _recipe!.Chain[i] ? Theme.Hit : _recipe.Uses(attempt[i]) ? Theme.Near : Theme.Miss;
-                chips.Add(Theme.Chip($"{i + 1}. {attempt[i]}", color, Theme.Light, 0, 34));
+                chips.Add(Theme.Chip($"{i + 1}. {attempt[i]}", color, Theme.Light, 0, 30));
             }
-            return Theme.Grid(3, chips.ToArray());
+            return Theme.Grid(2, chips.ToArray());
         }
 
         private void Finish(bool won)
         {
             _over = true;
-            _controls.Enabled = false;
+            _controls.Visible = false;
             _hintButton.Enabled = false;
             Redraw();
 
@@ -221,9 +234,7 @@ namespace RhinoGotchi.UI
                 Theme.Heading(recipe.Title),
                 Theme.Body(recipe.ChainText),
                 Theme.Body(recipe.Summary)));
-            _end.Items.Add(new StackLayoutItem(
-                Theme.Primary("Watch it get built, step by step", () => _host.Navigate(new RecipeView(_host, recipe, this))),
-                HorizontalAlignment.Left));
+            _end.Items.Add(Theme.Primary("Watch it get built", () => _host.Navigate(new RecipeView(_host, recipe, this))));
             _end.Items.Add(PracticeButton());
         }
 
