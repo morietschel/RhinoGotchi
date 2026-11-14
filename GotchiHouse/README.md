@@ -7,6 +7,10 @@ building a simple pitched-roof house from two shapes:
 1. **Walls**: a 10 × 10 × 8 box (`Box`)
 2. **Roof**: a four-sided pyramid that overhangs by 1 and rises 8 (`Pyramid`)
 
+> This plugin lives in the `GotchiHouse/` folder of the RhinoGotchi repository
+> (branch `gotchihouse`). Run the build commands below from that folder, and open
+> that folder (not the repository root) in VS Code.
+
 ## How it plays
 
 - The device's screen plays a short looping **demo** of each step: a cursor clicks
