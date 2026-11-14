@@ -35,7 +35,7 @@ namespace RhinoGotchi.UI
         private readonly Panel _bankHost = new Panel();
         private readonly Label _message = Theme.Body("");
         private readonly Label _triesLabel = Theme.Muted("");
-        private readonly StackLayout _controls;
+        private readonly Control _controls;
         private readonly ChunkyButton _hintButton;
         private readonly StackLayout _end = new StackLayout { Spacing = 8, HorizontalContentAlignment = HorizontalAlignment.Stretch };
 

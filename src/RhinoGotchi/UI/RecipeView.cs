@@ -87,7 +87,7 @@ namespace RhinoGotchi.UI
             var entry = CommandCatalog.Find(command);
             var row = Theme.Row(Theme.Primary($"Try {command}", () => RhinoActions.Run(command)));
             if (entry != null)
-                row.Items.Add(Theme.Button($"How {command} works", () => _host.Navigate(new CommandView(_host, entry, this))));
+                row.Add(Theme.Button($"How {command} works", () => _host.Navigate(new CommandView(_host, entry, this))));
             _stageButtons.Items.Add(row);
 
             ShapePreview.Show(_doc, step.Frame, _demo.Focus);

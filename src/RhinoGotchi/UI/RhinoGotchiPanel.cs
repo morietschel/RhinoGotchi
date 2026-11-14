@@ -45,6 +45,7 @@ namespace RhinoGotchi.UI
             _ = GotchiState.Game; // loads progress and the hat Gotchi wears
 
             _scroller = new Scrollable { Border = BorderType.None, ExpandContentWidth = true };
+            _scroller.SizeChanged += (s, e) => FitWidth();
             _nav = new NavBar();
             _nav.Selected += tab =>
             {
@@ -110,7 +111,9 @@ namespace RhinoGotchi.UI
             view.BackgroundColor = background;
             _scroller.BackgroundColor = background;
             _scroller.ExpandContentHeight = view is IFillView;
+            FitWidth();
             _scroller.Content = view;
+            FitWidth();
             _scroller.ScrollPosition = new Eto.Drawing.Point(0, 0);
 
             _nav.Visible = view is INavPage;
@@ -119,7 +122,35 @@ namespace RhinoGotchi.UI
             (view as IGameView)?.Enter();
         }
 
-        void IPanel.PanelShown(uint documentSerialNumber, ShowPanelReason reason) => (_view as IGameView)?.Enter();
+        /// <summary>
+        /// Pins the page to the visible width. Left alone, a scroll area lets its content be as wide as it
+        /// likes (one long label is enough) and scrolls sideways; pinned, labels wrap and rows reflow instead.
+        /// </summary>
+        private void FitWidth()
+        {
+            if (_view == null)
+                return;
+            int width = _scroller.Width;
+            if (width <= 0)
+                return;
+            int visible = _scroller.ClientSize.Width;
+            if (visible > 0 && visible < width)
+                width = visible; // a vertical scroll bar is taking some of the room
+            else if (Eto.Platform.Instance.IsWpf || Eto.Platform.Instance.IsWinForms)
+                width -= WindowsScrollBar; // leave room for the bar that appears when the page gets taller
+            width = Math.Max(MinPageWidth, width);
+            if (_view.Width != width)
+                _view.Width = width;
+        }
+
+        private const int WindowsScrollBar = 18;
+        private const int MinPageWidth = 160;
+
+        void IPanel.PanelShown(uint documentSerialNumber, ShowPanelReason reason)
+        {
+            FitWidth();
+            (_view as IGameView)?.Enter();
+        }
 
         void IPanel.PanelHidden(uint documentSerialNumber, ShowPanelReason reason) => StopPreviews();
 

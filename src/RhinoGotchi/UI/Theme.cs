@@ -26,9 +26,9 @@ namespace RhinoGotchi.UI
         public static Font HeadingFont => new Font(SystemFont.Bold, 11);
         public static Font BodyFont => new Font(SystemFont.Default, 10);
 
-        public static Label Title(string text) => new Label { Text = text, Font = TitleFont, TextColor = P.Text };
+        public static Label Title(string text) => new Label { Text = text, Wrap = WrapMode.Word, Font = TitleFont, TextColor = P.Text };
 
-        public static Label Heading(string text) => new Label { Text = text, Font = HeadingFont, TextColor = P.Text };
+        public static Label Heading(string text) => new Label { Text = text, Wrap = WrapMode.Word, Font = HeadingFont, TextColor = P.Text };
 
         public static Label Body(string text) => new Label { Text = text, Wrap = WrapMode.Word, Font = BodyFont, TextColor = P.Text };
 
@@ -57,7 +57,10 @@ namespace RhinoGotchi.UI
             foreach (var row in rows)
             {
                 if (row is Label l)
+                {
                     l.TextColor = first && !neutral ? Darken(accent, 0.15f) : P.Text;
+                    l.Wrap = WrapMode.Word; // a long line must wrap, not widen the page
+                }
                 first = false;
                 stack.Items.Add(row);
             }
@@ -80,13 +83,8 @@ namespace RhinoGotchi.UI
 
         public static ChunkyButton Secondary(string text, Action onClick) => Button(text, onClick, ButtonKind.Secondary);
 
-        public static StackLayout Row(params Control[] controls)
-        {
-            var row = new StackLayout { Orientation = Orientation.Horizontal, Spacing = 6 };
-            foreach (var c in controls)
-                row.Items.Add(c);
-            return row;
-        }
+        /// <summary>Controls side by side, wrapping onto more lines when the panel is narrow.</summary>
+        public static FlowRow Row(params Control[] controls) => new FlowRow(controls);
 
         /// <summary>Lays controls out left to right, wrapping every <paramref name="columns"/>.</summary>
         public static TableLayout Grid(int columns, params Control[] controls)
@@ -105,7 +103,7 @@ namespace RhinoGotchi.UI
         }
 
         /// <summary>"Try it in Rhino" and "Help page" buttons for a command.</summary>
-        public static StackLayout CommandButtons(string command) => Row(
+        public static FlowRow CommandButtons(string command) => Row(
             Primary($"Try {command}", () => RhinoActions.Run(command)),
             Secondary("Help page", () => RhinoActions.OpenHelp(command)));
 

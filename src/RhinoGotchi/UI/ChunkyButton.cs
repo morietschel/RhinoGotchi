@@ -135,8 +135,10 @@ namespace RhinoGotchi.UI
                     g.FillPath(Color.FromArgb(255, 255, 255, 40), GraphicsPath.GetRoundRect(new RectangleF(top.X + 10, top.Y + 4, top.Width - 20, 5), 2.5f));
             }
 
-            var size = _font.MeasureString(_text);
-            g.DrawText(_font, ink, top.X + (top.Width - size.Width) / 2, top.Y + (top.Height - size.Height) / 2, _text);
+            // In a narrow panel the button can be smaller than its text: cut the text, don't spill.
+            string text = Ui.Ellipsize(_font, _text, top.Width - 12);
+            var size = _font.MeasureString(text);
+            g.DrawText(_font, ink, top.X + (top.Width - size.Width) / 2, top.Y + (top.Height - size.Height) / 2, text);
         }
 
         private void Colors(Palette p, out Color face, out Color shadow, out Color ink)

@@ -38,8 +38,8 @@ namespace RhinoGotchi.UI
         private DateTime _deadline;
         private readonly UITimer _clock = new UITimer { Interval = 0.1 };
 
-        private readonly Label _roundLabel = Theme.Heading("");
-        private readonly TimerBar _timerBar = new TimerBar();
+        private readonly DeepCutHud _hud = new DeepCutHud();
+        private readonly TableLayout _inputRow;
         private readonly TextBox _input = new TextBox { PlaceholderText = "Type a command, e.g. Loft" };
         private readonly ChunkyButton _guess;
         private readonly Panel _suggestions = new Panel();
@@ -54,7 +54,12 @@ namespace RhinoGotchi.UI
 
             Theme.SetUpPage(this, host,
                 practice ? "Deep Cut · Practice" : "Deep Cut",
-                "A real Rhino model is in the viewport. Orbit it, then name a command that was used to build it. The rarer the command, the more points. 30 seconds, one guess.");
+                "Name a command that was used to build the model in the viewport. Rarer commands score more.");
+            _inputRow = new TableLayout
+            {
+                Spacing = new Size(6, 0),
+                Rows = { new TableRow(new TableCell(_input, true), new TableCell(_guess)) },
+            };
 
             var stats = Progress.Get(Games.Deep);
             if (!practice && stats.PlayedToday)
@@ -87,16 +92,11 @@ namespace RhinoGotchi.UI
             };
             _clock.Elapsed += (s, e) => Tick();
 
-            Items.Add(_roundLabel);
-            Items.Add(_timerBar);
-            Items.Add(new TableLayout
-            {
-                Spacing = new Size(6, 0),
-                Rows = { new TableRow(new TableCell(_input, true), new TableCell(_guess)) },
-            });
+            Items.Add(_hud);
+            Items.Add(_inputRow);
             Items.Add(_suggestions);
             Items.Add(_feedback);
-            Items.Add(Theme.Muted("Your own model is hidden in that viewport while you play and nothing is added to it. A picture of the viewport is sent to OpenAI to judge each guess."));
+            Items.Add(Small("30 seconds and one guess per model. Your own model is hidden while you play and nothing is added to it. A picture of the viewport is sent to OpenAI to judge each guess."));
             _playing = true;
         }
 
@@ -159,19 +159,27 @@ namespace RhinoGotchi.UI
         }
 
         private void UpdateHeader() =>
-            _roundLabel.Text = $"Model {_index + 1} of {_models.Count} · {_total} pts";
+            _hud.SetRound(_index, _models.Count, _total, _results.Select(r => r.Points).ToList());
+
+        private static Label Small(string text) => new Label
+        {
+            Text = text,
+            Wrap = WrapMode.Word,
+            Font = new Font(SystemFont.Default, 8.5f),
+            TextColor = Palette.Current.SubtleText,
+        };
 
         private void StartClock()
         {
             _deadline = DateTime.UtcNow.AddSeconds(_left);
-            _timerBar.Set(_left, Seconds);
+            _hud.SetTime(_left, Seconds);
             _clock.Start();
         }
 
         private void Tick()
         {
             _left = Math.Max(0, (_deadline - DateTime.UtcNow).TotalSeconds);
-            _timerBar.Set(_left, Seconds);
+            _hud.SetTime(_left, Seconds);
             if (_left > 0)
                 return;
             _clock.Stop();
@@ -223,7 +231,9 @@ namespace RhinoGotchi.UI
             _phase = Phase.Judging;
             _input.Enabled = _guess.Enabled = false;
             _feedback.Items.Clear();
-            _feedback.Items.Add(Theme.Card(Theme.Tile, new Label { Text = $"Asking the judge about {command}…", Font = Theme.HeadingFont }));
+            _feedback.Items.Add(Theme.Card(Theme.Tile,
+                Theme.Heading($"Asking the judge about {command}…"),
+                Theme.Muted("This takes a few seconds. The clock is stopped.")));
 
             int round = _index;
             Task.Run(async () =>
@@ -263,7 +273,7 @@ namespace RhinoGotchi.UI
             if (!keyProblem)
             {
                 _feedback.Items.Add(Theme.Card(Palette.Current.Red,
-                    new Label { Text = "The judge didn't answer", Font = Theme.HeadingFont },
+                    Theme.Heading("The judge didn't answer"),
                     Theme.Body(message)));
                 _feedback.Items.Add(Theme.Row(Theme.Primary("Try again", retry), Theme.Button("Skip this model", skip)));
                 return;
@@ -271,7 +281,7 @@ namespace RhinoGotchi.UI
 
             var keyBox = new PasswordBox();
             _feedback.Items.Add(Theme.Card(Palette.Current.Gold,
-                new Label { Text = ApiKey.UsingOwn ? "Your OpenAI key was rejected" : "The built-in OpenAI key no longer works", Font = Theme.HeadingFont },
+                Theme.Heading(ApiKey.UsingOwn ? "Your OpenAI key was rejected" : "The built-in OpenAI key no longer works"),
                 Theme.Body(message),
                 Theme.Body("Paste your own OpenAI API key to keep playing. It is saved in the plugin settings on this computer; you can change it later under Settings on the home page.")));
             _feedback.Items.Add(keyBox);
@@ -300,40 +310,46 @@ namespace RhinoGotchi.UI
             var p = Palette.Current;
             string headline = result.Verdict switch
             {
-                Verdict.Scored => $"+{result.Points} · {result.Command}",
-                Verdict.NotUsed => $"0 · {result.Command} wasn't used here",
+                Verdict.Scored => $"+{result.Points} for {result.Command}",
+                Verdict.NotUsed => $"{result.Command} wasn't used here",
                 Verdict.TimedOut => "Out of time",
                 _ => "No verdict",
             };
             string detail = result.Verdict switch
             {
-                Verdict.Scored => $"{result.Tier}. The judge is {Percent(result.Used)} sure it was used and rates it {Percent(result.Rarity)} rare.",
-                Verdict.NotUsed => $"The judge is only {Percent(result.Used)} sure this model needed it. It would have been worth {Math.Max(25, (int)Math.Round(1000 * result.Rarity))}.",
+                Verdict.Scored => $"{result.Tier}: the judge agrees it was used here.",
+                Verdict.NotUsed => $"The judge doesn't think this model needed it. It would have been worth {Math.Max(25, (int)Math.Round(1000 * result.Rarity))}.",
                 Verdict.TimedOut => "No guess was sent in 30 seconds.",
                 _ => "The judge couldn't score this one, so it counts as zero.",
             };
 
+            bool judged = result.Verdict == Verdict.Scored || result.Verdict == Verdict.NotUsed;
+            var rows = new List<Control> { Theme.Heading(headline), Theme.Body(detail) };
+            if (judged)
+            {
+                rows.Add(new Meter("Used on this model", result.Used, result.Verdict == Verdict.Scored ? p.Green : p.Red));
+                rows.Add(new Meter("How rare it is", result.Rarity, p.Ink));
+            }
+
             _feedback.Items.Clear();
-            _feedback.Items.Add(Theme.Card(result.Points > 0 ? Theme.Hit : p.Red,
-                new Label { Text = headline, Font = Theme.HeadingFont },
-                Theme.Body(detail)));
-            if (result.Verdict == Verdict.Scored || result.Verdict == Verdict.NotUsed)
-                _feedback.Items.Add(Theme.CommandButtons(result.Command));
-            _feedback.Items.Add(SourceLink(_models[_index]));
+            _feedback.Items.Add(Theme.Card(result.Points > 0 ? Theme.Hit : p.Red, rows.ToArray()));
 
             bool last = _index == _models.Count - 1;
-            _feedback.Items.Add(new StackLayoutItem(
-                Theme.Secondary(last ? "See score" : "Next model →", () =>
+            _feedback.Items.Add(Theme.Primary(last ? "See my score" : "Next model →", () =>
+            {
+                if (last)
+                    Finish();
+                else
                 {
-                    if (last)
-                        Finish();
-                    else
-                    {
-                        _index++;
-                        ShowRound();
-                    }
-                }),
-                HorizontalAlignment.Left));
+                    _index++;
+                    ShowRound();
+                }
+            }));
+            if (judged)
+                _feedback.Items.Add(Theme.Row(
+                    Theme.Secondary($"Try {result.Command}", () => RhinoActions.Run(result.Command)),
+                    Theme.Button("Help page", () => RhinoActions.OpenHelp(result.Command))));
+            _feedback.Items.Add(SourceLink(_models[_index]));
         }
 
         private void Finish()
@@ -345,15 +361,33 @@ namespace RhinoGotchi.UI
             if (!_practice)
                 Progress.Record(Games.Deep, hits >= PassHits, result);
 
-            _roundLabel.Text = "Finished";
-            _timerBar.Visible = false;
-            _input.Visible = _guess.Visible = false;
+            UpdateHeader();
+            _hud.Finished = true;
+            _inputRow.Visible = false;
+            _suggestions.Content = null;
+
+            var p = Palette.Current;
             _feedback.Items.Clear();
             _feedback.Items.Add(Theme.Card(hits >= PassHits ? Theme.Hit : Theme.Tile,
-                new Label { Text = $"You scored {_total} of {_models.Count * 1000}", Font = Theme.HeadingFont },
+                Theme.Heading($"You scored {_total:N0} of {_models.Count * 1000:N0}"),
                 Theme.Body(Rank(_total / (_models.Count * 1000.0)))));
+
+            var table = new TableLayout { Spacing = new Size(8, 6) };
             for (int i = 0; i < _results.Count; i++)
-                _feedback.Items.Add(Theme.Body($"{i + 1}. {_results[i].Command} · {_results[i].Points}"));
+            {
+                var r = _results[i];
+                table.Rows.Add(new TableRow(
+                    new TableCell(new Label { Text = (i + 1).ToString(), Font = Theme.HeadingFont, TextColor = p.SubtleText }),
+                    new TableCell(new Label { Text = r.Command, Font = Theme.BodyFont, TextColor = p.Text, Wrap = WrapMode.Word }, true),
+                    new TableCell(new Label
+                    {
+                        Text = r.Points > 0 ? "+" + r.Points.ToString("N0") : "0",
+                        Font = Theme.HeadingFont,
+                        TextColor = r.Points > 0 ? p.Green : p.SubtleText,
+                        TextAlignment = TextAlignment.Right,
+                    })));
+            }
+            _feedback.Items.Add(Theme.Box(table, padding: 12));
             _feedback.Items.Add(PracticeButton());
         }
 
@@ -363,12 +397,13 @@ namespace RhinoGotchi.UI
             share >= 0.4 ? "Alias collector." :
             share >= 0.2 ? "Toolbar clicker." : "Just installed Rhino. Go for commands that fit the model first, rare second.";
 
-        private static string Percent(double x) => $"{Math.Round(x * 100)}%";
-
+        /// <summary>A link that wraps. Eto's LinkButton is one long line, which made the whole page wider.</summary>
         private static Control SourceLink(DeepCutModel model)
         {
-            var link = new LinkButton { Text = "From the McNeel forum: " + model.Title };
-            link.Click += (s, e) =>
+            var link = Small("Model from the McNeel forum: " + model.Title + " ↗");
+            link.TextColor = Palette.Current.Blue;
+            link.Cursor = Cursors.Pointer;
+            link.MouseDown += (s, e) =>
             {
                 try { Application.Instance.Open(model.Source); }
                 catch (Exception ex) { RhinoApp.WriteLine("RhinoGotchi: could not open {0} ({1}).", model.Source, ex.Message); }
@@ -381,22 +416,43 @@ namespace RhinoGotchi.UI
             HorizontalAlignment.Left);
     }
 
-    /// <summary>The round clock: a bar that drains and turns red for the last ten seconds.</summary>
-    internal sealed class TimerBar : Drawable
+    /// <summary>
+    /// The strip at the top of a Deep Cut round: which model this is, the points so far, one pip per
+    /// model (green = scored, red = nothing, dark = now) and the clock, which turns red for the last ten seconds.
+    /// </summary>
+    internal sealed class DeepCutHud : Drawable
     {
-        private double _left, _total = 1;
-        private readonly Font _font = new Font(SystemFont.Bold, 9);
+        private int _index, _count = 1, _total;
+        private IReadOnlyList<int> _points = new int[0];
+        private double _left, _seconds = 1;
+        private bool _finished;
 
-        public TimerBar()
+        public DeepCutHud()
         {
-            Height = 22;
+            Height = 84;
             SizeChanged += (s, e) => Invalidate();
         }
 
-        public void Set(double left, double total)
+        /// <summary>After the last model the clock is hidden and every pip shows its result.</summary>
+        public bool Finished
+        {
+            get => _finished;
+            set { _finished = value; Height = value ? 58 : 84; Invalidate(); }
+        }
+
+        public void SetRound(int index, int count, int total, IReadOnlyList<int> points)
+        {
+            _index = index;
+            _count = Math.Max(1, count);
+            _total = total;
+            _points = points;
+            Invalidate();
+        }
+
+        public void SetTime(double left, double seconds)
         {
             _left = left;
-            _total = total;
+            _seconds = Math.Max(1, seconds);
             Invalidate();
         }
 
@@ -405,16 +461,84 @@ namespace RhinoGotchi.UI
             var g = e.Graphics;
             var p = Palette.Current;
             g.AntiAlias = true;
-            string text = Math.Ceiling(_left).ToString("0") + "s";
-            float label = 34, w = Width - label - 1, h = 12, y = (Height - h) / 2;
-            if (w <= h)
+            float w = Width - 1;
+            if (w < 80)
                 return;
+            Ui.Chunky(g, new RectangleF(0, 0, w, Height - 1), 12, p.TileFace, p.Border, lip: 3);
+
+            const float pad = 12;
+            float inner = w - 2 * pad;
+
+            // Which model, and the points so far.
+            string points = _total.ToString("N0") + " pts";
+            var pointsFont = Ui.Bold(12);
+            var pointsSize = pointsFont.MeasureString(points);
+            g.DrawText(pointsFont, p.Text, w - pad - pointsSize.Width, 9, points);
+            string round = _finished ? "FINISHED" : $"MODEL {_index + 1} OF {_count}";
+            Ui.Eyebrow(g, round, pad, 12, p.SubtleText);
+
+            // One pip per model.
+            const float gap = 4, pipHeight = 6;
+            float pip = (inner - gap * (_count - 1)) / _count;
+            for (int i = 0; i < _count; i++)
+            {
+                Color color = i < _points.Count ? (_points[i] > 0 ? p.Green : p.Red)
+                    : i == _index && !_finished ? p.Ink : p.Track;
+                g.FillPath(color, GraphicsPath.GetRoundRect(new RectangleF(pad + i * (pip + gap), 34, pip, pipHeight), pipHeight / 2));
+            }
+            if (_finished)
+                return;
+
+            // The clock.
+            bool hurry = _left <= 10;
+            string seconds = Math.Ceiling(_left).ToString("0") + "s";
+            var clockFont = Ui.Bold(11);
+            var clockSize = clockFont.MeasureString("30s");
+            float barWidth = inner - clockSize.Width - 8, barHeight = 10, y = 54;
+            g.FillPath(p.Track, GraphicsPath.GetRoundRect(new RectangleF(pad, y, barWidth, barHeight), barHeight / 2));
+            float fill = (float)(barWidth * Math.Max(0, Math.Min(1, _left / _seconds)));
+            if (fill >= barHeight)
+                g.FillPath(hurry ? p.Red : p.Ink, GraphicsPath.GetRoundRect(new RectangleF(pad, y, fill, barHeight), barHeight / 2));
+            var size = clockFont.MeasureString(seconds);
+            g.DrawText(clockFont, hurry ? p.Red : p.Text, w - pad - size.Width, y + (barHeight - size.Height) / 2, seconds);
+        }
+    }
+
+    /// <summary>A labelled percentage bar, e.g. how sure the judge is that a command was used.</summary>
+    internal sealed class Meter : Drawable
+    {
+        private readonly string _label;
+        private readonly double _value;
+        private readonly Color _color;
+
+        public Meter(string label, double value, Color color)
+        {
+            _label = label;
+            _value = Math.Max(0, Math.Min(1, value));
+            _color = color;
+            Height = 30;
+            SizeChanged += (s, e) => Invalidate();
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            var p = Palette.Current;
+            g.AntiAlias = true;
+            float w = Width - 1;
+            if (w < 40)
+                return;
+            var font = Ui.Bold(8.5f);
+            string percent = Math.Round(_value * 100) + "%";
+            var percentSize = font.MeasureString(percent);
+            g.DrawText(font, p.SubtleText, 0, 2, Ui.Ellipsize(font, _label, w - percentSize.Width - 6));
+            g.DrawText(font, p.Text, w - percentSize.Width, 2, percent);
+
+            const float h = 6, y = 20;
             g.FillPath(p.Track, GraphicsPath.GetRoundRect(new RectangleF(0, y, w, h), h / 2));
-            float fill = (float)(w * Math.Max(0, Math.Min(1, _left / _total)));
+            float fill = (float)(w * _value);
             if (fill >= h)
-                g.FillPath(_left <= 10 ? p.Red : p.Blue, GraphicsPath.GetRoundRect(new RectangleF(0, y, fill, h), h / 2));
-            var size = _font.MeasureString(text);
-            g.DrawText(_font, _left <= 10 ? p.Red : p.SubtleText, Width - size.Width - 1, (Height - size.Height) / 2, text);
+                g.FillPath(_color, GraphicsPath.GetRoundRect(new RectangleF(0, y, fill, h), h / 2));
         }
     }
 }
