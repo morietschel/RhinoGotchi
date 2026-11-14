@@ -371,6 +371,9 @@ namespace RhinoGotchi.UI
 
         private float PaintBuild(Graphics g, float w, float h)
         {
+            if (_session.Step is TutorialBuildStep tutorial)
+                return PaintTutorialBuild(g, w, h, tutorial);
+
             float y = TopBar(g, w);
             var level = _session.BuildLevel;
             string command = level?.Command ?? "";

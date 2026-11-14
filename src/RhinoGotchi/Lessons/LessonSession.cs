@@ -92,6 +92,9 @@ namespace RhinoGotchi.Lessons
 
         public bool BuildSolved { get; private set; }
 
+        /// <summary>Commands on the current build card that changed the model but didn't solve it.</summary>
+        public int BuildMisses => _runner?.Misses ?? 0;
+
         public LevelResult? BuildResult { get; private set; }
 
         public Level? BuildLevel { get; private set; }
@@ -196,9 +199,17 @@ namespace RhinoGotchi.Lessons
                 return;
 
             StopBuild();
-            BuildLevel = build.CreateLevel();
             BuildResult = null;
-            _runner = LevelRunner.Start(doc, BuildLevel);
+            if (build.Start != null)
+            {
+                _runner = build.Start(doc);
+                BuildLevel = _runner?.Level ?? build.CreateLevel();
+            }
+            else
+            {
+                BuildLevel = build.CreateLevel();
+                _runner = LevelRunner.Start(doc, BuildLevel);
+            }
             Raise();
         }
 

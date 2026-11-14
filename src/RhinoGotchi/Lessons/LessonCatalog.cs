@@ -11,6 +11,21 @@ namespace RhinoGotchi.Lessons
     /// </summary>
     public static class LessonCatalog
     {
+        // Look-alike commands for the quiz card before each tutorial (commands with a quiz icon only).
+        // Declared before All: static fields initialise in order, and All's Project() reads this.
+        private static readonly Dictionary<string, string[]> LookAlikes = new Dictionary<string, string[]>
+        {
+            ["BooleanDifference"] = new[] { "BooleanUnion", "BooleanIntersection", "Trim" },
+            ["Pipe"] = new[] { "Sweep1", "Cylinder", "Revolve" },
+            ["OffsetSrf"] = new[] { "Offset", "ExtrudeSrf", "Shell" },
+            ["ArrayPolar"] = new[] { "Rotate", "Mirror", "Move" },
+            ["Contour"] = new[] { "Trim", "OffsetSrf", "Patch" },
+            ["Sweep1"] = new[] { "Sweep2", "Pipe", "ExtrudeCrv" },
+            ["Sweep2"] = new[] { "Sweep1", "Loft", "NetworkSrf" },
+            ["Loft"] = new[] { "Sweep2", "NetworkSrf", "ExtrudeCrv" },
+            ["NetworkSrf"] = new[] { "Loft", "Patch", "Sweep2" },
+        };
+
         public static readonly IReadOnlyList<Lesson> All = new[]
         {
             Curves(),
@@ -23,6 +38,9 @@ namespace RhinoGotchi.Lessons
             SurfaceTools(),
             AdvancedSolids(),
             Mastery(),
+            Project("klosterneuburg-details", "Klosterneuburg: Details", "BooleanDifference, Pipe, OffsetSrf, ArrayPolar", 1, 4),
+            Project("klosterneuburg-structure", "Klosterneuburg: Structure", "ArrayCrv, Contour, Intersect, Sweep1", 5, 8),
+            Project("klosterneuburg-surfaces", "Klosterneuburg: Surfaces", "Sweep2, FlowAlongSrf, Loft, NetworkSrf", 9, 12),
         };
 
         public static int IndexOf(string lessonId)
@@ -142,6 +160,24 @@ namespace RhinoGotchi.Lessons
         }
 
         /// <summary>
+        /// A project lesson built on the Klosterneuburg model: for each tutorial, a quiz card on its
+        /// command (when the command has a quiz icon), the core card, then the challenge card.
+        /// </summary>
+        private static Lesson Project(string id, string title, string subtitle, int first, int last)
+        {
+            var lesson = new Lesson { Id = id, Title = title, Subtitle = subtitle, IsProject = true };
+            foreach (var core in Tutorials.TutorialCatalog.Cores.Where(t => t.Number >= first && t.Number <= last))
+            {
+                if (LookAlikes.TryGetValue(core.MainCommand, out string[]? alike))
+                    lesson.Steps.Add(Quiz(core.MainCommand, alike));
+                lesson.Steps.Add(new TutorialBuildStep(core));
+                if (Tutorials.TutorialCatalog.ChallengeOf(core) is Tutorials.Tutorial challenge)
+                    lesson.Steps.Add(new TutorialBuildStep(challenge));
+            }
+            return lesson;
+        }
+
+        /// <summary>
         /// The placement test: the first two quiz questions of every level, easiest
         /// level first. Each question's <see cref="LessonStep.Tier"/> is its level.
         /// </summary>
@@ -150,6 +186,8 @@ namespace RhinoGotchi.Lessons
             var test = new Lesson { Id = "placement", Title = "Placement test" };
             for (int tier = 0; tier < All.Count; tier++)
             {
+                if (All[tier].IsProject)
+                    continue;
                 foreach (IconQuizStep q in All[tier].Steps.OfType<IconQuizStep>().Take(2))
                 {
                     var copy = new IconQuizStep { Command = q.Command, Kind = q.Kind, Prompt = q.Prompt, Tier = tier, Xp = 0 };

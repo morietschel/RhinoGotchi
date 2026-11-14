@@ -54,5 +54,26 @@ namespace RhinoGotchi.Levels
 
         /// <summary>One hint per step, given out in order by GotchiLevel > Hint.</summary>
         public List<string> Hints { get; } = new List<string>();
+
+        /// <summary>
+        /// Points the player should click, drawn as yellow numbered dots with a label while the level
+        /// runs (e.g. "1 centre"). Display only; put a locked point in the document under each one
+        /// if the player needs to snap to it.
+        /// </summary>
+        public List<ClickMark> ClickMarks { get; } = new List<ClickMark>();
+    }
+
+    /// <summary>A point to click, with a short label.</summary>
+    public sealed class ClickMark
+    {
+        public ClickMark(string label, Point3d at)
+        {
+            Label = label;
+            At = at;
+        }
+
+        public string Label { get; }
+
+        public Point3d At { get; }
     }
 }

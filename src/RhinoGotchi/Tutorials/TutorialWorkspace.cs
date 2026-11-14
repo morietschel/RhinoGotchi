@@ -35,6 +35,7 @@ namespace RhinoGotchi.Tutorials
         private readonly ReferenceFingerprint _fingerprint;
         private int _previousLayer = -1;
         private bool _settingUp;
+        private (bool On, Rhino.ApplicationSettings.OsnapModes Modes)? _savedSnaps;
 
         private TutorialWorkspace(RhinoDoc doc, Tutorial tutorial)
         {
@@ -68,6 +69,7 @@ namespace RhinoGotchi.Tutorials
             Current?.Close();
             var workspace = new TutorialWorkspace(doc, tutorial);
             workspace.EnsureLayers();
+            workspace.TurnOnSnaps();
             Current = workspace;
             return workspace;
         }
@@ -116,8 +118,11 @@ namespace RhinoGotchi.Tutorials
             return InputIds;
         }
 
-        /// <summary>Adds one object to the Input layer. Only allowed while <see cref="SetUp"/> runs.</summary>
-        internal Guid AddInput(GeometryBase geometry, string? name)
+        /// <summary>
+        /// Adds one object to the Input layer. Only allowed while <see cref="SetUp"/> runs. A locked
+        /// object can be snapped to but not picked: used for the guide points under click marks.
+        /// </summary>
+        internal Guid AddInput(GeometryBase geometry, string? name, bool locked)
         {
             if (!_settingUp)
                 throw new InvalidOperationException("Input geometry can only be added during set-up.");
@@ -125,6 +130,8 @@ namespace RhinoGotchi.Tutorials
             var attributes = new ObjectAttributes { LayerIndex = InputLayer };
             if (!string.IsNullOrEmpty(name))
                 attributes.Name = name;
+            if (locked)
+                attributes.Mode = ObjectMode.Locked;
             Guid id = Doc.Objects.Add(geometry, attributes);
             if (id != Guid.Empty)
                 InputIds.Add(id);
@@ -182,7 +189,14 @@ namespace RhinoGotchi.Tutorials
             int deleted;
             try
             {
-                deleted = Doc.Objects.Delete(ids, true);
+                // ignoreModes: the locked snap guides go too.
+                deleted = 0;
+                foreach (Guid id in ids)
+                {
+                    RhinoObject? obj = Doc.Objects.FindId(id);
+                    if (obj != null && Doc.Objects.Delete(obj, true, true))
+                        deleted++;
+                }
             }
             finally
             {
@@ -201,6 +215,7 @@ namespace RhinoGotchi.Tutorials
         public List<string> Close()
         {
             Restore();
+            RestoreSnaps();
             if (Current == this)
                 Current = null;
 
@@ -209,6 +224,38 @@ namespace RhinoGotchi.Tutorials
                 RhinoApp.WriteLine("[RhinoGotchi] Warning: the original model changed during the tutorial ({0}). Use Undo if that wasn't intended.",
                     string.Join("; ", changes));
             return changes;
+        }
+
+        // Point and End snaps on while a card runs (FinGotchi does the same), put back afterwards.
+        private void TurnOnSnaps()
+        {
+            try
+            {
+                _savedSnaps = (Rhino.ApplicationSettings.ModelAidSettings.Osnap, Rhino.ApplicationSettings.ModelAidSettings.OsnapModes);
+                Rhino.ApplicationSettings.ModelAidSettings.Osnap = true;
+                Rhino.ApplicationSettings.ModelAidSettings.OsnapModes |=
+                    Rhino.ApplicationSettings.OsnapModes.Point | Rhino.ApplicationSettings.OsnapModes.End;
+            }
+            catch (Exception ex)
+            {
+                RhinoApp.WriteLine("[RhinoGotchi] Couldn't turn on object snaps ({0}).", ex.Message);
+            }
+        }
+
+        private void RestoreSnaps()
+        {
+            if (_savedSnaps == null)
+                return;
+            try
+            {
+                Rhino.ApplicationSettings.ModelAidSettings.OsnapModes = _savedSnaps.Value.Modes;
+                Rhino.ApplicationSettings.ModelAidSettings.Osnap = _savedSnaps.Value.On;
+            }
+            catch (Exception ex)
+            {
+                RhinoApp.WriteLine("[RhinoGotchi] Couldn't restore object snaps ({0}).", ex.Message);
+            }
+            _savedSnaps = null;
         }
 
         /// <summary>What changed in the original model since the workspace opened (empty when nothing did).</summary>

@@ -7,71 +7,77 @@ using RhinoGotchi.Levels;
 namespace RhinoGotchi.Tutorials
 {
     /// <summary>
-    /// One mini tutorial built on the open Klosterneuburg model: one building element,
-    /// one main Rhino command. Text is written for beginners; learners use Rhino
-    /// commands only (no scripts, no Grasshopper).
+    /// One tutorial card built on the Klosterneuburg model, played like FinGotchi: a headline, one
+    /// short line, at most three steps, a Run button that starts the command with the right objects
+    /// already picked, yellow click marks in the viewport, and a live check list.
+    /// Each of the twelve tutorials has a core card (input prepared, one command) and a challenge
+    /// card (the learner prepares the input too).
     /// </summary>
     public sealed class Tutorial
     {
-        /// <summary>Stable id, also used as the level id and the progress key, e.g. "tut-01-loft".</summary>
+        /// <summary>Stable id, also the level id and the progress key, e.g. "tut-01-booleandifference" (+ "-challenge").</summary>
         public string Id { get; set; } = "";
 
-        /// <summary>1-based position in the series. Also names the layer: "RhinoGotchi Tutorials::01 Loft".</summary>
+        /// <summary>1–12, easiest first. Also names the layer: "RhinoGotchi Tutorials::01 BooleanDifference".</summary>
         public int Number { get; set; }
 
-        /// <summary>The part of the series: "A" to "E".</summary>
-        public string Part { get; set; } = "";
+        /// <summary>False: the core card. True: the harder challenge card of the same tutorial.</summary>
+        public bool IsChallenge { get; set; }
 
-        /// <summary>The part's heading, e.g. "Roof surface".</summary>
-        public string PartTitle { get; set; } = "";
-
-        /// <summary>What the learner sees, e.g. "Undulating roof".</summary>
+        /// <summary>The headline, e.g. "Drill the steel plate."</summary>
         public string Title { get; set; } = "";
 
-        /// <summary>The command the tutorial is about, by English name, e.g. "Loft".</summary>
+        /// <summary>One short line under the headline.</summary>
+        public string Intro { get; set; } = "";
+
+        /// <summary>The command the card teaches, by English name, e.g. "BooleanDifference".</summary>
         public string MainCommand { get; set; } = "";
 
-        /// <summary>Commands used along the way, e.g. "Rebuild" in the NetworkSrf tutorial.</summary>
+        /// <summary>Other commands the card uses (challenge cards mostly).</summary>
         public List<string> SupportingCommands { get; } = new List<string>();
 
-        /// <summary>The building element it covers, e.g. "Wavy roof patch".</summary>
+        /// <summary>The building element, e.g. "Bolted steel plate".</summary>
         public string Element { get; set; } = "";
 
         /// <summary>
-        /// Where the reference geometry lives in the Klosterneuburg model, as the end of a
-        /// layer full path, e.g. "00.3 ROOF::00.3.1 BASE SRF::Roof". A layer matches when its
-        /// full path ends with the fragment, or when it is a sublayer of a layer that does.
-        /// Match with ordinal comparison: the names contain ä, ü and ß.
+        /// Where the reference geometry lives in the model, as the end of a layer full path. A layer
+        /// matches when its full path ends with the fragment, or is a sublayer of one that does.
         /// </summary>
         public List<string> ReferenceLayers { get; } = new List<string>();
 
-        public string Goal { get; set; } = "";
-
-        /// <summary>What has to exist before the learner starts (made by Set up or by the learner).</summary>
-        public string InputGeometry { get; set; } = "";
-
+        /// <summary>At most three short steps.</summary>
         public List<TutorialStep> Steps { get; } = new List<TutorialStep>();
 
-        /// <summary>The command options worth explaining, one per entry.</summary>
-        public List<string> KeyOptions { get; } = new List<string>();
+        /// <summary>
+        /// The macro the Run button runs. "{Name}" is replaced by the id of the Input object with that
+        /// name, so "_SelID {Plate} _BooleanDifference" starts with the plate picked. Null: Run just
+        /// starts <see cref="MainCommand"/>.
+        /// </summary>
+        public string? RunMacro { get; set; }
 
-        /// <summary>Exactly two common mistakes.</summary>
-        public List<string> CommonMistakes { get; } = new List<string>();
+        /// <summary>The bonus-star goal, e.g. "Cap it into a closed solid", or null.</summary>
+        public string? BonusText { get; set; }
 
-        /// <summary>The simple check learners use to judge their result.</summary>
-        public string Check { get; set; } = "";
-
-        /// <summary>Every size that is not taken from the model, labelled "assumed" in the UI.</summary>
+        /// <summary>Every size not taken from the model.</summary>
         public List<AssumedDimension> AssumedDimensions { get; } = new List<AssumedDimension>();
 
-        /// <summary>Adds the tutorial's start geometry to its Input layer. Filled in later.</summary>
+        /// <summary>Adds the card's start geometry to its Input layer.</summary>
         public Action<TutorialContext>? SetUp { get; set; }
 
-        /// <summary>Builds the level that runs and checks this tutorial. Filled in later.</summary>
-        public Func<TutorialContext, Level>? CreateLevel { get; set; }
+        /// <summary>The points to click, drawn as yellow numbered marks (computed from the same context as the set-up).</summary>
+        public Func<TutorialContext, IEnumerable<ClickMark>>? Clicks { get; set; }
 
-        /// <summary>The root layer for this tutorial's own geometry.</summary>
-        public string LayerPath => $"{TutorialCatalog.RootLayer}::{Number:00} {MainCommand}";
+        /// <summary>See-through targets shown while the card runs, e.g. the real roof patch.</summary>
+        public Func<TutorialContext, IEnumerable<GeometryBase>>? Ghosts { get; set; }
+
+        /// <summary>The live check.</summary>
+        public Func<TutorialContext, ILevelEvaluator?>? Check { get; set; }
+
+        /// <summary>"TUTORIAL 3 OF 12" or "CHALLENGE 3 OF 12".</summary>
+        public string Kicker => $"{(IsChallenge ? "CHALLENGE" : "TUTORIAL")} {Number} OF {TutorialCatalog.Count}";
+
+        /// <summary>The root layer for this card's geometry.</summary>
+        public string LayerPath => $"{TutorialCatalog.RootLayer}::{Number:00} {MainCommand}{(IsChallenge ? " challenge" : "")}";
 
         public IEnumerable<string> AllCommands
         {
@@ -84,7 +90,7 @@ namespace RhinoGotchi.Tutorials
         }
     }
 
-    /// <summary>One numbered modelling step.</summary>
+    /// <summary>One numbered step.</summary>
     public sealed class TutorialStep
     {
         public TutorialStep(string text, string? command = null, string? viewHint = null)
@@ -96,10 +102,10 @@ namespace RhinoGotchi.Tutorials
 
         public string Text { get; }
 
-        /// <summary>A command the step's Try button runs, or null.</summary>
+        /// <summary>A command the step uses, or null.</summary>
         public string? Command { get; }
 
-        /// <summary>Which viewport to look in, e.g. "Top" or "Perspective", or null.</summary>
+        /// <summary>Which viewport to look in, e.g. "Top", or null.</summary>
         public string? ViewHint { get; }
     }
 
@@ -122,7 +128,7 @@ namespace RhinoGotchi.Tutorials
         public override string ToString() => FormattableString.Invariant($"{Name}: {Value} {Unit} (assumed: {Why})");
     }
 
-    /// <summary>What a tutorial's set-up and level factory get to work with.</summary>
+    /// <summary>What a card's set-up, click marks and check get to work with.</summary>
     public sealed class TutorialContext
     {
         internal TutorialContext(TutorialWorkspace workspace, ReferenceModel? reference)
@@ -142,7 +148,10 @@ namespace RhinoGotchi.Tutorials
 
         public bool IsStandalone => Reference == null;
 
-        /// <summary>Adds start geometry to the tutorial's Input layer. Only valid during set-up.</summary>
-        public Guid AddInput(GeometryBase geometry, string? name = null) => Workspace.AddInput(geometry, name);
+        /// <summary>Adds start geometry to the card's Input layer. Only valid during set-up.</summary>
+        public Guid AddInput(GeometryBase geometry, string? name = null) => Workspace.AddInput(geometry, name, false);
+
+        /// <summary>Adds a locked snap guide (e.g. a point under a click mark) to the Input layer. Only valid during set-up.</summary>
+        public Guid AddGuide(GeometryBase geometry, string? name = null) => Workspace.AddInput(geometry, name, true);
     }
 }

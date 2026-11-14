@@ -45,10 +45,20 @@ namespace RhinoGotchi.Lessons
             ["ExtrudeSrf"] = "ExtrudeSrf pushes a surface straight out into a solid.",
         };
 
+        // Tips for commands the tutorials teach that have no quiz icon (so they never appear as quiz answers).
+        private static readonly Dictionary<string, string> MoreTips = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["ArrayCrv"] = "ArrayCrv copies objects evenly along a curve.",
+            ["Intersect"] = "Intersect makes curves (or points) where objects cross each other.",
+            ["FlowAlongSrf"] = "FlowAlongSrf bends objects from a flat base surface onto a curved target surface.",
+        };
+
         /// <summary>Every command that has an icon, so it can be a quiz answer.</summary>
         public static IEnumerable<string> All => Tips.Keys;
 
         public static string Tip(string command) =>
-            Tips.TryGetValue(command, out string? tip) ? tip : command;
+            Tips.TryGetValue(command, out string? tip) ? tip
+            : MoreTips.TryGetValue(command, out string? more) ? more
+            : command;
     }
 }

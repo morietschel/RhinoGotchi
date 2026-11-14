@@ -158,7 +158,7 @@ Type `Gotchi` to jump straight to it (or pick it on the Learning tab).
   plugin's settings, per user on this machine, so it survives a Rhino restart. A lesson
   is saved as soon as you reach its complete screen.
 
-Levels live in `src/RhinoGotchi/Lessons/LessonCatalog.cs` (10 levels): Curves,
+Levels live in `src/RhinoGotchi/Lessons/LessonCatalog.cs` (10 levels, plus 3 project levels below): Curves,
 Solids (includes the Box build level), Surfaces, Sweeps & Pipes, Editing Solids,
 Curve Tools, Transforms, Surface Tools, Advanced Solids, Mastery.
 
@@ -172,6 +172,44 @@ Three question types, from easy to hard:
 
 The placement test asks each level's first two questions, so it ramps from
 pick-the-icon to scenarios and shows an EASY / MEDIUM / HARD marker.
+
+### Project levels: Klosterneuburg
+
+Three project levels after Mastery teach twelve commands on a real building, the
+Klosterneuburg pavilion (`V18 P020 - Klosterneuburg_Final.3dm`, metres). They are open
+from the start, don't block the main path and aren't in the placement test.
+
+| Level | Tutorials, easiest first |
+| --- | --- |
+| Klosterneuburg: Details | 1 BooleanDifference (steel plate) · 2 Pipe (handrail) · 3 OffsetSrf (glass) · 4 ArrayPolar (beam setting-out) |
+| Klosterneuburg: Structure | 5 ArrayCrv (balustrade) · 6 Contour (roof slices) · 7 Intersect (rib profile) · 8 Sweep1 (edge beam) |
+| Klosterneuburg: Surfaces | 9 Sweep2 (ramp) · 10 FlowAlongSrf (joists) · 11 Loft (roof) · 12 NetworkSrf (roof) |
+
+Each tutorial is a quiz card on its command, then two build cards played like FinGotchi:
+
+- **Core card:** the input is prepared. A headline, one line, at most three steps, and a
+  yellow **RUN** button that starts the command with the right objects already picked
+  (e.g. `_SelID {Plate} _BooleanDifference`). Yellow numbered marks in the viewport show
+  where to click, with locked snap points under them; Point and End snaps are on while
+  the card runs.
+- **Challenge card:** the same element, but you prepare the input yourself (draw the
+  curves, model the joists, take the rail from the roof...).
+- **Live check:** after every command the card shows ✓/✗ per check with a hint on the
+  first failing one, a bonus star (e.g. "Cap it into a closed solid") and your misses (a
+  command that changed the model without solving the card; Undo, Redo and Delete don't
+  count). When every check passes the card is solved; it keeps running so you can still
+  earn the bonus, and ends when you press **CONTINUE**. **START OVER** clears the attempt.
+
+The original model is never changed: reference objects are found by layer path under
+`0_3DMODEL` and only copies are used, all tutorial geometry goes under
+`RhinoGotchi Tutorials::NN Command` (Input / Result / Checks), roof copies are lifted 4 m
+and detail work is built east of the building, and a fingerprint of the model is compared
+when a card ends. Without the model open, every card sets up a simplified stand-in.
+Numbers in tutorial text and feedback always use a decimal point (0.024, never 0,024).
+
+Code: `Tutorials/Content/Cards.cs` (the 24 cards), `Tutorials/Content/Shapes.cs`
+(geometry from the model), `Tutorials/Evaluators/CardChecks.cs` (the live checks),
+`Tutorials/TutorialLevels.cs` (set-up, Run), `UI/LessonCanvas.Tutorial.cs` (the card).
 
 ## Debug in VS Code (Mac and Windows)
 

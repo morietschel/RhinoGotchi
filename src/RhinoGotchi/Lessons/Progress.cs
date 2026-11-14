@@ -71,8 +71,9 @@ namespace RhinoGotchi.Lessons
         {
             get
             {
+                // The main path only: project lessons are open from the start and don't block it.
                 for (int i = 0; i < LessonCatalog.All.Count; i++)
-                    if (!_completed.Contains(LessonCatalog.All[i].Id))
+                    if (!LessonCatalog.All[i].IsProject && !_completed.Contains(LessonCatalog.All[i].Id))
                         return i;
                 return -1;
             }
@@ -84,6 +85,8 @@ namespace RhinoGotchi.Lessons
         {
             if (_completed.Contains(LessonCatalog.All[levelIndex].Id))
                 return LevelState.Done;
+            if (LessonCatalog.All[levelIndex].IsProject)
+                return LevelState.Current; // project lessons can be played any time
             return levelIndex == CurrentLevel ? LevelState.Current : LevelState.Locked;
         }
 

@@ -18,6 +18,8 @@ namespace RhinoGotchi.Levels
     {
         private readonly GhostConduit _ghosts;
         private readonly ReferenceConduit _references = new ReferenceConduit();
+        private readonly ClickConduit _clicks;
+        private int _changesThisCommand;
         private bool _addingStartGeometry;
         private int _nextHint;
         private bool _announcedSolved;
@@ -26,7 +28,14 @@ namespace RhinoGotchi.Levels
         {
             Attempt = new LevelAttempt(doc, level);
             _ghosts = new GhostConduit(level.GhostGeometry);
+            _clicks = new ClickConduit(level.ClickMarks);
         }
+
+        /// <summary>
+        /// Commands that changed the model but didn't solve the level. Undo, Redo and Delete don't count,
+        /// and nothing counts once the level is solved.
+        /// </summary>
+        public int Misses { get; private set; }
 
         /// <summary>Raised once when the level stops (solved, quit, restarted or document closed).</summary>
         public event EventHandler? Stopped;
@@ -62,6 +71,7 @@ namespace RhinoGotchi.Levels
             runner.AddStartGeometry();
             runner.ShowReferences();
             runner._ghosts.Enabled = true;
+            runner._clicks.Enabled = level.ClickMarks.Count > 0;
             runner.Subscribe();
             Current = runner;
 
@@ -78,6 +88,7 @@ namespace RhinoGotchi.Levels
             Unsubscribe();
             _ghosts.Enabled = false;
             _references.Enabled = false;
+            _clicks.Enabled = false;
             if (Current == this)
                 Current = null;
             Attempt.Doc.Views.Redraw();
@@ -150,7 +161,7 @@ namespace RhinoGotchi.Levels
             if (result.Solved && !_announcedSolved)
             {
                 _announcedSolved = true;
-                RhinoApp.WriteLine("[RhinoGotchi] Your result passes the check. Finish the remaining steps if you like, then click Check my result (or GotchiLevel > Check).");
+                RhinoApp.WriteLine("[RhinoGotchi] Every check passes! Press CONTINUE in the RhinoGotchi panel, or keep going for the bonus star.");
             }
             else if (!result.Solved)
             {
@@ -231,6 +242,8 @@ namespace RhinoGotchi.Levels
             // Frame what the player works on (ghosts and start geometry). The highlighted reference
             // is often much bigger (the whole roof), so it only decides the view when there's nothing else.
             BoundingBox box = _ghosts.Bounds;
+            if (_clicks.Bounds.IsValid)
+                box.Union(_clicks.Bounds);
             foreach (Guid id in Attempt.StartObjectIds)
             {
                 RhinoObject? obj = Attempt.Doc.Objects.FindId(id);
@@ -280,12 +293,16 @@ namespace RhinoGotchi.Levels
             Guid id = e.ObjectId;
             if (!Attempt.StartObjectIds.Contains(id) && !Attempt.AddedObjectIds.Contains(id))
                 Attempt.AddedObjectIds.Add(id);
+            _changesThisCommand++;
         }
 
         private void OnDeleteObject(object? sender, RhinoObjectEventArgs e)
         {
             if (e.TheObject.Document == Attempt.Doc)
+            {
                 Attempt.AddedObjectIds.Remove(e.ObjectId);
+                _changesThisCommand++;
+            }
         }
 
         private void OnCloseDocument(object? sender, DocumentEventArgs e)
@@ -301,8 +318,23 @@ namespace RhinoGotchi.Levels
 
             Attempt.CommandsRun.Add(e.CommandEnglishName);
             Attempt.RefreshHistory();
+            bool changed = _changesThisCommand > 0;
+            _changesThisCommand = 0;
+            bool wasSolved = LastResult?.Solved == true;
             if (e.CommandResult == Result.Success)
                 EvaluateAfterCommand();
+
+            // A miss: the model changed but the level still isn't solved (FinGotchi's rule).
+            string name = e.CommandEnglishName;
+            bool neutral = name.Equals("Undo", StringComparison.OrdinalIgnoreCase) ||
+                           name.Equals("Redo", StringComparison.OrdinalIgnoreCase) ||
+                           name.Equals("Delete", StringComparison.OrdinalIgnoreCase);
+            if (changed && !neutral && !wasSolved && Current == this && LastResult?.Solved != true &&
+                e.CommandResult == Result.Success)
+            {
+                Misses++;
+                StateChanged?.Invoke(this);
+            }
         }
 
         private void Report(LevelResult result)

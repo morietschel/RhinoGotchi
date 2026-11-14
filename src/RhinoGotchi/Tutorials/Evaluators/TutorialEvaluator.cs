@@ -8,27 +8,25 @@ using RhinoGotchi.Levels;
 
 namespace RhinoGotchi.Tutorials.Evaluators
 {
-    /// <summary>What a tutorial's grading step returns before the shared rules are applied.</summary>
-    public sealed class Grade
+    /// <summary>What a card's check found: the ✓/✗ lines, and whether the bonus goal is met (null: no bonus).</summary>
+    public sealed class Outcome
     {
-        public Grade(double score, bool solved, string feedback)
+        public List<LevelCheck> Checks { get; } = new List<LevelCheck>();
+
+        public bool? Bonus { get; set; }
+
+        public Outcome Add(string label, bool pass, string? hint = null)
         {
-            Score = score;
-            Solved = solved;
-            Feedback = feedback;
+            Checks.Add(new LevelCheck(label, pass, pass ? null : hint));
+            return this;
         }
-
-        public double Score { get; }
-        public bool Solved { get; }
-        public string Feedback { get; }
-
-        public static Grade Nothing(string feedback) => new Grade(0, false, feedback);
     }
 
     /// <summary>
-    /// Base for the tutorial checks. Looks only at objects the learner added on the tutorial's own
-    /// layers (never the set-up objects, never the original model), turns the tutorial's Check into a score from
-    /// 0 to 1 with plain feedback, and halves the score when the main command wasn't used.
+    /// Base for the card checks, run after every command. Looks only at objects the learner added on
+    /// the card's own layers (never the set-up objects, never the original model) and turns them into
+    /// live ✓/✗ lines: the card is solved when every line passes. The score is the share of lines that
+    /// pass, halved when the card's command wasn't used. Numbers always print with a decimal point.
     /// </summary>
     public abstract class TutorialEvaluator : ILevelEvaluator
     {
@@ -47,34 +45,48 @@ namespace RhinoGotchi.Tutorials.Evaluators
             double tolerance = Math.Max(doc.ModelAbsoluteTolerance, 1e-6);
             List<RhinoObject> work = attempt.AddedObjects().Where(o => IsWorkLayer(doc, o.Attributes.LayerIndex)).ToList();
 
-            Grade grade;
+            Outcome outcome;
             try
             {
-                grade = Check(attempt, work, tolerance);
+                outcome = Check(attempt, work, tolerance);
             }
             catch (Exception ex)
             {
-                grade = Grade.Nothing($"Couldn't check this result ({ex.Message}).");
+                outcome = new Outcome().Add("Check your model", false, $"Couldn't check this result ({ex.Message}).");
             }
 
-            double score = Math.Max(0, Math.Min(1, grade.Score));
-            string feedback = grade.Feedback;
+            int total = Math.Max(1, outcome.Checks.Count);
+            int passed = outcome.Checks.Count(c => c.Pass);
+            bool solved = outcome.Checks.Count > 0 && passed == outcome.Checks.Count;
+            double score = passed / (double)total;
             bool used = attempt.CommandsRun.Any(c => string.Equals(c, Tutorial.MainCommand, StringComparison.OrdinalIgnoreCase));
+
+            string feedback = outcome.Checks.FirstOrDefault(c => !c.Pass)?.Hint
+                              ?? (solved ? "Every check passes." : "Keep going!");
             if (!used && score > 0)
             {
                 score *= 0.5;
-                feedback += $" Use the {Tutorial.MainCommand} command for full points.";
+                feedback += $" Use {Tutorial.MainCommand} for full points.";
             }
-            return new LevelResult { Solved = grade.Solved, Score = score, Feedback = feedback.Trim() };
+
+            var result = new LevelResult
+            {
+                Solved = solved,
+                Score = score,
+                Feedback = feedback,
+                BonusText = Tutorial.BonusText,
+                BonusEarned = Tutorial.BonusText != null && outcome.Bonus == true,
+            };
+            result.Checks.AddRange(outcome.Checks);
+            return result;
         }
 
-        /// <summary>Grades the learner's objects (already filtered to the tutorial's work layers).</summary>
-        protected abstract Grade Check(LevelAttempt attempt, List<RhinoObject> work, double tolerance);
+        /// <summary>Checks the learner's objects (already filtered to the card's layers).</summary>
+        protected abstract Outcome Check(LevelAttempt attempt, List<RhinoObject> work, double tolerance);
 
         /// <summary>
-        /// The tutorial's own layers, Input included: copy commands such as ArrayPolar and ArrayCrv
-        /// put their copies on the original's layer. The set-up objects themselves never count,
-        /// because they aren't in the attempt's added objects.
+        /// The card's own layers, Input included: copy commands such as ArrayPolar and ArrayCrv put
+        /// their copies on the original's layer. Set-up objects never count (they aren't "added").
         /// </summary>
         protected bool IsWorkLayer(RhinoDoc doc, int layerIndex)
         {
@@ -94,6 +106,9 @@ namespace RhinoGotchi.Tutorials.Evaluators
                     yield return obj.Geometry;
             }
         }
+
+        protected static int Count(LevelAttempt attempt, string command) =>
+            attempt.CommandsRun.Count(c => string.Equals(c, command, StringComparison.OrdinalIgnoreCase));
     }
 
     /// <summary>Small geometry measurements the checks share.</summary>
@@ -174,6 +189,6 @@ namespace RhinoGotchi.Tutorials.Evaluators
 
         public static double Volume(Brep brep) => Math.Abs(VolumeMassProperties.Compute(brep)?.Volume ?? 0);
 
-        public static string Metres(double value) => $"{value:0.000} m";
+        public static string M(double value) => $"{value:0.000} m";
     }
 }
