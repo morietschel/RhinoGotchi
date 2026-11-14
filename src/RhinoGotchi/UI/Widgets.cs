@@ -202,4 +202,41 @@ namespace RhinoGotchi.UI
             g.DrawText(_font, Theme.Darken(_color, 0.1f), 24, (Height - size.Height) / 2, _text);
         }
     }
+
+    /// <summary>A chunky rounded progress bar with a gloss stripe. Stretches to its parent's width.</summary>
+    internal sealed class ProgressBar : Drawable
+    {
+        private double _value;
+        private readonly Color _color;
+
+        public ProgressBar(double value, Color color)
+        {
+            _value = value;
+            _color = color;
+            Height = 16;
+            SizeChanged += (s, e) => Invalidate();
+        }
+
+        public double Value
+        {
+            get => _value;
+            set { _value = value; Invalidate(); }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            var p = Palette.Current;
+            g.AntiAlias = true;
+            float w = Width - 1, h = Height - 1, r = h / 2;
+            if (w <= h)
+                return;
+            g.FillPath(p.Track, GraphicsPath.GetRoundRect(new RectangleF(0, 0, w, h), r));
+            float fill = (float)(w * Math.Max(0, Math.Min(1, _value)));
+            if (fill < h)
+                return;
+            g.FillPath(_color, GraphicsPath.GetRoundRect(new RectangleF(0, 0, fill, h), r));
+            g.FillPath(Color.FromArgb(255, 255, 255, 70), GraphicsPath.GetRoundRect(new RectangleF(5, 3, Math.Max(0, fill - 10), 4), 2));
+        }
+    }
 }

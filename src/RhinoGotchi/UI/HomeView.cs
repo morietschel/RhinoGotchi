@@ -144,6 +144,8 @@ namespace RhinoGotchi.UI
                 () => _host.Navigate(new ShapeQuizView(_host, practice: false))));
             _tabContent.Items.Add(GameRow(Games.Deep, "Name the rarest command that built it", Glyph.Cube, 4,
                 () => _host.Navigate(new DeepCutView(_host, practice: false))));
+            _tabContent.Items.Add(GameRow(Games.Blocked, "Build it without the obvious command", Glyph.Ban, 2,
+                () => _host.Navigate(new BlockedView(_host, practice: false))));
 
             _tabContent.Items.Add(new SectionLabel("LEADERBOARD"));
             _tabContent.Items.Add(new ListRow(
