@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RhinoGotchi Tutorial</title>
+<title>RhinoOnTheStreet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Zilla+Slab:wght@600;700&family=Libre+Franklin:wght@400;600;700;800&display=swap">
 <style>
@@ -189,7 +189,7 @@ kbd{display:inline-block;font:700 11.5px 'JetBrains Mono',monospace;background:#
 
   <div id="title">
     <div style="display:flex;align-items:center;gap:8px;width:240px"><span class="logo">R</span><span style="color:#444">Rhino 8</span></div>
-    <div style="color:#333">RhinoGotchi_Tutorial.3dm (12 KB) – Rhino 8 Commercial</div>
+    <div style="color:#333">RhinoOnTheStreet.3dm (12 KB) – Rhino 8 Commercial</div>
     <div class="win" style="width:240px;justify-content:flex-end"><span>&#8212;</span><span>&#9633;</span><span>&#10005;</span></div>
   </div>
   <div id="menu"><span>File</span><span>Edit</span><span>View</span><span>Curve</span><span>Surface</span><span>SubD</span><span>Solid</span><span>Mesh</span><span>Dimension</span><span>Transform</span><span>Tools</span><span>Analyze</span><span>Render</span><span>Panels</span><span class="rg">RhinoGotchi</span><span>Help</span></div>
@@ -198,7 +198,7 @@ kbd{display:inline-block;font:700 11.5px 'JetBrains Mono',monospace;background:#
     <div id="cmdrow"><label id="prompt" for="cmd">Command:</label><input id="cmd" autocomplete="off" spellcheck="false" placeholder=""></div>
   </div>
   <div id="tabs"><span>Standard</span><span>CPlanes</span><span>Set View</span><span>Display</span><span>Select</span><span>Viewport Layout</span><span>Visibility</span><span>Transform</span><span>Curve Tools</span><span>Surface Tools</span><span>Solid Tools</span><span class="on">RhinoGotchi</span></div>
-  <div id="tools"><span class="lbl">LEARNING</span><span class="pill">&#127891; Tutorial · Street &amp; Arch</span><span class="sep"></span><span style="color:#555">Draw what the ghost shows. Red → Green → Blue.</span></div>
+  <div id="tools"><span class="lbl">LEARNING</span><span class="pill">&#127891; RhinoOnTheStreet</span><span class="sep"></span><span style="color:#555">Draw what the ghost shows. Red → Green → Blue.</span></div>
 
   <div id="main">
     <div id="left"></div>
@@ -237,7 +237,7 @@ kbd{display:inline-block;font:700 11.5px 'JetBrains Mono',monospace;background:#
     <aside id="side">
       <div id="sidetabs"><span>Properties</span><span>Layers</span><span>Display</span><span class="on">RhinoGotchi</span></div>
       <div id="sidebody">
-        <h1>Street &amp; Arch</h1>
+        <h1>RhinoOnTheStreet</h1>
         <div class="meta">Tutorial · 2 lessons · about 3 minutes</div>
         <div class="sect">LESSON PATH</div>
         <div id="lessons"></div>
@@ -410,7 +410,7 @@ const LESSONS={1:L1,2:L2};
 const G={ phase:'boot', step:0, l1pts:[], streetDone:false, pave:0, lines:[], cur:[], arc:null, archT:0,
   missL:0, missTotal:0, flawless:true, busy:true, mouse:null, lastAct:performance.now(), sleeping:false,
   cam:{eye:CAM.aerial.eye.slice(),tgt:CAM.aerial.tgt.slice()}, tween:null, horizon:0, rhino:null, marks:[], done:{intro:false,1:false,2:false,fin:false},
-  t0:performance.now(), tEnd:null, timers:[], history:['RhinoGotchi loaded · tutorial “Street & Arch”','Viewport layout: 4 viewports'] };
+  t0:performance.now(), tEnd:null, timers:[], history:['RhinoGotchi loaded · tutorial “RhinoOnTheStreet”','Viewport layout: 4 viewports'] };
 const $=id=>document.getElementById(id);
 const stage=$('stage'), fitEl=$('fit'), scene=$('scene'), sg=$('sg');
 let POPW=1178, POPH=744;
