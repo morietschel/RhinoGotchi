@@ -17,6 +17,11 @@ namespace RhinoGotchi
         /// <summary>The only instance of this plugin.</summary>
         public static RhinoGotchiPlugin? Instance { get; private set; }
 
+        // Load with Rhino instead of on first use. A load-on-demand plugin is only known
+        // through the command list Rhino cached last session, so newly added commands
+        // (like GotchiLevel) are "unknown" until the plugin happens to load.
+        public override PlugInLoadTime LoadTime => PlugInLoadTime.AtStartup;
+
         protected override LoadReturnCode OnLoad(ref string errorMessage)
         {
             RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}).");
