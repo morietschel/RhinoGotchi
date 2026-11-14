@@ -141,9 +141,34 @@ namespace RhinoGotchi.UI
             else if (Eto.Platform.Instance.IsWpf || Eto.Platform.Instance.IsWinForms)
                 width -= WindowsScrollBar; // leave room for the bar that appears when the page gets taller
             width = Math.Max(MinPageWidth, width);
-            if (_view.Width != width)
-                _view.Width = width;
+            int current = _view.Width;
+            if (current == width)
+                return;
+
+            // Responsive grids (Theme.Grid / Theme.Wrap) follow the page: when it gets narrower they collapse
+            // first so they can't hold it wide, then lay out for the real width once the resize has settled.
+            if (_view is Container page)
+            {
+                var responsive = page.Children.OfType<IResponsive>().ToList();
+                if (current <= 0 || width < current)
+                    foreach (var r in responsive)
+                        r.Collapse();
+                if (responsive.Count > 0 && !_reflowQueued)
+                {
+                    _reflowQueued = true;
+                    Application.Instance.AsyncInvoke(() =>
+                    {
+                        _reflowQueued = false;
+                        if (_view is Container now)
+                            foreach (var r in now.Children.OfType<IResponsive>().ToList())
+                                r.Reflow();
+                    });
+                }
+            }
+            _view.Width = width;
         }
+
+        private bool _reflowQueued;
 
         private const int WindowsScrollBar = 18;
         private const int MinPageWidth = 160;

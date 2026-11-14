@@ -87,19 +87,24 @@ namespace RhinoGotchi.UI
         public static FlowRow Row(params Control[] controls) => new FlowRow(controls);
 
         /// <summary>Lays controls out left to right, wrapping every <paramref name="columns"/>.</summary>
-        public static TableLayout Grid(int columns, params Control[] controls)
+        /// <summary>
+        /// A grid of up to <paramref name="columns"/> equal columns that drops to fewer columns when the
+        /// panel is squished, so its buttons never push the page wider than the panel.
+        /// </summary>
+        public static Flow Grid(int columns, params Control[] controls) => new Flow(controls, columns, stretch: true);
+
+        /// <summary>Like <see cref="Grid(int, Control[])"/>, but a column never gets narrower than <paramref name="minCell"/>.</summary>
+        public static Flow Grid(int columns, int minCell, params Control[] controls) => new Flow(controls, columns, stretch: true, minCell: minCell, gap: 10);
+
+        /// <summary>Small items (pills) in a line that wraps onto the next line when it runs out of room.</summary>
+        public static Flow Wrap(params Control[] controls) => new Flow(controls, int.MaxValue, stretch: false);
+
+        /// <summary>A full-width item, e.g. a single button under a card.</summary>
+        public static StackLayoutItem Wide(Control control)
         {
-            var table = new TableLayout { Spacing = new Size(6, 6) };
-            for (int i = 0; i < controls.Length; i += columns)
-            {
-                var row = new TableRow();
-                for (int j = i; j < Math.Min(i + columns, controls.Length); j++)
-                    row.Cells.Add(new TableCell(controls[j], true));
-                for (int j = controls.Length; j < i + columns; j++)
-                    row.Cells.Add(new TableCell(null, true));
-                table.Rows.Add(row);
-            }
-            return table;
+            if (control is ChunkyButton b)
+                b.Fill = true;
+            return new StackLayoutItem(control, HorizontalAlignment.Stretch);
         }
 
         /// <summary>"Try it in Rhino" and "Help page" buttons for a command.</summary>

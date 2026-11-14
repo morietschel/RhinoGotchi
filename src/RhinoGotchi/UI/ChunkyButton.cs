@@ -92,11 +92,22 @@ namespace RhinoGotchi.UI
         }
 
         /// <summary>Wide enough for the text; layouts that stretch can make it wider.</summary>
-        private void UpdateWidth()
+        private bool _fill;
+
+        /// <summary>The width that shows the whole label.</summary>
+        public int NaturalWidth => (int)Math.Ceiling(_font.MeasureString(_text).Width) + 28;
+
+        /// <summary>
+        /// When true the button has no width of its own and takes whatever its layout gives it
+        /// (stretching grids and full-width buttons); the label is ellipsized if it doesn't fit.
+        /// </summary>
+        public bool Fill
         {
-            float textWidth = _font.MeasureString(_text).Width;
-            Width = (int)Math.Ceiling(textWidth) + 28;
+            get => _fill;
+            set { _fill = value; UpdateWidth(); }
         }
+
+        private void UpdateWidth() => Width = _fill ? -1 : NaturalWidth;
 
         protected override void OnPaint(PaintEventArgs e)
         {
