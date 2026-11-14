@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Rhino;
 using Rhino.PlugIns;
@@ -21,13 +22,46 @@ namespace RhinoGotchi.Lessons
     {
         private const string CompletedKey = "progress.completed";
         private const string PlacementKey = "progress.placementDone";
+        private const string PlacementTakenKey = "progress.placementTaken";
         private const string XpKey = "progress.totalXp";
+        private const string PerfectKey = "progress.perfectLessons";
+        private const string CorrectKey = "progress.correctAnswers";
+        private const string StreakKey = "progress.streak";
+        private const string BestStreakKey = "progress.bestStreak";
+        private const string LastDayKey = "progress.lastActiveDay";
+        private const string HatKey = "pet.hat";
 
         private readonly HashSet<string> _completed = new HashSet<string>();
+        private int _streak;
+        private string _lastDay = "";
 
+        /// <summary>Today's date. Replaceable so tests can move through days.</summary>
+        public static Func<DateTime> Clock { get; set; } = () => DateTime.Today;
+
+        /// <summary>The player made the first-run choice (scratch or test), so the welcome screen is skipped.</summary>
         public bool PlacementDone { get; private set; }
 
+        /// <summary>The placement test was actually finished at least once.</summary>
+        public bool PlacementTaken { get; private set; }
+
         public int TotalXp { get; private set; }
+
+        /// <summary>Lessons finished without a single mistake.</summary>
+        public int PerfectLessons { get; private set; }
+
+        /// <summary>Questions answered right on the first try, in lessons and the placement test.</summary>
+        public int CorrectAnswers { get; private set; }
+
+        public int BestStreak { get; private set; }
+
+        /// <summary>Days in a row with a finished lesson or test. Zero once a day is skipped.</summary>
+        public int Streak => _lastDay == DayKey(Clock()) || _lastDay == DayKey(Clock().AddDays(-1)) ? _streak : 0;
+
+        /// <summary>True if a lesson or test was finished today.</summary>
+        public bool ActiveToday => _lastDay == DayKey(Clock());
+
+        /// <summary>The hat Gotchi is wearing.</summary>
+        public Hat EquippedHat { get; private set; }
 
         /// <summary>True for a brand-new player: show the welcome screen instead of the map.</summary>
         public bool IsNew => !PlacementDone && _completed.Count == 0;
@@ -53,11 +87,27 @@ namespace RhinoGotchi.Lessons
             return levelIndex == CurrentLevel ? LevelState.Current : LevelState.Locked;
         }
 
-        public void CompleteLesson(Lesson lesson, int xp)
+        /// <summary>The lesson side of the achievement stats. Daily-game numbers are added by the caller.</summary>
+        public AchievementStats Stats(int dailyWins = 0, int gameBestStreak = 0) => new AchievementStats
+        {
+            LevelsDone = DoneCount,
+            PlacementDone = PlacementTaken,
+            PerfectLessons = PerfectLessons,
+            CorrectAnswers = CorrectAnswers,
+            BestStreak = Math.Max(BestStreak, gameBestStreak),
+            DailyWins = dailyWins,
+            TotalXp = TotalXp,
+        };
+
+        public void CompleteLesson(Lesson lesson, int xp, int firstTryCorrect = 0, bool perfect = false)
         {
             if (LessonCatalog.IndexOf(lesson.Id) >= 0)
                 _completed.Add(lesson.Id);
             TotalXp += Math.Max(0, xp);
+            CorrectAnswers += Math.Max(0, firstTryCorrect);
+            if (perfect)
+                PerfectLessons++;
+            MarkActive();
             Save();
         }
 
@@ -65,11 +115,14 @@ namespace RhinoGotchi.Lessons
         /// Records a placement result: every level below <paramref name="placedLevel"/>
         /// counts as done. Levels already finished stay finished.
         /// </summary>
-        public void ApplyPlacement(int placedLevel)
+        public void ApplyPlacement(int placedLevel, int correctAnswers = 0)
         {
             for (int i = 0; i < Math.Min(placedLevel, LessonCatalog.All.Count); i++)
                 _completed.Add(LessonCatalog.All[i].Id);
             PlacementDone = true;
+            PlacementTaken = true;
+            CorrectAnswers += Math.Max(0, correctAnswers);
+            MarkActive();
             Save();
         }
 
@@ -79,6 +132,28 @@ namespace RhinoGotchi.Lessons
             Save();
         }
 
+        /// <summary>Puts a hat on Gotchi. Returns false (and changes nothing) if the hat is still locked.</summary>
+        public bool Wear(Hat hat, AchievementStats stats)
+        {
+            if (!Achievements.IsHatUnlocked(hat, stats))
+                return false;
+            EquippedHat = hat;
+            Save();
+            return true;
+        }
+
+        private void MarkActive()
+        {
+            string today = DayKey(Clock());
+            if (_lastDay == today)
+                return;
+            _streak = _lastDay == DayKey(Clock().AddDays(-1)) ? _streak + 1 : 1;
+            _lastDay = today;
+            BestStreak = Math.Max(BestStreak, _streak);
+        }
+
+        private static string DayKey(DateTime d) => d.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+
         public static Progress Load()
         {
             var p = new Progress();
@@ -86,7 +161,14 @@ namespace RhinoGotchi.Lessons
             if (s == null)
                 return p;
             p.PlacementDone = s.GetBool(PlacementKey, false);
+            p.PlacementTaken = s.GetBool(PlacementTakenKey, false);
             p.TotalXp = s.GetInteger(XpKey, 0);
+            p.PerfectLessons = s.GetInteger(PerfectKey, 0);
+            p.CorrectAnswers = s.GetInteger(CorrectKey, 0);
+            p._streak = s.GetInteger(StreakKey, 0);
+            p.BestStreak = s.GetInteger(BestStreakKey, 0);
+            p._lastDay = s.GetString(LastDayKey, "");
+            p.EquippedHat = Enum.TryParse(s.GetString(HatKey, nameof(Hat.None)), out Hat hat) ? hat : Hat.None;
             foreach (string id in s.GetStringList(CompletedKey, Array.Empty<string>()) ?? Array.Empty<string>())
                 p._completed.Add(id);
             return p;
@@ -98,7 +180,14 @@ namespace RhinoGotchi.Lessons
             if (s == null)
                 return;
             s.SetBool(PlacementKey, PlacementDone);
+            s.SetBool(PlacementTakenKey, PlacementTaken);
             s.SetInteger(XpKey, TotalXp);
+            s.SetInteger(PerfectKey, PerfectLessons);
+            s.SetInteger(CorrectKey, CorrectAnswers);
+            s.SetInteger(StreakKey, _streak);
+            s.SetInteger(BestStreakKey, BestStreak);
+            s.SetString(LastDayKey, _lastDay);
+            s.SetString(HatKey, EquippedHat.ToString());
             s.SetStringList(CompletedKey, _completed.ToArray());
             try
             {

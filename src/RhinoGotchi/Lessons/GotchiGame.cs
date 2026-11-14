@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace RhinoGotchi.Lessons
 {
@@ -27,6 +28,27 @@ namespace RhinoGotchi.Lessons
         {
             Progress = progress;
             Mode = progress.IsNew ? GameMode.Welcome : GameMode.Map;
+            StatsProvider = () => Progress.Stats();
+        }
+
+        /// <summary>
+        /// Builds the achievement stats. The panel replaces it to add the daily games' numbers;
+        /// the default only knows about lessons.
+        /// </summary>
+        public Func<AchievementStats> StatsProvider { get; set; }
+
+        /// <summary>Achievements unlocked by the lesson or test that just ended (shown on its result screen).</summary>
+        public List<Achievement> NewUnlocks { get; private set; } = new List<Achievement>();
+
+        public AchievementStats Stats => StatsProvider();
+
+        /// <summary>Puts on a hat if it is unlocked. Returns false for a locked hat.</summary>
+        public bool Wear(Hat hat)
+        {
+            bool ok = Progress.Wear(hat, Stats);
+            if (ok)
+                Raise();
+            return ok;
         }
 
         /// <summary>Raised whenever anything the panel draws has changed.</summary>
@@ -44,6 +66,8 @@ namespace RhinoGotchi.Lessons
 
         /// <summary>Set after a placement test: the level the player landed on.</summary>
         public int PlacedLevel { get; private set; }
+
+        private bool _saved;
 
         public void StartFromScratch()
         {
@@ -82,12 +106,23 @@ namespace RhinoGotchi.Lessons
             Raise();
         }
 
-        /// <summary>Called from the "lesson complete" screen: saves the result and returns to the map.</summary>
+        /// <summary>Called from the "lesson complete" screen: makes sure the result is saved and returns to the map.</summary>
         public void FinishLesson()
         {
-            if (Session != null && !Session.IsPlacement && Session.Screen == SessionScreen.Complete)
-                Progress.CompleteLesson(Session.Lesson, Session.Xp);
+            SaveIfComplete();
             BackToMap();
+        }
+
+        /// <summary>Saves a finished lesson once, as soon as it reaches the Complete screen.</summary>
+        private void SaveIfComplete()
+        {
+            if (Session == null || Session.IsPlacement || Session.Screen != SessionScreen.Complete || _saved)
+                return;
+            _saved = true;
+            var before = Stats;
+            bool perfect = Session.QuizzesAsked > 0 && Session.FirstTryCorrect == Session.QuizzesAsked;
+            Progress.CompleteLesson(Session.Lesson, Session.Xp, Session.FirstTryCorrect, perfect);
+            NewUnlocks = Achievements.NewlyUnlocked(before, Stats);
         }
 
         private void Play(LessonSession session, int levelIndex)
@@ -95,6 +130,8 @@ namespace RhinoGotchi.Lessons
             EndSession();
             Session = session;
             PlayingLevel = levelIndex;
+            NewUnlocks = new List<Achievement>();
+            _saved = false;
             Session.Changed += OnSessionChanged;
             Mode = GameMode.Playing;
             Session.Begin();
@@ -106,10 +143,13 @@ namespace RhinoGotchi.Lessons
             if (Session != null && Session.IsPlacement && Session.Screen == SessionScreen.Complete)
             {
                 PlacedLevel = Math.Min(Session.PlacedLevel, LessonCatalog.All.Count);
-                Progress.ApplyPlacement(PlacedLevel);
+                var before = Stats;
+                Progress.ApplyPlacement(PlacedLevel, Session.FirstTryCorrect);
+                NewUnlocks = Achievements.NewlyUnlocked(before, Stats);
                 EndSession();
                 Mode = GameMode.PlacementResult;
             }
+            SaveIfComplete();
             Raise();
         }
 

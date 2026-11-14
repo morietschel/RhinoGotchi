@@ -125,26 +125,25 @@ namespace RhinoGotchi.UI
             var p = Palette.Current;
             g.AntiAlias = true;
 
-            float w = Width - 1, h = Height - 5;
-            g.FillPath(p.Track, GraphicsPath.GetRoundRect(new RectangleF(0, 0, w, h), h / 2));
+            // Gray track; the selected tab is a white chunky key sitting in it.
+            float w = Width - 1, h = Height - 2;
+            g.FillPath(p.Track, GraphicsPath.GetRoundRect(new RectangleF(0, 0, w, h), 14));
             float seg = w / _tabs.Length;
             for (int i = 0; i < _tabs.Length; i++)
             {
-                var (text, glyph, color) = _tabs[i];
-                var rect = new RectangleF(i * seg + 4, 4, seg - 8, h - 8);
+                var (text, glyph, _) = _tabs[i];
+                var rect = new RectangleF(i * seg + 4, 4, seg - 8, h - 11);
                 bool on = i == _selected;
                 if (on)
                 {
-                    g.FillPath(Theme.Darken(color, 0.15f), GraphicsPath.GetRoundRect(new RectangleF(rect.X, rect.Y + 3, rect.Width, rect.Height), rect.Height / 2));
-                    g.FillPath(color, GraphicsPath.GetRoundRect(rect, rect.Height / 2));
-                    g.FillPath(Color.FromArgb(255, 255, 255, 45), GraphicsPath.GetRoundRect(new RectangleF(rect.X + 14, rect.Y + 4, rect.Width - 28, 5), 2.5f));
+                    Ui.Chunky(g, new RectangleF(rect.X, rect.Y, rect.Width, rect.Height + 3), 11, p.TileFace, p.Border, lip: 3, stroke: 1.5f);
                 }
                 else if (i == _hover)
                 {
-                    g.FillPath(p.TileHover, GraphicsPath.GetRoundRect(rect, rect.Height / 2));
+                    g.FillPath(Ui.Darken(p.Track, 0.03f), GraphicsPath.GetRoundRect(rect, 11));
                 }
 
-                var ink = on ? Colors.White : p.SubtleText;
+                var ink = on ? p.Text : p.SubtleText;
                 var size = _font.MeasureString(text);
                 float iconSize = 20, total = iconSize + 6 + size.Width;
                 float x0 = rect.X + (rect.Width - total) / 2;

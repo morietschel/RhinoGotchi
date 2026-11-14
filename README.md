@@ -72,19 +72,36 @@ Output:
 The plugin loads at startup and registers the **RhinoGotchi** panel. Type `RhinoGotchi` to open it,
 or open it from the panel tabs menu.
 
-## The lesson panel
+## One sidebar: Learning and Games
 
-Type `Gotchi` to open the RhinoGotchi panel.
+Everything lives in the single **RhinoGotchi** panel: clean black and white with a muted
+green for right answers, orange for selection and streaks, and Duolingo-style chunky
+buttons and cards. It follows Rhino's dark mode (the ink inverts) and reflows when the
+panel is resized; on a wide panel the lessons keep a centered column.
+
+- **Home:** Gotchi's card (it breathes, wears its hat, and naps when you haven't played
+  today; tap it to make it hop), with chips for your streak, hats and questions solved.
+  Below it, two tabs: **Learning** (Learning Campaign, Command Library, Recipes, tip of
+  the day) and **Games** (the daily puzzles).
+- **Bottom bar:** Home · Trophies · Stats.
+- **Trophies:** 9 achievements, each unlocking a hat (hard hat, beret, grad cap, flame,
+  cowboy, propeller, tree, wizard, crown). Tap an unlocked hat in the wardrobe to wear it.
+  New unlocks appear on the lesson-complete screen with a **Wear it** button.
+
+## The Learning Campaign
+
+Type `Gotchi` to jump straight to it (or pick it on the Learning tab).
 
 - **First run:** pick *Start from scratch* (Level 1) or *Find my level*, a
   placement test with 2 questions per level (up to 20), easiest first. It stops at the
   first miss, and that question's level is where you start. Every level below it
   is marked done.
-- **Home (level map):** shows *Your level*, total XP, and a path of levels:
-  done (gold), current (green) and locked (gray). Done and current levels can be
-  played; you can retake the placement test any time.
-- **Progress** (finished levels, XP, placement taken) is saved in the plugin's
-  settings, per user on this machine, so it survives a Rhino restart.
+- **Level map:** shows *Your level*, total XP, and a path of levels:
+  done (green), current (orange) and locked (gray). Done and current levels can be
+  played; you can retake the placement test or go back to the start screen any time.
+- **Progress** (finished levels, XP, placement taken, streak, hats) is saved in the
+  plugin's settings, per user on this machine, so it survives a Rhino restart. A lesson
+  is saved as soon as you reach its complete screen.
 
 Levels live in `src/RhinoGotchi/Lessons/LessonCatalog.cs` (10 levels): Curves,
 Solids (includes the Box build level), Surfaces, Sweeps & Pipes, Editing Solids,
@@ -132,11 +149,15 @@ src/RhinoGotchi/
   RhinoGotchi.csproj        multi-target net7.0;net48, outputs .rhp
   RhinoGotchiPlugin.cs      the PlugIn class: loads at startup, registers the panel
   RhinoGotchiCommand.cs     RhinoGotchi command: opens the panel
+  GotchiCommand.cs          Gotchi command: opens the panel on the Learning Campaign
   Resources/RhinoGotchi.svg panel tab icon (embedded resource)
   Core/                     daily seeding, saved stats, run-command/help actions
   Content/                  game data, Command Library catalog and demos, tips
   Display/ShapePreview.cs   display conduit that draws What Made This? rounds
-  UI/                       Eto panel, home page, What Made This? game, stats
+  Lessons/                  Learning Campaign logic (UI-free): levels, sessions, progress, achievements
+  Levels/                   viewport build levels (ghost overlay, auto-evaluate)
+  UI/                       Eto panel: Palette (colors), Mascot (Gotchi + hats), home, lessons,
+                            trophies, What Made This?, Build Order, Command Library, stats
   Properties/AssemblyInfo.cs   plugin GUID + Plug-in Manager info
   Properties/launchSettings.json
 .vscode/                    launch.json (F5 into Rhino), tasks.json (builds)

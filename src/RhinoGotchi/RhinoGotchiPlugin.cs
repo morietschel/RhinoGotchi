@@ -38,15 +38,7 @@ namespace RhinoGotchi
                 IconResource,
                 PanelType.System);
 
-            Panels.RegisterPanel(
-                this,
-                typeof(GotchiPanel),
-                "Gotchi Lessons",
-                typeof(RhinoGotchiPlugin).Assembly,
-                "RhinoGotchi.Resources.GotchiPanel.svg",
-                PanelType.System);
-
-            RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}). Type RhinoGotchi for the games panel, or Gotchi for the lesson panel.");
+            RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}). Type RhinoGotchi to open the panel, or Gotchi to jump to the Learning Campaign.");
             return LoadReturnCode.Success;
         }
 

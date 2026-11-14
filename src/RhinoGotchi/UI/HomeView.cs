@@ -4,224 +4,180 @@ using Eto.Drawing;
 using Eto.Forms;
 using RhinoGotchi.Content;
 using RhinoGotchi.Core;
+using RhinoGotchi.Lessons;
 
 namespace RhinoGotchi.UI
 {
     /// <summary>
-    /// The panel's start page: the mascot, then two tabs. Games has today's puzzles and stats;
-    /// Learning has the tip of the day and the Command Library topics.
+    /// The panel's start page: title and date, Gotchi's card (streak, hats, solved), then two tabs.
+    /// Learning has the Learning Campaign, the Command Library, recipes and the tip of the day;
+    /// Games has today's daily puzzles. Everything stretches with the panel.
     /// </summary>
-    internal sealed class HomeView : StackLayout
+    internal sealed class HomeView : StackLayout, INavPage
     {
         /// <summary>Remembered so coming back from a game or the Library returns to the same tab.</summary>
         private static int _lastTab;
 
         private readonly RhinoGotchiPanel _host;
-        private readonly MascotHeader _mascot = new MascotHeader("");
-        private readonly Panel _tabContent = new Panel();
+        private readonly PetCard _pet = new PetCard();
+        private readonly StackLayout _tabContent = new StackLayout { Spacing = 8, HorizontalContentAlignment = HorizontalAlignment.Stretch };
         private int _tip = Tips.TodayIndex;
 
         public HomeView(RhinoGotchiPanel host)
         {
             _host = host;
-            Padding = 14;
+            Padding = new Padding(16, 12, 16, 16);
             Spacing = 12;
             HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
             var p = Palette.Current;
-            var tabs = new TabBar(_lastTab, ("Games", Glyph.Gamepad, p.Green), ("Learning", Glyph.Book, p.Blue));
-            tabs.SelectedChanged += (s, e) => ShowTab(tabs.Selected);
+            var title = new Label { Text = "RhinoGotchi", Font = new Font(SystemFont.Bold, 20), TextColor = p.Text };
+            var date = new Label { Text = DateTime.Today.ToString("ddd, MMM d"), Font = new Font(SystemFont.Default, 9.5f), TextColor = p.SubtleText };
+            Items.Add(new TableLayout
+            {
+                Rows = { new TableRow(new TableCell(title, true), new TableCell(date)) { } },
+            });
+            UpdatePet();
+            Items.Add(_pet);
 
-            var title = new Label { Text = "RhinoGotchi", Font = new Font(SystemFont.Bold, 18), TextColor = p.Text };
-            var date = Theme.Muted(DateTime.Today.ToString("dddd, MMMM d"));
-            Items.Add(new StackLayout { Spacing = 0, Items = { title, date } });
-            Items.Add(_mascot);
+            var tabs = new TabBar(_lastTab, ("Learning", Glyph.Book, p.Ink), ("Games", Glyph.Gamepad, p.Ink));
+            tabs.SelectedChanged += (s, e) => ShowTab(tabs.Selected);
             Items.Add(tabs);
             Items.Add(_tabContent);
             ShowTab(_lastTab);
         }
 
+        public NavTab Tab => NavTab.Home;
+
+        private void UpdatePet()
+        {
+            var game = GotchiState.Game;
+            var stats = game.Stats;
+            int left = Games.All.Count(g => !Core.Progress.Get(g).PlayedToday);
+            int streak = GotchiState.Streak;
+            int hats = Achievements.UnlockedCount(stats);
+
+            Mood mood;
+            string message;
+            if (left == 0 && GotchiState.ActiveToday)
+            {
+                mood = Mood.Celebrate;
+                message = "All of today's dailies done! You're on fire.";
+            }
+            else if (GotchiState.ActiveToday)
+            {
+                mood = Mood.Happy;
+                message = left == 1 ? "Nice work! One daily puzzle left today." : "Great to see you! Keep the streak going.";
+            }
+            else
+            {
+                mood = Mood.Sleepy;
+                message = streak > 0
+                    ? "Zzz... finish a lesson or a daily to keep your streak!"
+                    : "Zzz... finish a lesson or a daily to wake me up!";
+            }
+
+            string status = left == 0 ? "all dailies done" : $"{left} {(left == 1 ? "daily" : "dailies")} left today";
+            _pet.Set(mood, status, message, 0,
+                $"{streak}-day streak",
+                $"{hats}/{Achievements.All.Count} hats",
+                $"{stats.CorrectAnswers} solved");
+        }
+
         private void ShowTab(int tab)
         {
             _lastTab = tab;
-            _tabContent.Content = tab == 0 ? GamesTab() : LearningTab();
-        }
-
-        // ---------------- Games ----------------
-
-        private Control GamesTab()
-        {
-            var p = Palette.Current;
-            int left = Games.All.Count(g => !Progress.Get(g).PlayedToday);
-            if (left == 0)
-                _mascot.Say("You finished all of today's games! Come back tomorrow, or keep practicing.", MascotMood.Excited);
+            _tabContent.Items.Clear();
+            if (tab == 0)
+                LearningTab();
             else
-                _mascot.Say(left == Games.All.Length
-                    ? "Hi, I'm Rhino! Two fresh puzzles are waiting for you today."
-                    : "Nice work! One more puzzle to go today.", MascotMood.Happy);
-
-            var stack = new StackLayout { Spacing = 12, HorizontalContentAlignment = HorizontalAlignment.Stretch };
-            stack.Items.Add(GameCard(Games.Order, Glyph.Blocks, p.Orange,
-                "See a finished object and put the commands that built it in the right order.",
-                () => _host.Navigate(new BuildOrderView(_host, practice: false))));
-            stack.Items.Add(GameCard(Games.Shape, Glyph.Eye, p.Blue,
-                "Look at the viewport and name the command that made the shape.",
-                () => _host.Navigate(new ShapeQuizView(_host, practice: false))));
-
-            int bestStreak = Games.All.Max(g => Progress.Get(g).CurrentStreak);
-            int played = Games.All.Sum(g => Progress.Get(g).Played);
-            var statsRow = new StackLayout
-            {
-                Orientation = Orientation.Horizontal,
-                Spacing = 6,
-                Items =
-                {
-                    new Pill($"{bestStreak}-day streak", p.Orange, Glyph.Flame),
-                    new Pill($"{played} played", p.Purple, Glyph.Star),
-                },
-            };
-            stack.Items.Add(Theme.Box(new StackLayout
-            {
-                Spacing = 8,
-                HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                Items =
-                {
-                    new TableLayout
-                    {
-                        Spacing = new Size(10, 0),
-                        Rows = { new TableRow(new Badge(Glyph.Chart, p.Purple, 40), new TableCell(new StackLayout
-                        {
-                            Spacing = 4,
-                            Items = { Theme.Heading("Your progress"), statsRow },
-                        }, true)) },
-                    },
-                    Theme.Grid(2,
-                        Theme.Secondary("My stats", () => _host.Navigate(new StatsView(_host))),
-                        Theme.Button("Reset", () => ConfirmReset(_host))),
-                },
-            }));
-            return stack;
-        }
-
-        private static Control GameCard(string game, Glyph glyph, Color color, string blurb, Action play)
-        {
-            var p = Palette.Current;
-            var stats = Progress.Get(game);
-
-            var pills = new StackLayout { Orientation = Orientation.Horizontal, Spacing = 6 };
-            pills.Items.Add(stats.PlayedToday
-                ? new Pill($"Done · {stats.LastResult}", p.Green, Glyph.Star)
-                : new Pill("New today!", p.Blue));
-            if (stats.CurrentStreak > 0)
-                pills.Items.Add(new Pill($"{stats.CurrentStreak}-day streak", p.Orange, Glyph.Flame));
-
-            var header = new TableLayout
-            {
-                Spacing = new Size(12, 0),
-                Rows =
-                {
-                    new TableRow(
-                        new TableCell(new Badge(glyph, color, 52)),
-                        new TableCell(new StackLayout
-                        {
-                            Spacing = 3,
-                            HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                            Items = { Theme.Heading(Games.Title(game)), Theme.Muted(blurb) },
-                        }, true)),
-                },
-            };
-            var playButton = stats.PlayedToday
-                ? Theme.Button("See today's result", play)
-                : Theme.Primary("Play", play);
-            playButton.Height = 42;
-
-            return Theme.Box(new StackLayout
-            {
-                Spacing = 10,
-                HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                Items = { header, pills, playButton },
-            }, padding: 12);
+                GamesTab();
         }
 
         // ---------------- Learning ----------------
 
-        private Control LearningTab()
+        private void LearningTab()
         {
-            var p = Palette.Current;
-            _mascot.Say("Let's learn some commands! Pick a topic, watch how it works, then try it.", MascotMood.Thinking);
+            var progress = GotchiState.Game.Progress;
+            int total = LessonCatalog.All.Count;
+            int current = progress.CurrentLevel;
+            string detail = progress.IsNew
+                ? "New? Start at Level 1 or take a placement test"
+                : current < 0 ? "All levels done · replay any time"
+                : $"Level {current + 1} · {LessonCatalog.All[current].Title}";
 
-            var stack = new StackLayout { Spacing = 12, HorizontalContentAlignment = HorizontalAlignment.Stretch };
-
-            // Tip of the day.
-            var tipText = Theme.Body(Tips.All[_tip]);
-            stack.Items.Add(new StyledCard(new StackLayout
+            _tabContent.Items.Add(new SectionLabel("LEARN RHINO", "from your first Line to a final exam"));
+            _tabContent.Items.Add(new ListRow("Learning Campaign", detail, Glyph.Star, 0, _host.ShowLessons)
             {
-                Spacing = 8,
-                HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                Items =
-                {
-                    new TableLayout
-                    {
-                        Spacing = new Size(10, 0),
-                        Rows = { new TableRow(new Badge(Glyph.Bulb, p.Gold, 40), new TableCell(Theme.Heading("Tip of the day"), true)) },
-                    },
-                    tipText,
-                    new StackLayoutItem(Theme.Button("Another tip", () =>
-                    {
-                        _tip = (_tip + 1) % Tips.All.Length;
-                        tipText.Text = Tips.All[_tip];
-                    }), HorizontalAlignment.Left),
-                },
-            }, Theme.Mix(p.Gold, p.Background, 0.85f), p.Gold, 12));
+                Emphasis = current >= 0,
+                Right = $"{progress.DoneCount}/{total}",
+                RightAccent = true,
+            });
 
-            // Library topics.
-            stack.Items.Add(Theme.Heading("Command Library"));
             var cats = CommandCatalog.Categories;
-            int recipeCount = global::RhinoGotchi.Content.Recipes.All.Length;
-            var topics = new (string Name, string Detail, Glyph Glyph, Color Color)[]
+            int commands = cats.Sum(c => c.Commands.Count);
+            int demos = cats.Sum(c => c.Commands.Count(e => e.HasDemo));
+            _tabContent.Items.Add(new ListRow("Command Library", $"{commands} commands · {demos} demos", Glyph.Book, 1,
+                () => _host.Navigate(new LibraryView(_host, 0))));
+            _tabContent.Items.Add(new ListRow("Recipes", $"{Recipes.All.Length} chains of commands", Glyph.Chain, 5,
+                () => _host.Navigate(new LibraryView(_host, 3))));
+
+            var tip = new TipCard("TIP OF THE DAY · TAP FOR ANOTHER", Tips.All[_tip]);
+            tip.MouseUp += (s, e) =>
             {
-                (cats[0].Name, Detail(cats[0]), Glyph.Curve, p.Blue),
-                (cats[1].Name, Detail(cats[1]), Glyph.Cube, p.Purple),
-                (cats[2].Name, Detail(cats[2]), Glyph.Arrows, p.Orange),
-                ("Recipes", $"{recipeCount} chains of commands", Glyph.Chain, p.Green),
+                _tip = (_tip + 1) % Tips.All.Length;
+                tip.Text = Tips.All[_tip];
             };
-            var tiles = topics.Select((t, i) => (Control)TopicTile(t.Name, t.Detail, t.Glyph, t.Color, i)).ToArray();
-            stack.Items.Add(Theme.Grid(2, tiles));
-            stack.Items.Add(Theme.Secondary("Search all commands", () => _host.Navigate(new LibraryView(_host, 0))));
-            return stack;
+            _tabContent.Items.Add(new StackLayoutItem(tip) { });
         }
 
-        private static string Detail(CommandCategory c) =>
-            $"{c.Commands.Count} commands · {c.Commands.Count(e => e.HasDemo)} demos";
+        // ---------------- Games ----------------
 
-        private Control TopicTile(string name, string detail, Glyph glyph, Color color, int tab)
+        private void GamesTab()
         {
-            var badge = new Badge(glyph, color, 46);
-            var title = new Label { Text = name, Font = Theme.HeadingFont, TextColor = Palette.Current.Text, TextAlignment = TextAlignment.Center };
-            var info = new Label { Text = detail, Font = new Font(SystemFont.Default, 8.5f), TextColor = Palette.Current.SubtleText, TextAlignment = TextAlignment.Center, Wrap = WrapMode.Word };
-            var content = new StackLayout
+            int done = Games.All.Count(g => Core.Progress.Get(g).PlayedToday);
+            _tabContent.Items.Add(new SectionLabel($"DAILIES · {DateTime.Today:MMM d}".ToUpperInvariant(), $"{done} of {Games.All.Length} done"));
+
+            _tabContent.Items.Add(GameRow(Games.Order, "Put the commands in order", Glyph.Blocks, 0,
+                () => _host.Navigate(new BuildOrderView(_host, practice: false))));
+            _tabContent.Items.Add(GameRow(Games.Shape, "Name the command that made it", Glyph.Eye, 3,
+                () => _host.Navigate(new ShapeQuizView(_host, practice: false))));
+
+            _tabContent.Items.Add(new SectionLabel("YOUR PROGRESS"));
+            var achievements = new ListRow("Trophies & hats",
+                $"{Achievements.UnlockedCount(GotchiState.Game.Stats)} of {Achievements.All.Count} unlocked", Glyph.Star, 2, _host.ShowTrophies)
             {
-                Spacing = 6,
-                HorizontalContentAlignment = HorizontalAlignment.Center,
-                Items = { badge, title, info },
+                Right = "›",
             };
-            var tile = new StyledCard(content, padding: 10) { Hoverable = true };
-            EventHandler<MouseEventArgs> open = (s, e) => _host.Navigate(new LibraryView(_host, tab));
-            foreach (var c in new Control[] { tile, content, badge, title, info })
-                c.MouseDown += open;
-            return tile;
+            _tabContent.Items.Add(achievements);
+            _tabContent.Items.Add(Theme.Grid(2,
+                Theme.Secondary("My stats", () => _host.Navigate(new StatsView(_host))),
+                Theme.Button("Reset", () => ConfirmReset(_host))));
+        }
+
+        private static ListRow GameRow(string game, string blurb, Glyph glyph, int tint, Action play)
+        {
+            var stats = Core.Progress.Get(game);
+            string detail = stats.PlayedToday ? $"Today: {stats.LastResult}" : blurb;
+            if (stats.CurrentStreak > 0)
+                detail += $" · {stats.CurrentStreak}-day streak";
+            return new ListRow(Games.Title(game), detail, glyph, tint, play)
+            {
+                TagText = stats.PlayedToday ? "DONE TODAY" : "PLAY",
+                TagDone = stats.PlayedToday,
+            };
         }
 
         private static void ConfirmReset(RhinoGotchiPanel host)
         {
             var answer = MessageBox.Show(
-                "Clear all RhinoGotchi stats and streaks?",
+                "Clear the daily-game stats and streaks? Lesson progress and hats are kept.",
                 "RhinoGotchi",
                 MessageBoxButtons.YesNo,
                 MessageBoxType.Question);
             if (answer != DialogResult.Yes)
                 return;
-            Progress.Reset();
+            Core.Progress.Reset();
             host.ShowHome();
         }
     }

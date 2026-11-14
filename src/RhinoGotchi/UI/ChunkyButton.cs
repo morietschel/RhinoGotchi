@@ -6,13 +6,13 @@ namespace RhinoGotchi.UI
 {
     internal enum ButtonKind
     {
-        /// <summary>Green: the main action on a screen (Play, Check, Try it!).</summary>
+        /// <summary>Black (white in dark mode): the main action on a screen (Play, Check, Try it!).</summary>
         Primary,
-        /// <summary>Blue: secondary actions (Next, Help, Show me).</summary>
+        /// <summary>White with an ink outline: secondary actions (Next, Help, Show me).</summary>
         Secondary,
         /// <summary>White with a gray border: quiet actions (Back, Undo, Clear).</summary>
         Outline,
-        /// <summary>Light blue: a selected option or tab.</summary>
+        /// <summary>Soft orange: a selected option or tab.</summary>
         Selected,
         /// <summary>A tile you can't click: slots and feedback chips. Colors are set directly.</summary>
         Tile,
@@ -120,7 +120,7 @@ namespace RhinoGotchi.UI
             // Base (the darker "shadow" the face sits on), then the face.
             g.FillPath(shadow, GraphicsPath.GetRoundRect(new RectangleF(0, Depth, w - 1, h), Radius));
             var top = new RectangleF(0, lift, w - 1, h);
-            bool outline = _kind == ButtonKind.Outline || _kind == ButtonKind.Selected;
+            bool outline = _kind == ButtonKind.Outline || _kind == ButtonKind.Selected || _kind == ButtonKind.Secondary;
             if (outline)
             {
                 g.FillPath(shadow, GraphicsPath.GetRoundRect(top, Radius));
@@ -151,9 +151,9 @@ namespace RhinoGotchi.UI
             switch (_kind)
             {
                 case ButtonKind.Primary:
-                    face = p.Green; shadow = p.GreenShadow; ink = Eto.Drawing.Colors.White; break;
+                    face = p.Ink; shadow = p.InkShadow; ink = p.OnInk; break;
                 case ButtonKind.Secondary:
-                    face = p.Blue; shadow = p.BlueShadow; ink = Eto.Drawing.Colors.White; break;
+                    face = p.TileFace; shadow = p.Ink; ink = p.Text; break;
                 case ButtonKind.Selected:
                     face = p.SelectedFace; shadow = p.SelectedBorder; ink = p.SelectedText; break;
                 case ButtonKind.Tile:

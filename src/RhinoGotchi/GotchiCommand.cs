@@ -6,7 +6,7 @@ using RhinoGotchi.UI;
 
 namespace RhinoGotchi
 {
-    /// <summary>Opens the RhinoGotchi lesson panel.</summary>
+    /// <summary>Opens the RhinoGotchi panel on the Learning Campaign.</summary>
     [Guid("e4b1c7a0-9f2d-4c3b-8a6e-5d0f1b2c3a49")]
     public class GotchiCommand : Command
     {
@@ -14,7 +14,8 @@ namespace RhinoGotchi
 
         protected override Result RunCommand(RhinoDoc doc, RunMode mode)
         {
-            Panels.OpenPanel(GotchiPanel.PanelId);
+            RhinoGotchiPanel.OpenLessonsEverywhere();
+            Panels.OpenPanel(RhinoGotchiPanel.PanelId);
             return Result.Success;
         }
     }

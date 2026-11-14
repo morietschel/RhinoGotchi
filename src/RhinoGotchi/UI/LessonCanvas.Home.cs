@@ -20,22 +20,16 @@ namespace RhinoGotchi.UI
         private float PaintWelcome(Graphics g, float w, float h)
         {
             bool returning = !_game.Progress.IsNew;
-            if (returning)
-            {
-                // Back arrow to the level map
-                var back = new RectangleF(Pad - 4, 10, 30, 30);
-                if (_hover == "back")
-                    g.FillPath(_t.TileHover, GraphicsPath.GetRoundRect(back, 8));
-                var pen = new Pen(_hover == "back" ? _t.Text : _t.SubtleText, 2.8f) { LineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
-                g.DrawLines(pen, new PointF(back.X + 18, back.Y + 8), new PointF(back.X + 11, back.Y + 15), new PointF(back.X + 18, back.Y + 22));
-                _hits.Add((back, "back", _game.BackToMap));
-            }
+            // Back arrow: to the level map, or (first run) to the sidebar home.
+            Action? backAction = returning ? _game.BackToMap : ExitHome;
+            if (backAction != null)
+                BackArrow(g, new RectangleF(Pad - 4, 10, 30, 30), backAction);
 
             float y = Pad + 8;
             float bob = (float)Math.Sin(AnimProgress * Math.PI) * -8;
             Mascot.Draw(g, new RectangleF(w / 2 - 60, y, 120, 120), Mood.Happy, bob);
             y += 128;
-            y += Centered(g, "Hi, I'm Gotchi!", Bold(24), _t.Green, w, y) + 4;
+            y += Centered(g, "Hi, I'm Gotchi!", Bold(24), _t.Text, w, y) + 4;
             y += Wrapped(g, Pad + 8, y, w - 2 * Pad - 16, Regular(14), _t.SubtleText,
                 "Let's learn Rhino, one command at a time. Where do you want to start?", center: true) + 18;
 
@@ -49,7 +43,7 @@ namespace RhinoGotchi.UI
                 string where = p.CurrentLevel < 0 ? "all levels done" : $"Level {p.CurrentLevel + 1} · {LessonCatalog.All[p.CurrentLevel].Title}";
                 y += Wrapped(g, Pad, y, w - 2 * Pad, Regular(12), _t.SubtleText,
                     $"Your progress is saved ({where}). Starting from scratch or retaking the test never erases finished levels.", center: true) + 10;
-                ChunkyButton(g, new RectangleF(Pad, y, w - 2 * Pad, ButtonH), "BACK TO MY PATH", _t.Blue, _t.BlueShadow, Colors.White, "primary", _game.BackToMap);
+                ChunkyButton(g, new RectangleF(Pad, y, w - 2 * Pad, ButtonH), "BACK TO MY PATH", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _game.BackToMap);
                 y += ButtonH + 4;
             }
             return y + Pad + 4;
@@ -83,14 +77,22 @@ namespace RhinoGotchi.UI
             int current = progress.CurrentLevel;
             float y = 14;
 
-            // Header: home button (back to the welcome screen), name, XP
-            var home = new RectangleF(Pad - 4, y - 2, 30, 30);
+            // Header: back to the sidebar home, title, start screen (house), XP
+            float titleX = Pad;
+            if (ExitHome != null)
+            {
+                var back = new RectangleF(Pad - 4, y - 2, 30, 30);
+                BackArrow(g, back, ExitHome);
+                titleX = back.Right + 4;
+            }
+            string xp = $"{progress.TotalXp} XP";
+            float xpW = Bold(14).MeasureString(xp).Width;
+            var home = new RectangleF(w - Pad - xpW - 22 - 34, y - 2, 30, 30);
             if (_hover == "home")
                 g.FillPath(_t.TileHover, GraphicsPath.GetRoundRect(home, 8));
             House(g, new PointF(home.X + home.Width / 2, home.Y + home.Height / 2), _hover == "home" ? _t.Text : _t.SubtleText);
             _hits.Add((home, "home", _game.ShowWelcome));
-            g.DrawText(Bold(16), _t.Green, home.Right + 6, y + 2, "RhinoGotchi");
-            string xp = $"{progress.TotalXp} XP";
+            g.DrawText(Bold(16), _t.Text, titleX, y + 2, Ellipsize(Bold(16), "Learning Campaign", home.X - titleX - 6));
             SizeF xs = Bold(14).MeasureString(xp);
             g.DrawText(Bold(14), _t.Gold, w - Pad - xs.Width, y + 4, xp);
             Bolt(g, new PointF(w - Pad - xs.Width - 12, y + 12), _t.Gold);
@@ -122,14 +124,17 @@ namespace RhinoGotchi.UI
             }
 
             OutlineButton(g, new RectangleF(Pad, y, w - 2 * Pad, 42), "TAKE PLACEMENT TEST", "placement", _game.StartPlacement);
+            y += 42 + 3 + 10;
+            OutlineButton(g, new RectangleF(Pad, y, w - 2 * Pad, 42), "START SCREEN", "welcome", _game.ShowWelcome);
             return y + 42 + 3 + Pad;
         }
 
         private float LevelBanner(Graphics g, float w, float y, int current, int done, int total)
         {
             bool allDone = current < 0;
-            Color face = allDone ? _t.Gold : _t.Green;
-            Color shadow = allDone ? Darken(_t.Gold, 0.12f) : _t.GreenShadow;
+            Color face = allDone ? _t.Gold : _t.Ink;
+            Color shadow = allDone ? _t.GoldShadow : _t.InkShadow;
+            Color ink = allDone ? Colors.White : _t.OnInk;
             string label = allDone ? "ALL LEVELS DONE" : "YOUR LEVEL";
             string title = allDone ? "RhinoGotchi master!" : $"Level {current + 1} · {LessonCatalog.All[current].Title}";
             string sub = allDone ? "Replay any level to keep your skills sharp." : LessonCatalog.All[current].Subtitle;
@@ -144,14 +149,15 @@ namespace RhinoGotchi.UI
             var rect = new RectangleF(Pad, y, w - 2 * Pad, bh);
             g.FillPath(shadow, GraphicsPath.GetRoundRect(new RectangleF(rect.X, rect.Y + 4, rect.Width, rect.Height), 16));
             g.FillPath(face, GraphicsPath.GetRoundRect(rect, 16));
-            g.DrawText(Bold(11), Color.FromArgb(255, 255, 255, 210), rect.X + 14, rect.Y + 12, label);
+            Color soft = Color.FromArgb(ink.Rb, ink.Gb, ink.Bb, 200);
+            g.DrawText(Bold(11), allDone ? soft : _t.Accent, rect.X + 14, rect.Y + 12, label);
             float ty = rect.Y + 28;
-            ty += Wrapped(g, rect.X + 14, ty, textW, Bold(18), Colors.White, title) + 2;
-            Wrapped(g, rect.X + 14, ty, textW, Regular(12), Color.FromArgb(255, 255, 255, 230), sub);
+            ty += Wrapped(g, rect.X + 14, ty, textW, Bold(18), ink, title) + 2;
+            Wrapped(g, rect.X + 14, ty, textW, Regular(12), soft, sub);
 
-            g.DrawText(Bold(18), Colors.White, rect.Right - 14 - countW, rect.Y + bh / 2 - 16, count);
+            g.DrawText(Bold(18), ink, rect.Right - 14 - countW, rect.Y + bh / 2 - 16, count);
             SizeF ds = Regular(11).MeasureString("done");
-            g.DrawText(Regular(11), Color.FromArgb(255, 255, 255, 210), rect.Right - 14 - countW / 2 - ds.Width / 2, rect.Y + bh / 2 + 6, "done");
+            g.DrawText(Regular(11), soft, rect.Right - 14 - countW / 2 - ds.Width / 2, rect.Y + bh / 2 + 6, "done");
             return y + bh + 4;
         }
 
@@ -163,8 +169,8 @@ namespace RhinoGotchi.UI
             bool pressed = _pressed == id && state != LevelState.Locked;
             bool hover = _hover == id && state != LevelState.Locked;
 
-            Color face = state switch { LevelState.Done => _t.Gold, LevelState.Current => _t.Green, _ => _t.Disabled };
-            Color shadow = state switch { LevelState.Done => Darken(_t.Gold, 0.12f), LevelState.Current => _t.GreenShadow, _ => Darken(_t.Disabled, 0.1f) };
+            Color face = state switch { LevelState.Done => _t.Green, LevelState.Current => _t.Accent, _ => _t.Disabled };
+            Color shadow = state switch { LevelState.Done => _t.GreenShadow, LevelState.Current => _t.AccentShadow, _ => Darken(_t.Disabled, 0.1f) };
             if (hover)
                 face = Brighten(face, 0.05f);
 
@@ -219,7 +225,7 @@ namespace RhinoGotchi.UI
                 var tail = new[] { new PointF(cx - 7, b.Bottom - 1), new PointF(cx, b.Bottom + 7), new PointF(cx + 7, b.Bottom - 1) };
                 g.FillPolygon(_t.Background, tail);
                 g.DrawLines(new Pen(_t.Border, 2) { LineJoin = PenLineJoin.Round }, tail);
-                g.DrawText(bf, _t.Green, b.X + 12, b.Y + (b.Height - bs.Height) / 2, text);
+                g.DrawText(bf, _t.AccentText, b.X + 12, b.Y + (b.Height - bs.Height) / 2, text);
             }
 
             var hit = new RectangleF(cx - NodeR - 4, cy - NodeR - 4, NodeR * 2 + 8, NodeR * 2 + 12);
@@ -265,19 +271,19 @@ namespace RhinoGotchi.UI
 
             float y = Pad + 8;
             Confetti(g, w, y);
-            Mascot.Draw(g, new RectangleF(w / 2 - 55, y + 4, 110, 110), Mood.Happy, (float)Math.Sin(AnimProgress * Math.PI) * -12);
+            Mascot.Draw(g, new RectangleF(w / 2 - 55, y + 4, 110, 110), Mood.Celebrate, (float)Math.Sin(AnimProgress * Math.PI) * -12);
             y += 122;
 
             if (all)
             {
-                y += Centered(g, "Wow, you aced it!", Bold(24), _t.Gold, w, y) + 6;
+                y += Centered(g, "Wow, you aced it!", Bold(24), _t.Text, w, y) + 6;
                 y += Wrapped(g, Pad + 8, y, w - 2 * Pad - 16, Regular(14), _t.SubtleText,
                     "You tested out of every level. Replay any of them from the map whenever you like.", center: true) + 14;
             }
             else
             {
                 y += Centered(g, "You placed into", Bold(15), _t.SubtleText, w, y) + 2;
-                y += Centered(g, $"Level {placed + 1}", Bold(30), _t.Green, w, y) + 0;
+                y += Centered(g, $"Level {placed + 1}", Bold(30), _t.Accent, w, y) + 0;
                 y += Centered(g, LessonCatalog.All[placed].Title, Bold(20), _t.Text, w, y) + 14;
             }
 
@@ -289,9 +295,9 @@ namespace RhinoGotchi.UI
             {
                 float cx = x0 + i * (dot + gap) + dot / 2, cy = y + dot / 2;
                 if (i < count - 1)
-                    g.DrawLine(new Pen(i < placed ? _t.Gold : _t.Track, 4), cx + dot / 2, cy, cx + dot / 2 + gap, cy);
+                    g.DrawLine(new Pen(i < placed ? _t.Green : _t.Track, 4), cx + dot / 2, cy, cx + dot / 2 + gap, cy);
                 LevelState st = i < placed ? LevelState.Done : i == placed ? LevelState.Current : LevelState.Locked;
-                Color f = st == LevelState.Done ? _t.Gold : st == LevelState.Current ? _t.Green : _t.Disabled;
+                Color f = st == LevelState.Done ? _t.Green : st == LevelState.Current ? _t.Accent : _t.Disabled;
                 if (st == LevelState.Current)
                     g.DrawEllipse(new Pen(_t.Track, 4), cx - dot / 2 - 5, cy - dot / 2 - 5, dot + 10, dot + 10);
                 g.FillEllipse(f, cx - dot / 2, cy - dot / 2, dot, dot);
@@ -308,12 +314,22 @@ namespace RhinoGotchi.UI
                     : $"{string.Join(", ", LessonCatalog.All.Take(placed).Select(l => l.Title))} {(placed == 1 ? "is" : "are")} marked done. You can still replay {(placed == 1 ? "it" : "them")} any time.";
                 y += Wrapped(g, Pad + 8, y, w - 2 * Pad - 16, Regular(13), _t.SubtleText, skipped, center: true) + 8;
             }
+            y = UnlockCards(g, w, y + 4);
 
             return Footer(g, w, h, y + Gap, () =>
-                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "SEE MY PATH", _t.Green, _t.GreenShadow, Colors.White, "primary", _game.BackToMap));
+                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "SEE MY PATH", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _game.BackToMap));
         }
 
         // ------------------------------------------------------------------ symbols
+
+        private void BackArrow(Graphics g, RectangleF back, Action action)
+        {
+            if (_hover == "back")
+                g.FillPath(_t.TileHover, GraphicsPath.GetRoundRect(back, 8));
+            var pen = new Pen(_hover == "back" ? _t.Text : _t.SubtleText, 2.8f) { LineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
+            g.DrawLines(pen, new PointF(back.X + 18, back.Y + 8), new PointF(back.X + 11, back.Y + 15), new PointF(back.X + 18, back.Y + 22));
+            _hits.Add((back, "back", action));
+        }
 
         private static void Check(Graphics g, PointF c, Color color)
         {

@@ -3,27 +3,17 @@ using Eto.Drawing;
 
 namespace RhinoGotchi.UI
 {
-    internal enum MascotMood { Happy, Excited, Thinking }
+    internal enum MascotMood { Happy, Excited, Thinking, Sleepy }
 
     internal enum Glyph { Blocks, Eye, Curve, Cube, Arrows, Chain, Bulb, Flame, Star, Gamepad, Book, Chart }
 
     /// <summary>
-    /// Little hand-drawn pictures for the panel: the RhinoGotchi mascot (a round pastel rhino with a
-    /// sprout on its head) and simple white glyphs for badges. Everything is drawn in a 100x100 box.
+    /// Little hand-drawn pictures for the panel: the mascot (drawn by Mascot) and simple white glyphs for badges. Everything is drawn in a 100x100 box.
     /// </summary>
     internal static class Doodles
     {
         private static Color C(int rgb, int a = 255) => Color.FromArgb((rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF, a);
 
-        private static readonly Color Skin = C(0xB9C4EC);
-        private static readonly Color SkinDark = C(0x8E9BD0);
-        private static readonly Color Muzzle = C(0xDDE3FA);
-        private static readonly Color Horn = C(0xFFF1C9);
-        private static readonly Color HornEdge = C(0xE7C77A);
-        private static readonly Color Ink = C(0x2E3247);
-        private static readonly Color Blush = C(0xFF9EB5, 150);
-        private static readonly Color Leaf = C(0x7ED957);
-        private static readonly Color LeafDark = C(0x58B33A);
 
         private static void Begin(Graphics g, RectangleF rect)
         {
@@ -34,92 +24,15 @@ namespace RhinoGotchi.UI
             g.AntiAlias = true;
         }
 
-        public static void Mascot(Graphics g, RectangleF rect, MascotMood mood)
-        {
-            Begin(g, rect);
-
-            // Ground shadow.
-            g.FillEllipse(C(0x000000, 28), 22, 88, 56, 8);
-
-            // Sprout on top of the head.
-            var stem = new Pen(LeafDark, 3) { LineCap = PenLineCap.Round };
-            g.DrawLine(stem, 50, 22, 50, 12);
-            var leftLeaf = new GraphicsPath();
-            leftLeaf.MoveTo(50, 14);
-            leftLeaf.AddBezier(new PointF(50, 14), new PointF(40, 4), new PointF(32, 10), new PointF(36, 15));
-            leftLeaf.AddBezier(new PointF(36, 15), new PointF(40, 19), new PointF(47, 18), new PointF(50, 14));
-            g.FillPath(Leaf, leftLeaf);
-            var rightLeaf = new GraphicsPath();
-            rightLeaf.MoveTo(50, 13);
-            rightLeaf.AddBezier(new PointF(50, 13), new PointF(58, 2), new PointF(68, 6), new PointF(64, 12));
-            rightLeaf.AddBezier(new PointF(64, 12), new PointF(61, 17), new PointF(54, 17), new PointF(50, 13));
-            g.FillPath(Leaf, rightLeaf);
-
-            // Ears.
-            g.FillEllipse(SkinDark, 16, 22, 18, 16);
-            g.FillEllipse(SkinDark, 66, 22, 18, 16);
-            g.FillEllipse(C(0xF6C6D6), 20, 26, 10, 8);
-            g.FillEllipse(C(0xF6C6D6), 70, 26, 10, 8);
-
-            // Round body/head.
-            g.FillEllipse(SkinDark, 12, 24, 76, 68);
-            g.FillEllipse(Skin, 12, 22, 76, 66);
-            g.FillEllipse(C(0xFFFFFF, 60), 22, 28, 26, 12); // soft shine
-
-            // Muzzle with the horn on top.
-            g.FillEllipse(Muzzle, 30, 54, 40, 26);
-            var horn = new GraphicsPath();
-            horn.MoveTo(43, 57);
-            horn.AddBezier(new PointF(43, 57), new PointF(45, 46), new PointF(50, 40), new PointF(56, 36));
-            horn.AddBezier(new PointF(56, 36), new PointF(56, 44), new PointF(57, 51), new PointF(58, 57));
-            horn.CloseFigure();
-            g.FillPath(Horn, horn);
-            g.DrawPath(new Pen(HornEdge, 1.5f) { LineJoin = PenLineJoin.Round }, horn);
-
-            // Nostrils and smile.
-            g.FillEllipse(SkinDark, 42, 63, 4, 3);
-            g.FillEllipse(SkinDark, 54, 63, 4, 3);
-            var smile = new Pen(Ink, 2.2f) { LineCap = PenLineCap.Round };
-            if (mood == MascotMood.Excited)
+        /// <summary>The shared Gotchi mascot (see <see cref="UI.Mascot"/>), wearing the player's hat.</summary>
+        public static void Mascot(Graphics g, RectangleF rect, MascotMood mood, float breathe = 0) =>
+            UI.Mascot.Draw(g, rect, mood switch
             {
-                var mouth = new GraphicsPath();
-                mouth.MoveTo(44, 70);
-                mouth.AddBezier(new PointF(44, 70), new PointF(46, 77), new PointF(54, 77), new PointF(56, 70));
-                mouth.CloseFigure();
-                g.FillPath(C(0xE0607E), mouth);
-            }
-            else if (mood == MascotMood.Thinking)
-            {
-                g.DrawLine(smile, 46, 72, 54, 71);
-            }
-            else
-            {
-                g.DrawArc(smile, 44, 66, 12, 7, 20, 140);
-            }
-
-            // Eyes.
-            if (mood == MascotMood.Excited)
-            {
-                // Happy closed eyes: ^ ^
-                var eye = new Pen(Ink, 3) { LineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
-                g.DrawLines(eye, new PointF(30, 48), new PointF(35, 43), new PointF(40, 48));
-                g.DrawLines(eye, new PointF(60, 48), new PointF(65, 43), new PointF(70, 48));
-            }
-            else
-            {
-                float lookUp = mood == MascotMood.Thinking ? -2 : 0;
-                g.FillEllipse(Ink, 29, 40 + lookUp, 11, 12);
-                g.FillEllipse(Ink, 60, 40 + lookUp, 11, 12);
-                g.FillEllipse(Colors.White, 32, 42 + lookUp, 4, 4);
-                g.FillEllipse(Colors.White, 63, 42 + lookUp, 4, 4);
-            }
-
-            // Blush.
-            g.FillEllipse(Blush, 18, 56, 12, 7);
-            g.FillEllipse(Blush, 70, 56, 12, 7);
-
-            g.RestoreTransform();
-        }
+                MascotMood.Excited => Mood.Celebrate,
+                MascotMood.Thinking => Mood.Thinking,
+                MascotMood.Sleepy => Mood.Sleepy,
+                _ => Mood.Happy,
+            }, breathe: breathe);
 
         /// <summary>A round colored badge with a white glyph inside.</summary>
         public static void Badge(Graphics g, RectangleF rect, Glyph glyph, Color color, Color shadow)

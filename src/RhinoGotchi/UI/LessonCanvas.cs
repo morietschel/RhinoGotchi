@@ -18,6 +18,7 @@ namespace RhinoGotchi.UI
         private const float Gap = 12f;
         private const float ButtonH = 46f;
         private const double AnimSeconds = 0.32;
+        private const float MaxColumn = 520f;
 
         private static readonly string[] Thinking =
         {
@@ -49,12 +50,16 @@ namespace RhinoGotchi.UI
         private int _bubbleSeed;
         private Palette _t = Palette.Light;
 
+        private bool _subscribed;
+        private float _ox;
+
         public LessonCanvas(GotchiGame game)
         {
             _game = game;
             CanFocus = true;
             MinimumSize = new Size(260, 560);
-            _game.Changed += OnGameChanged;
+            Subscribe();
+            SizeChanged += (s, e) => Invalidate();
             _timer.Elapsed += (s, e) =>
             {
                 if (AnimProgress >= 1)
@@ -67,8 +72,26 @@ namespace RhinoGotchi.UI
         /// <summary>The lesson being played. Only valid while <see cref="GotchiGame.Mode"/> is Playing.</summary>
         private LessonSession _session => _game.Session!;
 
+        /// <summary>Back to the sidebar's home page.</summary>
+        public Action? ExitHome { get; set; }
+
+        /// <summary>Opens the Trophies page (from an "achievement unlocked" card).</summary>
+        public Action? OpenTrophies { get; set; }
+
+        public void Subscribe()
+        {
+            if (_subscribed)
+                return;
+            _subscribed = true;
+            _game.Changed += OnGameChanged;
+            Invalidate();
+        }
+
         public void Unsubscribe()
         {
+            if (!_subscribed)
+                return;
+            _subscribed = false;
             _game.Changed -= OnGameChanged;
             _timer.Stop();
         }
@@ -198,6 +221,7 @@ namespace RhinoGotchi.UI
 
         private (RectangleF rect, string id, Action action)? HitAt(PointF p)
         {
+            p = new PointF(p.X - _ox, p.Y);
             for (int i = _hits.Count - 1; i >= 0; i--)
                 if (_hits[i].rect.Contains(p))
                     return _hits[i];
@@ -214,8 +238,12 @@ namespace RhinoGotchi.UI
             _t = Palette.Current;
             _hits.Clear();
 
-            float w = Width, h = Height;
-            g.FillRectangle(_t.Background, 0, 0, w, h);
+            float h = Height;
+            g.FillRectangle(_t.Background, 0, 0, Width, h);
+            // On a wide panel, keep a comfortable centered column (hit tests subtract the offset).
+            float w = Math.Min(Width, MaxColumn);
+            _ox = (float)Math.Floor((Width - w) / 2);
+            g.TranslateTransform(_ox, 0);
 
             float needed = _game.Mode switch
             {
@@ -250,7 +278,7 @@ namespace RhinoGotchi.UI
             float y = Pad + 12;
             Mascot.Draw(g, new RectangleF(w / 2 - 65, y, 130, 130), Mood.Happy, bob);
             y += 140;
-            y += Centered(g, "RhinoGotchi", Bold(26), _t.Green, w, y) + 4;
+            y += Centered(g, "RhinoGotchi", Bold(26), _t.Text, w, y) + 4;
             y += Centered(g, _session.Lesson.Title, Bold(16), _t.Text, w, y) + 16;
 
             int cards = _session.Lesson.Steps.Count;
@@ -260,7 +288,7 @@ namespace RhinoGotchi.UI
             y = InfoRow(g, w, y, _t.Red, $"{LessonSession.MaxHearts} hearts. Mistakes come back at the end!");
 
             return Footer(g, w, h, y + Gap, () =>
-                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "START LESSON", _t.Green, _t.GreenShadow, Colors.White, "primary", _session.Begin));
+                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "START LESSON", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _session.Begin));
         }
 
         private float PaintQuiz(Graphics g, float w, float h)
@@ -276,7 +304,7 @@ namespace RhinoGotchi.UI
             };
             string tag = _session.IsPlacement ? $"PLACEMENT · LEVEL {quiz.Tier + 1} · {kindTag}"
                 : _session.IsRetry ? $"PREVIOUS MISTAKE · {kindTag}" : kindTag;
-            Color tagColor = _session.IsPlacement ? _t.Blue : _session.IsRetry ? _t.Orange : _t.Purple;
+            Color tagColor = _session.IsPlacement ? _t.AccentText : _session.IsRetry ? _t.Orange : _t.SubtleText;
             y += Wrapped(g, Pad, y, w - 2 * Pad, Bold(12), tagColor, tag) + 6;
             if (_session.IsPlacement)
                 y = DifficultyDots(g, y, quiz.Kind);
@@ -291,11 +319,11 @@ namespace RhinoGotchi.UI
                     break;
                 default:
                     y += Rich(g, Pad, y, w - 2 * Pad, Bold(21),
-                        ("Which one of these is", _t.Text), (quiz.Command, _t.Blue), ("?", _t.Text)) + 10;
+                        ("Which one of these is", _t.Text), (quiz.Command, _t.Accent), ("?", _t.Text)) + 10;
                     break;
             }
 
-            Mood mood = !_session.Checked ? Mood.Neutral : _session.AnsweredCorrectly ? Mood.Happy : Mood.Sad;
+            Mood mood = !_session.Checked ? Mood.Thinking : _session.AnsweredCorrectly ? Mood.Celebrate : Mood.Sad;
             string bubble = !_session.Checked ? _bubble : _session.AnsweredCorrectly ? "Yes! That's the one!" : "Oops! Look closely...";
             float hop = _session.Checked && _session.AnsweredCorrectly && _bannerAnim ? (float)Math.Sin(AnimProgress * Math.PI) * -10 : 0;
             y = MascotRow(g, w, y, mood, bubble, hop) + 14;
@@ -329,8 +357,8 @@ namespace RhinoGotchi.UI
                 bool enabled = _session.SelectedIndex >= 0;
                 return Footer(g, w, h, y + Gap, () =>
                     ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "CHECK",
-                        enabled ? _t.Green : _t.Disabled, enabled ? _t.GreenShadow : _t.Disabled,
-                        enabled ? Colors.White : _t.DisabledText, enabled ? "primary" : null, _session.Check));
+                        enabled ? _t.Ink : _t.Disabled, enabled ? _t.InkShadow : _t.Disabled,
+                        enabled ? _t.OnInk : _t.DisabledText, enabled ? "primary" : null, _session.Check));
             }
 
             bool ok = _session.AnsweredCorrectly;
@@ -351,7 +379,7 @@ namespace RhinoGotchi.UI
             y += 22;
             y += Wrapped(g, Pad, y, w - 2 * Pad, Bold(21), _t.Text, level?.Title ?? "") + 10;
 
-            Mood mood = _session.BuildSolved ? Mood.Happy : Mood.Neutral;
+            Mood mood = _session.BuildSolved ? Mood.Celebrate : Mood.Thinking;
             string bubble = _session.BuildSolved ? "Woohoo! Perfect build!"
                 : _session.BuildRunning ? "Snap to the points. Match the ghost!"
                 : $"Time to use {command} for real!";
@@ -364,7 +392,7 @@ namespace RhinoGotchi.UI
             var iconRect = new RectangleF(card.X + 8, card.Y + 8, cardH - 16, cardH - 16);
             LessonIcons.Draw(g, command, iconRect);
             float tx = iconRect.Right + 8, tW = card.Right - tx - 12;
-            g.DrawText(Bold(16), _t.Blue, tx, card.Y + 14, command);
+            g.DrawText(Bold(16), _t.Text, tx, card.Y + 14, command);
             Wrapped(g, tx, card.Y + 38, tW, Regular(12), _t.SubtleText, CommandInfo.Tip(command), maxLines: 4);
             y += cardH + 4 + Gap;
 
@@ -401,9 +429,9 @@ namespace RhinoGotchi.UI
             g.DrawLine(new Pen(_t.Border, 2), 0, top, w, top);
             var main = new RectangleF(Pad, top + Pad, w - 2 * Pad, ButtonH);
             if (_session.BuildRunning)
-                ChunkyButton(g, main, "CHECK MY MODEL", _t.Blue, _t.BlueShadow, Colors.White, "primary", () => Levels.LevelRunner.Current?.Evaluate());
+                ChunkyButton(g, main, "CHECK MY MODEL", _t.Ink, _t.InkShadow, _t.OnInk, "primary", () => Levels.LevelRunner.Current?.Evaluate());
             else
-                ChunkyButton(g, main, "START LEVEL", _t.Blue, _t.BlueShadow, Colors.White, "primary", _session.StartBuild);
+                ChunkyButton(g, main, "START LEVEL", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _session.StartBuild);
             var skip = new RectangleF(Pad, main.Bottom + 4 + 10, w - 2 * Pad, 40);
             OutlineButton(g, skip, "SKIP", "skip", _session.Continue);
             return footerTop + footerH;
@@ -413,9 +441,9 @@ namespace RhinoGotchi.UI
         {
             float y = Pad + 8;
             Confetti(g, w, y);
-            Mascot.Draw(g, new RectangleF(w / 2 - 60, y + 6, 120, 120), Mood.Happy, (float)Math.Sin(AnimProgress * Math.PI) * -12);
+            Mascot.Draw(g, new RectangleF(w / 2 - 60, y + 6, 120, 120), Mood.Celebrate, (float)Math.Sin(AnimProgress * Math.PI) * -12);
             y += 136;
-            y += Centered(g, "Lesson complete!", Bold(24), _t.Gold, w, y) + 18;
+            y += Centered(g, "Lesson complete!", Bold(24), _t.Text, w, y) + 18;
 
             int asked = Math.Max(1, _session.QuizzesAsked);
             int acc = (int)Math.Round(100.0 * _session.FirstTryCorrect / asked);
@@ -438,9 +466,10 @@ namespace RhinoGotchi.UI
                 g.DrawText(Bold(20), color, inner.X + (inner.Width - vs.Width) / 2, inner.Y + (inner.Height - vs.Height) / 2, value);
             }
             y += 78 + Gap;
+            y = UnlockCards(g, w, y + 4);
 
             return Footer(g, w, h, y + Gap, () =>
-                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "CONTINUE", _t.Green, _t.GreenShadow, Colors.White, "primary", _game.FinishLesson));
+                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "CONTINUE", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _game.FinishLesson));
         }
 
         private float PaintOutOfHearts(Graphics g, float w, float h)
@@ -458,7 +487,7 @@ namespace RhinoGotchi.UI
             float top = Math.Max(footerTop, h - footerH);
             g.DrawLine(new Pen(_t.Border, 2), 0, top, w, top);
             int level = _game.PlayingLevel;
-            ChunkyButton(g, new RectangleF(Pad, top + Pad, w - 2 * Pad, ButtonH), "TRY AGAIN", _t.Green, _t.GreenShadow, Colors.White, "primary",
+            ChunkyButton(g, new RectangleF(Pad, top + Pad, w - 2 * Pad, ButtonH), "TRY AGAIN", _t.Ink, _t.InkShadow, _t.OnInk, "primary",
                 () => _game.StartLesson(level));
             OutlineButton(g, new RectangleF(Pad, top + Pad + ButtonH + 14, w - 2 * Pad, 40), "BACK TO MAP", "map", _game.BackToMap);
             return footerTop + footerH;
@@ -697,7 +726,7 @@ namespace RhinoGotchi.UI
             return new RectangleF(Pad, top + Pad, w - 2 * Pad, ButtonH);
         }
 
-        private void ChunkyButton(Graphics g, RectangleF rect, string text, Color face, Color shadow, Color ink, string? id, Action action)
+        private void ChunkyButton(Graphics g, RectangleF rect, string text, Color face, Color shadow, Color ink, string? id, Action action, float fontSize = 15)
         {
             bool pressed = id != null && _pressed == id;
             bool hover = id != null && _hover == id;
@@ -708,7 +737,7 @@ namespace RhinoGotchi.UI
             g.FillPath(f, GraphicsPath.GetRoundRect(top, 14));
             // gloss stripe
             g.FillPath(Color.FromArgb(255, 255, 255, 40), GraphicsPath.GetRoundRect(new RectangleF(top.X + 10, top.Y + 5, top.Width - 20, 6), 3));
-            Font font = Bold(15);
+            Font font = Bold(fontSize);
             SizeF s = font.MeasureString(text);
             g.DrawText(font, ink, top.X + (top.Width - s.Width) / 2, top.Y + (top.Height - s.Height) / 2, text);
             if (id != null)
@@ -796,6 +825,39 @@ namespace RhinoGotchi.UI
                     g.FillRectangle(c, x, yy, s * 1.6f, s * 0.7f);
             }
         }
+
+        /// <summary>"ACHIEVEMENT UNLOCKED" cards for anything the last lesson or test unlocked, each with WEAR IT.</summary>
+        private float UnlockCards(Graphics g, float w, float y)
+        {
+            foreach (var a in _game.NewUnlocks)
+            {
+                var rect = new RectangleF(Pad, y, w - 2 * Pad, 84);
+                Card(g, rect, _t.AccentSoft, _t.Accent);
+                Mascot.Draw(g, new RectangleF(rect.X + 8, rect.Y + 6, 66, 66), Mood.Happy, hat: a.Hat);
+                float tx = rect.X + 82;
+                float btnW = 84;
+                float tw = rect.Right - tx - btnW - 20;
+                g.DrawText(Bold(10), _t.AccentText, tx, rect.Y + 12, "ACHIEVEMENT UNLOCKED");
+                g.DrawText(Bold(14), _t.Text, tx, rect.Y + 28, Ellipsize(Bold(14), $"{a.Name} · {a.HatName}", tw));
+                g.DrawText(Regular(11), _t.SubtleText, tx, rect.Y + 50, Ellipsize(Regular(11), a.Condition, tw));
+                bool wearing = _game.Progress.EquippedHat == a.Hat;
+                var btn = new RectangleF(rect.Right - btnW - 12, rect.Y + 22, btnW, 34);
+                if (wearing)
+                {
+                    SizeF ws = Bold(12).MeasureString("WEARING");
+                    g.DrawText(Bold(12), _t.GreenText, btn.X + (btn.Width - ws.Width) / 2, btn.Y + 8, "WEARING");
+                }
+                else
+                {
+                    var hat = a.Hat;
+                    ChunkyButton(g, btn, "WEAR IT", _t.Accent, _t.AccentShadow, Colors.White, "wear" + a.Id, () => _game.Wear(hat), fontSize: 12);
+                }
+                y = rect.Bottom + 4 + Gap;
+            }
+            return y;
+        }
+
+        private static string Ellipsize(Font font, string text, float width) => Ui.Ellipsize(font, text, width);
 
         // ------------------------------------------------------------------ text
 
