@@ -1,0 +1,6 @@
+{
+ "input": "command: \"{command}\"",
+ "decision1": "is the command in this list:\n{commands}\n",
+ "decision2": "This is a niche and rare rhino command. Few have used it.",
+ "decision3": "Was this RhinoCommand used directly for modeling the displayed geometry? It must be actively involved in the specific model."
+}

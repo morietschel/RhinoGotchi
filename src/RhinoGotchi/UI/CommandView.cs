@@ -21,12 +21,12 @@ namespace RhinoGotchi.UI
         private readonly RhinoDoc? _doc;
         private int _step;
 
-        private readonly Label _stepLabel = Theme.Heading("");
-        private readonly Label _stepText = Theme.Body("");
-        private readonly Button _prev = new Button { Text = "◀ Back" };
-        private readonly Button _next = new Button { Text = "Next ▶" };
-        private readonly Label _status = Theme.Muted("");
-        private readonly Label _findStatus = Theme.Muted("");
+        private readonly Words _stepLabel = Theme.Heading("");
+        private readonly Words _stepText = Theme.Body("");
+        private readonly ChunkyButton _prev = new ChunkyButton { Text = "◀ Back" };
+        private readonly ChunkyButton _next = new ChunkyButton { Text = "Next ▶", Kind = ButtonKind.Secondary };
+        private readonly Words _status = Theme.Muted("");
+        private readonly Words _findStatus = Theme.Muted("");
 
         public CommandView(RhinoGotchiPanel host, CommandEntry entry, Control back)
         {
@@ -94,9 +94,9 @@ namespace RhinoGotchi.UI
         private void AddTryIt()
         {
             Items.Add(Theme.Heading("Try it!"));
-            var tryIt = new Button { Text = "Try it!", Font = Theme.HeadingFont };
+            var tryIt = new ChunkyButton { Text = "Try it!", Kind = ButtonKind.Primary, Font = Theme.HeadingFont };
             tryIt.Click += (s, e) => TryIt(withDemoSetup: false);
-            Items.Add(Theme.Row(tryIt, Theme.Button("Help page", () => RhinoActions.OpenHelp(_entry.Command))));
+            Items.Add(Theme.Row(tryIt, Theme.Secondary("Help page", () => RhinoActions.OpenHelp(_entry.Command))));
             if (_demo != null && _demo.TryInputs.Count > 0)
             {
                 Items.Add(new StackLayoutItem(
@@ -150,7 +150,7 @@ namespace RhinoGotchi.UI
                     Items.Add(Strip(spot.Flyout, spot.FlyoutIndex));
                 }
                 var root = spot.Root;
-                Items.Add(new StackLayoutItem(Theme.Button("Show me in Rhino", () => ShowToolbar(root)), HorizontalAlignment.Left));
+                Items.Add(new StackLayoutItem(Theme.Secondary("Show me in Rhino", () => ShowToolbar(root)), HorizontalAlignment.Left));
             }
             Items.Add(Theme.Muted("The highlighted icon is the button to click. Hover any icon to see its name."));
             Items.Add(_findStatus);

@@ -1,6 +1,6 @@
 # RhinoGotchi
 
-A RhinoCommon plugin for **Rhino 8 on Windows and Mac**, based on McNeel's
+A RhinoCommon plugin for **Rhino 8 (Windows and Mac) and Rhino 9 (Mac)**, based on McNeel's
 [Your First Plugin](https://developer.rhino3d.com/guides/rhinocommon/your-first-plugin-windows/) guide.
 
 ## RhinoGotchi panel: What Made This?
@@ -39,61 +39,72 @@ Everyone gets the same rounds each day; daily scores and streaks are saved in th
 plugin settings, and practice rounds don't count. The panel home page also has a
 tip of the day, stats, and a reset action.
 
-## Klosterneuburg tutorials
+## Leaderboard
 
-Twelve beginner tutorials built on a real project: the Klosterneuburg pavilion
-(`V18 P020 - Klosterneuburg_Final.3dm`, metres). Each one covers one building element and one
-main command, in five parts:
+Each board shows every player's best round in that game, and the **Global** board adds a
+player's bests together. Players pick a public name and a small icon to appear.
 
-| Part | Tutorials |
+| Game | Score for a round |
 | --- | --- |
-| A Roof surface | 01 Loft · 02 NetworkSrf (+ Rebuild) |
-| B Working curves from the roof | 03 Contour · 04 Intersect (+ Project) |
-| C Setting out and structure | 05 ArrayPolar · 06 Sweep1 (+ DupBorder, Split, Cap) · 07 FlowAlongSrf |
-| D Facade and terrace | 08 OffsetSrf · 09 Sweep2 |
-| E Details | 10 BooleanDifference · 11 Pipe (+ BlendCrv, Join) · 12 ArrayCrv |
+| What Made This? | 20 per right answer (max 100) |
+| Build Order | 100 for a first-try solve, 20 fewer per extra try, 10 fewer with the hint |
+| Deep Cut | the round's points (up to 5,000) |
 
-**Using them**
+When a round, daily or practice, beats the player's best for that game, the new best is
+saved and pushed straight away. Bests and the profile are kept in the plugin settings and
+pushed in full each time, so a failed upload is made up for by the next one.
 
-1. Open the Klosterneuburg model in Rhino 8, then the RhinoGotchi panel → **Tutorials**.
-2. Pick a tutorial. **Show reference** highlights the part of the model it rebuilds (magenta);
-   **Set up** adds the starting geometry and makes the tutorial's Result layer current.
-3. Follow the steps (each has a **Try** button), then **Check my result**. The check gives a
-   score and plain feedback; a pass is saved as progress and ends the tutorial.
+**One-time setup.** The backend is a free Firebase Realtime Database (Spark plan, no card):
 
-You can also run them from the command line: `GotchiLevel`, choose `Level=Tut01Loft` …
-`Tut12Arraycrv`, Enter; then `GotchiLevel` again for Check, Hint, Restart or Quit.
+1. [console.firebase.google.com](https://console.firebase.google.com) → Add project → Build → Realtime Database → Create database.
+2. Rules tab → paste `firebase/database.rules.json` → Publish.
+3. Copy the database URL (like `https://my-project-default-rtdb.firebaseio.com`) into
+   `DatabaseUrl` in `Core/Leaderboard.cs`. While it is empty the leaderboard stays offline.
+   For a debug session you can set the `RHINOGOTCHI_LEADERBOARD_URL` environment variable instead.
 
-**Layers and safety**
+There is no login: anyone can write a row, so scores can be faked. The rules only limit
+the shape and size of what is written.
 
-- All tutorial geometry goes under `RhinoGotchi Tutorials::NN Command`, with sublayers
-  `Input` (start geometry, orange), `Result` (your work, blue) and `Checks` (green).
-- The original model is never changed. Reference objects are found by layer path (under
-  `0_3DMODEL`) and only copies are used. A fingerprint of the model is taken when a tutorial
-  starts and compared when it ends; any change is reported on the command line.
-- Copies of the roof are lifted 4 m above the real roof, and the detail tutorials are built east
-  of the building, so you never pick an original by mistake. Every size that isn't taken from
-  the model is listed on the tutorial page as an assumed dimension.
-- Leaving a tutorial keeps your work on its layers; **Set up** resumes it. **Clear my work**
-  (undoable) starts over.
-- Without the Klosterneuburg model open, every tutorial still sets up a simplified standalone
-  version at the origin.
+**Data layout** (plain REST, so other games can share the same database):
 
-**Code**: `src/RhinoGotchi/Tutorials/` (catalog, reference lookups, workspace, levels),
-`Tutorials/Content/` (teaching text and set-up per part), `Tutorials/Evaluators/` (the checks),
-`UI/TutorialListView.cs` and `UI/TutorialView.cs` (panel pages).
+```
+boards/{board}/{playerId} = { "s": score, "n": name, "i": iconVersion, "t": serverTime }
+icons/{playerId}          = "base64 PNG or JPEG, 48×48"
+```
+
+`board` is a game key or `global`. To add a game: add its key to `Games` in
+`Core/Progress.cs` and call `Leaderboard.Report(game, score)` when a round ends.
+`Core/LeaderboardClient.cs` and `Core/MiniJson.cs` have no Rhino dependencies and can be
+copied into another project as is.
+
+## Deep Cut game
+
+A third daily game: a real Rhino model (from a McNeel forum topic) appears alone in the
+viewport. Orbit it, then name a command that was used to build it; you have 30 seconds and
+one guess per model, five models a day. Whatever you type resolves to a real command. An
+OpenAI model (Decisions API, `gpt-6-luna`) looks at a picture of your viewport and answers
+two things: was the command used, and how rare is it. Points = 1000 x rarity, and only if it
+was used.
+
+- The 50 models are bundled as `DeepCut/Models/*.dcm` next to the `.rhp` (5 MB in total):
+  gzipped, quantized render meshes and curves. The format is documented in
+  `Content/DeepCutModels.cs`; `DeepCut/models.tsv` lists each model's forum topic.
+- The judge needs an OpenAI key. A build can carry one: put it in
+  `src/RhinoGotchi/Core/BundledKey.local.cs` (git-ignored, see `Core/ApiKey.cs`). If that key
+  is rejected, the game asks the player for their own, which is also editable under
+  **Settings** on the home page and stored in the plugin settings.
 
 One project builds two targets:
 
 | Target | Runs in |
 | --- | --- |
-| `net7.0` | Rhino 8 Mac, Rhino 8 Windows (default .NET Core runtime) |
+| `net7.0` | Rhino 9 Mac (.NET 10), Rhino 8 Mac, Rhino 8 Windows (default .NET Core runtime) |
 | `net48` | Rhino 8 Windows started with `SetDotNetRuntime` = .NET Framework |
 
 ## Requirements
 
 - .NET SDK 7 or newer (`dotnet --list-sdks`)
-- Rhino 8
+- Rhino 8 or Rhino 9
 
 ## Build
 
@@ -116,10 +127,59 @@ Output:
 The plugin loads at startup and registers the **RhinoGotchi** panel. Type `RhinoGotchi` to open it,
 or open it from the panel tabs menu.
 
+## One sidebar: Learning and Games
+
+Everything lives in the single **RhinoGotchi** panel: clean black and white with a muted
+green for right answers, orange for selection and streaks, and Duolingo-style chunky
+buttons and cards. It follows Rhino's dark mode (the ink inverts) and reflows when the
+panel is resized; on a wide panel the lessons keep a centered column.
+
+- **Home:** Gotchi's card (it breathes, wears its hat, and naps when you haven't played
+  today; tap it to make it hop), with chips for your streak, hats and questions solved.
+  Below it, two tabs: **Learning** (Learning Campaign, Command Library, Recipes, tip of
+  the day) and **Games** (the daily puzzles).
+- **Bottom bar:** Home · Trophies · Stats.
+- **Trophies:** 9 achievements, each unlocking a hat (hard hat, beret, grad cap, flame,
+  cowboy, propeller, tree, wizard, crown). Tap an unlocked hat in the wardrobe to wear it.
+  New unlocks appear on the lesson-complete screen with a **Wear it** button.
+
+## The Learning Campaign
+
+Type `Gotchi` to jump straight to it (or pick it on the Learning tab).
+
+- **First run:** pick *Start from scratch* (Level 1) or *Find my level*, a
+  placement test with 2 questions per level (up to 20), easiest first. It stops at the
+  first miss, and that question's level is where you start. Every level below it
+  is marked done.
+- **Level map:** shows *Your level*, total XP, and a path of levels:
+  done (green), current (orange) and locked (gray). Done and current levels can be
+  played; you can retake the placement test or go back to the start screen any time.
+- **Progress** (finished levels, XP, placement taken, streak, hats) is saved in the
+  plugin's settings, per user on this machine, so it survives a Rhino restart. A lesson
+  is saved as soon as you reach its complete screen.
+
+Levels live in `src/RhinoGotchi/Lessons/LessonCatalog.cs` (10 levels): Curves,
+Solids (includes the Box build level), Surfaces, Sweeps & Pipes, Editing Solids,
+Curve Tools, Transforms, Surface Tools, Advanced Solids, Mastery.
+
+Three question types, from easy to hard:
+
+| Type | Card | Used from |
+| --- | --- | --- |
+| Pick the icon | "Which one of these is Sweep2?" + 4 icons | Level 1 |
+| Name it | One big icon + 4 look-alike names | Level 3 |
+| Solve the task | A modeling task in words + 4 icons, no names | Level 4 |
+
+The placement test asks each level's first two questions, so it ramps from
+pick-the-icon to scenarios and shows an EASY / MEDIUM / HARD marker.
+
 ## Debug in VS Code (Mac and Windows)
 
 1. Install the recommended extensions (VS Code prompts you): **C#** and **C# Dev Kit**.
 2. Open the `RhinoGotchi` folder, go to Run and Debug, pick a configuration, press F5:
+   - **Rhino 9 - Mac**: builds `net7.0` and starts `/Applications/Rhino 9.app`.
+     Rhino 9 runs on .NET 10 and loads the `net7.0` build as is. Quit any
+     running Rhino 9 first, or the new one won't pick up `RHINO_PACKAGE_DIRS`.
    - **Rhino 8 (.NET 7+) - Mac / Windows**: builds `net7.0` and starts Rhino 8
      (`/Applications/Rhino 8.app` on Mac, `C:\Program Files\Rhino 8` on Windows).
    - **Rhino 8 (.NET Framework) - Windows**: builds `net48` and starts Rhino 8 with `/netfx`.
@@ -144,13 +204,15 @@ src/RhinoGotchi/
   RhinoGotchi.csproj        multi-target net7.0;net48, outputs .rhp
   RhinoGotchiPlugin.cs      the PlugIn class: loads at startup, registers the panel
   RhinoGotchiCommand.cs     RhinoGotchi command: opens the panel
+  GotchiCommand.cs          Gotchi command: opens the panel on the Learning Campaign
   Resources/RhinoGotchi.svg panel tab icon (embedded resource)
   Core/                     daily seeding, saved stats, run-command/help actions
   Content/                  game data, Command Library catalog and demos, tips
   Display/ShapePreview.cs   display conduit that draws What Made This? rounds
-  Levels/                   level runner (GotchiLevel), ghosts, attempts, the sample box level
-  Tutorials/                Klosterneuburg tutorials: catalog, model lookups, workspace, content, checks
-  UI/                       Eto panel, home page, games, Command Library, tutorials, stats
+  Lessons/                  Learning Campaign logic (UI-free): levels, sessions, progress, achievements
+  Levels/                   viewport build levels (ghost overlay, auto-evaluate)
+  UI/                       Eto panel: Palette (colors), Mascot (Gotchi + hats), home, lessons,
+                            trophies, What Made This?, Build Order, Command Library, stats
   Properties/AssemblyInfo.cs   plugin GUID + Plug-in Manager info
   Properties/launchSettings.json
 .vscode/                    launch.json (F5 into Rhino), tasks.json (builds)

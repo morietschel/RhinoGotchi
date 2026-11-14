@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Rhino;
 
 namespace RhinoGotchi.Core
@@ -7,12 +9,26 @@ namespace RhinoGotchi.Core
     {
         public const string Shape = "shape";
         public const string Order = "order";
-        public static readonly string[] All = { Shape, Order };
+        public const string Deep = "deep";
+        public const string Blocked = "blocked";
+        public static readonly string[] All = { Shape, Order, Deep, Blocked };
 
         public static string Title(string game) => game switch
         {
             Shape => "What Made This?",
             Order => "Build Order",
+            Deep => "Deep Cut",
+            Blocked => "Blocked!",
+            _ => game,
+        };
+
+        /// <summary>A one-word name that fits in a tab.</summary>
+        public static string ShortTitle(string game) => game switch
+        {
+            Shape => "Shapes",
+            Order => "Build",
+            Deep => "Deep",
+            Blocked => "Blocked",
             _ => game,
         };
     }
@@ -90,6 +106,34 @@ namespace RhinoGotchi.Core
             RhinoGotchiPlugin.Instance?.SaveSettings();
         }
 
+        // ---- Blocked! ways found (kept per challenge, across days) ----
+
+        private static string WaysKey(string challenge) => "blocked.ways." + challenge;
+
+        /// <summary>Ids of the ways found for a challenge. Known ways use their id; new ones are "custom:Route → Here".</summary>
+        public static List<string> WaysFound(string challenge)
+        {
+            var s = Settings;
+            return s == null
+                ? new List<string>()
+                : (s.GetStringList(WaysKey(challenge), new string[0]) ?? new string[0]).ToList();
+        }
+
+        /// <summary>Saves a found way. Returns false if it was already found.</summary>
+        public static bool AddWay(string challenge, string wayId)
+        {
+            var s = Settings;
+            if (s == null)
+                return false;
+            var found = WaysFound(challenge);
+            if (found.Contains(wayId))
+                return false;
+            found.Add(wayId);
+            s.SetStringList(WaysKey(challenge), found.ToArray());
+            RhinoGotchiPlugin.Instance?.SaveSettings();
+            return true;
+        }
+
         public static void Reset()
         {
             var s = Settings;
@@ -99,6 +143,8 @@ namespace RhinoGotchi.Core
             foreach (var game in Games.All)
                 foreach (var key in new[] { "played", "wins", "streak", "best", "lastPlayed", "lastWin", "lastResult" })
                     s.DeleteItem(game + "." + key);
+            foreach (var challenge in Content.BlockedChallenges.All)
+                s.DeleteItem(WaysKey(challenge.Id));
             RhinoGotchiPlugin.Instance?.SaveSettings();
             Tutorials.TutorialProgress.Reset();
         }

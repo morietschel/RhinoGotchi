@@ -38,7 +38,7 @@ namespace RhinoGotchi
                 IconResource,
                 PanelType.System);
 
-            RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}). Type RhinoGotchi to open the games panel.");
+            RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}). Type RhinoGotchi to open the panel, or Gotchi to jump to the Learning Campaign.");
             return LoadReturnCode.Success;
         }
 

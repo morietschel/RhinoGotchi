@@ -6,3 +6,8 @@ obj/
 *.suo
 .DS_Store
 *.rui_bak
+# Secrets compiled into local builds (e.g. Core/BundledKey.local.cs)
+*.local.cs
+
+# Local key file read by the Deep Cut web prototype (server.js)
+.env

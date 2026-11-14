@@ -1,10 +1,26 @@
 {
   // Press F5 and pick a configuration. Each one builds the plugin first, then
-  // starts Rhino 8 with the build output on RHINO_PACKAGE_DIRS, so Rhino loads
+  // starts Rhino (8 or 9) with the build output on RHINO_PACKAGE_DIRS, so Rhino loads
   // RhinoGotchi.rhp from bin/Debug automatically and breakpoints hit.
   // Close Rhino before rebuilding: a running Rhino locks the .rhp on Windows.
   "version": "0.2.0",
   "configurations": [
+    {
+      // Mac: Rhino 9 (runs on .NET 10; the net7.0 build loads in it).
+      "name": "Rhino 9 - Mac",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build net7.0",
+      "program": "/Applications/Rhino 9.app/Contents/MacOS/Rhinoceros",
+      "args": ["-nosplash"],
+      "env": {
+        "RHINO_PACKAGE_DIRS": "${workspaceFolder}/src/RhinoGotchi/bin/Debug/net7.0"
+      },
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "justMyCode": true
+    },
     {
       // Mac, and Windows on the default .NET 7+ runtime.
       "name": "Rhino 8 (.NET 7+) - Mac / Windows",

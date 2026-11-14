@@ -31,6 +31,9 @@ namespace RhinoGotchi.Levels
         /// <summary>Raised once when the level stops (solved, quit, restarted or document closed).</summary>
         public event EventHandler? Stopped;
 
+        /// <summary>Raised when a level starts, is evaluated (after every command too), or stops. Always on the UI thread.</summary>
+        public static event Action<LevelRunner>? StateChanged;
+
         /// <summary>The level being played, or null.</summary>
         public static LevelRunner? Current { get; private set; }
 
@@ -64,6 +67,7 @@ namespace RhinoGotchi.Levels
 
             runner.ZoomToLevel();
             RhinoApp.WriteLine($"[RhinoGotchi] Level \"{level.Title}\" started. Command to use: {level.Command}.");
+            StateChanged?.Invoke(runner);
             return runner;
         }
 
@@ -78,7 +82,10 @@ namespace RhinoGotchi.Levels
                 Current = null;
             Attempt.Doc.Views.Redraw();
             if (wasRunning)
+            {
                 Stopped?.Invoke(this, EventArgs.Empty);
+                StateChanged?.Invoke(this);
+            }
         }
 
         /// <summary>The next hint in order, or null when the level has none left.</summary>
@@ -105,6 +112,7 @@ namespace RhinoGotchi.Levels
             LastResult = result;
             Report(result);
             Checked?.Invoke(this, result);
+            StateChanged?.Invoke(this);
 
             if (result.Solved)
             {
@@ -138,6 +146,7 @@ namespace RhinoGotchi.Levels
                 return;
             }
             LastResult = result;
+            StateChanged?.Invoke(this);
             if (result.Solved && !_announcedSolved)
             {
                 _announcedSolved = true;

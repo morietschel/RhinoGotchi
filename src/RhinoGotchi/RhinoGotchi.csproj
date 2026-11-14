@@ -18,12 +18,25 @@
     <RootNamespace>RhinoGotchi</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="Exists('Core\BundledKey.local.cs')">
+    <!-- Core/BundledKey.local.cs holds the OpenAI key built into this copy of the plugin. It is not in git;
+         without it the build has no built-in key and players add their own under Settings. -->
+    <DefineConstants>$(DefineConstants);HAS_BUNDLED_KEY</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <!-- Compile against the oldest Rhino 8 SDK so the plugin loads in every Rhino 8 service release. -->
     <PackageReference Include="RhinoCommon" Version="8.0.23304.9001" ExcludeAssets="runtime" />
     <!-- System.Drawing.Bitmap (for SVG icons) on .NET 7. Compile-only: Rhino 8 provides it at runtime. -->
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" ExcludeAssets="runtime" Condition="'$(TargetFramework)' == 'net7.0'" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" Condition="'$(TargetFramework)' == 'net48'" />
+    <!-- HttpClient for Deep Cut's judge; part of the framework on .NET 7. -->
+    <Reference Include="System.Net.Http" Condition="'$(TargetFramework)' == 'net48'" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <!-- HttpClient for the online leaderboard. Part of the framework, but not referenced by default on net48. -->
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,11 +44,16 @@
     <EmbeddedResource Include="Resources\RhinoGotchi.svg" LogicalName="RhinoGotchi.Resources.RhinoGotchi.svg" />
     <!-- The team's command dataset, read by the Command Library for descriptions. -->
     <EmbeddedResource Include="..\..\Rhino\rhino_commands_all.csv" LogicalName="RhinoGotchi.Data.rhino_commands_all.csv" Link="Data\rhino_commands_all.csv" />
+    <!-- Deep Cut: the commands a guess can be, and the list of bundled models (id, forum topic, link). -->
+    <EmbeddedResource Include="DeepCut\commands.txt" LogicalName="RhinoGotchi.DeepCut.commands.txt" />
+    <EmbeddedResource Include="DeepCut\models.tsv" LogicalName="RhinoGotchi.DeepCut.models.tsv" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Command icons, copied next to the .rhp as Icons\*.svg and rendered at runtime (recolored for dark mode). -->
     <None Include="..\..\Rhino\RhinoIcons\svg\*.svg" LinkBase="Icons" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <!-- Deep Cut models, copied next to the .rhp as DeepCut\Models\*.dcm (format: see Content/DeepCutModels.cs). -->
+    <None Include="DeepCut\Models\*.dcm" CopyToOutputDirectory="PreserveNewest" Visible="false" />
   </ItemGroup>
 
 </Project>

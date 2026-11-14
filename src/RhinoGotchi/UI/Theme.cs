@@ -6,110 +6,130 @@ using RhinoGotchi.Core;
 namespace RhinoGotchi.UI
 {
     /// <summary>
-    /// Colors and small building blocks shared by every view. Tiles always set both background and
-    /// text color so they read the same in Rhino's light and dark themes.
+    /// Shared building blocks in the RhinoGotchi style (see <see cref="Palette"/>): bold text,
+    /// chunky buttons, rounded cards and colored tiles. Colors follow Rhino's light or dark mode.
     /// </summary>
     internal static class Theme
     {
-        public static readonly Color Hit = Color.FromArgb(46, 158, 143);     // right answer
-        public static readonly Color Near = Color.FromArgb(222, 160, 40);    // wrong answer
-        public static readonly Color Tile = Color.FromArgb(226, 228, 224);   // neutral card
-        public static readonly Color TileText = Color.FromArgb(30, 34, 38);
+        public static Palette P => Palette.Current;
 
-        public static Font TitleFont => new Font(SystemFont.Bold, 14);
-        public static Font HeadingFont => new Font(SystemFont.Bold, 10);
+        // Meaning-based colors used by the games.
+        public static Color Hit => P.Green;              // right answer / right place
+        public static Color Near => P.Gold;              // close: used, but elsewhere / highlighted
+        public static Color Miss => P.DisabledText;      // not part of the answer
+        public static Color Tile => P.TileFace;          // neutral tile or card
+        public static Color TileText => P.Text;
+        public static Color Selected => P.SelectedFace;  // a filled slot
+        public static Color Light => Colors.White;
 
-        public static Label Title(string text) => new Label { Text = text, Font = TitleFont };
+        public static Font TitleFont => new Font(SystemFont.Bold, 16);
+        public static Font HeadingFont => new Font(SystemFont.Bold, 11);
+        public static Font BodyFont => new Font(SystemFont.Default, 10);
 
-        public static Label Heading(string text) => new Label { Text = text, Font = HeadingFont };
+        // Text is drawn by hand (see Words): Eto's wrapping Label misbehaves on the Mac.
+        public static Words Title(string text) => new Words(text, TitleFont, P.Text);
 
-        public static Label Body(string text) => new Label { Text = text, Wrap = WrapMode.Word };
+        public static Words Heading(string text) => new Words(text, HeadingFont, P.Text);
 
-        public static Label Muted(string text) =>
-            new Label { Text = text, Wrap = WrapMode.Word, TextColor = SystemColors.DisabledText };
+        public static Words Body(string text) => new Words(text, BodyFont, P.Text);
 
-        public static readonly Color Miss = Color.FromArgb(105, 110, 116);   // not part of the answer
-        public static readonly Color Selected = Color.FromArgb(58, 71, 80);  // a filled slot
-        public static readonly Color Light = Colors.White;
+        public static Words Muted(string text) => new Words(text, BodyFont, P.SubtleText);
 
-        /// <summary>A colored tile with centered text, e.g. a slot in Build Order. Width 0 stretches to fill its cell.</summary>
-        public static Panel Chip(string text, Color back, Color fore, int width = 0, int height = 30)
+        /// <summary>Small print: notes and links.</summary>
+        public static Words Small(string text) => new Words(text, new Font(SystemFont.Default, 8.5f), P.SubtleText);
+
+        /// <summary>A tile with centered bold text, e.g. a Build Order slot. Width 0 stretches to fill its cell.</summary>
+        public static ChunkyButton Chip(string text, Color back, Color fore, int width = 0, int height = 34)
         {
-            var label = new Label
-            {
-                Text = text,
-                TextColor = fore,
-                Font = new Font(SystemFont.Bold, 8),
-                TextAlignment = TextAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Wrap = WrapMode.Character,
-            };
-            return new Panel { BackgroundColor = back, Size = new Size(width > 0 ? width : -1, height), Content = label };
+            var chip = new ChunkyButton(text, ButtonKind.Tile, height) { Font = new Font(SystemFont.Bold, 9) };
+            chip.SetColors(back, back == P.TileFace || back == P.SelectedFace ? (back == P.SelectedFace ? P.SelectedBorder : P.Border) : Darken(back, 0.12f), fore);
+            if (width > 0)
+                chip.Width = width;
+            return chip;
         }
 
-        /// <summary>A colored card with padding for explanations and results.</summary>
-        public static Panel Card(Color back, params Control[] rows)
+        /// <summary>
+        /// A rounded card for explanations and results. A colored accent turns it into a verdict banner
+        /// (green for right, gold/red for close or wrong); the neutral tile color gives a plain card.
+        /// </summary>
+        public static StyledCard Card(Color accent, params Control[] rows)
         {
-            var stack = new StackLayout
-            {
-                Spacing = 4,
-                HorizontalContentAlignment = HorizontalAlignment.Stretch,
-            };
+            var stack = new StackLayout { Spacing = 4, HorizontalContentAlignment = HorizontalAlignment.Stretch };
+            bool neutral = accent == P.TileFace;
+            bool first = true;
             foreach (var row in rows)
             {
-                if (row is Label l)
-                    l.TextColor = TileText;
+                if (row is Words text && first && !neutral)
+                    text.TextColor = Darken(accent, 0.15f);
+                first = false;
                 stack.Items.Add(row);
             }
-            return new Panel { BackgroundColor = back, Padding = 8, Content = stack };
+            return neutral
+                ? new StyledCard(stack)
+                : new StyledCard(stack, Mix(accent, P.Background, 0.82f), accent);
         }
 
-        public static Button Button(string text, Action onClick)
+        /// <summary>A plain rounded card around any content.</summary>
+        public static StyledCard Box(Control content, int padding = 10) => new StyledCard(content, padding: padding);
+
+        public static ChunkyButton Button(string text, Action onClick, ButtonKind kind = ButtonKind.Outline)
         {
-            var b = new Button { Text = text };
+            var b = new ChunkyButton(text, kind);
             b.Click += (s, e) => onClick();
             return b;
         }
 
-        public static StackLayout Row(params Control[] controls)
-        {
-            var row = new StackLayout { Orientation = Orientation.Horizontal, Spacing = 6 };
-            foreach (var c in controls)
-                row.Items.Add(c);
-            return row;
-        }
+        public static ChunkyButton Primary(string text, Action onClick) => Button(text, onClick, ButtonKind.Primary);
+
+        public static ChunkyButton Secondary(string text, Action onClick) => Button(text, onClick, ButtonKind.Secondary);
+
+        /// <summary>Controls side by side, wrapping onto more lines when the panel is narrow.</summary>
+        public static FlowRow Row(params Control[] controls) => new FlowRow(controls);
 
         /// <summary>Lays controls out left to right, wrapping every <paramref name="columns"/>.</summary>
-        public static TableLayout Grid(int columns, params Control[] controls)
+        /// <summary>
+        /// A grid of up to <paramref name="columns"/> equal columns that drops to fewer columns when the
+        /// panel is squished, so its buttons never push the page wider than the panel.
+        /// </summary>
+        public static Flow Grid(int columns, params Control[] controls) => new Flow(controls, columns, stretch: true);
+
+        /// <summary>Like <see cref="Grid(int, Control[])"/>, but a column never gets narrower than <paramref name="minCell"/>.</summary>
+        public static Flow Grid(int columns, int minCell, params Control[] controls) => new Flow(controls, columns, stretch: true, minCell: minCell, gap: 10);
+
+        /// <summary>Small items (pills) in a line that wraps onto the next line when it runs out of room.</summary>
+        public static Flow Wrap(params Control[] controls) => new Flow(controls, int.MaxValue, stretch: false);
+
+        /// <summary>A full-width item, e.g. a single button under a card.</summary>
+        public static StackLayoutItem Wide(Control control)
         {
-            var table = new TableLayout { Spacing = new Size(4, 4) };
-            for (int i = 0; i < controls.Length; i += columns)
-            {
-                var row = new TableRow();
-                for (int j = i; j < System.Math.Min(i + columns, controls.Length); j++)
-                    row.Cells.Add(new TableCell(controls[j], true));
-                for (int j = controls.Length; j < i + columns; j++)
-                    row.Cells.Add(new TableCell(null, true));
-                table.Rows.Add(row);
-            }
-            return table;
+            if (control is ChunkyButton b)
+                b.Fill = true;
+            return new StackLayoutItem(control, HorizontalAlignment.Stretch);
         }
 
         /// <summary>"Try it in Rhino" and "Help page" buttons for a command.</summary>
-        public static StackLayout CommandButtons(string command) => Row(
-            Button($"Try {command}", () => RhinoActions.Run(command)),
-            Button("Help page", () => RhinoActions.OpenHelp(command)));
+        public static FlowRow CommandButtons(string command) => Row(
+            Primary($"Try {command}", () => RhinoActions.Run(command)),
+            Secondary("Help page", () => RhinoActions.OpenHelp(command)));
 
-        /// <summary>Gives a view the standard padding and a header with a back button.</summary>
+        /// <summary>Gives a view the standard padding, background and a header with a back button.</summary>
         public static void SetUpPage(StackLayout page, RhinoGotchiPanel host, string title, string subtitle,
             string backText = "← Home", Action? back = null)
         {
-            page.Padding = 12;
-            page.Spacing = 8;
+            page.Padding = 14;
+            page.Spacing = 10;
+            page.BackgroundColor = P.Background;
             page.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            page.Items.Add(new StackLayoutItem(Button(backText, back ?? host.ShowHome), HorizontalAlignment.Left));
-            page.Items.Add(Title(title));
-            page.Items.Add(Muted(subtitle));
+            page.Items.Add(new PageHeader(title, back ?? host.ShowHome));
+            if (subtitle.Length > 0)
+                page.Items.Add(Muted(subtitle));
         }
+
+        public static Color Darken(Color c, float amount) =>
+            new Color(Math.Max(0, c.R - amount), Math.Max(0, c.G - amount), Math.Max(0, c.B - amount), c.A);
+
+        /// <summary>Blends <paramref name="a"/> toward <paramref name="b"/> by <paramref name="t"/> (0 = a, 1 = b).</summary>
+        public static Color Mix(Color a, Color b, float t) =>
+            new Color(a.R + (b.R - a.R) * t, a.G + (b.G - a.G) * t, a.B + (b.B - a.B) * t, 1);
     }
 }

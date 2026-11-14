@@ -4,8 +4,10 @@ using RhinoGotchi.Core;
 
 namespace RhinoGotchi.UI
 {
-    internal sealed class StatsView : StackLayout
+    internal sealed class StatsView : StackLayout, INavPage
     {
+        public NavTab Tab => NavTab.Stats;
+
         public StatsView(RhinoGotchiPanel host)
         {
             Theme.SetUpPage(this, host, "My stats", "Only daily games count. Practice rounds are just for fun.");
