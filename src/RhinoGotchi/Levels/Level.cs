@@ -29,5 +29,30 @@ namespace RhinoGotchi.Levels
 
         /// <summary>Decides whether the level was solved and how well.</summary>
         public ILevelEvaluator? Evaluator { get; set; }
+
+        /// <summary>
+        /// Full path of the layer that receives <see cref="StartGeometry"/>, e.g.
+        /// "RhinoGotchi Tutorials::01 Loft::Input". Created if missing. Null = the current layer.
+        /// </summary>
+        public string? Layer { get; set; }
+
+        /// <summary>
+        /// Existing document objects to highlight while the level runs (e.g. the Klosterneuburg roof).
+        /// Only copies are drawn; the objects themselves are never selected or changed.
+        /// </summary>
+        public List<System.Guid> ReferenceIds { get; } = new List<System.Guid>();
+
+        /// <summary>The tutorial this level belongs to, or null for a plain level.</summary>
+        public string? TutorialId { get; set; }
+
+        /// <summary>
+        /// True (the default): the level ends as soon as a command leaves it solved. False: it's
+        /// checked quietly after each command and only ends when the player asks for a check
+        /// (tutorials, whose last steps explore options after the result already passes).
+        /// </summary>
+        public bool StopWhenSolved { get; set; } = true;
+
+        /// <summary>One hint per step, given out in order by GotchiLevel > Hint.</summary>
+        public List<string> Hints { get; } = new List<string>();
     }
 }

@@ -39,6 +39,50 @@ Everyone gets the same rounds each day; daily scores and streaks are saved in th
 plugin settings, and practice rounds don't count. The panel home page also has a
 tip of the day, stats, and a reset action.
 
+## Klosterneuburg tutorials
+
+Twelve beginner tutorials built on a real project: the Klosterneuburg pavilion
+(`V18 P020 - Klosterneuburg_Final.3dm`, metres). Each one covers one building element and one
+main command, in five parts:
+
+| Part | Tutorials |
+| --- | --- |
+| A Roof surface | 01 Loft · 02 NetworkSrf (+ Rebuild) |
+| B Working curves from the roof | 03 Contour · 04 Intersect (+ Project) |
+| C Setting out and structure | 05 ArrayPolar · 06 Sweep1 (+ DupBorder, Split, Cap) · 07 FlowAlongSrf |
+| D Facade and terrace | 08 OffsetSrf · 09 Sweep2 |
+| E Details | 10 BooleanDifference · 11 Pipe (+ BlendCrv, Join) · 12 ArrayCrv |
+
+**Using them**
+
+1. Open the Klosterneuburg model in Rhino 8, then the RhinoGotchi panel → **Tutorials**.
+2. Pick a tutorial. **Show reference** highlights the part of the model it rebuilds (magenta);
+   **Set up** adds the starting geometry and makes the tutorial's Result layer current.
+3. Follow the steps (each has a **Try** button), then **Check my result**. The check gives a
+   score and plain feedback; a pass is saved as progress and ends the tutorial.
+
+You can also run them from the command line: `GotchiLevel`, choose `Level=Tut01Loft` …
+`Tut12Arraycrv`, Enter; then `GotchiLevel` again for Check, Hint, Restart or Quit.
+
+**Layers and safety**
+
+- All tutorial geometry goes under `RhinoGotchi Tutorials::NN Command`, with sublayers
+  `Input` (start geometry, orange), `Result` (your work, blue) and `Checks` (green).
+- The original model is never changed. Reference objects are found by layer path (under
+  `0_3DMODEL`) and only copies are used. A fingerprint of the model is taken when a tutorial
+  starts and compared when it ends; any change is reported on the command line.
+- Copies of the roof are lifted 4 m above the real roof, and the detail tutorials are built east
+  of the building, so you never pick an original by mistake. Every size that isn't taken from
+  the model is listed on the tutorial page as an assumed dimension.
+- Leaving a tutorial keeps your work on its layers; **Set up** resumes it. **Clear my work**
+  (undoable) starts over.
+- Without the Klosterneuburg model open, every tutorial still sets up a simplified standalone
+  version at the origin.
+
+**Code**: `src/RhinoGotchi/Tutorials/` (catalog, reference lookups, workspace, levels),
+`Tutorials/Content/` (teaching text and set-up per part), `Tutorials/Evaluators/` (the checks),
+`UI/TutorialListView.cs` and `UI/TutorialView.cs` (panel pages).
+
 One project builds two targets:
 
 | Target | Runs in |
@@ -104,7 +148,9 @@ src/RhinoGotchi/
   Core/                     daily seeding, saved stats, run-command/help actions
   Content/                  game data, Command Library catalog and demos, tips
   Display/ShapePreview.cs   display conduit that draws What Made This? rounds
-  UI/                       Eto panel, home page, What Made This? game, stats
+  Levels/                   level runner (GotchiLevel), ghosts, attempts, the sample box level
+  Tutorials/                Klosterneuburg tutorials: catalog, model lookups, workspace, content, checks
+  UI/                       Eto panel, home page, games, Command Library, tutorials, stats
   Properties/AssemblyInfo.cs   plugin GUID + Plug-in Manager info
   Properties/launchSettings.json
 .vscode/                    launch.json (F5 into Rhino), tasks.json (builds)

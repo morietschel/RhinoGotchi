@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Rhino;
 using Rhino.Commands;
 using Rhino.DocObjects;
 using Rhino.Geometry;
+using RhinoGotchi.Tutorials;
 
 namespace RhinoGotchi.Levels
 {
@@ -15,13 +17,19 @@ namespace RhinoGotchi.Levels
     public sealed class LevelRunner
     {
         private readonly GhostConduit _ghosts;
+        private readonly ReferenceConduit _references = new ReferenceConduit();
         private bool _addingStartGeometry;
+        private int _nextHint;
+        private bool _announcedSolved;
 
         private LevelRunner(RhinoDoc doc, Level level)
         {
             Attempt = new LevelAttempt(doc, level);
             _ghosts = new GhostConduit(level.GhostGeometry);
         }
+
+        /// <summary>Raised once when the level stops (solved, quit, restarted or document closed).</summary>
+        public event EventHandler? Stopped;
 
         /// <summary>The level being played, or null.</summary>
         public static LevelRunner? Current { get; private set; }
@@ -34,12 +42,22 @@ namespace RhinoGotchi.Levels
         public LevelResult? LastResult { get; private set; }
 
         /// <summary>Stops any running level and starts this one in the given document.</summary>
-        public static LevelRunner Start(RhinoDoc doc, Level level)
+        public static LevelRunner Start(RhinoDoc doc, Level level) => Start(doc, level, null);
+
+        /// <summary>
+        /// Stops any running level and starts this one. <paramref name="existingStartIds"/> are objects
+        /// already in the document that count as start geometry (e.g. a tutorial's set-up): Restart
+        /// deletes them with the player's work, and they are never counted as the player's own.
+        /// </summary>
+        public static LevelRunner Start(RhinoDoc doc, Level level, IEnumerable<Guid>? existingStartIds)
         {
             Current?.Stop();
 
             var runner = new LevelRunner(doc, level);
+            if (existingStartIds != null)
+                runner.Attempt.StartObjectIds.AddRange(existingStartIds);
             runner.AddStartGeometry();
+            runner.ShowReferences();
             runner._ghosts.Enabled = true;
             runner.Subscribe();
             Current = runner;
@@ -52,14 +70,32 @@ namespace RhinoGotchi.Levels
         /// <summary>Ends the level: removes the ghosts and stops listening. Geometry stays in the document.</summary>
         public void Stop()
         {
+            bool wasRunning = Current == this;
             Unsubscribe();
             _ghosts.Enabled = false;
+            _references.Enabled = false;
             if (Current == this)
                 Current = null;
             Attempt.Doc.Views.Redraw();
+            if (wasRunning)
+                Stopped?.Invoke(this, EventArgs.Empty);
         }
 
-        /// <summary>Asks the evaluator for a verdict now and reports it on the command line.</summary>
+        /// <summary>The next hint in order, or null when the level has none left.</summary>
+        public string? NextHint()
+        {
+            if (_nextHint >= Level.Hints.Count)
+                return null;
+            return Level.Hints[_nextHint++];
+        }
+
+        /// <summary>Raised after every check the player asked for (Check button or GotchiLevel > Check), before a solved level stops.</summary>
+        public event EventHandler<LevelResult>? Checked;
+
+        /// <summary>
+        /// The player asked for a check: asks the evaluator for a verdict, reports it on the command
+        /// line and, if solved, ends the level.
+        /// </summary>
         public LevelResult? Evaluate()
         {
             if (Level.Evaluator == null)
@@ -68,6 +104,7 @@ namespace RhinoGotchi.Levels
             LevelResult result = Level.Evaluator.Evaluate(Attempt);
             LastResult = result;
             Report(result);
+            Checked?.Invoke(this, result);
 
             if (result.Solved)
             {
@@ -77,15 +114,62 @@ namespace RhinoGotchi.Levels
             return result;
         }
 
+        // After each command. Levels that stop when solved get a full check; the others (tutorials,
+        // whose later steps explore options after the result already passes) are checked quietly and
+        // only say once that the result passes, so the player finishes with Check when ready.
+        private void EvaluateAfterCommand()
+        {
+            if (Level.Evaluator == null)
+                return;
+            if (Level.StopWhenSolved)
+            {
+                Evaluate();
+                return;
+            }
+
+            LevelResult result;
+            try
+            {
+                result = Level.Evaluator.Evaluate(Attempt);
+            }
+            catch (Exception ex)
+            {
+                RhinoApp.WriteLine("[RhinoGotchi] Couldn't check the result ({0}).", ex.Message);
+                return;
+            }
+            LastResult = result;
+            if (result.Solved && !_announcedSolved)
+            {
+                _announcedSolved = true;
+                RhinoApp.WriteLine("[RhinoGotchi] Your result passes the check. Finish the remaining steps if you like, then click Check my result (or GotchiLevel > Check).");
+            }
+            else if (!result.Solved)
+            {
+                _announcedSolved = false;
+            }
+        }
+
         private void AddStartGeometry()
         {
             RhinoDoc doc = Attempt.Doc;
+            if (Level.StartGeometry.Count == 0)
+                return;
+
+            // Default attributes put objects on the current layer, as before levels had a Layer.
+            ObjectAttributes attributes = doc.CreateDefaultAttributes();
+            if (!string.IsNullOrEmpty(Level.Layer))
+            {
+                int layer = FindOrAddLayer(doc, Level.Layer!);
+                if (layer >= 0)
+                    attributes.LayerIndex = layer;
+            }
+
             _addingStartGeometry = true;
             try
             {
                 foreach (GeometryBase g in Level.StartGeometry)
                 {
-                    Guid id = doc.Objects.Add(g);
+                    Guid id = doc.Objects.Add(g, attributes);
                     if (id != Guid.Empty)
                         Attempt.StartObjectIds.Add(id);
                 }
@@ -96,8 +180,47 @@ namespace RhinoGotchi.Levels
             }
         }
 
+        // Creates each missing layer along a "::" path. Returns the layer index, or -1.
+        private static int FindOrAddLayer(RhinoDoc doc, string fullPath)
+        {
+            int index = doc.Layers.FindByFullPath(fullPath, -1);
+            if (index >= 0)
+                return index;
+
+            Guid parent = Guid.Empty;
+            string path = "";
+            foreach (string name in fullPath.Split(new[] { "::" }, StringSplitOptions.None))
+            {
+                path = path.Length == 0 ? name : path + "::" + name;
+                index = doc.Layers.FindByFullPath(path, -1);
+                if (index < 0)
+                    index = doc.Layers.Add(new Layer { Name = name, ParentLayerId = parent });
+                if (index < 0)
+                    return -1;
+                parent = doc.Layers[index].Id;
+            }
+            return index;
+        }
+
+        private void ShowReferences()
+        {
+            if (Level.ReferenceIds.Count == 0)
+                return;
+            var copies = new List<GeometryBase>();
+            foreach (Guid id in Level.ReferenceIds)
+            {
+                GeometryBase? g = Attempt.Doc.Objects.FindId(id)?.Geometry;
+                if (g != null)
+                    copies.Add(g.Duplicate());
+            }
+            _references.SetGeometry(copies);
+            _references.Enabled = copies.Count > 0;
+        }
+
         private void ZoomToLevel()
         {
+            // Frame what the player works on (ghosts and start geometry). The highlighted reference
+            // is often much bigger (the whole roof), so it only decides the view when there's nothing else.
             BoundingBox box = _ghosts.Bounds;
             foreach (Guid id in Attempt.StartObjectIds)
             {
@@ -105,6 +228,8 @@ namespace RhinoGotchi.Levels
                 if (obj != null)
                     box.Union(obj.Geometry.GetBoundingBox(false));
             }
+            if (!box.IsValid && _references.Enabled)
+                box = _references.Bounds;
             if (box.IsValid)
             {
                 box.Inflate(Math.Max(box.Diagonal.Length * 0.25, 1));
@@ -116,6 +241,7 @@ namespace RhinoGotchi.Levels
         private void Subscribe()
         {
             RhinoDoc.AddRhinoObject += OnAddObject;
+            RhinoDoc.UndeleteRhinoObject += OnAddObject; // Undo brings deleted objects back this way
             RhinoDoc.DeleteRhinoObject += OnDeleteObject;
             RhinoDoc.CloseDocument += OnCloseDocument;
             Command.EndCommand += OnEndCommand;
@@ -124,6 +250,7 @@ namespace RhinoGotchi.Levels
         private void Unsubscribe()
         {
             RhinoDoc.AddRhinoObject -= OnAddObject;
+            RhinoDoc.UndeleteRhinoObject -= OnAddObject;
             RhinoDoc.DeleteRhinoObject -= OnDeleteObject;
             RhinoDoc.CloseDocument -= OnCloseDocument;
             Command.EndCommand -= OnEndCommand;
@@ -135,6 +262,12 @@ namespace RhinoGotchi.Levels
         {
             if (_addingStartGeometry || e.TheObject.Document != Attempt.Doc)
                 return;
+            // Work on the original model's layers never counts as the player's own.
+            int layer = e.TheObject.Attributes.LayerIndex;
+            if (layer >= 0 && layer < Attempt.Doc.Layers.Count &&
+                ReferenceLayers.IsModelLayer(Attempt.Doc.Layers[layer].FullPath))
+                return;
+
             Guid id = e.ObjectId;
             if (!Attempt.StartObjectIds.Contains(id) && !Attempt.AddedObjectIds.Contains(id))
                 Attempt.AddedObjectIds.Add(id);
@@ -158,8 +291,9 @@ namespace RhinoGotchi.Levels
                 return;
 
             Attempt.CommandsRun.Add(e.CommandEnglishName);
+            Attempt.RefreshHistory();
             if (e.CommandResult == Result.Success)
-                Evaluate();
+                EvaluateAfterCommand();
         }
 
         private void Report(LevelResult result)

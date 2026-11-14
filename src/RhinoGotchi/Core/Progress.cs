@@ -100,6 +100,7 @@ namespace RhinoGotchi.Core
                 foreach (var key in new[] { "played", "wins", "streak", "best", "lastPlayed", "lastWin", "lastResult" })
                     s.DeleteItem(game + "." + key);
             RhinoGotchiPlugin.Instance?.SaveSettings();
+            Tutorials.TutorialProgress.Reset();
         }
     }
 }
