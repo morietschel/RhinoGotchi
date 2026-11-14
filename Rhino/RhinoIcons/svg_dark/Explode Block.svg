@@ -1,0 +1,45 @@
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+  <g id="Layer 1" transform="scale(1 -1)">
+    <g id="Group" stroke="none">
+      <path d="M 5.06,17.275 L 15.752,14.024 L 15.752,24.862 L 5.06,28.114 L 5.06,17.275 Z" fill="#c1c0bf" stroke-width="3.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" x_rma_id="0" stroke="#666" />
+      <path d="M 5.06,28.114 L 15.752,24.862 L 23.069,30.281 L 12.376,33.533 L 5.06,28.114 Z" fill="#f0f0f0" stroke-width="3.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" x_rma_id="1" stroke="#666" />
+      <path d="M 15.752,24.862 L 15.752,14.024 L 23.069,19.443 L 23.069,30.281 L 15.752,24.862 Z" fill="#616161" stroke-width="3.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" x_rma_id="2" stroke="#666" />
+      <path d="M 15.893,13.202 L 4.315,16.723 L 4.315,28.489 L 12.234,34.354 L 23.813,30.832 L 23.813,19.067 L 15.893,13.202 Z M 15.61,14.845 L 22.324,19.818 L 22.324,29.729 L 12.517,32.711 L 5.804,27.738 L 5.804,17.826 L 15.61,14.845 Z" stroke-width="3.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000" x_rma_id="3" stroke="#666" stroke-linejoin="round" />
+    </g>
+    <clipPath id="clip-path">
+      <use xlink:href="#Shape" />
+    </clipPath>
+    <g clip-path="url(#clip-path)">
+      <use xlink:href="#Bitmap" transform="translate(18.566 31.283) scale(15.009 -20.262)" />
+    </g>
+    <path d="M 32.34,12.993 C 33.339,13.883 33.98,15.189 33.28,16.614 C 30.877,21.503 28.475,26.393 26.072,31.283 C 23.671,26.393 21.268,21.503 18.865,16.614 C 18.038,14.928 19.066,13.483 20.271,12.623 C 21.435,11.792 22.922,11.342 24.252,11.147 C 26.678,10.792 30.24,11.124 32.34,12.993 Z" stroke-linejoin="round" stroke-width="4.489" stroke="#666" stroke-linecap="round" marker-start="none" marker-end="none" fill="none" id="Shape" x_rma_id="4" />
+    <path d="M 0,15.736 L 6.875,29.202 L 6.875,10.132 L 26.647,29.903 L 16.957,8.535 L 32.593,8.535 L 18.397,1.982 L 23.87,0 L 0,0 L 0,15.736 Z" stroke="#666" stroke-linejoin="round" stroke-width="4.488" marker-start="none" marker-end="none" fill="url(#RadialGradient)" x_rma_id="5" />
+    <path d="M 21.421,0.084 L 18.42,1.584 C 17.859,1.864 17.877,2.675 18.45,2.929 L 28.749,7.507 L 17.253,7.507 C 16.714,7.507 16.353,8.063 16.574,8.555 L 24.671,26.618 L 7.278,9.224 C 6.81,8.757 6.008,9.09 6.008,9.751 L 6.008,26.102 L 1.416,16.92 C 1.232,16.552 0.785,16.403 0.418,16.587 C 0.05,16.771 -0.099,17.218 0.085,17.585 L 6.086,29.586 C 6.435,30.285 7.496,30.034 7.496,29.254 L 7.496,11.547 L 26.477,30.53 C 27.058,31.11 28.018,30.448 27.682,29.699 L 18.401,8.995 L 32.255,8.995 C 33.053,8.995 33.287,7.895 32.557,7.571 L 20.496,2.21 L 22.086,1.415 C 22.453,1.231 22.603,0.784 22.419,0.417 C 22.235,0.05 21.788,-0.1 21.421,0.084 Z" stroke-width="3.5" stroke="#666" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000" x_rma_id="6" stroke-linejoin="round" />
+  </g>
+  <defs>
+    <image id="Bitmap" preserveAspectRatio="none" width="1" height="1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAE8ElEQVRIiWKMic/+zwAG/xkYQRQjiAtig/BfBibGvwz5ebkMnf2LGb7+FWX4+5+V4f9/ZqhqCIYYwMjAwMDAAAAAAP//LIwxCoBAEMQy5yGCvfqRBfX/D7JW3JFTizQhpBZdvzJSy/L7A/u2EhFM88LQHa87c+R2T1KxC6YhsDDiAQAA//9iYWb8AzYMBpiYGBnU1dQZzM3NGPj5+RnExMQZvn79wqCnp8tw4eJ1sLI///8w/PvPCjb0HwPItVBDGZgYAAAAAP//NM87DoAgEEDBt0qIhAJr+TR7/8vgRba0EQ0mXmCScT/mvaeWgqrSWiXGSEo7WwiYGfnI9H7ilouZuBmIDOTrT3DlQXgBAAD//yyQMQrAIBDAou2iV7FLHXS4//9QKJ5F6ZohgZwhBEp5aLWiqqSUWEzkIkqk986wwZ3zDh/uZTr/X9sKbEmdMfF8AAAA//8skcsNgDAMxR4f9aUoZ5oRyv6TRcoRpajAApZl71fvMDO0dqIUQoSo9XjNSIG7Y2SCQqgqIgLrcv/dvokTnNNybHgAAAD//1SOMQ7AIAzEnKhwzOUL5f//i2ioirp08GZZPsa4tlhKRaqoNSRtIoJ7TjIXbk7v5z/4RdPA30tbPAAAAP//LJIxDgAgDAIxSv//2061BurAeuECR4qCRdANJwGSyEzrth+wPNKoqk8BX11QwW5vPAAAAP//LJExDgAwCALRFJf2/79FG20HwsSFgHe4YRwPBIlFQtIolUDVlDl7w/3v14dAD27fTbgAAAD//2ICuQTkQhANMgiMWVgQBv7/BzGPkZGBg4ODgZ+PD+5KMAYb9hdCM/xjAAAAAP//YmJhARnCwsDKwsrAysICNgwEwIb9+8fw/x8k0YMAKJK4ebjhaRbiSkjyYQLRjH8ZAAAAAP//YgEZBjKEGYaZmaGG/QXH7v///6E+ZgQHCRcnF8JAsCsRWZCRgYEBAAAA//9iYmFmYYBgZrBhcNf9/Qf1LtSFjKDEz8rAwckB9jrCldDsCnItwz8GAAAAAP//YoK5ipkFYiDIm2AMctk/UPwisiXIYnY2dgYuLjRXQg1lZPzPAAAAAP//YgEbxszMwMTEDA54mIEw74L9C9UKshTkbWQXIkqq/wwMDP8YAAAAAP//YmJmZmJgghqKbBjYhdDwg6YasBpQagAleljkobiS4T8DAAAA//9iArmMmYkJnL5QvIscftDiDuQDVlYWcI7CdOU/BgaG/wwAAAAA//9iAhuG5jpE7EJcCDMUZCAomYG8DXIlMgAXFIz/GAAAAAD//2ICGQZzHapXYa5DRAo4Ylgg3gbFOMgCFMDwnwEAAAD//2JiQooIZK8ihx8irBgh4QhzJRsbqisZ/jMAAAAA//9iYmRiQvIiJGfAYhfiSoRyEAIZCHIlON+jeZuBgYEBAAAA//8C53SQy2DZDDXsoOGHZC7EQEhWBRUkKICBgQEAAAD//2ICG4QUbmCMAuHug3gZlCpAOQuU/0GlFFLyYWBgYAAAAAD//2ICG4BsKAiCvYyIE7Ch0CzLxMwEcSUzC6SUQg5HBgYGAAAAAP//YkKPWZhhuGIZlCIQ3gYZiuRtBgYGAAAAAP//YsJnGEqcoBjIBI4YmKGwQpeBgYEBAAAA//+CeBndUByGgcIQlPZg+R+Ut0EFMjxyGBgYAAAAAP//AwA2KvuASFvF2gAAAABJRU5ErkJggg==">
+      <title>1</title>
+    </image>
+    <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="3.001" cy="0.75" r="36.7862274771415">
+      <stop offset="0" stop-color="#ffc200" />
+      <stop offset="1" stop-color="#ff2c00" />
+    </radialGradient>
+  </defs>
+  <g id="Layer 1" transform="scale(1 -1)">
+    <g id="Group" stroke="none">
+      <path d="M 5.06,17.275 L 15.752,14.024 L 15.752,24.862 L 5.06,28.114 L 5.06,17.275 Z" fill="#c1c0bf" stroke-width="0.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" x_rma_id="0" />
+      <path d="M 5.06,28.114 L 15.752,24.862 L 23.069,30.281 L 12.376,33.533 L 5.06,28.114 Z" fill="#f0f0f0" stroke-width="0.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" x_rma_id="1" />
+      <path d="M 15.752,24.862 L 15.752,14.024 L 23.069,19.443 L 23.069,30.281 L 15.752,24.862 Z" fill="#616161" stroke-width="0.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" x_rma_id="2" />
+      <path d="M 15.893,13.202 L 4.315,16.723 L 4.315,28.489 L 12.234,34.354 L 23.813,30.832 L 23.813,19.067 L 15.893,13.202 Z M 15.61,14.845 L 22.324,19.818 L 22.324,29.729 L 12.517,32.711 L 5.804,27.738 L 5.804,17.826 L 15.61,14.845 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000" x_rma_id="3" />
+    </g>
+    <clipPath id="clip-path">
+      <use xlink:href="#Shape" />
+    </clipPath>
+    <g clip-path="url(#clip-path)">
+      <use xlink:href="#Bitmap" transform="translate(18.566 31.283) scale(15.009 -20.262)" />
+    </g>
+    <path d="M 32.34,12.993 C 33.339,13.883 33.98,15.189 33.28,16.614 C 30.877,21.503 28.475,26.393 26.072,31.283 C 23.671,26.393 21.268,21.503 18.865,16.614 C 18.038,14.928 19.066,13.483 20.271,12.623 C 21.435,11.792 22.922,11.342 24.252,11.147 C 26.678,10.792 30.24,11.124 32.34,12.993 Z" stroke-linejoin="miter" stroke-width="1.489" stroke="#000000" stroke-linecap="round" marker-start="none" marker-end="none" fill="none" id="Shape" x_rma_id="4" />
+    <path d="M 0,15.736 L 6.875,29.202 L 6.875,10.132 L 26.647,29.903 L 16.957,8.535 L 32.593,8.535 L 18.397,1.982 L 23.87,0 L 0,0 L 0,15.736 Z" stroke="none" stroke-linejoin="round" stroke-width="1.488" marker-start="none" marker-end="none" fill="url(#RadialGradient)" x_rma_id="5" />
+    <path d="M 21.421,0.084 L 18.42,1.584 C 17.859,1.864 17.877,2.675 18.45,2.929 L 28.749,7.507 L 17.253,7.507 C 16.714,7.507 16.353,8.063 16.574,8.555 L 24.671,26.618 L 7.278,9.224 C 6.81,8.757 6.008,9.09 6.008,9.751 L 6.008,26.102 L 1.416,16.92 C 1.232,16.552 0.785,16.403 0.418,16.587 C 0.05,16.771 -0.099,17.218 0.085,17.585 L 6.086,29.586 C 6.435,30.285 7.496,30.034 7.496,29.254 L 7.496,11.547 L 26.477,30.53 C 27.058,31.11 28.018,30.448 27.682,29.699 L 18.401,8.995 L 32.255,8.995 C 33.053,8.995 33.287,7.895 32.557,7.571 L 20.496,2.21 L 22.086,1.415 C 22.453,1.231 22.603,0.784 22.419,0.417 C 22.235,0.05 21.788,-0.1 21.421,0.084 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000" x_rma_id="6" />
+  </g>
+</svg>

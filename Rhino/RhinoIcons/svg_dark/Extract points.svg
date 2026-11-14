@@ -1,0 +1,88 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="17.868" y2="0" gradientTransform="translate(20.423 26.137) rotate(-113.301) skewX(-0.928665) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="20.083" y2="0" gradientTransform="translate(8.746 0.494) rotate(72.2877) skewX(1.47339) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#f0f0f0"/>
+   <stop offset="0.1" stop-color="#f1f1f1"/>
+   <stop offset="0.2" stop-color="#f2f2f2"/>
+   <stop offset="0.3" stop-color="#f3f3f3"/>
+   <stop offset="0.4" stop-color="#f5f5f5"/>
+   <stop offset="0.5" stop-color="#f8f8f8"/>
+   <stop offset="0.6" stop-color="#fafafa"/>
+   <stop offset="0.7" stop-color="#fcfcfc"/>
+   <stop offset="0.8" stop-color="#fdfdfd"/>
+   <stop offset="0.9" stop-color="#fefefe"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="20.082" y2="0" gradientTransform="translate(4.245 12.498) rotate(72.2904) skewX(1.47514) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#f0f0f0"/>
+   <stop offset="0.1" stop-color="#f1f1f1"/>
+   <stop offset="0.2" stop-color="#f2f2f2"/>
+   <stop offset="0.3" stop-color="#f3f3f3"/>
+   <stop offset="0.4" stop-color="#f5f5f5"/>
+   <stop offset="0.5" stop-color="#f8f8f8"/>
+   <stop offset="0.6" stop-color="#fafafa"/>
+   <stop offset="0.7" stop-color="#fcfcfc"/>
+   <stop offset="0.8" stop-color="#fdfdfd"/>
+   <stop offset="0.9" stop-color="#fefefe"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 19.506,24.008 L 19.506,31.509 L 27.008,31.509 L 27.008,24.008 L 19.506,24.008 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 9.003,4.501 L 9.003,12.002 L 16.505,12.002 L 16.505,4.501 L 9.003,4.501 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 6.002,18.006 L 6.002,25.507 L 13.504,25.507 L 13.504,18.006 L 6.002,18.006 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 24.008,12.004 L 24.008,19.505 L 31.51,19.505 L 31.51,12.004 L 24.008,12.004 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 0,7.502 L 0,15.003 L 7.502,15.003 L 7.502,7.502 L 0,7.502 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 18.006,1.5 L 18.006,9.001 L 25.508,9.001 L 25.508,1.5 L 18.006,1.5 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 28.51,21.007 L 28.51,28.508 L 36.012,28.508 L 36.012,21.007 L 28.51,21.007 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 10.503,27.009 L 10.503,34.51 L 18.005,34.51 L 18.005,27.009 L 10.503,27.009 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 3.75,11.468 C 4.669,14.434 6.474,19.011 9.08,21.114 C 11.685,23.218 13.49,27.794 14.41,30.76 C 20.359,28.688 26.31,26.615 32.26,24.543 C 31.341,21.577 29.536,17 26.93,14.897 C 24.325,12.794 22.52,8.217 21.601,5.251 C 15.651,7.324 9.701,9.396 3.75,11.468 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 3.744,11.462 C 4.663,14.428 6.468,19.005 9.074,21.108 C 11.679,23.212 13.484,27.788 14.404,30.754 C 20.353,28.682 26.304,26.609 32.254,24.537 C 31.335,21.571 29.53,16.994 26.924,14.891 C 24.319,12.788 22.514,8.211 21.595,5.245 C 15.645,7.318 9.695,9.39 3.744,11.462 Z" stroke-width="1.489" stroke="#231f20" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <g id="Group" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(14.248 30.754) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 12.002,28.508 L 12.002,32.998 L 16.493,32.998 L 16.493,28.508 L 12.002,28.508 Z M 15.004,29.997 L 15.004,31.509 L 13.491,31.509 L 13.491,29.997 L 15.004,29.997 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_1" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(32.255 24.752) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 30.009,22.506 L 30.009,26.996 L 34.5,26.996 L 34.5,22.506 L 30.009,22.506 Z M 33.011,23.995 L 33.011,25.507 L 31.498,25.507 L 31.498,23.995 L 33.011,23.995 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_2" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(21.751 5.245) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 19.505,2.999 L 19.505,7.489 L 23.996,7.489 L 23.996,2.999 L 19.505,2.999 Z M 22.507,4.488 L 22.507,6 L 20.994,6 L 20.994,4.488 L 22.507,4.488 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_3" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(3.745 11.247) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 1.499,9.001 L 1.499,13.491 L 5.99,13.491 L 5.99,9.001 L 1.499,9.001 Z M 4.501,10.49 L 4.501,12.002 L 2.988,12.002 L 2.988,10.49 L 4.501,10.49 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 9.903,21.751 C 15.852,19.679 21.802,17.606 27.753,15.534" fill="none" stroke-opacity="0.498039" stroke-linecap="round" stroke-linejoin="round" stroke="#000000" stroke-width="1.489" fill-opacity="0.498039"/>
+  <g id="Group_4" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(27.753 15.749) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 25.507,13.503 L 25.507,17.993 L 29.998,17.993 L 29.998,13.503 L 25.507,13.503 Z M 28.509,14.992 L 28.509,16.504 L 26.996,16.504 L 26.996,14.992 L 28.509,14.992 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_5" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(9.747 21.751) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 7.501,19.505 L 7.501,23.995 L 11.992,23.995 L 11.992,19.505 L 7.501,19.505 Z M 10.503,20.994 L 10.503,22.506 L 8.99,22.506 L 8.99,20.994 L 10.503,20.994 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 23.251,27.538 C 22.332,24.572 20.527,19.995 17.921,17.892 C 15.316,15.789 13.511,11.212 12.591,8.246" fill="none" stroke-opacity="0.498039" stroke-width="1.489" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.498039"/>
+  <g id="Group_6" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(12.748 8.246) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 10.502,6 L 10.502,10.49 L 14.993,10.49 L 14.993,6 L 10.502,6 Z M 13.504,7.489 L 13.504,9.001 L 11.991,9.001 L 11.991,7.489 L 13.504,7.489 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_7" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(23.251 27.753) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 21.005,25.507 L 21.005,29.997 L 25.496,29.997 L 25.496,25.507 L 21.005,25.507 Z M 24.007,26.996 L 24.007,28.508 L 22.494,28.508 L 22.494,26.996 L 24.007,26.996 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_8" stroke="none">
+   <rect x="-1.5" y="-1.5" width="3" height="3" transform="translate(18.749 18.75) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 16.503,16.504 L 16.503,20.994 L 20.994,20.994 L 20.994,16.504 L 16.503,16.504 Z M 19.505,17.993 L 19.505,19.505 L 17.992,19.505 L 17.992,17.993 L 19.505,17.993 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-8.756" y2="5.081" gradientTransform="translate(17.125 19.433)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.867" y2="0" gradientTransform="translate(18.856 25.061) rotate(125.153) skewX(1.41984)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.876" y2="0" gradientTransform="translate(15.031 14.611) rotate(-169.262) skewX(-0.581498)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 16.173,4.489 C 17.408,6.262 27.331,20.203 27.322,20.22 C 26.125,22.46 19.998,32.69 21.987,33.549 C 22.502,32.977 26.852,27.313 27.818,26.102 C 28.509,24.894 31.83,18.472 33.666,14.953 C 31.794,12.597 26.838,6.5 24.579,3.519 C 24.485,3.396 18.424,4.121 16.173,4.489 Z" stroke-linejoin="round" stroke-width="4.5" stroke="#666666" marker-start="none" marker-end="none"/>
+  <path d="M 3.216,8.313 C 3.03,11.088 2.48,18.839 2.25,20.762 C 2.675,21.476 9.563,31.348 9.563,31.377 C 13.381,32.14 18.302,32.992 21.751,33.75 C 22.811,31.244 27.272,22.554 28.33,20.09 C 25.017,16.105 18.257,7.185 16.004,4.458 C 8.46,6.833 8.045,6.833 3.216,8.313 Z M 23.914,20.358 C 23.084,22.146 20.116,29.229 19.405,30.57 C 16.186,30.168 11.246,29.314 10.044,29.137 C 9.021,27.616 6.159,23.628 3.997,20.675 C 4.504,17.539 4.778,14.314 5.195,11.044 C 7.163,10.498 12.072,9.208 15.034,8.759 C 17.199,11.716 22.028,17.626 23.914,20.358 Z" stroke-linejoin="round" stroke-width="4.5" stroke="#666666" marker-start="none" marker-end="none"/>
+  <path d="M 9.881,28.924 C 13.485,26.346 14.296,25.7 17.461,23.405 C 19.887,23.763 22.985,23.559 22.833,23.978 C 22.098,25.985 19.54,30.428 19.521,30.428 C 16.945,30.214 15.031,29.784 9.881,28.924 Z" fill="#304ab6" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none"/>
+  <path d="M 9.953,28.924 C 12.751,26.988 14.664,25.554 17.386,23.478 C 15.84,21.9 13.413,17.959 12.445,16.787 C 10.173,17.671 6.126,19.607 3.991,20.467 C 4.828,21.615 8.483,27.06 9.953,28.924 Z" fill="#6582fc" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none"/>
+  <path d="M 12.455,16.812 C 13.706,13.086 14.588,9.862 15.179,8.285 C 11.917,9.032 10.247,9.648 5.023,10.867 C 4.933,13.48 4.132,18.023 4.04,20.655 C 4.071,20.594 8.335,18.676 12.455,16.812 Z" fill="#abb9f5" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none"/>
+  <path d="M 21.586,33.516 C 22.262,31.94 27.107,22.183 28.302,19.943 C 28.948,18.735 31.981,15.92 33.353,14.495 C 32.063,17.048 28.257,24.96 27.566,26.17 C 26.601,27.378 22.14,33.065 21.586,33.516 Z" fill="#6582fc" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none"/>
+  <path d="M 28.603,20.424 C 27.422,19.025 16.986,6.064 15.752,4.288 C 18.001,3.921 24.236,3.459 24.33,3.587 C 26.586,6.567 33.08,14.321 33.232,14.583 C 32.053,15.833 31.092,17.341 28.603,20.424 Z" fill="#304ab6" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none"/>
+  <path d="M 17.313,23.622 C 16.503,22.475 14.149,19.535 12.382,16.886 C 12.97,14.949 14.149,11.081 15.179,8.285 C 16.872,9.216 22.636,16.37 24.461,18.488 C 26.354,20.691 23.174,21.705 23.348,23.836 C 22.262,23.907 17.436,23.687 17.313,23.622 Z" fill="#d2d9f5" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none"/>
+  <path d="M 16.162,4.354 C 17.397,6.127 27.32,20.068 27.311,20.085 C 26.114,22.325 19.987,32.555 21.976,33.414 C 22.491,32.842 26.841,27.178 27.807,25.967 C 28.498,24.759 31.819,18.337 33.655,14.818 C 31.783,12.462 26.827,6.365 24.568,3.384 C 24.474,3.261 18.413,3.986 16.162,4.354 Z" stroke-width="1.433" stroke="#000000" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient)" stroke="none"/>
+  </mask>
+  <path d="M 9.947,28.998 C 12.746,27.061 14.658,25.627 17.381,23.55 C 15.835,21.973 13.406,18.032 12.439,16.86 C 10.167,17.744 6.12,19.68 3.986,20.54 C 4.82,21.688 8.477,27.133 9.947,28.998 Z" fill="#000a24" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none" mask="url(#TranspMask)"/>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_1)" stroke="none"/>
+  </mask>
+  <path d="M 9.732,29.14 C 13.336,26.562 14.147,25.916 17.313,23.622 C 19.739,23.979 22.837,23.776 22.684,24.194 C 21.949,26.201 19.391,30.644 19.372,30.644 C 16.796,30.43 14.882,30 9.732,29.14 Z" fill="#000a24" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none" mask="url(#TranspMask_1)"/>
+  <path d="M 3.205,8.178 C 3.019,10.953 2.469,18.704 2.239,20.627 C 2.664,21.341 9.552,31.213 9.552,31.242 C 13.37,32.005 18.291,32.857 21.74,33.615 C 22.8,31.109 27.261,22.419 28.319,19.955 C 25.006,15.97 18.246,7.05 15.993,4.323 C 8.449,6.698 8.034,6.698 3.205,8.178 Z M 23.903,20.223 C 23.073,22.011 20.105,29.094 19.394,30.435 C 16.175,30.033 11.235,29.179 10.033,29.002 C 9.01,27.481 6.148,23.493 3.986,20.54 C 4.493,17.404 4.767,14.179 5.184,10.909 C 7.152,10.363 12.061,9.073 15.023,8.624 C 17.188,11.581 22.017,17.491 23.903,20.223 Z" stroke-width="1.433" fill="#abbbff" stroke="#000000" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_2">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_2)" stroke="none"/>
+  </mask>
+  <path d="M 12.338,16.85 C 13.586,13.121 14.469,9.898 15.06,8.322 C 11.798,9.068 10.127,9.684 4.902,10.903 C 4.814,13.516 4.013,18.06 3.92,20.691 C 3.95,20.631 8.214,18.713 12.338,16.85 Z" fill="#000a24" stroke-linejoin="miter" stroke="none" marker-start="none" marker-end="none" mask="url(#TranspMask_2)"/>
+ </g>
+</svg>

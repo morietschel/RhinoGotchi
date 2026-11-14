@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="9.189" y2="0" gradientTransform="translate(-30.732 15.255) rotate(90)">
+   <stop offset="0" stop-color="#4cb624"/>
+   <stop offset="1" stop-color="#c0ff72"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 9.753,27.831 L 5.252,27.831 L 5.252,21.829 L 2.25,21.829 L 7.502,11.325 L 12.754,21.829 L 9.753,21.829 L 9.753,27.831 Z" stroke-linejoin="round" stroke-width="4.5" stroke="#666666" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <rect x="-15.755" y="-10.504" width="31.511" height="21.008" transform="translate(20.251 18.072) rotate(90)" stroke="#e1e1e1" stroke-width="1.489" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M 9.747,27.826 L 5.246,27.826 L 5.246,21.824 L 2.244,21.824 L 7.496,11.32 L 12.748,21.824 L 9.747,21.824 L 9.747,27.826 Z" stroke="#000000" stroke-width="1.489" stroke-linejoin="miter" stroke-linecap="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 21.001,3.066 C 20.167,3.066 19.501,3.86 19.501,4.567 L 19.501,21.073 C 19.501,22.574 18,22.574 18,21.073 L 18,14.321 C 16.806,14.321 16.5,14.741 16.5,15.821 L 16.5,21.824 C 16.5,22.903 17.556,24.074 18.751,24.074 L 24.753,24.074 C 25.947,24.074 27.003,22.903 27.003,21.824 L 27.003,15.821 C 27.003,14.741 26.697,14.321 25.503,14.321 L 25.503,21.073 C 25.503,22.574 24.002,22.574 24.002,21.073 L 24.002,4.567 C 24.002,3.86 23.252,3.066 22.502,3.066 L 22.502,12.82 C 22.502,13.57 21.001,13.57 21.001,12.82 L 21.001,3.066 Z" fill="#e1e1e1" stroke="none" stroke-linejoin="miter" stroke-linecap="round" stroke-width="0.48" marker-start="none" marker-end="none"/>
+  <ellipse rx="2.251" ry="2.251" transform="translate(21.751 27.075) rotate(149.996)" fill="#e1e1e1" stroke="none" stroke-linejoin="miter" stroke-linecap="round" stroke-width="0.48"/>
+ </g>
+</svg>

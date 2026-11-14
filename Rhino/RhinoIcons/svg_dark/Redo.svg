@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="22.6" y2="0" gradientTransform="translate(28.799 17.066) rotate(170.102) skewX(1.16993)">
+   <stop offset="0" stop-color="#e1e1e1"/>
+   <stop offset="1" stop-color="#595959"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 33,12 L 29.762,23.42 L 26.013,19.878 C 23.796,22.048 21.393,23.802 18.517,24.767 C 12.033,26.942 6.972,24.072 3,19.679 L 7.436,16.224 C 11.124,21.975 18.986,22.854 24.55,18.498 L 20.911,15.06 L 33,12 Z" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="0" marker-start="none" marker-end="none"/>
+  <path d="M 31.72,13.209 L 29.293,21.767 L 26.001,18.658 L 25.361,19.284 C 23.198,21.401 20.911,23.057 18.215,23.961 C 12.989,25.713 8.742,23.964 5.176,20.638 L 4.316,19.762 L 7.249,17.478 L 7.464,17.775 C 11.723,23.005 19.559,23.516 25.129,19.156 L 25.894,18.557 L 22.661,15.503 L 31.72,13.209 Z" stroke-linejoin="miter" stroke="none" stroke-width="0" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+ </g>
+</svg>

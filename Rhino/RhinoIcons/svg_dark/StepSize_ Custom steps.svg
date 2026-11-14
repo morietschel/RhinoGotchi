@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 31.157,11.895 C 30.484,11.221 28.99,10.725 28.185,11.34 C 26.879,13.977 29.572,14.099 31.147,13.097 C 31.664,12.766 31.56,12.299 31.157,11.895 Z M 24.68,8.89 C 21.171,5.016 14.02,2.49 10.011,6.623 C 9.404,7.069 8.836,7.582 9.042,8.528 C 9.721,11.642 14.87,10.265 16.626,12.204 C 17.733,13.426 18.199,14.916 19.308,15.79 C 20.293,16.568 22.534,16.938 23.622,16.483 C 27.321,14.939 26.846,11.279 24.68,8.89 Z M 30.181,16.173 C 29.604,15.49 28.639,14.917 27.882,15.167 C 25.861,17.228 28.38,18.251 30.173,17.829 C 30.957,17.645 30.763,16.855 30.181,16.173 Z M 27.305,19.193 C 26.223,17.94 23.906,17.551 22.94,18.547 C 21.974,22.396 27.826,24.033 27.881,20.714 C 27.889,20.124 27.667,19.61 27.305,19.193 Z" fill="#e1e1e1" stroke-width="0.051" stroke="none" marker-start="none" marker-end="none" fill-opacity="0.992157"/>
+  <path d="M 6,30.002 L 7.5,30.002 L 7.5,31.501 L 11.999,31.501 L 11.999,28.502 L 10.5,28.502 L 10.5,27.002 L 9,27.002 L 9,24.002 L 10.5,24.002 L 10.5,27.002 L 11.999,27.002 L 11.999,28.502 L 13.499,28.502 L 13.499,31.501 L 11.999,31.501 L 11.999,33.001 L 7.5,33.001 L 7.5,31.501 L 6,31.501 L 6,30.002 Z M 9,22.502 L 9,21.002 L 10.5,21.002 L 10.5,22.502 L 9,22.502 Z" fill="#e1e1e1" stroke-linejoin="miter" stroke-width="1.488" stroke="none" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

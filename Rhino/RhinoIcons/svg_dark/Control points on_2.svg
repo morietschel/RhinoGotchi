@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+	</defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 25.785,1.738 L 22.992,2.763 C 24.271,6.248 24.403,10.126 23.119,13.786 C 20.219,22.047 11.137,26.156 2.793,22.898 L 1.71,25.671 C 11.58,29.523 22.454,24.666 25.928,14.771 C 27.454,10.419 27.288,5.829 25.785,1.738 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 10.508,28.51 L 10.508,34.499 L 16.497,34.499 L 16.497,28.51 L 10.508,28.51 Z M 15.009,29.998 L 15.009,33.011 L 11.996,33.011 L 11.996,29.998 L 15.009,29.998 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 28.51,10.508 L 28.51,16.497 L 34.499,16.497 L 34.499,10.508 L 28.51,10.508 Z M 33.011,11.996 L 33.011,15.009 L 29.998,15.009 L 29.998,11.996 L 33.011,11.996 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(18.753 26.254) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(21.753 23.253) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(24.754 20.253) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(27.754 17.253) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(30.755 8.251) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(30.755 5.251) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(30.755 2.25) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(8.251 30.755) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(5.251 30.755) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(2.25 30.755) rotate(90)" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="1.488"/>
+ </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <ellipse rx="12.005" ry="12.005" transform="translate(17.999 18) rotate(180)" stroke-opacity="0.498039" stroke="#231f20" stroke-width="2.977" stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(18 30.005) rotate(90)" stroke="#000000" fill="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(30.005 18.001) rotate(90)" stroke="#000000" fill="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(5.995 18.002) rotate(90)" stroke="#000000" fill="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(18 5.995) rotate(90)" stroke="#000000" fill="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(8.996 8.997) rotate(90)" stroke="#000000" fill="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(27.004 8.997) rotate(90)" stroke="#000000" fill="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(27.004 27.004) rotate(90)" stroke="#000000" fill="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(8.996 27.004) rotate(90)" stroke="#000000" fill="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="miter"/>
+ </g>
+</svg>

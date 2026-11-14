@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 1.5,16.547 L 1.5,18.035 L 17.337,18.035 L 17.337,16.547 L 1.5,16.547 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 21.54,16.374 L 21.791,17.841 C 28.153,16.753 33,11.208 33,4.538 L 31.512,4.538 C 31.512,10.471 27.2,15.406 21.54,16.374 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 16.5,13.5 L 16.5,19.489 L 22.489,19.489 L 22.489,13.5 L 16.5,13.5 Z M 21.001,14.988 L 21.001,18.001 L 17.988,18.001 L 17.988,14.988 L 21.001,14.988 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 12,31.502 L 12,24.001 L 13.501,24.001 L 13.501,22.5 L 18.002,22.5 L 18.002,24.001 L 19.502,24.001 L 19.502,27.002 L 16.502,27.002 L 16.502,25.501 L 18.002,25.501 L 18.002,24.001 L 13.501,24.001 L 13.501,31.502 L 18.002,31.502 L 18.002,30.002 L 19.502,30.002 L 19.502,31.502 L 18.002,31.502 L 18.002,33.003 L 13.501,33.003 L 13.501,31.502 L 12,31.502 Z" fill="#e1e1e1" stroke-width="1.104" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 21,30.001 L 22.501,30.001 L 22.501,31.501 L 27.001,31.501 L 27.001,28.501 L 25.502,28.501 L 25.502,27.001 L 24.001,27.001 L 24.001,24 L 25.502,24 L 25.502,27.001 L 27.001,27.001 L 27.001,28.501 L 28.502,28.501 L 28.502,31.501 L 27.001,31.501 L 27.001,33.002 L 22.501,33.002 L 22.501,31.501 L 21,31.501 L 21,30.001 Z M 24.001,22.499 L 24.001,21 L 25.502,21 L 25.502,22.499 L 24.001,22.499 Z" fill="#e1e1e1" stroke-linejoin="miter" stroke-width="1.488" stroke="none" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="14.168" gradientTransform="matrix(0 -1 1 0 -7.472 0.069)">
+   <stop offset="0" stop-color="#6f6f6f"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="4.222" y2="-3.546" gradientTransform="matrix(-0.775894 -0.6306 0.630859 -0.776108 2.777 0.184)">
+   <stop offset="0" stop-color="#e6e6e6"/>
+   <stop offset="0.1" stop-color="#dadada"/>
+   <stop offset="0.2" stop-color="#cbcbcb"/>
+   <stop offset="0.3" stop-color="#b8b8b8"/>
+   <stop offset="0.4" stop-color="#9c9c9c"/>
+   <stop offset="0.5" stop-color="#737373"/>
+   <stop offset="0.6" stop-color="#4a4a4a"/>
+   <stop offset="0.7" stop-color="#2e2e2e"/>
+   <stop offset="0.8" stop-color="#1b1b1b"/>
+   <stop offset="0.9" stop-color="#0c0c0c"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke="none">
+   <rect x="-2.248" y="-2.248" width="4.497" height="4.497" transform="translate(31.504 7.494) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 28.507,4.497 L 28.507,10.489 L 34.499,10.489 L 34.499,4.497 L 28.507,4.497 Z M 33.004,5.992 L 33.004,8.994 L 30.002,8.994 L 30.002,5.992 L 33.004,5.992 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 15,22.528 L 15,24.023 L 16.507,24.023 L 16.507,22.528 L 15,22.528 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 18.014,19.514 L 18.014,21.009 L 19.522,21.009 L 19.522,19.514 L 18.014,19.514 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 21.029,16.499 L 21.029,17.994 L 22.536,17.994 L 22.536,16.499 L 21.029,16.499 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 24.03,13.542 L 24.03,15.037 L 25.537,15.037 L 25.537,13.542 L 24.03,13.542 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 26.969,10.527 L 26.969,12.022 L 28.477,12.022 L 28.477,10.527 L 26.969,10.527 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient)" stroke="none"/>
+  </mask>
+  <ellipse rx="8.703" ry="8.703" transform="translate(15.749 23.248) rotate(90)" stroke-linejoin="miter" stroke="none" fill="#ffffff" stroke-width="1.447" mask="url(#TranspMask)"/>
+  <ellipse rx="9.035" ry="9.035" transform="translate(15.749 23.248) rotate(90)" stroke-linejoin="miter" stroke-width="1.447"/>
+  <path d="M 9.558,17.057 L 2.598,10.098" fill="none" stroke-linejoin="miter" stroke-width="2.894"/>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_1)" stroke="none"/>
+  </mask>
+  <ellipse rx="2.817" ry="4.53" transform="translate(12.145 26.54) rotate(140.905)" stroke-linejoin="miter" stroke="none" fill="#ffffff" stroke-width="1.206" mask="url(#TranspMask_1)"/>
+ </g>
+</svg>

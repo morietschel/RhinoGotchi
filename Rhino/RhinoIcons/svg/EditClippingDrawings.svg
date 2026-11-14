@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+	</defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="14.234" y="5.358" width="10.492" height="16.516" fill="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M 12.757,32.26 L 12.757,21.773 L 8.244,21.773 L 8.244,14.273 L 20.244,14.273 L 20.244,32.26 L 12.757,32.26 Z" fill="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 27.587,5.854 L 29.135,3.984 L 30.682,2.114 L 32.231,3.983 L 33.778,5.853 L 30.683,5.854 L 27.587,5.854 Z" stroke="#7f0000" fill="#ff0000" stroke-width="0.771" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <path d="M 30.75,30.029 L 30.75,28.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 30.683,2.114 L 29.136,3.984 L 27.588,5.854 L 29.686,5.854 L 29.686,18.138 L 31.908,18.138 L 31.907,5.853 L 33.779,5.853 L 32.231,3.984 L 30.683,2.114 Z" stroke-linejoin="round" stroke-width="0.771" fill="#ff0000" stroke="#7f0000" marker-start="none" marker-end="none"/>
+  <path d="M 27.587,30.421 L 29.135,32.291 L 30.682,34.161 L 32.231,32.292 L 33.778,30.422 L 30.683,30.421 L 27.587,30.421 Z" fill="#000000" stroke="#000000" stroke-width="0.771" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <rect x="2.221" y="17.202" width="31.559" height="3.046" stroke-linejoin="round" stroke-width="1.5" fill="#feff04" stroke="#7e7e05"/>
+  <path d="M 30.75,26.985 L 30.75,25.456" fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 30.75,24.031 L 30.75,22.502" fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+ </g>
+</svg>

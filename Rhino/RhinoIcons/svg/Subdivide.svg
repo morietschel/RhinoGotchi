@@ -1,0 +1,72 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="19.568" y2="0" gradientTransform="translate(8.976 17.839) rotate(-0.333792) skewX(-0.187505)">
+   <stop offset="0" stop-color="#becafc"/>
+   <stop offset="1" stop-color="#6582fc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke="none">
+   <rect x="3.705" y="3.687" width="27.053" height="27.073" rx="8.271" ry="8.271" stroke-linejoin="miter" fill="url(#LinearGradient)"/>
+   <path d="M 2.959,11.957 L 2.959,22.488 C 2.959,27.464 6.998,31.503 11.975,31.503 L 22.486,31.503 C 27.462,31.503 31.501,27.464 31.501,22.488 L 31.501,11.957 C 31.501,6.98 27.462,2.941 22.486,2.941 L 11.975,2.941 C 6.998,2.941 2.959,6.98 2.959,11.957 Z M 30.012,11.957 L 30.012,22.488 C 30.012,26.641 26.639,30.014 22.486,30.014 L 11.975,30.014 C 7.821,30.014 4.448,26.641 4.448,22.488 L 4.448,11.957 C 4.448,7.803 7.821,4.43 11.975,4.43 L 22.486,4.43 C 26.639,4.43 30.012,7.803 30.012,11.957 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 3.812,16.618 L 3.845,18.107 C 13,17.908 21.96,17.913 30.74,18.107 L 30.773,16.618 C 21.971,16.424 12.989,16.419 3.812,16.618 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <path d="M 16.511,30.339 L 17.998,30.28 C 17.649,21.353 17.66,12.594 17.998,3.987 L 16.511,3.928 C 16.171,12.573 16.16,21.372 16.511,30.339 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#7f7f7f" stroke="none"/>
+  </mask>
+  <g id="Group_1" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#231f20" mask="url(#TranspMask)">
+   <path d="M 22.499,28.46 L 22.499,29.961 L 23.988,29.961 L 23.988,28.46 L 22.499,28.46 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 22.499,25.499 L 22.499,27 L 23.988,27 L 23.988,25.499 L 22.499,25.499 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 22.499,22.536 L 22.499,24.037 L 23.988,24.037 L 23.988,22.536 L 22.499,22.536 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 22.499,19.575 L 22.499,21.076 L 23.988,21.076 L 23.988,19.575 L 22.499,19.575 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 22.499,16.573 L 22.499,18.074 L 23.988,18.074 L 23.988,16.573 L 22.499,16.573 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 22.521,13.576 L 22.521,15.077 L 24.01,15.077 L 24.01,13.576 L 22.521,13.576 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 22.574,10.503 L 22.574,12.004 L 24.063,12.004 L 24.063,10.503 L 22.574,10.503 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 22.499,7.5 L 22.499,9.001 L 23.988,9.001 L 23.988,7.5 L 22.499,7.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 22.574,4.575 L 22.574,6.076 L 24.063,6.076 L 24.063,4.575 L 22.574,4.575 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#7f7f7f" stroke="none"/>
+  </mask>
+  <g id="Group_2" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#231f20" mask="url(#TranspMask_1)">
+   <path d="M 28.453,22.501 L 28.453,24.002 L 29.942,24.002 L 29.942,22.501 L 28.453,22.501 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 25.418,22.501 L 25.418,24.002 L 26.907,24.002 L 26.907,22.501 L 25.418,22.501 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 19.531,22.531 L 19.531,24.032 L 21.02,24.032 L 21.02,22.531 L 19.531,22.531 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 13.494,22.531 L 13.494,24.032 L 14.983,24.032 L 14.983,22.531 L 13.494,22.531 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 7.494,22.501 L 7.494,24.002 L 8.983,24.002 L 8.983,22.501 L 7.494,22.501 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 4.531,22.501 L 4.531,24.002 L 6.02,24.002 L 6.02,22.501 L 4.531,22.501 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 16.251,22.501 L 16.251,24.002 L 17.74,24.002 L 17.74,22.501 L 16.251,22.501 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <mask id="TranspMask_2">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#7f7f7f" stroke="none"/>
+  </mask>
+  <g id="Group_3" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#231f20" mask="url(#TranspMask_2)">
+   <path d="M 10.499,22.552 L 10.499,24.053 L 11.988,24.053 L 11.988,22.552 L 10.499,22.552 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 10.499,28.46 L 10.499,29.961 L 11.988,29.961 L 11.988,28.46 L 10.499,28.46 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 10.499,25.499 L 10.499,27 L 11.988,27 L 11.988,25.499 L 10.499,25.499 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 10.499,19.575 L 10.499,21.076 L 11.988,21.076 L 11.988,19.575 L 10.499,19.575 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 10.499,16.573 L 10.499,18.074 L 11.988,18.074 L 11.988,16.573 L 10.499,16.573 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 10.521,13.576 L 10.521,15.077 L 12.01,15.077 L 12.01,13.576 L 10.521,13.576 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 10.574,10.503 L 10.574,12.004 L 12.063,12.004 L 12.063,10.503 L 10.574,10.503 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 10.499,7.5 L 10.499,9.001 L 11.988,9.001 L 11.988,7.5 L 10.499,7.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 10.574,4.575 L 10.574,6.076 L 12.063,6.076 L 12.063,4.575 L 10.574,4.575 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <mask id="TranspMask_3">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#7f7f7f" stroke="none"/>
+  </mask>
+  <g id="Group_4" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#231f20" mask="url(#TranspMask_3)">
+   <path d="M 28.421,10.5 L 28.421,12.001 L 29.91,12.001 L 29.91,10.5 L 28.421,10.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 25.386,10.5 L 25.386,12.001 L 26.875,12.001 L 26.875,10.5 L 25.386,10.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 19.499,10.53 L 19.499,12.031 L 20.988,12.031 L 20.988,10.53 L 19.499,10.53 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 13.462,10.53 L 13.462,12.031 L 14.951,12.031 L 14.951,10.53 L 13.462,10.53 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 7.462,10.5 L 7.462,12.001 L 8.951,12.001 L 8.951,10.5 L 7.462,10.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 4.499,10.5 L 4.499,12.001 L 5.988,12.001 L 5.988,10.5 L 4.499,10.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 16.219,10.5 L 16.219,12.001 L 17.708,12.001 L 17.708,10.5 L 16.219,10.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

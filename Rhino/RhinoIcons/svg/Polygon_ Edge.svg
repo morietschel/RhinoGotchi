@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 10.777,7.499 L 4.349,18.749 L 10.777,29.998 L 23.648,29.998 L 30.076,18.748 L 23.647,7.499 L 10.777,7.499 Z M 22.782,8.988 L 28.361,18.749 L 22.783,28.509 L 11.642,28.509 L 6.064,18.749 L 11.642,8.988 L 22.782,8.988 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" stroke="none">
+   <rect x="-2.251" y="-2.251" width="4.502" height="4.502" transform="translate(10.465 30.004) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 7.469,27.008 L 7.469,32.999 L 13.46,32.999 L 13.46,27.008 L 7.469,27.008 Z M 11.971,28.497 L 11.971,31.51 L 8.958,31.51 L 8.958,28.497 L 11.971,28.497 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_1" stroke="none">
+   <rect x="-2.238" y="-2.238" width="4.477" height="4.477" transform="translate(23.983 30.017) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 20.999,27.033 L 20.999,32.999 L 26.965,32.999 L 26.965,27.033 L 20.999,27.033 Z M 25.476,28.522 L 25.476,31.51 L 22.488,31.51 L 22.488,28.522 L 25.476,28.522 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

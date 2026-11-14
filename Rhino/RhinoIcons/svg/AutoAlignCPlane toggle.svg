@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.699" y2="-4.086" gradientTransform="translate(15.509 20.644)">
+   <stop offset="0" stop-color="#dfd28a"/>
+   <stop offset="1" stop-color="#ffcb26"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 24.869,17.624 L 30.899,9.839 L 23.924,22.963 L 19.976,24.837 L 24.869,17.624 Z" fill="#26367b" stroke="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="0.48" marker-start="none" marker-end="none"/>
+  <path d="M 12.113,2.864 L 31.912,9.164 L 25.343,17.687 L 15.197,13.866 L 12.113,2.864 Z" fill="#304ab6" stroke="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="0.48" marker-start="none" marker-end="none"/>
+  <path d="M 12.113,2.864 L 15.197,13.866 L 11.1,21.388 L 3.975,17.338 L 12.113,2.864 Z" fill="#6582fc" stroke="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="0.48" marker-start="none" marker-end="none"/>
+  <path d="M 11.052,21.879 L 14.736,14.507 L 24.358,18.015 L 19.744,25.197 L 11.052,21.879 Z" stroke="none" stroke-width="0.421" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 11.15,1.68 L 2.375,17.287 L 10.238,22.448 L 19.49,25.034 L 23.829,23.264 L 32.408,8.444 L 11.15,1.68 Z M 11.853,3.465 L 30.193,9.301 L 22.796,22.079 L 19.399,23.463 L 10.861,21.077 L 4.352,16.806 L 11.853,3.465 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 11.052,21.879 L 15.592,14.5 L 24.42,17.592 L 19.445,24.249 L 11.052,21.879 Z" stroke="#ffcb26" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <g id="Group" stroke-linejoin="miter" stroke-linecap="round">
+   <path d="M 16.633,19.461 L 6.272,16.074" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 22.761,11.338 L 17.073,19.835" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 28.545,13.52 L 17.408,28.073" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 10.13,6.575 L 1.987,23.623" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 16.633,9.027 L 7.372,25.176" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 34.013,15.582 L 22.095,29.424" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 34.013,15.582 L 10.13,6.575" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 30.543,19.611 L 7.721,11.618" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 24.633,26.477 L 3.69,20.057" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 22.095,29.424 L 1.987,23.623" fill="none" stroke-width="0.975" stroke-opacity="0.501961" stroke="#231f20" fill-opacity="0.501961"/>
+   <path d="M 17.073,19.835 L 12.506,26.659" fill="none" stroke-width="1.95" stroke="#1c9a00"/>
+   <path d="M 27.161,23.105 L 16.921,19.835" fill="none" stroke-width="1.95" stroke="#c30000"/>
+  </g>
+ </g>
+</svg>

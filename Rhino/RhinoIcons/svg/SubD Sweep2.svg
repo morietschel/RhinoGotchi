@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="6.734" cy="14.954" r="23.0626971753089">
+   <stop offset="0" stop-color="#becafc"/>
+   <stop offset="0.1" stop-color="#bcc8fb"/>
+   <stop offset="0.2" stop-color="#bac6fa"/>
+   <stop offset="0.3" stop-color="#b6c3f8"/>
+   <stop offset="0.4" stop-color="#b1bef6"/>
+   <stop offset="0.5" stop-color="#a9b7f1"/>
+   <stop offset="0.6" stop-color="#99a8ea"/>
+   <stop offset="0.7" stop-color="#7185d6"/>
+   <stop offset="0.8" stop-color="#4c64c4"/>
+   <stop offset="0.9" stop-color="#3b54bb"/>
+   <stop offset="1" stop-color="#304ab6"/>
+  </radialGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 8.973,10.477 L 8.973,13.477 L 4.493,13.477 L 4.493,11.977 L 3,11.977 L 3,13.477 L 4.493,13.477 L 4.493,14.977 L 8.973,14.977 L 8.973,13.477 L 10.467,13.477 L 10.467,10.477 L 8.973,10.477 L 8.973,8.977 L 7.48,8.977 L 7.48,7.477 L 5.987,7.477 L 5.987,5.978 L 10.467,5.978 L 10.467,4.477 L 3,4.477 L 3,5.978 L 4.493,5.978 L 4.493,7.477 L 5.987,7.477 L 5.987,8.977 L 7.48,8.977 L 7.48,8.977 L 7.48,10.477 L 8.973,10.477 Z" stroke="none" fill="#231f20" stroke-width="0.096" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <g id="Group" stroke="none">
+   <path d="M 4.493,19.434 C 14.201,19.434 16.441,12.714 16.44,5.994 C 20.116,11.967 24.711,11.967 28.387,5.994 C 28.388,14.954 29.135,25.408 23.908,29.888 C 16.104,35.862 5.987,29.888 4.493,19.434 Z" stroke-linejoin="round" marker-start="none" marker-end="none" fill="url(#RadialGradient)"/>
+   <path d="M 15.699,5.994 C 15.7,12.524 13.625,18.693 4.493,18.693 C 4.042,18.693 3.696,19.093 3.759,19.538 C 5.307,30.37 16,36.874 24.358,30.475 L 24.389,30.45 C 27.229,28.016 28.373,24.033 28.844,19.7 C 29.316,15.354 29.127,10.43 29.127,5.993 C 29.127,5.25 28.145,4.973 27.756,5.605 C 25.967,8.512 24.095,9.733 22.413,9.733 C 20.731,9.733 18.859,8.512 17.07,5.605 C 16.681,4.972 15.699,5.25 15.699,5.994 Z M 22.413,11.214 C 24.253,11.214 25.986,10.22 27.534,8.43 L 27.655,8.276 L 27.661,9.623 C 27.701,17.42 27.624,24.631 24.261,28.494 L 23.439,29.311 L 22.078,30.21 C 15.541,33.875 7.708,29.495 5.59,21.171 L 5.384,20.133 L 6.334,20.09 C 13.923,19.372 16.505,14.147 17.058,8.574 L 17.077,8.159 L 17.291,8.43 C 18.839,10.22 20.572,11.214 22.413,11.214 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 21.11,11.417 C 21.376,15.733 21.027,26.123 9.072,27.698 C 8.661,27.752 8.372,28.129 8.426,28.539 C 8.48,28.95 8.857,29.239 9.267,29.185 C 21.892,27.522 22.942,16.747 22.607,11.324 C 22.582,10.911 22.225,10.596 21.812,10.622 C 21.399,10.647 21.084,11.004 21.11,11.417 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.301961"/>
+  <path d="M 9.778,18.539 C 9.412,18.731 9.271,19.185 9.464,19.552 C 13.284,26.813 21.468,27.227 25.537,26.976 C 25.95,26.951 26.265,26.594 26.239,26.181 C 26.214,25.768 25.857,25.453 25.444,25.479 C 21.56,25.719 14.179,25.294 10.791,18.853 C 10.599,18.487 10.145,18.346 9.778,18.539 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.301961"/>
+  <path d="M 14.23,14.65 C 13.907,14.909 13.856,15.382 14.115,15.704 C 17.632,20.081 23.062,20.973 26.797,21.023 C 27.211,21.029 27.552,20.697 27.557,20.284 C 27.563,19.87 27.231,19.529 26.818,19.524 C 23.233,19.476 18.375,18.61 15.284,14.765 C 15.025,14.442 14.552,14.391 14.23,14.65 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.301961"/>
+  <path d="M 27.125,5.217 C 25.386,8.043 23.708,8.992 22.413,8.992 C 21.118,8.992 19.44,8.043 17.701,5.217 C 16.922,3.951 14.958,4.507 14.958,5.994 C 14.958,9.237 14.409,12.23 12.895,14.381 C 11.451,16.433 8.962,17.952 4.493,17.952 C 3.675,17.952 3.011,18.616 3.011,19.434 C 3.011,20.251 3.675,20.915 4.493,20.915 C 9.731,20.915 13.216,19.074 15.318,16.086 C 16.589,14.28 17.288,12.147 17.634,9.952 L 17.646,9.858 L 18.456,10.542 C 19.668,11.445 20.993,11.955 22.413,11.955 C 23.833,11.955 25.157,11.445 26.369,10.542 L 26.926,10.072 L 26.941,12.869 C 26.93,15.141 26.862,17.366 26.635,19.46 C 26.177,23.676 25.105,26.91 22.943,28.763 C 22.322,29.295 22.25,30.231 22.783,30.852 C 23.315,31.473 24.251,31.545 24.872,31.012 C 27.937,28.385 29.105,24.152 29.58,19.781 C 30.058,15.381 29.868,10.386 29.868,5.993 C 29.868,4.507 27.904,3.951 27.125,5.217 Z" stroke-width="0.5" stroke="none" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

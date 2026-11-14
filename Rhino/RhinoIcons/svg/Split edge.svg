@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="25.419" y2="0" gradientTransform="translate(30.05 6.774) rotate(161.457) skewX(-6.74121)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke="none">
+   <g id="Group_1">
+    <path d="M 5.242,6.776 L 5.242,15.756 L 30.758,15.756 L 30.758,6.776 L 5.242,6.776 Z" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+    <path d="M 4.499,6.033 L 4.499,16.498 L 31.5,16.498 L 31.5,6.033 L 4.499,6.033 Z M 30.015,7.518 L 30.015,15.013 L 5.984,15.013 L 5.984,7.518 L 30.015,7.518 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   </g>
+   <path d="M 4.532,15.018 L 4.532,17.986 L 31.468,17.986 L 31.468,15.018 L 4.532,15.018 Z" stroke-width="0.5" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_2" stroke="none" fill="#122877">
+   <path d="M 18.748,29.224 L 18.748,9.769 L 27.727,29.224 L 18.748,29.224 Z" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+   <path d="M 18.005,9.769 L 18.005,29.224 C 18.005,29.633 18.338,29.966 18.748,29.966 L 27.727,29.966 C 28.268,29.966 28.627,29.404 28.401,28.912 L 19.422,9.457 C 19.09,8.739 18.005,8.977 18.005,9.769 Z M 19.49,13.149 L 26.566,28.481 L 19.49,28.481 L 19.49,13.149 Z" stroke-width="0.5" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 6.753,5.295 L 6.763,18.766 L 15.762,18.784 L 15.762,30.782 L 29.235,30.798 L 29.224,5.295 L 6.753,5.295 Z M 24.717,9.783 L 24.717,26.226 L 20.217,26.226 L 20.336,14.29 L 11.217,14.29 L 11.217,9.783 L 24.717,9.783 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="miter" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 6.751,5.25 L 6.761,18.721 L 15.76,18.739 L 15.76,30.737 L 29.233,30.753 L 29.222,5.25 L 6.751,5.25 Z M 24.715,9.738 L 24.715,26.181 L 20.215,26.181 L 20.334,14.245 L 11.215,14.245 L 11.215,9.738 L 24.715,9.738 Z" fill="#ffffff" stroke-linejoin="miter" stroke-width="1.5" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 6.946,18.782 L 11.553,13.954" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke="#000000"/>
+  <path d="M 16.401,30.369 L 20.768,25.641" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke="#000000"/>
+  <path d="M 15.875,18.801 L 20.336,14.29" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke="#000000"/>
+  <path d="M 29.235,30.855 L 24.296,25.761" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke="#000000"/>
+  <path d="M 29.432,5.026 L 24.248,10.138" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke="#000000"/>
+  <path d="M 6.969,5.264 L 11.553,10.138" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke="#000000"/>
+ </g>
+</svg>

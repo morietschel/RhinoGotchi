@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 14.747,6.766 C 13.299,6.744 11.843,7.112 10.552,7.874 C 8.088,9.325 6.619,11.973 6.714,14.793 C 6.796,17.259 8.062,19.518 10.089,20.909 L 10.823,21.344 L 10.902,22.747 C 11.507,26.429 14.759,29.272 18.716,29.272 C 22.671,29.272 25.924,26.429 26.529,22.747 L 26.608,21.335 L 27.801,20.571 C 30.72,18.245 31.626,14.118 29.724,10.76 C 28.365,8.361 25.91,6.95 23.325,6.781 C 21.773,6.68 20.173,7.026 18.735,7.875 L 18.703,7.893 L 17.927,7.475 C 16.918,7.02 15.835,6.783 14.747,6.766 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <path d="M 33.011,28.503 L 33.011,33.011 L 28.504,33.011 L 28.504,34.5 L 34.5,34.5 L 34.5,28.503 L 33.011,28.503 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.499,1.499 L 1.499,7.496 L 2.988,7.496 L 2.988,2.988 L 7.496,2.988 L 7.496,1.499 L 1.499,1.499 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" stroke-linejoin="round" stroke-linecap="round" stroke="none" stroke-width="0">
+   <path d="M 26.578,21.29 C 26.445,18.543 24.856,16.075 22.411,14.817 C 22.544,12.07 21.201,9.46 18.889,7.971 C 18.957,7.928 19.026,7.886 19.094,7.844 C 22.825,5.605 27.668,6.901 29.783,10.703 C 31.897,14.504 30.445,19.3 26.578,21.29 Z" fill="#5bff08" marker-start="none" marker-end="none"/>
+   <path d="M 15.366,14.817 C 17.577,13.679 20.201,13.679 22.411,14.817 C 22.291,17.3 20.98,19.573 18.889,20.918 C 16.798,19.573 15.486,17.3 15.366,14.817 Z" fill="#ffffff" marker-start="none" marker-end="none"/>
+   <path d="M 15.366,14.817 C 15.234,12.07 16.576,9.46 18.889,7.971 C 21.201,9.46 22.544,12.07 22.411,14.817 C 20.201,13.679 17.577,13.679 15.366,14.817 Z" fill="#00fccd" marker-start="none" marker-end="none"/>
+   <path d="M 11.199,21.29 C 8.716,20.012 7.119,17.488 7.027,14.696 C 6.936,11.904 8.365,9.281 10.761,7.844 C 13.274,6.336 16.425,6.385 18.889,7.971 C 16.576,9.46 15.234,12.07 15.366,14.817 C 15.217,14.894 15.071,14.974 14.928,15.061 C 12.722,16.384 11.324,18.721 11.199,21.29 Z" fill="#0e44ff" marker-start="none" marker-end="none"/>
+   <path d="M 11.199,21.29 C 11.324,18.721 12.722,16.384 14.928,15.061 C 15.071,14.974 15.217,14.894 15.366,14.817 C 15.486,17.3 16.798,19.573 18.889,20.918 C 16.576,22.407 13.645,22.549 11.199,21.29 Z" fill="#dd00a1" marker-start="none" marker-end="none"/>
+   <path d="M 11.199,21.29 C 13.645,22.549 16.576,22.407 18.889,20.918 C 21.201,22.407 24.132,22.549 26.578,21.29 C 26.79,25.682 23.286,29.36 18.889,29.36 C 14.491,29.36 10.987,25.682 11.199,21.29 Z" fill="#ff2c00" marker-start="none" marker-end="none"/>
+   <path d="M 18.889,20.918 C 20.98,19.573 22.291,17.3 22.411,14.817 C 24.856,16.075 26.445,18.543 26.578,21.29 C 24.132,22.549 21.201,22.407 18.889,20.918 Z" fill="#ffca00" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 14.779,6.748 C 13.331,6.726 11.875,7.094 10.584,7.856 C 8.12,9.307 6.651,11.955 6.746,14.775 C 6.828,17.241 8.094,19.5 10.121,20.891 L 10.855,21.326 L 10.934,22.729 C 11.539,26.411 14.791,29.254 18.748,29.254 C 22.703,29.254 25.956,26.411 26.561,22.729 L 26.64,21.317 L 27.833,20.553 C 30.752,18.227 31.658,14.1 29.756,10.742 C 28.397,8.343 25.942,6.932 23.357,6.763 C 21.805,6.662 20.205,7.008 18.767,7.857 L 18.735,7.875 L 17.959,7.457 C 16.95,7.002 15.867,6.765 14.779,6.748 Z" stroke-width="1.489" stroke="#231f20" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

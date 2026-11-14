@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="36.139" y2="-74.531" gradientTransform="translate(-11.909 89.554)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="2.161" y="2.161" width="31.681" height="31.685" rx="1.82982954341987" ry="1.82982954341987" stroke-width="4.32" stroke="#666666" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="-16.525" y="-16.5" width="33.05" height="33" rx="2.20790974646922" ry="2.20790974646922" transform="translate(18.02 18.023) rotate(90)" stroke="none" stroke-linecap="round" stroke-width="0.785" fill="#000000" stroke-linejoin="miter"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient)" stroke="none"/>
+  </mask>
+  <path d="M 3.063,30.546 L 3.063,5.311 C 3.063,3.946 4.172,2.836 5.538,2.836 L 30.687,2.836 C 32.053,2.836 33.162,3.946 33.162,5.311 L 33.162,30.546 C 33.162,31.912 32.053,33.021 30.687,33.021 L 5.538,33.021 C 4.172,33.021 3.063,31.912 3.063,30.546 Z" stroke="none" fill="#ffffff" stroke-width="0.732" stroke-linecap="round" stroke-linejoin="miter" marker-start="none" marker-end="none" mask="url(#TranspMask)"/>
+  <path d="M 6.7,25.851 L 16.988,17.226 L 6.628,8.555" fill="none" stroke-width="2.25" stroke="#e5e5e5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 20.564,8.273 L 30.429,8.273" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" stroke="#e5e5e5"/>
+ </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+	</defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 3,32.975 L 3,25.487 L 10.361,32.975 L 3,32.975 Z" stroke="none" fill="#e1e1e1" stroke-width="1.102" stroke-linejoin="miter" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 33,32.975 L 33,25.487 L 25.639,32.975 L 33,32.975 Z" stroke="none" fill="#e1e1e1" stroke-width="1.102" stroke-linejoin="miter" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 3,3.026 L 3,10.514 L 10.361,3.026 L 3,3.026 Z" stroke="none" fill="#e1e1e1" stroke-width="1.102" stroke-linejoin="miter" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 33,3.026 L 33,10.514 L 25.639,3.026 L 33,3.026 Z" stroke="none" fill="#e1e1e1" stroke-width="1.102" stroke-linejoin="miter" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <ellipse rx="8.827" ry="8.827" transform="translate(20.362 20.399) rotate(90)" stroke="#e1e1e1" stroke-width="1.437" stroke-linejoin="miter"/>
+  <path d="M 14.313,14.351 L 7.513,7.551" fill="none" stroke="#e1e1e1" stroke-width="2.875" stroke-linejoin="miter"/>
+ </g>
+</svg>

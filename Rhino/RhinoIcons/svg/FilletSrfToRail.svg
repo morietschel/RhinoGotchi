@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="6.002" y2="-12.755" gradientTransform="translate(9.234 21.398)">
+   <stop offset="0" stop-color="#304ab6"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 11.971,3.897 L 18.863,1.705 L 34.013,15.595 L 20.273,19.044 L 5.6,9.303 L 11.971,3.897 Z" fill="#ffffff" stroke-linejoin="round" stroke="none" stroke-width="0.72" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 2.244,24.624 L 2.204,16.331 L 5.627,9.32 L 20.273,19.044 L 19.913,33.474 L 2.244,24.624 Z" stroke-linejoin="round" fill="#c5c5c5" stroke="none" stroke-width="0.72" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 12.638,3.737 L 18.959,1.875 L 34.109,15.765 L 20.369,18.944" fill="none" stroke="#000000" stroke-linecap="round" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 20.284,18.963 L 20.224,34.083 L 2.313,24.813 L 2.279,17.85" fill="none" stroke-linejoin="round" stroke-width="1.5" stroke-linecap="round" stroke="#000000"/>
+  <path d="M 13.035,3.621 C 14.595,5.225 16.074,6.445 16.794,8.875 C 18.212,13.664 19.131,15.909 23.174,18.206 C 21.036,18.753 20.258,20.309 20.258,22.794 C 18.405,21.329 15.744,18.984 12.234,19.554 C 8.962,20.085 5.694,22.254 2.218,19.195 C 2.218,13.612 6.074,5.442 13.035,3.621 Z" stroke-width="1.489" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 20.258,22.794 C 18.405,21.329 15.744,18.984 12.234,19.554 C 8.962,20.085 5.694,22.254 2.218,19.195" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+ </g>
+</svg>

@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="23.737" gradientTransform="translate(7.717 26.556) rotate(-82.4133) skewX(-2.1975) scale(1 0.883347)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="0.1" stop-color="#fcfcfc"/>
+   <stop offset="0.2" stop-color="#f7f7f7"/>
+   <stop offset="0.3" stop-color="#f2f2f2"/>
+   <stop offset="0.4" stop-color="#ebebeb"/>
+   <stop offset="0.5" stop-color="#e2e2e2"/>
+   <stop offset="0.6" stop-color="#d9d9d9"/>
+   <stop offset="0.7" stop-color="#d2d2d2"/>
+   <stop offset="0.8" stop-color="#cdcdcd"/>
+   <stop offset="0.9" stop-color="#c8c8c8"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </radialGradient>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="18.007" y2="15.756" gradientTransform="translate(9.552 5.245)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 15.003,1.499 L 3,1.506 L 3,34.512 L 15.003,34.512 L 15.003,1.499 Z M 10.503,6.002 L 10.503,30.012 L 7.5,30.012 L 7.5,6.003 L 10.503,6.002 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 6.027,3.753 L 12.798,3.751 C 12.798,5.467 13.13,7.212 13.831,8.894 C 16.503,15.314 23.599,18.558 30.114,16.564 L 32.088,23.041 C 22.283,26.04 11.603,21.158 7.581,11.497 C 6.526,8.963 6.027,6.337 6.027,3.753 Z" stroke-width="4.5" stroke="#666666" stroke-linecap="round" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <g id="Group" stroke="none">
+   <path d="M 5.223,3.749 L 12.726,3.745 L 12.726,32.256 L 5.223,32.256 L 5.223,3.749 Z" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#RadialGradient)"/>
+   <path d="M 13.47,3 L 4.478,3.004 L 4.478,33 L 13.47,33 L 13.47,3 Z M 11.981,4.489 L 11.981,31.511 L 5.967,31.511 L 5.967,4.493 L 11.981,4.489 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 6,3.747 L 12.771,3.745 C 12.771,5.461 13.103,7.206 13.804,8.888 C 16.476,15.308 23.572,18.552 30.087,16.558 L 32.061,23.035 C 22.256,26.034 11.576,21.152 7.554,11.491 C 6.499,8.957 6,6.331 6,3.747 Z" stroke-width="1.489" stroke="#000000" stroke-linecap="round" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+ </g>
+</svg>

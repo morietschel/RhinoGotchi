@@ -1,0 +1,30 @@
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+  <g id="Layer 1" transform="scale(1 -1)">
+    <g id="Group" stroke="none">
+      <rect x="11.262" y="2.209" width="4.478" height="31.583" stroke-linejoin="miter" fill="url(#LinearGradient)" />
+      <path d="M 10.511,1.458 L 10.511,34.541 L 16.49,34.541 L 16.49,1.458 L 10.511,1.458 Z M 14.99,2.958 L 14.99,33.041 L 12.011,33.041 L 12.011,2.958 L 14.99,2.958 Z" stroke-width="3.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000" x_rma_id="0" stroke="#666" stroke-linejoin="round" />
+    </g>
+    <path d="M 59.45,13.273 L 59.45,13.273" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75" stroke="#E1E1E1" />
+    <ellipse rx="3.081" ry="3.081" transform="translate(3.082 25.344) rotate(118.361)" stroke="#666" stroke-linejoin="round" stroke-width="4.163" fill="#231f20" />
+    <path d="M 4.323,11.41 L 1.344,21.178 L 5.175,21.111 L 8.691,20.865 L 12.722,20.459 L 12.719,20.463 C 12.78,20.505 12.841,20.57 12.916,20.576 C 13.575,20.634 14.456,20.606 14.787,19.905 C 15.118,19.204 14.817,18.365 14.116,18.034 C 13.415,17.703 12.576,18.004 12.245,18.705 C 12.138,18.93 12.097,19.171 12.114,19.404 L 12.12,19.403 L 9.171,18.801 L 5.907,18.76 L 7.347,14.338 L 14.228,12.431 L 11.348,3.695 L 13.7,1.487 L 8.564,1.487 L 11.029,10.259 L 4.323,11.41 Z" fill="#231f20" stroke="#666" stroke-linejoin="round" stroke-width="4.163" marker-start="none" marker-end="none" x_rma_id="2" />
+    <ellipse rx="3.081" ry="3.081" transform="translate(24.113 25.714) rotate(118.361)" stroke="#666" stroke-linejoin="round" stroke-width="4.163" fill="#231f20" />
+    <path d="M 32.88,14.093 L 26.742,20.914 L 22.911,20.847 L 19.968,20.428 L 17.724,20.681 L 16.397,23.033 L 16.322,18.053 L 17.692,19.11 L 20.352,18.604 L 23.664,18.124 L 28.704,12.317 L 27.264,8.477 L 33.016,2.919 L 31.248,1.517 L 36,1.513 L 30.288,9.053 L 32.88,14.093 Z" fill="#231f20" stroke="#666" stroke-linejoin="round" stroke-width="4.163" marker-start="none" marker-end="none" x_rma_id="3" />
+  </g>
+  <defs>
+    <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="30.081" y2="0" gradientTransform="translate(15.616 2.212) rotate(97.8432) skewX(-78.4483)">
+      <stop offset="0" stop-color="#6582fc" />
+      <stop offset="1" stop-color="#becafc" />
+    </linearGradient>
+  </defs>
+  <g id="Layer 1" transform="scale(1 -1)">
+    <g id="Group" stroke="none">
+      <rect x="11.262" y="2.209" width="4.478" height="31.583" stroke-linejoin="miter" fill="url(#LinearGradient)" />
+      <path d="M 10.511,1.458 L 10.511,34.541 L 16.49,34.541 L 16.49,1.458 L 10.511,1.458 Z M 14.99,2.958 L 14.99,33.041 L 12.011,33.041 L 12.011,2.958 L 14.99,2.958 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000" x_rma_id="0" />
+    </g>
+    <path d="M 59.45,13.273 L 59.45,13.273" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75" stroke="#E1E1E1" />
+    <ellipse rx="3.081" ry="3.081" transform="translate(3.082 25.344) rotate(118.361)" stroke="none" stroke-linejoin="miter" stroke-width="1.163" fill="#231f20" />
+    <path d="M 4.323,11.41 L 1.344,21.178 L 5.175,21.111 L 8.691,20.865 L 12.722,20.459 L 12.719,20.463 C 12.78,20.505 12.841,20.57 12.916,20.576 C 13.575,20.634 14.456,20.606 14.787,19.905 C 15.118,19.204 14.817,18.365 14.116,18.034 C 13.415,17.703 12.576,18.004 12.245,18.705 C 12.138,18.93 12.097,19.171 12.114,19.404 L 12.12,19.403 L 9.171,18.801 L 5.907,18.76 L 7.347,14.338 L 14.228,12.431 L 11.348,3.695 L 13.7,1.487 L 8.564,1.487 L 11.029,10.259 L 4.323,11.41 Z" fill="#231f20" stroke="none" stroke-linejoin="miter" stroke-width="1.163" marker-start="none" marker-end="none" x_rma_id="2" />
+    <ellipse rx="3.081" ry="3.081" transform="translate(24.113 25.714) rotate(118.361)" stroke="none" stroke-linejoin="miter" stroke-width="1.163" fill="#231f20" />
+    <path d="M 32.88,14.093 L 26.742,20.914 L 22.911,20.847 L 19.968,20.428 L 17.724,20.681 L 16.397,23.033 L 16.322,18.053 L 17.692,19.11 L 20.352,18.604 L 23.664,18.124 L 28.704,12.317 L 27.264,8.477 L 33.016,2.919 L 31.248,1.517 L 36,1.513 L 30.288,9.053 L 32.88,14.093 Z" fill="#231f20" stroke="none" stroke-linejoin="miter" stroke-width="1.163" marker-start="none" marker-end="none" x_rma_id="3" />
+  </g>
+</svg>

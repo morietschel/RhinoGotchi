@@ -1,0 +1,54 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="15.676" y2="0" gradientTransform="matrix(0 -1 1 0 0.747 7.456)">
+   <stop offset="0" stop-color="#cecece"/>
+   <stop offset="1" stop-color="#1e1e1e"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="15.676" y2="0" gradientTransform="matrix(0 -1 1 0 0.747 7.455)">
+   <stop offset="0" stop-color="#cecece"/>
+   <stop offset="1" stop-color="#1e1e1e"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 15.028,0.039 L 19.67,4.678 L 19.67,11.302 L 22.173,14.172 L 21.925,13.953 C 21.309,13.497 20.543,13.212 19.698,13.203 C 18.856,13.195 18.086,13.461 17.459,13.904 L 17.15,14.172 L 15.964,14.172 L 15.964,12.681 L 7.218,12.681 L 6.743,12.918 C 5.722,13.428 4.724,14.071 4.061,14.932 C 2.993,16.318 2.995,18.019 4.061,19.403 C 4.724,20.264 5.722,20.907 6.743,21.417 L 7.218,21.655 L 15.964,21.655 L 15.964,20.163 L 17.063,20.163 L 17.403,20.465 L 17.433,24.088 L 17.113,24.149 C 15.751,24.585 14.533,25.512 13.759,26.855 C 12.108,29.713 13.09,33.371 15.948,35.021 C 18.807,36.671 22.465,35.69 24.115,32.832 C 24.321,32.474 24.486,32.104 24.611,31.727 L 24.866,30.602 L 32.545,30.602 L 35.941,26.899 L 35.941,15.275 L 35.354,14.884 L 35.348,11.964 L 35.356,0.033 L 28.122,0 L 27.898,1.156 L 27.898,0.071 L 15.028,0.039 Z M 30.841,13.893 L 30.839,15.663 L 30.62,15.663 L 30.841,13.893 Z M 30.271,18.672 L 24.926,25.734 L 25.674,26.102 L 25.088,26.102 L 23.609,24.623 L 29.561,18.672 L 30.271,18.672 Z M 19.671,28.561 C 20.383,28.972 20.626,29.876 20.218,30.583 C 19.81,31.289 18.904,31.532 18.197,31.124 C 17.491,30.716 17.249,29.81 17.656,29.104 C 17.91,28.664 18.356,28.402 18.843,28.368 C 18.876,28.366 18.907,28.365 18.949,28.365 C 19.194,28.365 19.44,28.427 19.671,28.561 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 18.906,26.113 C 19.536,26.113 20.175,26.274 20.757,26.613 C 22.542,27.642 23.153,29.923 22.124,31.706 C 21.095,33.488 18.813,34.1 17.03,33.071 C 15.248,32.042 14.636,29.76 15.665,27.978 C 16.308,26.863 17.442,26.206 18.635,26.123 C 18.725,26.116 18.815,26.113 18.906,26.113 Z M 33.061,18.657 L 28.323,24.917 L 29.307,25.401 L 33.061,22.385 L 33.061,18.657 Z M 21.118,17.903 L 21.117,17.904 L 20.791,18.411 L 23.368,21.639 L 27.096,17.911 L 21.131,17.911 L 21.118,17.903 Z M 33.061,1.508 L 33.046,17.249 L 34.103,17.249 L 34.163,17.215 C 34.253,17.17 34.347,17.135 34.445,17.108 C 35.242,16.896 35.516,17.528 35.73,18.32 C 35.944,19.111 36.017,19.765 35.22,19.978 L 34.601,20.005 L 34.552,25.367 L 31.57,28.35 L 24.114,28.35 L 19.64,23.876 L 19.614,18.955 L 19.599,18.959 C 19.147,18.954 18.74,18.752 18.447,18.432 L 18.127,17.911 L 13.671,17.911 L 13.671,19.403 L 7.706,19.403 C 4.723,17.912 4.723,16.42 7.706,14.929 L 13.671,14.929 L 13.671,16.42 L 18.17,16.42 L 18.471,15.952 C 18.77,15.638 19.181,15.447 19.633,15.451 C 20.084,15.456 20.492,15.657 20.785,15.978 L 21.057,16.42 L 27.096,16.42 L 21.877,10.455 L 21.877,5.236 L 22.623,4.49 L 19.64,1.508 L 25.605,1.508 L 25.605,10.455 L 28.588,13.438 L 30.079,1.508 L 33.061,1.508 Z" stroke-linejoin="miter" stroke-width="1.479" stroke-opacity="0.996078" fill="#231f20" stroke="none" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <ellipse rx="4.473" ry="8.948" transform="translate(11.723 5.981) rotate(90)" fill="#d9d9d9" stroke="none" stroke-width="1.479" stroke-linejoin="miter"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient)" stroke="none"/>
+  </mask>
+  <ellipse rx="4.473" ry="8.948" transform="translate(11.821 5.981) rotate(90)" fill="#231f20" stroke="none" stroke-width="1.479" stroke-opacity="0.996078" stroke-linejoin="miter" mask="url(#TranspMask)"/>
+  <g id="ClipView" stroke="none">
+   <mask id="TranspMask_1">
+    <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_1)" stroke="none"/>
+   </mask>
+   <ellipse rx="4.473" ry="8.948" transform="translate(11.821 5.981) rotate(90)" stroke-linejoin="miter" stroke-opacity="0.996078" stroke-width="0" mask="url(#TranspMask_1)"/>
+   <clipPath id="ClipPath">
+    <path d="M 11.821,10.454 C 16.76,10.454 20.769,8.45 20.769,5.981 C 20.769,3.512 16.76,1.508 11.821,1.508 C 6.882,1.508 2.873,3.512 2.873,5.981 C 2.873,8.45 6.882,10.454 11.821,10.454 Z"/>
+   </clipPath>
+   <g clip-path="url(#ClipPath)">
+    <g id="Group" fill-opacity="0.996078">
+     <g id="Group_1" fill-opacity="0.996078">
+      <ellipse rx="2.238" ry="2.238" transform="translate(11.821 3) rotate(90)" stroke-linejoin="miter" fill="#ffffff" fill-opacity="0.996078"/>
+      <path d="M 8.843,3 C 8.843,4.643 10.177,5.977 11.821,5.977 C 13.464,5.977 14.798,4.643 14.798,3 C 14.798,1.356 13.464,0.022 11.821,0.022 C 10.177,0.022 8.843,1.356 8.843,3 Z M 13.319,3 C 13.319,3.826 12.647,4.498 11.821,4.498 C 10.994,4.498 10.322,3.826 10.322,3 C 10.322,2.173 10.994,1.501 11.821,1.501 C 12.647,1.501 13.319,2.173 13.319,3 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     </g>
+     <g id="Group_2" fill-opacity="0.996078">
+      <ellipse rx="2.237" ry="2.237" transform="translate(13.313 5.982) rotate(90)" stroke-linejoin="miter" fill="#ffffff" fill-opacity="0.996078"/>
+      <path d="M 10.336,5.982 C 10.336,7.624 11.67,8.958 13.313,8.958 C 14.955,8.958 16.289,7.624 16.289,5.982 C 16.289,4.339 14.955,3.005 13.313,3.005 C 11.67,3.005 10.336,4.339 10.336,5.982 Z M 14.81,5.982 C 14.81,6.807 14.138,7.479 13.313,7.479 C 12.487,7.479 11.815,6.807 11.815,5.982 C 11.815,5.156 12.487,4.484 13.313,4.484 C 14.138,4.484 14.81,5.156 14.81,5.982 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     </g>
+     <g id="Group_3" fill-opacity="0.996078">
+      <ellipse rx="2.237" ry="2.237" transform="translate(16.295 3) rotate(90)" stroke-linejoin="miter" fill="#ffffff" fill-opacity="0.996078"/>
+      <path d="M 13.318,3 C 13.318,4.642 14.652,5.976 16.295,5.976 C 17.937,5.976 19.271,4.642 19.271,3 C 19.271,1.357 17.937,0.023 16.295,0.023 C 14.652,0.023 13.318,1.357 13.318,3 Z M 17.792,3 C 17.792,3.825 17.12,4.497 16.295,4.497 C 15.469,4.497 14.797,3.825 14.797,3 C 14.797,2.174 15.469,1.502 16.295,1.502 C 17.12,1.502 17.792,2.174 17.792,3 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     </g>
+     <g id="Group_4" fill-opacity="0.996078">
+      <ellipse rx="2.237" ry="2.237" transform="translate(8.093 4.491) rotate(90)" stroke-linejoin="miter" fill="#ffffff" fill-opacity="0.996078"/>
+      <path d="M 5.116,4.491 C 5.116,6.134 6.45,7.467 8.093,7.467 C 9.735,7.467 11.069,6.134 11.069,4.491 C 11.069,2.847 9.735,1.514 8.093,1.514 C 6.45,1.514 5.116,2.847 5.116,4.491 Z M 9.59,4.491 C 9.59,5.317 8.918,5.988 8.093,5.988 C 7.267,5.988 6.595,5.317 6.595,4.491 C 6.595,3.664 7.267,2.993 8.093,2.993 C 8.918,2.993 9.59,3.664 9.59,4.491 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

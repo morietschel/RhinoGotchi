@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 1.501,18 C 1.501,27.107 8.892,34.499 18,34.499 C 27.107,34.499 34.499,27.107 34.499,18 C 34.499,8.892 27.107,1.501 18,1.501 C 8.892,1.501 1.501,8.892 1.501,18 Z M 32.989,18 C 32.989,26.274 26.274,32.989 18,32.989 C 9.725,32.989 3.011,26.274 3.011,18 C 3.011,9.725 9.725,3.011 18,3.011 C 26.274,3.011 32.989,9.725 32.989,18 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <path d="M 11,9.939 L 9.939,11 L 24.998,26.059 L 26.059,24.998 L 11,9.939 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <g id="Group" stroke="none">
+   <path d="M 27.199,27.269 L 22.349,25.36 L 25.43,22.352 L 27.199,27.269 Z" fill="#000000" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+   <path d="M 25.632,21.47 L 21.466,25.538 L 28.024,28.119 L 25.632,21.47 Z M 25.227,23.233 L 26.373,26.418 L 23.231,25.181 L 25.227,23.233 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_1" stroke="none">
+   <path d="M 8.724,8.654 L 13.574,10.563 L 10.493,13.571 L 8.724,8.654 Z" fill="#000000" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+   <path d="M 7.898,7.803 L 10.29,14.452 L 14.456,10.384 L 7.898,7.803 Z M 9.549,9.504 L 12.691,10.741 L 10.695,12.689 L 9.549,9.504 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

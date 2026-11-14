@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="6.845" gradientTransform="matrix(-0.768051 -0.640381 0.255936 -1.92152 2.002 1.253)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="0.1" stop-color="#fcfcfc"/>
+   <stop offset="0.2" stop-color="#f7f7f7"/>
+   <stop offset="0.3" stop-color="#f2f2f2"/>
+   <stop offset="0.4" stop-color="#ebebeb"/>
+   <stop offset="0.5" stop-color="#e2e2e2"/>
+   <stop offset="0.6" stop-color="#d9d9d9"/>
+   <stop offset="0.7" stop-color="#d2d2d2"/>
+   <stop offset="0.8" stop-color="#cdcdcd"/>
+   <stop offset="0.9" stop-color="#c8c8c8"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </radialGradient>
+  <radialGradient id="RadialGradient_1" gradientUnits="userSpaceOnUse" cx="22.588" cy="17.195" r="11.7449797360404" gradientTransform="matrix(0.424301 -0.905518 0.905518 0.424301 -29.98 8.026)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="0.1" stop-color="#6a86fc"/>
+   <stop offset="0.2" stop-color="#718cfc"/>
+   <stop offset="0.3" stop-color="#7992fc"/>
+   <stop offset="0.4" stop-color="#839bfc"/>
+   <stop offset="0.5" stop-color="#92a6fc"/>
+   <stop offset="0.6" stop-color="#a0b1fc"/>
+   <stop offset="0.7" stop-color="#aabafc"/>
+   <stop offset="0.8" stop-color="#b2c0fc"/>
+   <stop offset="0.9" stop-color="#b9c6fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </radialGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 1.5,22.497 L 1.5,34.503 L 13.506,34.503 L 13.506,22.497 L 1.5,22.497 Z M 9.006,26.997 L 9.006,30.003 L 6,30.003 L 6,26.997 L 9.006,26.997 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 22.889,15.749 L 12.017,20.844 L 17.112,31.716 L 27.984,26.621 L 22.889,15.749 Z M 20.724,21.734 L 21.999,24.456 L 19.277,25.731 L 18.002,23.009 L 20.724,21.734 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 2.987,1.498 L 2.987,4.477 C 10.445,4.477 16.505,10.54 16.516,17.995 C 16.516,27.104 23.907,34.502 33.013,34.502 L 33.013,31.523 C 25.554,31.523 19.495,25.461 19.495,17.992 C 19.482,8.895 12.092,1.498 2.987,1.498 Z" stroke-width="0.5" stroke="none" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <g id="Group" stroke="none">
+   <rect x="-3.753" y="-3.753" width="7.506" height="7.506" transform="translate(7.491 28.509) rotate(180)" stroke-linejoin="miter" fill="url(#RadialGradient)"/>
+   <path d="M 2.993,24.011 L 2.993,33.006 L 11.988,33.006 L 11.988,24.011 L 2.993,24.011 Z M 10.499,25.5 L 10.499,31.517 L 4.482,31.517 L 4.482,25.5 L 10.499,25.5 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_1" stroke="none">
+   <rect x="-3.752" y="-3.752" width="7.505" height="7.505" transform="translate(19.989 23.742) rotate(64.8931)" stroke-linejoin="miter" fill="url(#RadialGradient_1)"/>
+   <path d="M 22.153,17.76 L 14.007,21.577 L 17.824,29.723 L 25.97,25.906 L 22.153,17.76 Z M 21.436,19.741 L 23.989,25.189 L 18.541,27.742 L 15.988,22.294 L 21.436,19.741 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

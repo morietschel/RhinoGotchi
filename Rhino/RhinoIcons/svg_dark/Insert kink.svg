@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+	</defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 6.432,4.553 L 4.349,6.636 C 8.223,10.511 10.126,12.987 11.087,14.967 C 12.008,16.865 12.107,18.393 12.097,20.594 L 15.042,20.607 C 15.053,18.284 14.962,16.206 13.737,13.681 C 12.552,11.239 10.355,8.477 6.432,4.553 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 15.681,20.956 L 15.692,23.901 C 17.872,23.894 19.393,24.001 21.285,24.926 C 23.26,25.891 25.732,27.794 29.588,31.65 L 31.671,29.567 C 27.765,25.662 25.011,23.467 22.578,22.279 C 20.064,21.05 17.996,20.947 15.681,20.956 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 10.5,19.5 L 10.5,25.509 L 16.509,25.509 L 16.509,19.5 L 10.5,19.5 Z M 15.009,21 L 15.009,24.009 L 12,24.009 L 12,21 L 15.009,21 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#e1e1e1" fill-opacity="1.000000">
+   <path d="M 6,25.5 L 6,33 L 7.5,33 L 7.5,25.5 L 6,25.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 3,28.5 L 3,30 L 10.5,30 L 10.5,28.5 L 3,28.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

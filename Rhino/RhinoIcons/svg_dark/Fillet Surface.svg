@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-6.754" y2="9.755" gradientTransform="translate(21.001 11.772)">
+   <stop offset="0" stop-color="#304ab6"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 18.001,3.741 L 17.996,11.819 C 17.993,14.969 15.394,18.703 12.492,19.671 L 4.532,22.323 C 2.827,22.891 2.446,25.142 3.87,26.239 L 13.984,34.038 C 14.576,34.495 15.358,34.628 16.068,34.391 L 23.766,31.83 L 23.878,31.79 C 28.844,29.839 33.019,25.21 33.006,19.335 L 33.006,11.54 C 33.006,10.827 32.668,10.157 32.096,9.733 L 21.591,1.936 C 20.111,0.837 18.002,1.897 18.001,3.741 Z M 22.497,8.211 L 28.506,12.672 L 28.506,19.34 C 28.513,22.482 26.525,25.342 23.56,26.977 L 22.253,27.591 L 15.783,29.744 L 9.963,25.256 L 13.915,23.94 C 18.744,22.33 22.492,16.818 22.495,11.822 L 22.497,8.211 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 20.643,11.312 C 20.643,11.84 20.591,12.366 20.495,12.883 C 20.395,13.43 20.245,13.968 20.057,14.492 C 19.66,15.595 19.089,16.633 18.387,17.577 C 17.681,18.528 16.84,19.382 15.89,20.098 C 15.433,20.441 14.951,20.752 14.447,21.021 L 12.945,21.67 L 23.057,29.471 L 23.058,29.471 C 23.578,29.298 24.08,29.079 24.561,28.821 C 25.066,28.552 25.548,28.24 26.005,27.897 C 26.956,27.181 27.796,26.327 28.503,25.375 C 29.204,24.432 29.775,23.393 30.171,22.291 C 30.36,21.768 30.51,21.229 30.609,20.683 L 30.757,19.113 L 20.643,11.312 Z" stroke="none" stroke-width="1.489" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 12.945,21.67 C 10.378,22.525 7.812,23.379 5.244,24.233 C 8.616,26.833 11.988,29.433 15.36,32.033 L 23.057,29.471 L 12.945,21.67 Z" stroke="none" fill="#ffffff" stroke-width="1.489" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 20.643,3.517 L 20.643,11.312 L 30.757,19.113 C 30.757,16.514 30.757,13.916 30.757,11.316 C 27.386,8.717 24.015,6.116 20.643,3.517 Z" stroke="none" fill="#f0f0f0" stroke-width="1.489" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 19.506,3.517 L 19.501,11.595 C 19.498,15.366 16.511,19.693 12.968,20.874 L 5.008,23.526 C 4.444,23.714 4.318,24.459 4.789,24.822 L 14.903,32.621 C 15.099,32.772 15.358,32.816 15.593,32.738 L 23.291,30.177 L 23.328,30.163 C 27.865,28.381 31.512,24.223 31.5,19.112 L 31.5,11.315 C 31.5,11.079 31.388,10.857 31.199,10.717 L 20.694,2.92 C 20.204,2.556 19.506,2.907 19.506,3.517 Z M 20.994,4.997 L 30.011,11.689 L 30.011,19.113 C 30.019,22.923 27.628,26.228 24.274,28.077 L 22.795,28.772 L 15.498,31.2 L 6.805,24.497 L 13.439,22.287 C 17.622,20.892 20.987,15.971 20.99,11.596 L 20.994,4.997 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 13.392,21.545 L 12.937,22.134 L 22.828,29.764 L 23.283,29.175 L 13.392,21.545 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 20.93,11.064 L 20.475,11.653 L 30.528,19.407 L 30.983,18.818 L 20.93,11.064 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

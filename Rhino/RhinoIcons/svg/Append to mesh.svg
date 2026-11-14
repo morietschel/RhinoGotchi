@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-10.446" y2="15.665" gradientTransform="translate(13.034 3.405)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="0.1" stop-color="#6682fc"/>
+   <stop offset="0.2" stop-color="#6783fc"/>
+   <stop offset="0.3" stop-color="#6885fc"/>
+   <stop offset="0.4" stop-color="#6d88fc"/>
+   <stop offset="0.5" stop-color="#92a6fc"/>
+   <stop offset="0.6" stop-color="#b6c4fc"/>
+   <stop offset="0.7" stop-color="#bbc7fc"/>
+   <stop offset="0.8" stop-color="#bcc9fc"/>
+   <stop offset="0.9" stop-color="#bdcafc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-12.129" y2="17.65" gradientTransform="translate(22.323 16.117)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="0.1" stop-color="#6682fc"/>
+   <stop offset="0.2" stop-color="#6783fc"/>
+   <stop offset="0.3" stop-color="#6885fc"/>
+   <stop offset="0.4" stop-color="#6d88fc"/>
+   <stop offset="0.5" stop-color="#92a6fc"/>
+   <stop offset="0.6" stop-color="#b6c4fc"/>
+   <stop offset="0.7" stop-color="#bbc7fc"/>
+   <stop offset="0.8" stop-color="#bcc9fc"/>
+   <stop offset="0.9" stop-color="#bdcafc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 21.565,27.716 L 32.327,27.716 L 27.968,2.22 L 12.96,2.22" fill="none" stroke-opacity="0.498039" stroke="#231f20" stroke-width="1.504" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0.498039"/>
+  <g id="Group" stroke="none">
+   <g id="Group_1">
+    <path d="M 6.246,18.026 L 2.066,7.581 L 12.511,2.359 L 17.735,18.026 L 6.246,18.026 Z" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+    <path d="M 12.948,1.301 L 1.113,7.218 L 5.738,18.776 L 18.775,18.776 L 12.948,1.301 Z M 12.073,3.416 L 16.694,17.276 L 6.753,17.276 L 3.018,7.943 L 12.073,3.416 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   </g>
+  </g>
+  <g id="Group_2" stroke="none">
+   <g id="Group_3">
+    <path d="M 17.68,17.974 L 21.861,28.419 L 11.413,33.641 L 6.192,17.974 L 17.68,17.974 Z" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#LinearGradient_1)"/>
+    <path d="M 5.151,17.224 L 10.974,34.698 L 22.813,28.781 L 18.187,17.224 L 5.151,17.224 Z M 17.172,18.724 L 20.908,28.056 L 11.851,32.583 L 7.232,18.724 L 17.172,18.724 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   </g>
+  </g>
+ </g>
+</svg>

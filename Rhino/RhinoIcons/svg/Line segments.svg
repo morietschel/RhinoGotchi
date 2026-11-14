@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 7.459,6.499 L 6.046,7.004 L 13.977,29.209 L 29.839,11.761 L 28.73,10.752 L 14.548,26.35 L 7.459,6.499 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <g id="Group" stroke="none">
+   <rect x="-2.252" y="-2.253" width="4.505" height="4.507" transform="translate(15.014 27.03) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 12.011,24.026 L 12.011,30.033 L 18.017,30.033 L 18.017,24.026 L 12.011,24.026 Z M 16.517,25.526 L 16.517,28.533 L 13.511,28.533 L 13.511,25.526 L 16.517,25.526 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_1" stroke="none">
+   <rect x="-2.253" y="-2.252" width="4.507" height="4.505" transform="translate(7.504 7.503) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 4.5,4.5 L 4.5,10.506 L 10.507,10.506 L 10.507,4.5 L 4.5,4.5 Z M 9.007,6 L 9.007,9.006 L 6,9.006 L 6,6 L 9.007,6 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_2" stroke="none">
+   <rect x="-2.24" y="-2.24" width="4.481" height="4.481" transform="translate(28.52 12.021) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 25.529,9.031 L 25.529,15.011 L 31.51,15.011 L 31.51,9.031 L 25.529,9.031 Z M 30.01,10.531 L 30.01,13.511 L 27.029,13.511 L 27.029,10.531 L 30.01,10.531 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

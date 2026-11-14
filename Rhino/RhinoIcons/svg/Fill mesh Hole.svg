@@ -1,0 +1,52 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="15.676" y2="0" gradientTransform="matrix(0 -1 1 0 0.747 7.456)">
+   <stop offset="0" stop-color="#cecece"/>
+   <stop offset="1" stop-color="#1e1e1e"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="15.676" y2="0" gradientTransform="matrix(0 -1 1 0 0.747 7.455)">
+   <stop offset="0" stop-color="#cecece"/>
+   <stop offset="1" stop-color="#1e1e1e"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 18.883,26.105 C 19.513,26.105 20.152,26.266 20.734,26.605 C 22.519,27.634 23.13,29.915 22.101,31.698 C 21.072,33.48 18.79,34.092 17.007,33.063 C 15.225,32.034 14.613,29.752 15.642,27.97 C 16.285,26.855 17.419,26.198 18.612,26.115 C 18.702,26.108 18.792,26.105 18.883,26.105 Z M 33.038,18.649 L 28.3,24.909 L 29.284,25.393 L 33.038,22.377 L 33.038,18.649 Z M 21.095,17.895 L 21.094,17.896 L 20.768,18.403 L 23.345,21.631 L 27.073,17.903 L 21.108,17.903 L 21.095,17.895 Z M 33.038,1.5 L 33.023,17.241 L 34.08,17.241 L 34.14,17.207 C 34.23,17.162 34.324,17.127 34.422,17.1 C 35.219,16.888 35.493,17.52 35.707,18.312 C 35.921,19.103 35.994,19.757 35.197,19.97 L 34.578,19.997 L 34.529,25.359 L 31.547,28.342 L 24.091,28.342 L 19.617,23.868 L 19.591,18.947 L 19.576,18.951 C 19.124,18.946 18.717,18.744 18.424,18.424 L 18.104,17.903 L 13.648,17.903 L 13.648,19.395 L 7.683,19.395 C 4.7,17.904 4.7,16.412 7.683,14.921 L 13.648,14.921 L 13.648,16.412 L 18.147,16.412 L 18.448,15.944 C 18.747,15.63 19.158,15.439 19.61,15.443 C 20.061,15.448 20.469,15.649 20.762,15.97 L 21.034,16.412 L 27.073,16.412 L 21.854,10.447 L 21.854,5.228 L 22.6,4.482 L 19.617,1.5 L 25.582,1.5 L 25.582,10.447 L 28.565,13.43 L 30.056,1.5 L 33.038,1.5 Z" stroke-linejoin="miter" stroke-width="1.479" stroke-opacity="0.996078" fill="#231f20" stroke="none" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient)" stroke="none"/>
+  </mask>
+  <ellipse rx="4.473" ry="8.948" transform="translate(11.798 5.973) rotate(90)" fill="#231f20" stroke="none" stroke-width="1.479" stroke-opacity="0.996078" stroke-linejoin="miter" mask="url(#TranspMask)"/>
+  <g id="ClipView" stroke="none">
+   <mask id="TranspMask_1">
+    <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_1)" stroke="none"/>
+   </mask>
+   <ellipse rx="4.473" ry="8.948" transform="translate(11.798 5.973) rotate(90)" stroke-linejoin="miter" stroke-opacity="0.996078" stroke-width="0" mask="url(#TranspMask_1)"/>
+   <clipPath id="ClipPath">
+    <path d="M 11.798,10.446 C 16.737,10.446 20.746,8.442 20.746,5.973 C 20.746,3.504 16.737,1.5 11.798,1.5 C 6.859,1.5 2.85,3.504 2.85,5.973 C 2.85,8.442 6.859,10.446 11.798,10.446 Z"/>
+   </clipPath>
+   <g clip-path="url(#ClipPath)">
+    <g id="Group" fill-opacity="0.996078">
+     <g id="Group_1" fill-opacity="0.996078">
+      <ellipse rx="2.238" ry="2.238" transform="translate(11.798 2.992) rotate(90)" stroke-linejoin="miter" fill="#ffffff" fill-opacity="0.996078"/>
+      <path d="M 8.82,2.992 C 8.82,4.635 10.154,5.969 11.798,5.969 C 13.441,5.969 14.775,4.635 14.775,2.992 C 14.775,1.348 13.441,0.014 11.798,0.014 C 10.154,0.014 8.82,1.348 8.82,2.992 Z M 13.296,2.992 C 13.296,3.818 12.624,4.49 11.798,4.49 C 10.971,4.49 10.299,3.818 10.299,2.992 C 10.299,2.165 10.971,1.493 11.798,1.493 C 12.624,1.493 13.296,2.165 13.296,2.992 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     </g>
+     <g id="Group_2" fill-opacity="0.996078">
+      <ellipse rx="2.237" ry="2.237" transform="translate(13.29 5.974) rotate(90)" stroke-linejoin="miter" fill="#ffffff" fill-opacity="0.996078"/>
+      <path d="M 10.313,5.974 C 10.313,7.616 11.647,8.95 13.29,8.95 C 14.932,8.95 16.266,7.616 16.266,5.974 C 16.266,4.331 14.932,2.997 13.29,2.997 C 11.647,2.997 10.313,4.331 10.313,5.974 Z M 14.787,5.974 C 14.787,6.799 14.115,7.471 13.29,7.471 C 12.464,7.471 11.792,6.799 11.792,5.974 C 11.792,5.148 12.464,4.476 13.29,4.476 C 14.115,4.476 14.787,5.148 14.787,5.974 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     </g>
+     <g id="Group_3" fill-opacity="0.996078">
+      <ellipse rx="2.237" ry="2.237" transform="translate(16.272 2.992) rotate(90)" stroke-linejoin="miter" fill="#ffffff" fill-opacity="0.996078"/>
+      <path d="M 13.295,2.992 C 13.295,4.634 14.629,5.968 16.272,5.968 C 17.914,5.968 19.248,4.634 19.248,2.992 C 19.248,1.349 17.914,0.015 16.272,0.015 C 14.629,0.015 13.295,1.349 13.295,2.992 Z M 17.769,2.992 C 17.769,3.817 17.097,4.489 16.272,4.489 C 15.446,4.489 14.774,3.817 14.774,2.992 C 14.774,2.166 15.446,1.494 16.272,1.494 C 17.097,1.494 17.769,2.166 17.769,2.992 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     </g>
+     <g id="Group_4" fill-opacity="0.996078">
+      <ellipse rx="2.237" ry="2.237" transform="translate(8.07 4.483) rotate(90)" stroke-linejoin="miter" fill="#ffffff" fill-opacity="0.996078"/>
+      <path d="M 5.093,4.483 C 5.093,6.126 6.427,7.459 8.07,7.459 C 9.712,7.459 11.046,6.126 11.046,4.483 C 11.046,2.839 9.712,1.506 8.07,1.506 C 6.427,1.506 5.093,2.839 5.093,4.483 Z M 9.567,4.483 C 9.567,5.309 8.895,5.98 8.07,5.98 C 7.244,5.98 6.572,5.309 6.572,4.483 C 6.572,3.656 7.244,2.985 8.07,2.985 C 8.895,2.985 9.567,3.656 9.567,4.483 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

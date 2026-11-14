@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="22.6" y2="0" gradientTransform="translate(7.148 18.461) rotate(9.89828) skewX(-1.16993)">
+   <stop offset="0" stop-color="#e1e1e1"/>
+   <stop offset="1" stop-color="#595959"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 2.947,13.395 L 6.185,24.815 L 9.934,21.273 C 12.151,23.443 14.554,25.197 17.43,26.162 C 23.914,28.337 28.975,25.467 32.947,21.074 L 28.511,17.619 C 24.823,23.37 16.961,24.249 11.397,19.893 L 15.036,16.455 L 2.947,13.395 Z" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="0" marker-start="none" marker-end="none"/>
+  <path d="M 4.227,14.604 L 6.654,23.162 L 9.946,20.053 L 10.586,20.679 C 12.749,22.796 15.036,24.452 17.732,25.356 C 22.958,27.108 27.205,25.359 30.771,22.033 L 31.631,21.157 L 28.698,18.873 L 28.483,19.17 C 24.224,24.4 16.388,24.911 10.818,20.551 L 10.053,19.952 L 13.286,16.898 L 4.227,14.604 Z" stroke-linejoin="miter" stroke="none" stroke-width="0" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 0,5.881 L 33,10.381" fill="none" stroke-width="1.104" stroke="none" stroke-linejoin="miter"/>
+  <g id="Group" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#ff0000" fill-opacity="0.996078">
+   <path d="M 25.198,10.076 L 8.698,26.577 L 10.803,28.682 L 27.303,12.181 L 25.198,10.076 Z" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+   <path d="M 10.802,10.076 L 8.697,12.181 L 25.198,28.681 L 27.303,26.576 L 10.802,10.076 Z" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  </g>
+ </g>
+</svg>

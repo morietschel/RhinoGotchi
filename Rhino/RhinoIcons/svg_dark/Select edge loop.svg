@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="4.072" y2="2.328" gradientTransform="translate(6.305 12.465)">
+   <stop offset="0" stop-color="#304ab6"/>
+   <stop offset="1" stop-color="#6582fc"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-12.514" y2="-8.415" gradientTransform="translate(24.525 29.243) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#304ab6"/>
+   <stop offset="1" stop-color="#6582fc"/>
+  </linearGradient>
+  <image id="Bitmap" preserveAspectRatio="none" width="1" height="1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA+CAYAAACGPyP0AAAACXBIWXMAAC4jAAAuIwF4pT92AAADFUlEQVRogWJMbvxbyMT4T4phiIN//5meAQAAAP//YmFiYIhjYGA0GOqeYWJguAAAAAD//2IaBO6gDmBgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//xo+nmFgYAAAAAD//2L5x8CwiInh/55B4BaKwD8GxmcAAAAA//8DAN5tDXe/4MRNAAAAAElFTkSuQmCC">
+   <title>1</title>
+  </image>
+  <linearGradient id="LinearGradient_2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.644" y2="0" gradientTransform="translate(16.381 29.849) skewX(-90)">
+   <stop offset="0" stop-color="#becafc"/>
+   <stop offset="1" stop-color="#6582fc"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 11.094,0 L 8.754,0 L 0,17.485 L 0,18.551 L 5.514,29.394 L 12.412,35.267 L 21.353,33.594 L 27.143,26.994 L 36,12.385 L 32.513,9.145 L 27.711,14.689 L 23.693,15.505 L 18.113,11.395 L 11.094,0 Z M 9.959,8.499 L 14.065,15.373 L 22.266,21.469 L 24.83,20.845 L 22.79,24.103 L 17.898,29.435 L 13.743,30.36 L 9.478,26.397 L 5.075,18.43 L 9.959,8.499 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none"/>
+  <path d="M 10.267,3.424 L 16.266,13.468 L 23.26,18.667 L 28.519,17.389 L 33.296,11.999 L 25.087,25.106 L 19.577,31.111 L 13.577,32.447 L 8.182,27.434 L 3.037,18.124 L 10.267,3.424 Z" stroke="#000000" stroke-width="2.376" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 3.647,17.119 L 8.714,26.673 L 15.444,14.295 L 10.21,4.24 L 3.647,17.119 Z" stroke-linecap="round" stroke-linejoin="round" stroke="none" stroke-width="2.282" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 8.631,26.673 L 15.444,14.044 L 22.813,19.636 L 29.32,18.531 L 19.516,29.829 L 14.023,31.478 L 8.631,26.673 Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.282" stroke="none" marker-start="none" marker-end="none" fill="url(#LinearGradient_1)"/>
+  <clipPath id="clip-path">
+   <use xlink:href="#Shape"/>
+  </clipPath>
+  <g clip-path="url(#clip-path)">
+   <use xlink:href="#Bitmap" transform="translate(19.516 30.08) scale(12.136 -14.667)"/>
+  </g>
+  <path d="M 31.652,15.413 L 28.716,18.422 L 19.516,30.08 L 25.812,23.636 L 31.652,15.413 Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.628" stroke="none" marker-start="none" marker-end="none" fill="none" id="Shape"/>
+  <path d="M 5.496,12.961 L 4.963,13.26 L 10.525,23.161 L 11.058,22.862 L 5.496,12.961 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 8.306,8.496 L 7.775,8.799 L 13.076,18.065 L 13.607,17.762 L 8.306,8.496 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 10.031,3.617 L 2.813,17.49 L 3.356,17.773 L 10.574,3.9 L 10.031,3.617 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 15.446,13.531 L 8.385,26.668 L 8.844,26.915 L 15.905,13.778 L 15.446,13.531 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 28.972,17.599 L 19.211,30.11 L 19.62,30.429 L 29.381,17.918 L 28.972,17.599 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 13.497,17.445 L 13.064,17.9 L 19.83,24.316 L 25.832,22.171 L 25.621,21.58 L 19.983,23.595 L 13.497,17.445 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 10.83,22.438 L 10.407,22.903 L 16.624,28.552 L 22.844,26.708 L 22.665,26.105 L 16.785,27.849 L 10.83,22.438 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 13.948,32.447 L 23.333,17.699" fill="none" stroke="#ffea00" stroke-width="2.979" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 33.002,28.467 L 33.002,33.001 L 28.468,33.001 L 28.468,34.498 L 34.499,34.498 L 34.499,28.467 L 33.002,28.467 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.5,1.501 L 1.5,7.529 L 2.997,7.529 L 2.997,2.998 L 7.528,2.998 L 7.528,1.501 L 1.5,1.501 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

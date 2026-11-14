@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" enable-background="new" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <filter id="StainedFilter">
+   <feBlend mode="multiply" in2="BackgroundImage" in="SourceGraphic" result="blend"/>
+   <feComposite in="blend" in2="SourceAlpha" operator="in" result="comp"/>
+  </filter>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 12,34.5 L 12,1.5" fill="none" stroke="#20b200" stroke-width="2.976" stroke-linejoin="round"/>
+  <path d="M 34.5,12 L 1.5,12" fill="none" stroke="#e10000" stroke-width="2.976" stroke-linejoin="round"/>
+  <path d="M 12,13.5 L 12,10.5" fill="none" stroke="#20b200" stroke-width="2.976" stroke-linejoin="round" fill-opacity="1.000000" filter="url(#StainedFilter)"/>
+  <path d="M 18.75,23.238 L 18.75,1.5" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 24.75,34.5 L 24.75,26.25" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 30.75,34.5 L 30.75,1.5" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 5.25,34.5 L 5.25,1.5" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 34.5,5.25 L 1.5,5.25" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 34.5,18.75 L 1.5,18.75" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 17.238,24.75 L 1.5,24.75" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 34.5,30.75 L 1.5,30.75" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 16.494,22.494 L 16.494,26.994 L 20.994,26.994 L 20.994,22.494 L 16.494,22.494 Z M 19.506,23.982 L 19.506,25.506 L 17.982,25.506 L 17.982,23.982 L 19.506,23.982 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 22.506,22.494 L 22.506,26.994 L 27.006,26.994 L 27.006,22.494 L 22.506,22.494 Z M 25.518,23.982 L 25.518,25.506 L 23.994,25.506 L 23.994,23.982 L 25.518,23.982 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 34.5,24.75 L 26.262,24.75" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 23.25,24.75 L 20.25,24.75" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 24.75,23.238 L 24.75,1.5" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+  <path d="M 18.75,34.5 L 18.75,26.25" fill="none" stroke="#e1e1e1" stroke-opacity="0.250980" stroke-width="1.488" stroke-linejoin="round" fill-opacity="0.250980"/>
+ </g>
+</svg>

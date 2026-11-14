@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="25.402" y2="0.067" gradientTransform="translate(6.82 17.572)">
+   <stop offset="0" stop-color="#ff0000"/>
+   <stop offset="1" stop-color="#bf0000"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="14.248" y="5.312" width="10.492" height="16.516" fill="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M 12.771,32.214 L 12.771,21.727 L 8.258,21.727 L 8.258,14.227 L 20.258,14.227 L 20.258,32.214 L 12.771,32.214 Z" fill="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 31.487,16.5 L 4.499,16.559 L 4.521,24.001 L 2.23,24.003 L 5.302,28.549 L 8.378,23.999 L 6.02,24 L 6.004,18.056 L 29.987,18.003 L 29.986,24.001 L 27.708,24.003 L 30.78,28.549 L 33.856,23.999 L 31.486,24 L 31.487,16.5 Z" stroke-width="0.75" stroke="#7e7e05" stroke-linejoin="round" fill="#feff04" marker-start="none" marker-end="none"/>
+  <path d="M 13.532,29.248 L 19.509,29.248" fill="none" stroke="#7f7f7f" stroke-linejoin="miter" stroke-width="1.5"/>
+  <path d="M 15.031,8.283 L 23.959,8.283" fill="none" stroke="#7f7f7f" stroke-linejoin="miter" stroke-width="1.5"/>
+  <path d="M 17.897,20.187 L 8.072,30.012 L 5.188,27.164 L 15.031,17.311 L 5.188,7.503 L 8.054,4.603 L 17.904,14.437 L 27.723,4.561 L 30.597,7.485 L 20.979,17.247 L 30.606,27.138 L 27.714,30.012 L 17.897,20.187 Z" stroke="none" stroke-width="1.294" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+ </g>
+</svg>

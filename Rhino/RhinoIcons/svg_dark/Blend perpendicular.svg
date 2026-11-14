@@ -1,0 +1,15 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m13.03 21.752c-2.595.866-5.189 1.731-7.784 2.598 3.408 2.635 6.817 5.27 10.225 7.906l7.782-2.597z" style="fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#becafc" stroke-width="4.489" x_rma_id="1" stroke="#666" stroke-linejoin="round" />
+    <path d="m20.252 3.744v7.795l10.502 7.799c0-2.598 0-5.196 0-7.795-3.501-2.599-7.001-5.2-10.502-7.799z" style="fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#304ab6" stroke-width="4.489" x_rma_id="2" stroke="#666" stroke-linejoin="round" />
+    <path d="m24.015 15.518c-.003 3.462-2.797 7.497-6.024 8.572-.779.26-1.201 1.103-.942 1.883.26.779 1.103 1.201 1.883.942 4.503-1.5 8.057-6.712 8.06-11.394.001-.822-.666-1.489-1.487-1.49-.822-.001-1.489.666-1.49 1.487z" fill="#fff" stroke-width="3.5px" x_rma_id="3" stroke="#666" stroke-linejoin="round" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m13.03 21.752c-2.595.866-5.189 1.731-7.784 2.598 3.408 2.635 6.817 5.27 10.225 7.906l7.782-2.597z" style="fill-rule:evenodd;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#becafc" stroke-width="1.489" x_rma_id="1" />
+    <path d="m20.252 3.744v7.795l10.502 7.799c0-2.598 0-5.196 0-7.795-3.501-2.599-7.001-5.2-10.502-7.799z" style="fill-rule:evenodd;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#304ab6" stroke-width="1.489" x_rma_id="2" />
+    <path d="m24.015 15.518c-.003 3.462-2.797 7.497-6.024 8.572-.779.26-1.201 1.103-.942 1.883.26.779 1.103 1.201 1.883.942 4.503-1.5 8.057-6.712 8.06-11.394.001-.822-.666-1.489-1.487-1.49-.822-.001-1.489.666-1.49 1.487z" fill="#fff" stroke-width="" x_rma_id="3" />
+  </g>
+</svg>

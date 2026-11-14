@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="6.003" gradientTransform="matrix(-1.52588e-05 -0.75415 1.326 0.656708 -3.962 -1.963)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="-4.992" y="-9.408" width="9.985" height="18.817" transform="translate(18.007 12.016) rotate(48.9507) skewX(-41.0493)" stroke="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.489" fill="url(#LinearGradient)"/>
+  <path d="M 16.517,12.029 L 16.517,25.461 L 14.255,25.461 L 18.007,31.536 L 21.758,25.461 L 19.494,25.461 L 19.494,12.029 L 16.517,12.029 Z" fill="#53453d" stroke-opacity="0.498039" stroke-width="1.489" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <path d="M 7.514,12.029 L 7.514,25.461 L 5.252,25.461 L 9.003,31.536 L 12.755,25.461 L 10.491,25.461 L 10.491,12.029 L 7.514,12.029 Z" fill="#53453d" stroke-opacity="0.498039" stroke-width="1.489" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <path d="M 25.52,12.029 L 25.52,25.461 L 23.259,25.461 L 27.01,31.536 L 30.761,25.461 L 28.497,25.461 L 28.497,12.029 L 25.52,12.029 Z" fill="#53453d" stroke-opacity="0.498039" stroke-width="1.489" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <path d="M 10.491,15.031 L 10.491,16.531 L 16.517,16.531 L 16.517,15.031 L 10.491,15.031 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.685,8.742 L 7.535,15.46 L 7.52,13.16 L 3.898,9 L 26.863,9 L 32.114,15.031 L 28.492,15.031 L 28.472,16.531 L 33.762,16.531 C 34.403,16.531 34.749,15.772 34.327,15.288 L 27.77,7.757 C 27.628,7.593 27.421,7.5 27.205,7.5 L 2.251,7.5 C 1.609,7.5 1.263,8.258 1.685,8.742 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none"/>
+  <path d="M 19.494,15.031 L 19.494,16.531 L 25.52,16.531 L 25.52,15.031 L 19.494,15.031 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

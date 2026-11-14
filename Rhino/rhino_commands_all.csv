@@ -1,0 +1,1129 @@
+﻿command,description
+3DFace,Creates a single mesh or SubD face from three or four points.
+3View,Arranges three viewports in the window.
+4View,Arranges four viewports in the window.
+About,Shows version and license information about Rhino.
+AboutRhino,Shows version and license information about Rhino.
+AcadSchemes,Manages AutoCAD export schemes.
+AddGuide,Adds a construction guide line.
+AddMissingBlockAttributeKeys,Adds missing attribute keys to block instances.
+AddNextU,Adds the next row of control points in the U direction to the selection.
+AddNextV,Adds the next row of control points in the V direction to the selection.
+AddNgonsToMesh,Adds n-gons to a mesh by merging coplanar faces.
+AddObjectsToBlock,Adds objects to an existing block definition.
+AddPrevU,Adds the previous row of control points in the U direction to the selection.
+AddPrevV,Adds the previous row of control points in the V direction to the selection.
+AddToGroup,Adds objects to an existing group.
+AIPanel,Opens the AI assistant panel (plug-in).
+AISettings,Opens AI assistant settings (plug-in).
+Alerter,Sets up Alerter notifications for long-running commands.
+Align,Aligns objects to a common edge or center.
+AlignProfiles,Aligns the seams and directions of profile curves.
+AlignVertices,Merges mesh vertices that lie within a tolerance.
+Angle,Measures the angle between two lines or directions.
+AppendFace,Appends a face to an existing mesh.
+ApplyBoxMapping,Applies box texture mapping to objects.
+ApplyCrv,Maps curves from UV space onto a surface.
+ApplyCustomMapping,Applies a custom texture mapping from an object.
+ApplyCylindricalMapping,Applies cylindrical texture mapping to objects.
+ApplyMesh,Fits a NURBS surface to a mesh's vertices.
+ApplyMeshUVN,Wraps objects onto a mesh using its UVN mapping.
+ApplyOcsMapping,Applies object coordinate system (OCS) texture mapping.
+ApplyPlanarMapping,Applies planar texture mapping to objects.
+ApplySphericalMapping,Applies spherical texture mapping to objects.
+ApplySurfaceMapping,Applies surface UV texture mapping to objects.
+Arc,Draws an arc.
+ArcBlend,Creates a blend curve made of two arcs.
+Area,"Calculates the area of surfaces, meshes or closed curves."
+AreaCentroid,Calculates the area centroid and places a point there.
+AreaMoments,Calculates area moments of inertia.
+Array,Copies objects into a rectangular 3-D grid array.
+ArrayCrv,Copies objects at intervals along a curve.
+ArrayCrvOnSrf,Copies objects along a curve lying on a surface.
+ArrayHole,Copies a hole in a rectangular grid on a planar face.
+ArrayHolePolar,Copies a hole in a circular pattern on a planar face.
+ArrayLinear,Copies objects in a single line at a set interval.
+ArrayPolar,Copies objects in a circular pattern around a center.
+ArraySrf,Copies objects in a grid across a surface.
+Arrowhead,Adds or removes arrowheads on curves.
+AssignBlankTexture,Assigns a blank texture to objects.
+AttachGHSData,Attaches GHS hydrostatics data to objects.
+Audit,Audits the model database for errors.
+Audit3dmFile,Audits a 3dm file for structural problems.
+AutoAlignCPlane,Automatically aligns the construction plane to selected objects.
+AutomaticSubDFromMesh,Automatically converts meshes to SubD.
+Autosave,Saves the model to the AutoSave file.
+BackgroundBitmap,Places and manages a bitmap image in the viewport background.
+Bake,Bakes objects or data into the model.
+BakeMapping,Bakes texture mapping onto objects.
+BatchRenderNamedViews,Batch renders all named views.
+Bend,Bends objects along an arc.
+Bevel,Bevels the edges of meshes or SubD.
+BG_KarambaTemplateUI,Opens a Karamba3D template UI (plug-in).
+BlendCrv,Creates an adjustable blend curve between two curves.
+BlendEdge,Blends the edges of polysurfaces with a smooth surface.
+BlendSrf,Creates a smooth blend surface between two surface edges.
+Block,Creates a block definition from selected objects.
+BlockEdit,Edits a block definition in place.
+BlockManager,Opens the Block Manager.
+BlockResetScale,Resets the scale of block instances to 1.
+Boolean2Objects,Cycles through Boolean results of two objects.
+BooleanDifference,Subtracts one solid from another.
+BooleanIntersection,Keeps only the shared volume of intersecting solids.
+BooleanSplit,Splits solids into parts at their intersections.
+BooleanUnion,Combines solids into one by their union.
+Boss,Extrudes curves to create a boss on a solid.
+Bounce,Traces a ray bouncing off surfaces to show reflections.
+BoundingBox,Creates a box enclosing selected objects.
+Box,Draws a solid box.
+BoxEdit,Transforms objects numerically through a bounding box editor.
+Bridge,Creates faces bridging two edge chains of a SubD or mesh.
+BringForward,Moves objects forward one step in draw order.
+BringToFront,Moves objects to the front of draw order.
+BringViewportToTop,Brings a viewport to the top of overlapping viewports.
+Cage,Creates a 3-D control cage object for deformation.
+CageEdit,Deforms objects using a control cage.
+Calc,Opens a calculator.
+CalcRPN,Opens a reverse Polish notation calculator.
+Camera,Shows or hides the viewport camera widget.
+Cancel,Cancels the current command.
+Cap,Fills planar holes in a polysurface to close it.
+Catenary,Draws a catenary (hanging chain) curve.
+Centermark,Places a center mark on circles or arcs.
+Chamfer,Bevels the corner between two curves with a straight segment.
+ChamferEdge,Chamfers the edges of polysurfaces.
+ChamferSrf,Creates a chamfer surface between two surfaces.
+ChangeDegree,Changes the degree of curves or surfaces.
+ChangeLayer,Moves objects to a different layer.
+ChangeSpace,Moves objects between model space and layout space.
+ChangeToCurrentLayer,Moves selected objects to the current layer.
+Check,Checks objects for geometry errors.
+CheckInLicense,Returns a checked-out license to the license server.
+CheckNewObjects,Toggles validity checking of every new object.
+CheckOutLicense,Checks out a license from the license server for offline use.
+Circle,Draws a circle.
+Clash,Finds objects that intersect (clash) between two sets.
+Claude,Opens the Claude AI assistant (plug-in).
+ClearAllMeshes,Removes cached render and analysis meshes.
+ClearAllObjectDisplayModes,Resets per-object display modes on all objects.
+ClearAnalysisMeshes,Clears cached analysis meshes.
+ClearClippingSections,Clears clipping sections.
+ClearDrawOrder,Resets the draw order of objects.
+ClearUndo,Clears the undo history.
+ClippingDrawings,Creates 2-D drawings from clipping plane sections.
+ClippingPlane,Creates a clipping plane that cuts away part of the view.
+ClippingPlaneProperties,Opens properties of a clipping plane.
+ClippingSections,Creates clipping sections through objects.
+CloseCrv,Closes open curves.
+CloseRenderWindow,Closes the render window.
+ClosestPt,Places a point at the closest location on an object.
+CloseViewport,Closes the active viewport.
+Codex,Opens the Codex AI assistant (plug-in).
+CollapseMeshEdge,Collapses a mesh edge to a single vertex.
+CollapseMeshFace,Collapses a mesh face to a single vertex.
+CollapseMeshFacesByArea,Collapses mesh faces smaller than a given area.
+CollapseMeshFacesByAspectRatio,Collapses mesh faces exceeding a given aspect ratio.
+CollapseMeshFacesByEdgeLength,Collapses mesh faces with edges shorter than a given length.
+CollapseMeshVertex,Collapses a mesh vertex by merging neighbors.
+CommandHelp,Shows help for the current command.
+CommandHistory,Shows the command history window.
+CommandList,Lists available commands.
+CommandPrompt,Shows or hides the command prompt.
+Commands,Displays a list of all available commands.
+ComputeVertexColors,Computes mesh vertex colors from a texture or analysis.
+Cone,Draws a cone.
+Conic,Draws a conic section curve.
+Connect,Extends or trims two curves so their ends meet.
+ConnectSrf,Extends and trims two surfaces so they meet.
+Containers,Manages object containers.
+ContinueCurve,Continues drawing an existing control point curve.
+ContinueInterpCrv,Continues drawing an existing interpolated curve.
+Contour,Creates evenly spaced section curves through objects.
+Convert,Converts curves into lines or arcs.
+ConvertDots,Converts text dots to text objects.
+ConvertExtrusion,Converts extrusion objects to polysurfaces or back.
+ConvertTextToBlockAttribute,Converts text into block attributes.
+ConvertToBeziers,Converts curves or surfaces into Bézier spans.
+ConvertToSingleSpans,Converts curves or surfaces into single-span segments.
+Copy,Copies objects to a new location.
+CopyCPlaneSettingsToAll,Copies construction plane grid settings to all viewports.
+CopyCPlaneToAll,Copies the construction plane to all viewports.
+CopyDetailToViewport,Copies a layout detail's view to a viewport.
+CopyHole,Copies a hole on a planar face.
+CopyLayout,Duplicates a layout.
+CopyLinkedBlockDefinition,Copies a linked block definition.
+CopyRenderWindowToClipboard,Copies the rendered image to the clipboard.
+CopyToClipboard,Copies selected objects to the clipboard.
+CopyToLayer,Copies objects to another layer.
+CopyViewportToDetail,Copies a viewport's view to a layout detail.
+CPlane,Sets the construction plane.
+Crease,Creases SubD edges to make them sharp.
+CreaseSplitting,Controls whether creases split mesh faces.
+CreateRegions,Creates regions from overlapping planar curves.
+CreateSolid,Creates a closed solid from surfaces enclosing a space.
+CreateUniqueBlock,Makes a block instance unique with a new definition.
+CreateUVCrv,Flattens surface trims and edges into UV space.
+Crv2View,Creates a 3-D curve from two planar curves in different views.
+CrvDeviation,Creates curves through a set of cross-section profiles.
+CrvEnd,Measures the deviation between two curves.
+CrvSeam,Marks the end point of a curve.
+CrvStart,Moves the seam of a closed curve.
+CSec,Marks the start point of a curve.
+CullControlPolygon,Creates curves through cross-section profiles.
+CullDegenerateMeshFaces,Hides back-facing control polygon lines.
+Curvature,Removes degenerate mesh faces.
+CurvatureAnalysis,Displays the curvature circle at points on curves or surfaces.
+CurvatureAnalysisOff,Displays surface curvature with false color.
+CurvatureGraph,Turns off curvature analysis.
+CurvatureGraphOff,Displays a curvature graph on curves or surfaces.
+Curve,Turns off the curvature graph.
+CurveBoolean,Draws a curve from control points.
+CurveThroughPolyline,Trims and joins overlapping curves into regions by picking areas.
+CurveThroughPt,Creates a curve from polyline vertices.
+CurveThroughSrfControlPt,Creates a curve using existing points.
+Cut,Creates a curve through a surface's control points.
+CutPlane,Cuts selected objects to the clipboard.
+CutVolume,Creates a plane that cuts through objects.
+Cylinder,Calculates cut and fill volume between a solid and a surface.
+DecimalPoint,Draws a cylinder.
+Delete,Sets the decimal point character.
+DeleteFaces,Deletes selected objects.
+DeleteMeshNgons,Deletes mesh faces.
+DeleteSubCrv,Deletes n-gons from a mesh.
+Detail,Deletes a portion of a curve.
+DevLoft,Creates a developable loft between two rails.
+Diameter,Measures the diameter of a circle or arc.
+DigBeep,Toggles the digitizer beep.
+DigCalibrate,Calibrates the digitizer.
+DigCamera,Places the camera using the digitizer.
+DigClick,Picks a point with the digitizer.
+DigDisconnect,Disconnects the digitizer.
+Digitize,Connects a 3-D digitizer.
+DigLine,Draws a line with the digitizer.
+DigPause,Pauses digitizer input.
+DigScale,Sets the digitizer scale.
+DigSection,Digitizes a planar section curve.
+DigSketch,Sketches a curve with the digitizer.
+Dim,Creates a linear dimension.
+DimAligned,Creates a dimension aligned to two points.
+DimAngle,Creates an angular dimension.
+DimArea,Creates an area dimension.
+DimCreaseAngle,Dimensions the angle at a crease.
+DimCurveLength,Creates a curve length dimension.
+DimDiameter,Creates a diameter dimension.
+DimOrdinate,Creates an ordinate dimension.
+DimRadius,Creates a radius dimension.
+DimRecenterText,Returns dimension text to its default position.
+DimRotated,Creates a rotated linear dimension.
+DimVolume,Creates a volume dimension.
+Dir,Shows and flips the direction of curves and surfaces.
+DirectionalLight,Creates a directional (parallel) light.
+DisableClippingPlane,Disables a clipping plane.
+DisableOsnap,Temporarily disables all object snaps.
+DisplayCommandPrompt,Shows the command prompt.
+DisplayProperties,Opens the Display panel.
+Distance,Measures the distance between two points.
+Distribute,Distributes objects evenly.
+Divide,Places points dividing a curve into segments.
+DivideAlongCreases,Splits curves or surfaces at kinks and creases.
+DocumentProperties,Opens the document properties.
+DocumentPropertiesPage,Opens a specific page of document properties.
+DocumentText,Manages document text fields.
+DollyZoom,Changes lens length while keeping objects the same size.
+Domain,Reports the parameter domain of a curve or surface.
+Dot,Places a text dot.
+DownloadLibraryTextures,Downloads library textures.
+DraftAngleAnalysis,Displays draft angle with false color.
+DraftAngleAnalysisOff,Turns off draft angle analysis.
+DraftAnglePoint,Reports the draft angle at a point.
+DragCopy,Copies objects by dragging them.
+DragMode,Sets the direction used for dragging objects.
+DragStrength,Sets the drag strength for moving points.
+Drape,Drapes a surface over objects.
+DrapePt,Drapes a grid of points over objects.
+DupAnnotationStyle,Duplicates an annotation style.
+DupBorder,Duplicates boundary edges as curves.
+DupEdge,Duplicates surface edges as curves.
+DupFaceBorder,Duplicates a face border as a curve.
+DupLayer,Duplicates a layer.
+DupMeshEdge,Duplicates mesh edges as polylines.
+DupMeshHoleBoundary,Duplicates the boundary of mesh holes.
+EarthAnchorPoint,Places an earth anchor point to geolocate the model.
+Echo,Toggles echoing of command input.
+EdgeContinuity,Displays continuity between surface edges.
+EdgeSrf,"Creates a surface from two, three or four edge curves."
+EditClippingDrawings,Edits clipping drawings.
+EditLightByHighlight,Positions a light by picking where the highlight appears.
+EditLightByLooking,Edits a light by looking through it.
+EditPtOn,Turns on edit points for curves.
+EditPythonScript,Opens the Python script editor.
+EditScript,Opens the RhinoScript editor.
+Ellipse,Draws an ellipse.
+Ellipsoid,Draws an ellipsoid.
+EMap,Displays surface smoothness with a reflective environment map.
+EMapOff,Turns off environment map analysis.
+EnableClippingPlane,Enables a clipping plane.
+EndBulge,Adjusts shape near a curve or surface end while keeping continuity.
+EndUVEditor,Closes the UV Editor.
+Enter,Presses Enter (used in macros).
+EnterEnd,Presses Enter until the command ends (used in macros).
+Environments,Opens the Environments panel.
+EvaluatePt,Reports the coordinates of a point.
+EvaluateUVPt,Reports the UV coordinates of a point on a surface.
+Exit,Closes Rhino.
+Explode,Breaks objects into their components.
+ExplodeBlock,"Explodes block instances, including nested ones, into geometry."
+Export,Exports selected objects to a file.
+ExportBitmaps,Exports bitmaps used by the model.
+ExportClippingDrawings,Exports clipping drawings.
+ExportClippingSectionInfo,Exports clipping section information.
+ExportLinkedBlocks,Exports linked blocks to files.
+ExportRuiFile,Exports a toolbar (RUI) file.
+ExportWithOrigin,Exports objects relative to a picked origin.
+Extend,Extends curves to a boundary or by a length.
+ExtendCrvOnSrf,Extends a curve on a surface to the surface edge.
+ExtendDynamic,Extends a curve by dragging its end.
+ExtendSrf,Extends a surface edge.
+ExtractAnalysisMesh,Extracts an analysis mesh as a mesh object.
+ExtractBadSrf,Extracts invalid surfaces from polysurfaces.
+ExtractClippingSections,Extracts clipping section geometry.
+ExtractClippingSlices,Extracts clipping slices as geometry.
+ExtractConnectedMeshFaces,Extracts mesh faces connected to a picked face.
+ExtractControlPolygon,Extracts the control polygon of a curve or surface.
+ExtractCurvatureGraph,Extracts the curvature graph as curves.
+ExtractCustomMappingObject,Extracts the custom mapping object.
+ExtractDuplicateMeshFaces,Extracts duplicate overlapping mesh faces.
+ExtractIsocurve,Extracts surface isocurves as separate curves.
+ExtractLineTypeSegments,Extracts the dash segments of a linetype as curves.
+ExtractMeshEdges,Extracts mesh edges as curves.
+ExtractMeshFaces,Separates picked faces from a mesh.
+ExtractMeshFacesByArea,Extracts mesh faces by area.
+ExtractMeshFacesByAspectRatio,Extracts mesh faces by aspect ratio.
+ExtractMeshFacesByDraftAngle,Extracts mesh faces by draft angle.
+ExtractMeshFacesByEdgeLength,Extracts mesh faces by edge length.
+ExtractMeshPart,Extracts a disjoint part of a mesh.
+ExtractNonManifoldMeshEdges,Extracts non-manifold mesh edges.
+ExtractOriginalCaptives,Extracts the original captive objects from a cage.
+ExtractPipedCurve,Extracts the pipe geometry from curve piping.
+ExtractPt,Extracts control points or vertices as point objects.
+ExtractRenderMesh,Extracts render meshes as mesh objects.
+ExtractSrf,Separates faces from a polysurface.
+ExtractSubCrv,Extracts a segment of a polycurve.
+ExtractUVMesh,Extracts a flat mesh from texture UV coordinates.
+ExtractWireframe,Extracts all surface isocurves and edges as curves.
+ExtrudeCrv,Extrudes a curve in a straight line.
+ExtrudeCrvAlongCrv,Extrudes a curve along a path curve.
+ExtrudeCrvTapered,Extrudes a curve with a taper angle.
+ExtrudeCrvToPoint,Extrudes a curve to a point.
+ExtrudeMesh,Extrudes mesh faces or edges.
+ExtrudeSrf,Extrudes a surface or polysurface face.
+ExtrudeSrfAlongCrv,Extrudes a surface along a path curve.
+ExtrudeSrfTapered,Extrudes a surface with a draft angle.
+ExtrudeSrfToPoint,Extrudes a surface to a point.
+ExtrudeSubD,Extrudes SubD faces or edges.
+Fair,Smooths curves by removing curvature kinks.
+FaroDiagnostics,Runs diagnostics on a FARO digitizer arm.
+FaroHardwareConfig,Configures FARO digitizer hardware.
+FaroProbes,Manages FARO digitizer probes.
+FaroSetLogFile,Sets the log file for the FARO digitizer.
+FaroTemperature,Reports the FARO digitizer temperature.
+FileExplorer,Opens a file explorer at the model's location.
+Fill,Fills holes in SubD or meshes.
+Fillet,Rounds the corner between two curves with an arc.
+FilletCorners,Fillets all sharp corners of a polycurve.
+FilletEdge,Fillets polysurface edges with a rounded surface.
+FilletSrf,Creates a fillet surface between two surfaces.
+FilletSrfCrv,Creates a fillet between a surface and a curve.
+FilletSrfToRail,Creates a fillet between a surface and a rail curve on it.
+FillMeshHole,Fills a single hole in a mesh.
+FillMeshHoles,Fills all holes in a mesh.
+Fin,Extrudes a curve normal to a surface (fin).
+FindText,Finds text objects containing given text.
+FitCrv,Refits a curve to a tolerance.
+FitCurveToSurface,Fits a curve to lie on a surface.
+FitSrf,Refits a surface to a tolerance.
+FixedLengthCrvEdit,Edits a curve while keeping its length fixed.
+FlatShade,Toggles flat shading of surfaces.
+FlattenSrf,Flattens a surface with stretching where needed.
+Flip,Reverses curve direction or surface normals.
+Flow,Deforms objects along a curve.
+FlowAlongSrf,Maps objects from one surface onto another.
+FoldFace,Folds planar faces of a polysurface.
+Fologram,Connects to Fologram for mixed reality viewing (plug-in).
+Fullscreen,Toggles full screen mode.
+GCon,Reports the geometric continuity between two curves.
+Gemini,Opens the Gemini AI assistant (plug-in).
+GetDocumentUserText,Gets document user text by key.
+GetIssueState,Gets the state of an issue (plug-in).
+GetUserText,Gets object user text by key.
+Grasshopper,"Opens Grasshopper, the visual programming editor."
+GrasshopperDeveloperSettings,Opens Grasshopper developer settings.
+GrasshopperFolders,Manages Grasshopper plug-in folders.
+GrasshopperGetSDKDocumentation,Downloads Grasshopper SDK documentation.
+GrasshopperIgnorePlugin,Ignores a Grasshopper plug-in at load time.
+GrasshopperLoadOneByOne,Loads Grasshopper plug-ins one by one for troubleshooting.
+GrasshopperPlayer,Runs a Grasshopper definition as a command.
+GrasshopperPluginList,Lists installed Grasshopper plug-ins.
+Grid,Sets construction plane grid options.
+GroundPlane,Opens the Ground Plane settings.
+Group,Groups selected objects.
+Gumball,Toggles the Gumball manipulator.
+GumballAlignment,Sets the Gumball alignment.
+GumballAutoReset,Toggles automatic Gumball reset.
+GumballDynamicRelocate,Relocates the Gumball by dragging.
+GumballRelocate,Relocates the Gumball to a new position.
+GumballReset,Resets the Gumball orientation.
+GumballScaleMode,Sets the Gumball scale mode.
+GumballSettings,Opens Gumball settings.
+HandleCurve,Draws a curve with tangent handles at each point.
+Hatch,Fills closed curves with a hatch pattern.
+HatchBase,Sets the base point of a hatch pattern.
+HatchScale,Sets hatch scaling.
+HBar,Edits curve or surface shape with a handlebar tool.
+Heightfield,Creates a surface from image brightness values.
+Helix,Draws a helix.
+Help,Opens Rhino help.
+Hide,Hides selected objects.
+HideInDetail,Hides objects in a layout detail.
+HideLayersInDetail,Hides layers in a layout detail.
+HidePt,Hides control points.
+HideRenderMesh,Hides render meshes.
+HideSwap,Swaps hidden and visible objects.
+HighlightObjectLayers,Highlights the layers of selected objects.
+History,Sets construction history options.
+HistoryPurge,Removes history from selected objects.
+HistoryUpdate,Updates history-linked objects.
+Hydrostatics,Calculates hydrostatic properties of a hull.
+Hyperbola,Draws a hyperbola.
+Hyperlink,Attaches a hyperlink to an object.
+IgesImportOptions,Sets IGES import options.
+IGESStudy,Studies an imported IGES file for problems.
+Import,Imports objects from another file.
+ImportAnnotationStyles,Imports annotation styles from another file.
+ImportLayout,Imports layouts from another file.
+IncrementalSave,Saves an incrementally numbered copy of the model.
+Insert,Inserts a block or external file.
+InsertControlPoint,Inserts a control point into a curve or surface.
+InsertEdge,Inserts an edge loop or ring into a SubD or mesh.
+InsertEditPoint,Inserts an edit point into a curve.
+InsertKink,Inserts a sharp kink into a curve.
+InsertKnot,Inserts a knot into a curve or surface.
+InsertLineIntoCrv,Replaces part of a curve with a straight line.
+InsertPoint,Inserts a point into a SubD or mesh edge.
+Inset,"Insets faces of a SubD, mesh or polysurface."
+InterpCrv,Draws a curve through picked points.
+InterpCrvOnSrf,Draws an interpolated curve on a surface.
+Intersect,Creates points or curves at intersections of objects.
+IntersectSelf,Creates curves where an object intersects itself.
+IntersectTwoSets,Intersects one set of objects with another.
+Invert,Inverts the current selection.
+InvertPt,Inverts the control point selection.
+IPlane,Toggles the infinite plane for snapping.
+Isolate,Hides everything except selected objects.
+IsolateLock,Locks everything except selected objects.
+Isometric,Sets an isometric view.
+Join,Joins curves or surfaces at matching ends or edges.
+JoinCopy,"Joins copies of objects, keeping the originals."
+JoinEdge,Joins two naked edges that are out of tolerance.
+Karamba3DGetLicense,Gets a Karamba3D license (plug-in).
+Lasso,Selects points by drawing a lasso.
+Layer,Opens the Layers panel.
+LayerBook,Steps through layers one at a time for presentation.
+LayerStateManager,Saves and restores layer states.
+Layout,Creates a new page layout.
+LayoutProperties,Opens layout properties.
+Layouts,Opens the Layouts panel.
+Leader,Draws a leader arrow with text.
+LegacyRecordAnimation,Records an animation with the legacy recorder.
+Length,Measures the length of a curve.
+Libraries,Opens the Libraries panel.
+Lights,Opens the Lights panel.
+LimitReferenceModel,Limits which objects of a referenced model are displayed.
+Line,Draws a single line segment.
+LinearLight,Creates a linear (tube) light.
+Lines,Draws a series of line segments.
+LineThroughPt,Fits a line through points.
+LinetypeDisplay,Sets linetype display options.
+Linetypes,Manages linetypes.
+List,Lists database information for objects.
+LiveScript,Runs a script live as it is edited (plug-in).
+LoadScript,Loads a RhinoScript file.
+Lock,Locks selected objects.
+LockSwap,Swaps locked and unlocked objects.
+LockViewport,Locks a viewport to prevent view changes.
+Loft,Creates a surface fit through profile curves.
+Login,Logs in to your Rhino account.
+Logout,Logs out of your Rhino account.
+MacroEditor,Opens the macro editor.
+Macros,Opens the Macros panel.
+Maelstrom,Deforms objects in a spiral around an axis.
+Make2D,Creates 2-D drawing curves from 3-D objects.
+MakeHole,Cuts a hole from closed curves.
+MakeNonPeriodic,Makes a periodic curve or surface non-periodic.
+MakePeriodic,Makes a curve or surface periodic.
+MakeSubDFriendly,Converts curves to SubD-friendly curves.
+MakeUniform,Makes the knot vector of a curve or surface uniform.
+MakeUniformUV,Makes a surface's UV parameterization uniform.
+MappingWidget,Shows the texture mapping widget.
+MappingWidgetOff,Hides the texture mapping widget.
+MarkFoci,Marks the foci of a conic curve.
+Match,Matches a curve end to another curve.
+MatchAnnotation,Matches annotation properties to another annotation.
+MatchCrvDir,Matches curve direction to a reference curve.
+MatchLayer,Moves objects to the layer of a picked object.
+MatchMapping,Matches texture mapping to another object.
+MatchMeshEdge,Matches mesh edge vertices to close gaps.
+MatchProperties,Copies object properties from one object to others.
+MatchSrf,Matches a surface edge to another with continuity.
+Materials,Opens the Materials panel.
+Maximize,Maximizes the Rhino window.
+MaxViewport,Maximizes or restores the active viewport.
+MCPConnect,Connects to an MCP server (plug-in).
+MCPHelp,Shows MCP plug-in help (plug-in).
+MCPStart,Starts an MCP server (plug-in).
+McpStatus,Shows MCP server status (plug-in).
+Menus,Shows or hides the menu bar.
+Merge2MeshFaces,Merges two mesh triangles into a quad.
+MergeAllCoplanarFaces,Merges all coplanar faces of a polysurface.
+MergeAllEdges,Merges all mergeable edges on surfaces.
+MergeCoplanarFace,Merges two coplanar faces.
+MergeCrv,Merges curves into one.
+MergeEdge,Merges adjacent surface edges.
+MergeFaces,Merges adjacent faces.
+MergeSrf,Merges two untrimmed surfaces into one.
+Mesh,Creates a polygon mesh from NURBS objects.
+MeshBooleanDifference,Subtracts one mesh volume from another.
+MeshBooleanIntersection,Keeps only the intersecting volume of meshes.
+MeshBooleanSplit,Splits meshes at their intersections.
+MeshBooleanUnion,Combines meshes by their union.
+MeshBox,Creates a mesh box.
+MeshCone,Creates a mesh cone.
+MeshCylinder,Creates a mesh cylinder.
+MeshEllipsoid,Creates a mesh ellipsoid.
+MeshFromLines,Creates a mesh from lines.
+MeshFromPoints,Creates a mesh from points.
+MeshIntersect,Creates polylines where meshes intersect.
+MeshOutline,Creates outline curves around meshes.
+MeshPatch,Creates a mesh patch through curves and points.
+MeshPlane,Creates a planar mesh.
+MeshPolyline,Creates a mesh from a closed polyline.
+MeshRepair,Diagnoses and repairs mesh problems.
+MeshSelfIntersect,Finds where a mesh intersects itself.
+MeshSphere,Creates a mesh sphere.
+MeshSplit,Splits a mesh with other objects.
+MeshToNURB,Converts mesh faces into NURBS surfaces.
+MeshTorus,Creates a mesh torus.
+MeshTrim,Trims a mesh with other objects.
+MeshTruncatedCone,Creates a truncated mesh cone.
+MicroScribeCalibrateTip,Calibrates the MicroScribe digitizer tip.
+MicroScribeDeviceInfo,Shows MicroScribe digitizer device info.
+MicroScribeSelectTip,Selects the MicroScribe digitizer tip.
+MigratePlugIns,Migrates plug-ins from a previous Rhino version.
+Minimize,Minimizes the Rhino window.
+Mirror,Mirrors objects across a line or plane.
+MirrorHole,Mirrors a hole in a planar face.
+ModelBasepoint,Sets the model base point for block insertion.
+ModifyRadius,Changes the radius of circles and arcs.
+Move,Moves objects.
+MoveCrv,Moves a subcurve segment.
+MoveEdge,Moves a polysurface edge.
+MoveExtractedIsocurve,Extracts and moves an isocurve interactively.
+MoveFace,Moves a polysurface face.
+MoveHole,Moves a hole in a planar face.
+MoveTargetToObjects,Moves the view target to selected objects.
+MoveUntrimmedEdge,Moves an untrimmed polysurface edge.
+MoveUntrimmedFace,Moves an untrimmed polysurface face.
+MoveUVN,"Moves points along surface U, V or normal directions."
+MPlane,Sets a construction plane that moves with an object.
+MultiPause,Pauses a macro for multiple inputs.
+MultiPipe,Creates SubD pipes around a network of curves.
+NamedCPlane,Manages named construction planes.
+NamedPosition,Saves and restores named object positions.
+NamedSelections,Saves and restores named selections.
+NamedView,Manages named views.
+NestedClippingDrawing,Creates a nested clipping drawing.
+NetworkSrf,Creates a surface from a network of curves.
+New,Starts a new model.
+NewFloatingViewport,Creates a new floating viewport.
+NewViewport,Creates a new viewport.
+NextOrthoViewport,Activates the next parallel viewport.
+NextPerspectiveViewport,Activates the next perspective viewport.
+NextU,Moves the point selection to the next U row.
+NextV,Moves the point selection to the next V row.
+NextViewport,Activates the next viewport.
+NextViewportToTop,Brings the next viewport to the top.
+NoEcho,Suppresses command-line messages (used in macros).
+NonmanifoldMerge,Merges objects into non-manifold polysurfaces.
+Notes,Opens the Notes panel.
+Notifications,Shows notifications.
+Offset,Creates a parallel copy of a curve.
+OffsetCrvOnSrf,Offsets a curve on a surface.
+OffsetMesh,Creates an offset copy of a mesh.
+OffsetMultiple,Offsets a curve multiple times.
+OffsetNormal,Offsets a curve normal to a surface.
+OffsetSrf,Creates an offset copy of a surface.
+OffsetSubD,Creates an offset copy of a SubD.
+oldFilletSrf,Creates a surface fillet using the legacy algorithm.
+OneLayerOff,Turns off a layer containing a picked object.
+OneLayerOn,Turns on only one layer.
+OneView,Switches to a single viewport.
+Open,Opens a file.
+OpenNest,Nests flat parts on sheets for cutting (OpenNest plug-in).
+OpenURL,Opens a web address.
+Options,Opens Rhino options.
+OptionsExport,Opens export options.
+OptionsImport,Opens import options.
+OptionsPage,Opens a specific page of Rhino options.
+Orient,Moves and rotates objects from reference to target points.
+Orient3Pt,Moves and rotates objects using three reference and three target points.
+OrientCameraToSrf,Orients the camera to look straight at a surface.
+OrientCrvToEdge,Orients a curve to a surface edge.
+OrientOnCrv,Orients objects along a curve.
+OrientOnSrf,Orients objects onto a surface.
+Ortho,Toggles ortho mode to restrict movement to set angles.
+OrthoAngle,Sets the ortho angle.
+OrthoSnapToCPlaneZ,Makes ortho snap to the construction plane Z direction.
+Osnap,Sets persistent object snaps.
+PackageManager,Opens the package manager for plug-ins.
+PackSubDFaces,Packs SubD faces into groups for texturing.
+PackTextures,Embeds texture files into the model.
+Pan,Pans the view.
+Parabola,Draws a parabola.
+Parabola3Pt,Draws a parabola through three points.
+Paraboloid,Draws a paraboloid.
+Paste,Pastes objects from the clipboard.
+Patch,"Fits a surface through curves, meshes and points."
+PatchSingleFace,Adds a single face to fill a gap in a mesh.
+Pause,Pauses a macro for user input.
+PerspectiveAngle,Sets the perspective view angle.
+PerspectiveMatch,Matches a perspective view to a background image.
+Picture,Places an image on a rectangular plane.
+Pipe,Creates a pipe around a curve.
+PlaceHole,Places a hole from a closed curve on a surface.
+Plan,Sets the view to look straight down on the construction plane.
+Planar,"Toggles planar mode, keeping points at the same elevation."
+PlanarDifference,Subtracts planar closed curves from each other.
+PlanarIntersection,Creates the intersection of planar closed curves.
+PlanarMesh,Creates a planar mesh from closed curves.
+PlanarSrf,Creates planar surfaces from closed planar curves.
+PlanarUnion,Creates the union of planar closed curves.
+Plane,Creates a rectangular plane.
+PlaneThroughPt,Fits a plane through points.
+PlayAnimation,Plays an animation preview.
+Point,Places a single point.
+PointCloud,Creates a point cloud object.
+PointCloudContour,Creates contour curves through a point cloud.
+PointCloudSection,Creates a section curve through a point cloud.
+PointDeviation,"Reports point deviation from a curve, surface or mesh."
+PointGrid,Creates a rectangular grid of points.
+PointLight,Creates a point light.
+Points,Places multiple points.
+PointsFromUV,Places a point at UV coordinates on a surface.
+PointsOff,Turns off control points.
+PointsOn,Turns on control points.
+Polygon,Draws a polygon.
+PolygonCount,Reports the mesh polygon count of objects.
+Polyline,Draws a polyline.
+PolylineOnMesh,Draws a polyline on a mesh.
+PopupMenu,Shows the popup menu.
+PopupPopular,Shows the popup menu of popular commands.
+PopupToolbar,Shows a toolbar as a popup.
+PrevU,Moves the point selection to the previous U row.
+PrevV,Moves the point selection to the previous V row.
+PrevViewport,Activates the previous viewport.
+Print,Prints the model or layouts.
+PrintDisplay,Toggles print display of linewidths and colors.
+Project,Projects curves or points onto surfaces.
+ProjectOsnap,Toggles projecting object snaps to the construction plane.
+ProjectToCPlane,Flattens objects onto the construction plane.
+Properties,Opens object properties.
+PropertiesPage,Opens a specific page of object properties.
+PtOffSelected,Turns off control points on selected objects.
+Pull,Pulls curves onto a surface along its normal.
+Purge,Removes unused definitions from the model.
+PurgeRefObjects,Removes unused reference model objects.
+PushPull,Pushes or pulls faces of solids interactively.
+PushViewportToBack,Pushes a viewport behind overlapping viewports.
+Pyramid,Draws a pyramid.
+QuadrangulateMesh,Joins mesh triangles into quads.
+QuadRemesh,"Creates a quad mesh from surfaces, meshes or SubD."
+Radiate,Visualizes how objects relate across files.
+RadiateFind,Finds objects by Radiate search.
+Radius,Measures the radius of a curve.
+RailRevolve,Revolves a profile along a rail curve.
+Raven,Opens the Raven scripting tools (plug-in).
+RavenBakeAllLiveScripts,Bakes all Raven live scripts (plug-in).
+RavenBakeLiveScriptOutputs,Bakes Raven live script outputs (plug-in).
+RavenBakeLiveScripts,Bakes selected Raven live scripts (plug-in).
+RavenUninstall,Uninstalls the Raven plug-in.
+ReadCommandFile,Runs commands from a text file.
+ReadEveryIGESEntity,Reads every IGES entity on import.
+ReadViewportsFromFile,Loads a viewport layout from another file.
+Rebuild,Rebuilds curves or surfaces with a set degree and point count.
+RebuildCrvNonUniform,Rebuilds a curve with non-uniform knot spacing.
+RebuildEdges,Rebuilds 3-D edge curves to tolerance.
+RebuildMesh,"Rebuilds a mesh, removing extra data."
+RebuildMeshNormals,Recomputes mesh normals.
+RebuildUV,Rebuilds a surface's UV structure.
+RecordAnimation,Records animation frames to images.
+Rectangle,Draws a rectangle.
+RectangularLight,Creates a rectangular area light.
+Redo,Redoes the last undone action.
+RedoMultiple,Redoes multiple actions at once.
+RedoView,Redoes the last undone view change.
+ReduceMesh,Reduces the polygon count of a mesh.
+ReducePointCloud,Reduces the point count of a point cloud.
+ReducePolyline,Reduces the number of polyline segments within a tolerance.
+RefitTrim,Refits trim curves of a surface.
+Reflect,Adds reflective symmetry to SubD or meshes.
+RefreshAllTextures,Reloads all textures from disk.
+RefreshShade,Refreshes viewport shading.
+ReleaseFromCage,Releases objects from a cage.
+RemapCPlane,Moves objects from one construction plane to another.
+RememberCopyOptions,Remembers copy command options.
+RemoveAllNakedMicroEdges,Removes all tiny naked edges.
+RemoveControlPoint,Removes a control point.
+RemoveCrease,Removes creases from SubD edges.
+RemoveFromGroup,Removes objects from a group.
+RemoveGuide,Removes a construction guide.
+RemoveKnot,Removes a knot from a curve or surface.
+RemoveMappingChannel,Removes a texture mapping channel.
+RemoveMultiKnot,Removes duplicate knots.
+RemovePerFaceColors,Removes per-face colors from meshes or SubD.
+RemoveSymmetry,Removes symmetry from objects.
+Render,Renders the active viewport.
+RenderArctic,Renders the viewport in Arctic style.
+RenderAssignMaterialToLayer,Assigns a render material to a layer.
+RenderAssignMaterialToLayersOfObjects,Assigns a render material to the layers of selected objects.
+RenderAssignMaterialToObjects,Assigns a render material to objects.
+RenderBlowup,Renders a zoomed region at higher resolution.
+Rendering,Opens rendering settings.
+RenderInWindow,Renders a selected window region.
+RenderMergeIdenticalMaterials,Merges identical render materials.
+RenderOpenLastRendering,Opens the last rendering.
+RenderOpenRenderImage,Opens a rendered image file.
+RenderPreview,Renders a quick preview.
+RenderPreviewInWindow,Renders a quick preview of a window region.
+RenderPreviewWindow,Opens the render preview window.
+RenderReportImageFiles,Reports image files used by the model.
+RenderReportMissingImageFiles,Reports missing image files used by the model.
+RenderWindow,Opens the render window.
+RepairSubD,Repairs invalid SubD objects.
+Reparameterize,Reparameterizes a curve or surface domain.
+Repeat,Repeats a command.
+ReplaceBlock,Replaces block instances with another block.
+ReplaceEdge,Replaces a surface edge with a curve.
+ReportProblem,Reports a problem to McNeel.
+Rescue3dmFile,Recovers objects from a damaged 3dm file.
+RescueBlockOrphans,Recovers orphaned block definitions.
+Reset,Resets settings to defaults.
+ResetMessageBoxes,Restores hidden message boxes.
+Restore,Restores the Rhino window size.
+RevCloud,Draws a revision cloud.
+Revert,Reverts the model to the last save.
+Revolve,Revolves a curve around an axis.
+RevolvedHole,Cuts a hole with a revolved profile.
+Rib,Creates a rib from a curve in a solid.
+Ribbon,Creates a ribbon surface from a curve offset.
+RibbonOffset,Creates an offset ribbon surface along a curve.
+RLeaderEdit,Edits a leader's text.
+Rotate,Rotates objects in the construction plane.
+Rotate3D,Rotates objects around a 3-D axis.
+RotateCamera,Rotates the camera around its position.
+RotateHole,Rotates a hole in a planar face.
+RotateView,Rotates the view around the target.
+RoundHole,Cuts a round hole.
+RTextEdit,Edits text objects.
+Run,Runs a plug-in command or script.
+RunPythonScript,Runs a Python script.
+RunScript,Runs a RhinoScript.
+Save,Saves the model.
+SaveACopy,Saves a copy without changing the current file.
+SaveAs,Saves the model under a new name.
+SaveAsTemplate,Saves the model as a template.
+SaveClippingSectionCPlanes,Saves construction planes for clipping sections.
+SaveClippingSectionViews,Saves views of clipping sections.
+SaveRenderWindowAs,Saves the rendered image to a file.
+SaveSmall,Saves without render meshes to reduce file size.
+SaveWindowLayout,Saves the window layout.
+Scale,Scales objects uniformly in 3-D.
+Scale1D,Scales objects in one direction.
+Scale2D,Scales objects in the construction plane.
+ScaleByPlane,Scales objects relative to a plane.
+ScaleNU,"Scales objects non-uniformly in X, Y and Z."
+ScalePositions,Scales object positions without scaling the objects.
+ScaleTextHeight,Scales the height of text objects.
+ScreenCaptureToClipboard,Copies a screen capture to the clipboard.
+ScreenCaptureToFile,Saves a screen capture to a file.
+ScriptEditor,Opens the script editor.
+sdColorPaletteTextureCoordinates,Creates texture coordinates for a color palette (plug-in).
+sdGltfExporter,Exports glTF files (plug-in).
+Section,Creates section curves through objects with a cutting plane.
+SelAll,Selects all objects.
+SelAnnotationStyle,Selects annotations by style.
+SelBadObjects,Selects objects with invalid geometry.
+SelBlockInstance,Selects all block instances.
+SelBlockInstanceNamed,Selects block instances by name.
+SelBoundary,Selects objects inside a boundary curve.
+SelBox,Selects objects inside a 3-D box.
+SelBrush,Selects objects by brushing over them.
+SelBrushPoints,Selects points by brushing over them.
+SelCaptives,Selects objects captive to a cage.
+SelChain,Selects a chain of connected curves.
+SelChildren,Selects history children.
+SelCircular,Selects objects inside a circle.
+SelClippingPlane,Selects all clipping planes.
+SelClippingPlaneInViewport,Selects clipping planes active in a viewport.
+SelClosedCrv,Selects all closed curves.
+SelClosedMesh,Selects all closed meshes.
+SelClosedPolysrf,Selects all closed polysurfaces.
+SelClosedSrf,Selects all closed surfaces.
+SelClosedSubD,Selects all closed SubD objects.
+SelColor,Selects objects by color.
+SelConnected,Selects connected control points.
+SelConnectedMeshFaces,Selects connected mesh faces.
+SelControlPoint,Selects control points.
+SelControlPointRegion,Selects control points within a region.
+SelControls,Selects cage control objects.
+SelCrossing,Selects objects crossing a window.
+SelCrv,Selects all curves.
+SelDetail,Selects layout details.
+SelDim,Selects all dimensions.
+SelDimAngular,Selects angular dimensions.
+SelDimCentermark,Selects center mark dimensions.
+SelDimLinear,Selects linear dimensions.
+SelDimOrdinate,Selects ordinate dimensions.
+SelDimOverride,Selects dimensions with style overrides.
+SelDimRadial,Selects radial dimensions.
+SelDimTextOverride,Selects dimensions with overridden text.
+SelDot,Selects all text dots.
+SelDup,Selects duplicates of selected objects.
+SelDupAll,Selects all duplicate objects.
+Select,Selects objects (used in macros).
+SelectionFilter,Filters which object types can be selected.
+SelectionFilterEdges,Filters selection to edges.
+SelectionFilterEnable,Enables the selection filter.
+SelectionFilterFaces,Filters selection to faces.
+SelectionFilterNone,Clears the selection filter.
+SelectionFilterToggle,Toggles the selection filter.
+SelectionFilterVertices,Filters selection to vertices.
+SelEdgeLoop,Selects a loop of edges.
+SelEdgeRing,Selects a ring of edges.
+SelExtrusion,Selects all extrusion objects.
+SelFaceLoop,Selects a loop of faces.
+SelFacesToBoundary,Selects faces up to a boundary.
+SelFence,Selects objects crossed by a fence line.
+SelFontUse,Selects objects using a given font.
+SelGroup,Selects objects in a named group.
+SelHatch,Selects all hatches.
+SelID,Selects an object by its ID.
+SelKey,Selects objects with a given user text key.
+SelKeyValue,Selects objects by user text key and value.
+SelLast,Selects the last created objects.
+SelLayer,Selects objects on a layer.
+SelLayerNumber,Selects objects on a layer by number.
+SelLeader,Selects all leaders.
+SelLight,Selects all lights.
+SelLine,Selects all lines.
+SelLinetype,Selects objects by linetype.
+SelMappingWidget,Selects the texture mapping widget.
+SelMarker,Selects markers.
+SelMaterialName,Selects objects by render material name.
+SelMesh,Selects all meshes.
+SelMeshEdges,Selects mesh edges.
+SelMeshFacesByArea,Selects mesh faces by area.
+SelMeshFacesByAspectRatio,Selects mesh faces by aspect ratio.
+SelMeshFacesByDraftAngle,Selects mesh faces by draft angle.
+SelMeshFacesByEdgeLength,Selects mesh faces by edge length.
+SelMeshPart,Selects a disjoint mesh part.
+SelMirroredBlocks,Selects mirrored block instances.
+SelNakedMeshEdgePt,Selects unwelded mesh edge points.
+SelName,Selects objects by name.
+SelNamedViewWidget,Selects named view widgets.
+SelNone,Deselects all objects.
+SelNonManifold,Selects non-manifold objects.
+SelObjectsWithHistory,Selects objects with history.
+SelOpenCrv,Selects all open curves.
+SelOpenMesh,Selects all open meshes.
+SelOpenPolysrf,Selects all open polysurfaces.
+SelOpenSrf,Selects all open surfaces.
+SelOpenSubD,Selects all open SubD objects.
+SelParents,Selects history parents.
+SelPicture,Selects all pictures.
+SelPlanarCrv,Selects all planar curves.
+SelPlanarSrf,Selects all planar surfaces.
+SelPolyline,Selects all polylines.
+SelPolysrf,Selects all polysurfaces.
+SelPrev,Reselects the previous selection.
+SelPt,Selects all points.
+SelPtCloud,Selects all point clouds.
+SelRectangular,Selects objects in a rectangular region.
+SelRenderColor,Selects objects by render color.
+SelSelfIntersectingCrv,Selects self-intersecting curves.
+SelShortCrv,Selects curves shorter than a length.
+SelSmall,Selects objects smaller than a size.
+SelSrf,Selects all surfaces.
+SelSubD,Selects all SubD objects.
+SelSubDEdges,Selects SubD edges.
+SelSubDFriendlyCrv,Selects SubD-friendly curves.
+SelText,Selects all text objects.
+SelTrimmedSrf,Selects all trimmed surfaces.
+SelU,Selects a row of control points in the U direction.
+SelUntrimmedSrf,Selects all untrimmed surfaces.
+SelUV,Selects rows of control points in both U and V directions.
+SelV,Selects a row of control points in the V direction.
+SelValue,Selects objects with a given user text value.
+SelVisible,Selects all visible objects.
+SelVolumeObject,Selects all objects that enclose a volume.
+SelVolumePipe,Selects objects inside a pipe-shaped volume.
+SelVolumeSphere,Selects objects inside a sphere.
+SelWindow,Selects objects fully inside a window.
+SendBackward,Moves objects back one step in draw order.
+SendToBack,Moves objects to the back of draw order.
+SetActiveViewport,Sets the active viewport by name.
+SetCurrentAnnotationStyle,Sets the current annotation style.
+SetCurrentRenderPlugIn,Sets the current renderer.
+SetCustomLinetype,Creates a custom linetype.
+SetDimensionLayer,Sets the layer for new dimensions.
+SetDisplayMode,Sets the display mode of a viewport.
+SetDocumentUserText,Sets document user text.
+SetDotNetRuntime,Sets the .NET runtime Rhino uses.
+SetFlythroughAnimation,Sets up a fly-through camera animation.
+SetGroupName,Names a group.
+SetIgesLayerLevelMap,Maps IGES levels to layers.
+SetLayerLinetype,Sets the linetype of a layer.
+SetLayerToObject,Sets the current layer to an object's layer.
+SetLinetype,Sets the linetype of objects.
+SetLinetypeScale,Sets the linetype scale.
+SetMaximizedViewport,Sets which viewport is maximized.
+SetMeshSurfaceParameters,Sets parameters for meshing surfaces.
+SetObjectDisplayMode,Sets a display mode for individual objects.
+SetObjectName,Names an object.
+SetOneDaySunAnimation,Sets up a one-day sun study animation.
+SetOrtho,Sets ortho mode on or off.
+SetPathAnimation,Sets up a path camera animation.
+SetPerFaceColorByFacePack,Colors mesh faces by face pack.
+SetPlanar,Sets planar mode on or off.
+SetPt,"Sets X, Y or Z coordinates of points to a value."
+SetRedrawOff,Turns off screen redraw.
+SetRedrawOn,Turns on screen redraw.
+SetSeasonalSunAnimation,Sets up a seasonal sun study animation.
+SetSnap,Sets grid snap on or off.
+SetSpotlightToView,Moves a spotlight to match the current view.
+SetSurfaceTangent,Sets surface tangency at a point.
+SetTurntableAnimation,Sets up a 360-degree turntable animation.
+SetUserText,Sets object user text.
+SetView,Sets the view to a standard direction.
+SetViewToSpotlight,Sets the view to look through a spotlight.
+SetWorkingFolder,Sets the working folder.
+SetZoomExtentsBorder,Sets the border around zoom extents.
+Shade,Temporarily shades the viewport.
+ShadeSelected,Toggles shading only selected objects.
+ShapeDiver,Opens ShapeDiver for publishing Grasshopper models (plug-in).
+Shear,Shears objects.
+Shell,Hollows a solid into a shell.
+ShortPath,Creates the shortest curve between two points on a surface.
+Show,Shows all hidden objects.
+ShowDir,Shows curve and surface directions.
+ShowDirOff,Turns off direction display.
+ShowEdges,"Highlights surface edges, including naked edges."
+ShowEdgesOff,Turns off edge display.
+ShowEnds,Shows the ends of curves.
+ShowEndsOff,Turns off curve end display.
+ShowInDetail,Shows objects in a layout detail.
+ShowLayersInDetail,Shows layers in a layout detail.
+ShowOsnap,Shows or hides the Object Snap panel.
+ShowPt,Shows hidden control points.
+ShowRenderMesh,Shows render meshes.
+ShowSelected,Shows selected hidden objects.
+ShowSelectedInDetail,Shows selected objects in a layout detail.
+ShowToolBar,Shows a toolbar.
+ShowZBuffer,Displays the depth (Z-buffer) of the viewport.
+ShrinkTrimmedSrf,Shrinks a trimmed surface to just enclose its trims.
+ShrinkTrimmedSrfToEdge,Shrinks a surface to a trim edge.
+ShrinkWrap,Creates a closed mesh wrapped around objects.
+Silhouette,Creates silhouette curves of objects.
+SimplifyCrv,Replaces near-lines and near-arcs with true lines and arcs.
+Sketch,Draws a freehand curve.
+Slab,Creates a solid slab from a polyline.
+Slide,Slides SubD or mesh edges along adjacent faces.
+SmartTrack,Sets SmartTrack options.
+Smash,Flattens a surface without considering stretching.
+Smooth,Smooths control points or mesh vertices.
+Snap,Toggles grid snap.
+Snapshots,Saves and restores model states.
+SnapSize,Sets the grid snap size.
+SnapToLocked,Toggles snapping to locked objects.
+SnapToMeshes,Toggles snapping to meshes.
+SnapToMeshObject,Snaps to mesh objects.
+SnapToOccluded,Toggles snapping to hidden (occluded) objects.
+SnapToSubDObject,Snaps to SubD objects.
+SoftEditCrv,Moves a curve point with smooth falloff.
+SoftEditSrf,Moves a surface point with smooth falloff.
+SoftMove,Moves points with smooth falloff.
+SoftTransform,Transforms points with smooth falloff.
+SolidPtOn,Turns on solid control points.
+SpaceMouse,Configures a 3Dconnexion SpaceMouse.
+Speckle,Opens Speckle for data exchange (plug-in).
+SpeckleLegacy,Opens the legacy Speckle connector (plug-in).
+SpeckleMappings,Manages Speckle mappings (plug-in).
+Sphere,Draws a sphere.
+SphereTangentToThreeSurfaces,Draws a sphere tangent to three surfaces.
+Spiral,Draws a spiral.
+Split,Divides objects using cutting objects.
+SplitDisjointMesh,Splits a mesh into disconnected pieces.
+SplitEdge,Splits a surface edge at a point.
+SplitFace,Splits a planar face.
+SplitMeshEdge,Splits a mesh edge.
+SplitMeshWithCurve,Splits a mesh with a curve.
+SplitRefitSurface,Splits and refits a surface.
+SplitViewportHorizontal,Splits the viewport horizontally.
+SplitViewportVertical,Splits the viewport vertically.
+Splop,Places and deforms objects on a surface.
+Spotlight,Creates a spotlight.
+Squish,Flattens a 3-D surface or mesh into 2-D.
+SquishBack,Maps flattened objects back onto the 3-D shape.
+SquishInfo,Reports Squish flattening information.
+SrfControlPtGrid,Creates a surface using points as control points.
+SrfPt,Creates a surface from three or four corners.
+SrfPtGrid,Creates a surface through a grid of points.
+SrfSeam,Moves the seam of a closed surface.
+StartScriptServer,Starts a script server for remote scripting.
+STEPTree,Shows the assembly tree of a STEP file.
+StepUnitsAndTolerance,Sets units and tolerance for STEP files.
+Stitch,Stitches SubD or mesh vertices together.
+Stretch,Stretches objects along an axis.
+SubCrv,Shortens or extracts part of a curve.
+SubDBox,Creates a SubD box.
+SubDCone,Creates a SubD cone.
+SubDCrease,Creases SubD edges.
+SubDCylinder,Creates a SubD cylinder.
+SubDDisplayToggle,Toggles SubD smooth and box display.
+SubDEllipsoid,Creates a SubD ellipsoid.
+SubDExpandEdges,Expands SubD edges into faces.
+SubDFaceEdgeVertexToggle,"Toggles SubD face, edge and vertex selection."
+SubDivide,Subdivides SubD or mesh faces.
+SubDLoft,Creates a SubD loft.
+SubDPlane,Creates a SubD plane.
+SubDSphere,Creates a SubD sphere.
+SubDSpinEdge,Spins a SubD edge.
+SubDSweep1,Creates a SubD by sweeping along one rail.
+SubDSweep2,Creates a SubD by sweeping along two rails.
+SubDTorus,Creates a SubD torus.
+SubDTruncatedCone,Creates a SubD truncated cone.
+SubDUnfriend,Makes SubD-friendly curves regular curves.
+Sun,Opens sun settings.
+SunLight,Sets the sun light.
+SwapMeshEdge,Swaps the diagonal between two mesh triangles.
+SwapView,Swaps views between two viewports.
+Sweep1,Sweeps profiles along one rail.
+Sweep2,Sweeps profiles along two rails.
+Symmetry,Mirrors a curve or surface with a smooth seam.
+SynchronizeCPlanes,Synchronizes construction planes across viewports.
+SynchronizeRenderColors,Synchronizes render colors with display colors.
+SynchronizeViews,Synchronizes viewport scale and target.
+SystemInfo,Shows system and Rhino information.
+Taper,Tapers objects along an axis.
+Text,Creates a text object.
+TextObject,"Creates text as curves, surfaces or solids."
+TextProperties,Opens text properties.
+Textures,Opens the Textures panel.
+ThicknessAnalysis,Displays object thickness with false color.
+ThicknessAnalysisOff,Turns off thickness analysis.
+TiltView,Rolls the view around the view direction.
+ToggleFloatingViewport,Toggles a viewport between docked and floating.
+ToggleGpuProcedurals,Toggles GPU procedural textures.
+ToggleLeftSidebar,Toggles the left sidebar.
+ToggleLockedActiveRealtimeViewport,Toggles locking of the active realtime render viewport.
+TogglePausedActiveRealtimeViewport,Toggles pausing the active realtime render viewport.
+ToggleRenderMesh,Toggles render mesh display.
+ToggleRightSidebar,Toggles the right sidebar.
+ToNURBS,Converts objects to NURBS.
+Toolbar,Manages toolbars.
+ToolbarLock,Locks toolbars in place.
+Torus,Draws a torus.
+ToSubD,Converts meshes or NURBS to SubD.
+TriangulateMesh,Converts mesh quads to triangles.
+TriangulateNonPlanarQuads,Converts non-planar mesh quads to triangles.
+TriangulateRenderMeshes,Triangulates render meshes.
+Trim,Cuts away parts of objects at intersections.
+TruncatedCone,Draws a truncated cone.
+TruncatedPyramid,Draws a truncated pyramid.
+Tube,Draws a tube.
+TunnyGetLicense,Gets a Tunny optimizer license (plug-in).
+TunnyRunDashboard,Runs the Tunny optimization dashboard (plug-in).
+TunnySaveMachineId,Saves the machine ID for Tunny licensing (plug-in).
+Turntable,Rotates the view like a turntable.
+Tutorials,Opens Rhino tutorials.
+TweenCurves,Creates curves between two curves.
+TweenSurfaces,Creates surfaces between two surfaces.
+Twist,Twists objects around an axis.
+Undo,Undoes the last action.
+UndoMultiple,Undoes multiple actions.
+UndoSelected,Undoes changes on selected objects only.
+UndoView,Undoes the last view change.
+Ungroup,Ungroups grouped objects.
+UngroupAll,Removes all groups.
+UnifyMeshNormals,Makes mesh face normals consistent.
+Unisolate,Shows objects hidden by Isolate.
+UnisolateLock,Unlocks objects locked by IsolateLock.
+UnjoinEdge,Separates a joined polysurface edge.
+Unlock,Unlocks all locked objects.
+UnlockSelected,Unlocks selected objects.
+UnpackTextures,Extracts embedded textures to files.
+UnrollSrf,Unrolls a developable surface flat.
+UnrollSrfUV,Unrolls a surface using its UV parameters.
+Untrim,Removes a trim from a surface.
+UntrimAll,Removes all trims from a surface.
+UntrimBorder,Removes the outer trim from a surface.
+UntrimHoles,Removes interior holes from a surface.
+Unweld,Unwelds mesh edges by angle.
+UnweldEdge,Unwelds a mesh edge.
+UnweldVertex,Unwelds mesh vertices.
+Unwrap,Unwraps a mesh to generate UV coordinates.
+UpdateClippingDrawings,Updates clipping drawings.
+UseExtrusions,Sets whether primitives are created as extrusion objects.
+UVEditor,Opens the UV Editor.
+VariableBlendSrf,Creates a variable radius blend between surfaces.
+VariableChamferSrf,Creates a variable distance chamfer between surfaces.
+VariableFilletSrf,Creates a variable radius fillet between surfaces.
+VariableOffsetSrf,Offsets a surface with variable distances.
+ViewCaptureToClipboard,Copies the viewport image to the clipboard.
+ViewCaptureToFile,Saves the viewport image to a file.
+ViewClippingSections,Views clipping sections.
+ViewFirstFrame,Jumps the animation to the first frame.
+ViewFrameNumber,Jumps the animation to a frame number.
+ViewLastFrame,Jumps the animation to the last frame.
+ViewNextFrame,Steps the animation forward one frame.
+ViewportProperties,Opens viewport properties.
+ViewportTabs,Toggles viewport tabs.
+ViewPreviousFrame,Steps the animation back one frame.
+Volume,Calculates the volume of closed objects.
+VolumeCentroid,Calculates the volume centroid.
+VolumeMoments,Calculates volume moments of inertia.
+WalkAbout,Walks through the model in first-person view.
+WebBrowser,Opens the built-in web browser.
+Weight,Sets the weight of control points.
+Weld,Welds mesh vertices by angle.
+WeldEdge,Welds a mesh edge.
+WeldVertices,Welds selected mesh vertices.
+What,Shows details about selected objects.
+WindowLayout,Manages window layouts.
+WireCut,"Cuts a solid along a curve, like a wire cutter."
+Worksession,Manages worksessions of linked files.
+XRLogs,Shows XR logs (plug-in).
+XRMarker,Places an XR marker (plug-in).
+XRProperties,Opens XR properties (plug-in).
+XRPublish,Publishes the model to XR (plug-in).
+XRStart,Starts an XR session (plug-in).
+XRStop,Stops an XR session (plug-in).
+XRUpdate,Updates the XR model (plug-in).
+Zebra,Displays surface continuity with zebra stripes.
+ZebraOff,Turns off zebra analysis.
+Zoom,Zooms the view.
+Zoom1To1Calibrate,Calibrates 1:1 zoom to true screen size.
+ZoomEnds,Zooms to the ends of curves.
+ZoomLens,Changes the camera lens length.
+ZoomNaked,Zooms to naked edges.
+ZoomNonManifold,Zooms to non-manifold edges.
+ZoomZeroToOne,Zooms to the world origin.

@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="22.6" y2="0" gradientTransform="translate(7.201 18.524) rotate(9.89828) skewX(-1.16993)">
+   <stop offset="0" stop-color="#e1e1e1"/>
+   <stop offset="1" stop-color="#595959"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 3,13.458 L 6.238,24.878 L 9.987,21.336 C 12.204,23.506 14.607,25.26 17.483,26.225 C 23.967,28.4 29.028,25.53 33,21.137 L 28.564,17.682 C 24.876,23.433 17.014,24.312 11.45,19.956 L 15.089,16.518 L 3,13.458 Z" fill="#e1e1e1" stroke-linejoin="miter" stroke="none" stroke-width="0" marker-start="none" marker-end="none"/>
+  <path d="M 4.28,14.667 L 6.707,23.225 L 9.999,20.116 L 10.639,20.742 C 12.802,22.859 15.089,24.515 17.785,25.419 C 23.011,27.171 27.258,25.422 30.824,22.096 L 31.684,21.22 L 28.751,18.936 L 28.536,19.233 C 24.277,24.463 16.441,24.974 10.871,20.614 L 10.106,20.015 L 13.339,16.961 L 4.28,14.667 Z" stroke-linejoin="miter" stroke="none" stroke-width="0" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+ </g>
+</svg>
