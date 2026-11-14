@@ -12,10 +12,10 @@
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
 
     <Version>0.1.0</Version>
-    <Title>HouseTutor</Title>
+    <Title>GotchiHouse</Title>
     <Company>Raven</Company>
-    <Description>A Rhino 8 panel that teaches you to build a simple house from a box and a pyramid.</Description>
-    <RootNamespace>HouseTutor</RootNamespace>
+    <Description>A virtual-pet-style Rhino 8 panel that teaches you to build a house from a box and a pyramid.</Description>
+    <RootNamespace>GotchiHouse</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Panel tab icon. Resource id: HouseTutor.Resources.HouseTutor.ico -->
-    <EmbeddedResource Include="Resources\HouseTutor.ico" LogicalName="HouseTutor.Resources.HouseTutor.ico" />
+    <!-- Panel tab icon. Resource id: GotchiHouse.Resources.GotchiHouse.ico -->
+    <EmbeddedResource Include="Resources\GotchiHouse.ico" LogicalName="GotchiHouse.Resources.GotchiHouse.ico" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@
       "label": "build net7.0",
       "type": "process",
       "command": "dotnet",
-      "args": ["build", "${workspaceFolder}/src/HouseTutor/HouseTutor.csproj", "-c", "Debug", "-f", "net7.0", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "args": ["build", "${workspaceFolder}/src/GotchiHouse/GotchiHouse.csproj", "-c", "Debug", "-f", "net7.0", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
       "group": { "kind": "build", "isDefault": true },
       "problemMatcher": "$msCompile"
     },
@@ -13,7 +13,7 @@
       "label": "build net48",
       "type": "process",
       "command": "dotnet",
-      "args": ["build", "${workspaceFolder}/src/HouseTutor/HouseTutor.csproj", "-c", "Debug", "-f", "net48", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "args": ["build", "${workspaceFolder}/src/GotchiHouse/GotchiHouse.csproj", "-c", "Debug", "-f", "net48", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
       "group": "build",
       "problemMatcher": "$msCompile"
     },
@@ -21,7 +21,7 @@
       "label": "build all",
       "type": "process",
       "command": "dotnet",
-      "args": ["build", "${workspaceFolder}/HouseTutor.sln", "-c", "Debug", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "args": ["build", "${workspaceFolder}/GotchiHouse.sln", "-c", "Debug", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
       "group": "build",
       "problemMatcher": "$msCompile"
     }

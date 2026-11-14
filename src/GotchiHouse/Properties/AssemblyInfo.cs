@@ -13,4 +13,4 @@ using Rhino.PlugIns;
 
 // The plugin id. Never change it once the plugin has shipped: Rhino uses it to
 // identify the plugin, its settings and its registered commands.
-[assembly: Guid("7ba4c803-39f8-4a23-975f-72c243517287")]
+[assembly: Guid("f470d92d-6edc-4547-bc23-b1602722e734")]

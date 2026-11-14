@@ -1,20 +1,37 @@
-# HouseTutor
+# GotchiHouse
 
-A Rhino 8 plugin (Windows and Mac) that adds a **House Tutor** panel. It walks
-you, step by step, through building a simple house:
+A Rhino 8 plugin (Windows and Mac) that adds a **GotchiHouse** panel, an
+egg-shaped virtual-pet device in green, white and black. It walks you through
+building a simple pitched-roof house from two shapes:
 
-1. **Walls** – a box (`Box`)
-2. **Roof** – a four-sided pyramid (`Pyramid`)
-3. **Join** – optionally merge them into one solid (`BooleanUnion`)
+1. **Walls**: a 10 × 10 × 8 box (`Box`)
+2. **Roof**: a four-sided pyramid that overhangs by 1 and rises 8 (`Pyramid`)
 
-Each step shows exactly what to type in the command line and has a button that
-starts the right command for you.
+## How it plays
+
+- **START** turns the Perspective viewport into an **Axon** view (parallel
+  projection from the south-west) in a minimal green/white/black display mode,
+  and shows the finished house there as a green **ghost**.
+- Each step shows exactly what to type. **GO** starts the command for you.
+  Green dots in the viewport show where each typed value lands.
+- The key axon on the device's screen mirrors the model: the parts you've built
+  turn solid and the rest stay ghosted. The two squares in the corner count the
+  parts you've built.
+- When both parts are built, you get a congratulations screen.
+  (Joining them with `BooleanUnion` still counts as finished.)
+- **BACK** and **NEXT** let you review earlier steps.
 
 ## Use it
 
 1. Install the plugin (see below).
-2. In Rhino, type `HouseTutor`. The panel opens and can be docked like any Rhino panel.
-3. Follow the pages with **Next** and **Back**.
+2. In Rhino, type `GotchiHouse`. The panel opens and docks like any Rhino panel.
+3. Press **START**.
+
+## Font
+
+The panel uses **Korolev** when it's installed (for example through Adobe Fonts),
+and the system font otherwise. Korolev is a commercial font, so it isn't
+included in this repository.
 
 ## Requirements
 
@@ -24,15 +41,13 @@ starts the right command for you.
 ## Build
 
 ```bash
-dotnet build HouseTutor.sln -c Release
+dotnet build GotchiHouse.sln -c Release
 ```
-
-Output:
 
 | File | Runs in |
 | --- | --- |
-| `src/HouseTutor/bin/Release/net7.0/HouseTutor.rhp` | Rhino 8 Mac, Rhino 8 Windows (default) |
-| `src/HouseTutor/bin/Release/net48/HouseTutor.rhp` | Rhino 8 Windows started on .NET Framework |
+| `src/GotchiHouse/bin/Release/net7.0/GotchiHouse.rhp` | Rhino 8 Mac, Rhino 8 Windows (default) |
+| `src/GotchiHouse/bin/Release/net48/GotchiHouse.rhp` | Rhino 8 Windows started on .NET Framework |
 
 ## Install
 
@@ -43,19 +58,22 @@ On Windows use `net7.0` unless you switched Rhino to .NET Framework with `SetDot
 
 1. Install the recommended extensions: **C#** and **C# Dev Kit**.
 2. Run and Debug → **Rhino 8 (.NET 7+) - Mac / Windows** → F5.
-   Rhino starts with the plugin loaded from `bin/Debug`; nothing to install.
+   Rhino starts with the plugin loaded from `bin/Debug`, so there's nothing to install.
 3. Close Rhino before rebuilding, because Rhino locks the loaded `.rhp`.
 
 ## Layout
 
 ```
-HouseTutor.sln
-src/HouseTutor/
-  HouseTutorPlugin.cs    plugin class, registers the panel
-  HouseTutorCommand.cs   HouseTutor command, opens the panel
-  HouseTutorPanel.cs     the Eto panel (pages, Back/Next, action button)
-  TutorialStep.cs        the tutorial text and the command each step runs
-  Resources/HouseTutor.ico  panel tab icon
+GotchiHouse.sln
+src/GotchiHouse/
+  GotchiHousePlugin.cs   plugin class: registers the panel, starts tracking
+  GotchiHouseCommand.cs  GotchiHouse command: opens the panel
+  GotchiHousePanel.cs    the dockable panel (hosts GotchiDevice)
+  GotchiDevice.cs        draws the device: shell, screen, key axon, buttons
+  TutorialPage.cs        the pages: text, values to type, command to run
+  HouseModel.cs          the goal geometry and how a built part is recognised
+  HouseSession.cs        progress tracking, Axon view and display mode setup
+  HouseGhostConduit.cs   the ghost house and value dots in the viewports
+  Palette.cs             colours and font
+  Resources/GotchiHouse.ico  panel tab icon
 ```
-
-To change the instructions, edit `TutorialStep.House` in `TutorialStep.cs`.

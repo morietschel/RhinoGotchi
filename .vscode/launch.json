@@ -1,7 +1,7 @@
 {
   // Press F5 and pick a configuration. Each one builds the plugin first, then
   // starts Rhino 8 with the build output on RHINO_PACKAGE_DIRS, so Rhino loads
-  // HouseTutor.rhp from bin/Debug automatically and breakpoints hit.
+  // GotchiHouse.rhp from bin/Debug automatically and breakpoints hit.
   // Close Rhino before rebuilding: a running Rhino locks the .rhp on Windows.
   "version": "0.2.0",
   "configurations": [
@@ -20,7 +20,7 @@
         "args": ["/netcore", "/nosplash"]
       },
       "env": {
-        "RHINO_PACKAGE_DIRS": "${workspaceFolder}/src/HouseTutor/bin/Debug/net7.0"
+        "RHINO_PACKAGE_DIRS": "${workspaceFolder}/src/GotchiHouse/bin/Debug/net7.0"
       },
       "cwd": "${workspaceFolder}",
       "console": "internalConsole",
@@ -36,7 +36,7 @@
       "program": "C:\\Program Files\\Rhino 8\\System\\Rhino.exe",
       "args": ["/netfx", "/nosplash"],
       "env": {
-        "RHINO_PACKAGE_DIRS": "${workspaceFolder}/src/HouseTutor/bin/Debug/net48"
+        "RHINO_PACKAGE_DIRS": "${workspaceFolder}/src/GotchiHouse/bin/Debug/net48"
       },
       "cwd": "${workspaceFolder}",
       "console": "internalConsole",
