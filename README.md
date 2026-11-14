@@ -75,6 +75,22 @@ icons/{playerId}          = "base64 PNG or JPEG, 48×48"
 `Core/LeaderboardClient.cs` and `Core/MiniJson.cs` have no Rhino dependencies and can be
 copied into another project as is.
 
+## Deep Cut game
+
+A third daily game: a real Rhino model (from a McNeel forum topic) appears alone in the
+viewport. Orbit it, then name a command that was used to build it; you have 30 seconds and
+one guess per model, five models a day. Whatever you type resolves to a real command. An
+OpenAI model (Decisions API, `gpt-6-luna`) looks at a picture of your viewport and answers
+two things: was the command used, and how rare is it. Points = 1000 x rarity, and only if it
+was used.
+
+- The 50 models are bundled as `DeepCut/Models/*.dcm` next to the `.rhp` (5 MB in total):
+  gzipped, quantized render meshes and curves. The format is documented in
+  `Content/DeepCutModels.cs`; `DeepCut/models.tsv` lists each model's forum topic.
+- The judge needs an OpenAI key. A build can carry one: put it in
+  `src/RhinoGotchi/Core/BundledKey.local.cs` (git-ignored, see `Core/ApiKey.cs`). If that key
+  is rejected, the game asks the player for their own, which is also editable under
+  **Settings** on the home page and stored in the plugin settings.
 
 One project builds two targets:
 

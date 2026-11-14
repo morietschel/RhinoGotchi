@@ -43,6 +43,7 @@ namespace RhinoGotchi.UI
                 [LeaderboardClient.GlobalBoard] = (Glyph.Trophy, p.Gold),
                 [Games.Order] = (Glyph.Blocks, p.Orange),
                 [Games.Shape] = (Glyph.Eye, p.Blue),
+                [Games.Deep] = (Glyph.Cube, p.Purple),
             };
             if (_lastTab >= _boards.Length)
                 _lastTab = 0;

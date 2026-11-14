@@ -7,12 +7,14 @@ namespace RhinoGotchi.Core
     {
         public const string Shape = "shape";
         public const string Order = "order";
-        public static readonly string[] All = { Shape, Order };
+        public const string Deep = "deep";
+        public static readonly string[] All = { Shape, Order, Deep };
 
         public static string Title(string game) => game switch
         {
             Shape => "What Made This?",
             Order => "Build Order",
+            Deep => "Deep Cut",
             _ => game,
         };
 
@@ -21,6 +23,7 @@ namespace RhinoGotchi.Core
         {
             Shape => "Shapes",
             Order => "Build",
+            Deep => "Deep",
             _ => game,
         };
     }

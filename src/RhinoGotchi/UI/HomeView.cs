@@ -142,6 +142,8 @@ namespace RhinoGotchi.UI
                 () => _host.Navigate(new BuildOrderView(_host, practice: false))));
             _tabContent.Items.Add(GameRow(Games.Shape, "Name the command that made it", Glyph.Eye, 3,
                 () => _host.Navigate(new ShapeQuizView(_host, practice: false))));
+            _tabContent.Items.Add(GameRow(Games.Deep, "Name the rarest command that built it", Glyph.Cube, 4,
+                () => _host.Navigate(new DeepCutView(_host, practice: false))));
 
             _tabContent.Items.Add(new SectionLabel("LEADERBOARD"));
             _tabContent.Items.Add(new ListRow(
@@ -160,8 +162,9 @@ namespace RhinoGotchi.UI
                 Right = "›",
             };
             _tabContent.Items.Add(achievements);
-            _tabContent.Items.Add(Theme.Grid(2,
+            _tabContent.Items.Add(Theme.Grid(3,
                 Theme.Secondary("My stats", () => _host.Navigate(new StatsView(_host))),
+                Theme.Button("Settings", () => _host.Navigate(new SettingsView(_host))),
                 Theme.Button("Reset", () => ConfirmReset(_host))));
         }
 

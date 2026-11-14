@@ -121,17 +121,16 @@ namespace RhinoGotchi.UI
 
         void IPanel.PanelShown(uint documentSerialNumber, ShowPanelReason reason) => (_view as IGameView)?.Enter();
 
-        void IPanel.PanelHidden(uint documentSerialNumber, ShowPanelReason reason)
-        {
-            ShapePreview.Stop();
-            if (_view is LessonView)
-                (_view as IGameView)?.Leave();
-        }
+        void IPanel.PanelHidden(uint documentSerialNumber, ShowPanelReason reason) => StopPreviews();
 
-        void IPanel.PanelClosing(uint documentSerialNumber, bool onCloseDocument)
+        void IPanel.PanelClosing(uint documentSerialNumber, bool onCloseDocument) => StopPreviews();
+
+        /// <summary>Lets the current game pause (PanelShown calls Enter again) and gives the viewport back.</summary>
+        private void StopPreviews()
         {
-            ShapePreview.Stop();
             (_view as IGameView)?.Leave();
+            ShapePreview.Stop();
+            ModelPreview.Stop();
         }
     }
 }
