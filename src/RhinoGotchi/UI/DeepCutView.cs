@@ -76,7 +76,8 @@ namespace RhinoGotchi.UI
                 return;
             }
 
-            _models.AddRange(Daily.Shuffle(DeepCutModels.All, Daily.Rng(Games.Deep, practice)).Take(RoundCount));
+            // A fresh draw every time the game is opened, daily or practice, so reopening never repeats the same five.
+            _models.AddRange(Daily.Shuffle(DeepCutModels.All, new Random()).Take(RoundCount));
             if (_models.Count == 0)
             {
                 Items.Add(Theme.Body("The Deep Cut models are missing. They should be in a DeepCut/Models folder next to the plugin file."));
