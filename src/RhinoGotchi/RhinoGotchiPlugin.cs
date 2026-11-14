@@ -24,7 +24,9 @@ namespace RhinoGotchi
 
         protected override LoadReturnCode OnLoad(ref string errorMessage)
         {
-            RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}).");
+            Rhino.UI.Panels.RegisterPanel(this, typeof(UI.GotchiPanel), "RhinoGotchi",
+                typeof(RhinoGotchiPlugin).Assembly, "RhinoGotchi.Resources.GotchiPanel.svg", Rhino.UI.PanelType.System);
+            RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}). Type Gotchi to open the lesson panel.");
             return LoadReturnCode.Success;
         }
 

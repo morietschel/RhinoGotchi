@@ -19,6 +19,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Panel icon, loaded by resource name in RhinoGotchiPlugin.OnLoad. -->
+    <EmbeddedResource Include="Resources\GotchiPanel.svg" LogicalName="RhinoGotchi.Resources.GotchiPanel.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <!-- Compile against the oldest Rhino 8 SDK so the plugin loads in every Rhino 8 service release. -->
     <PackageReference Include="RhinoCommon" Version="8.0.23304.9001" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" Condition="'$(TargetFramework)' == 'net48'" />

@@ -23,6 +23,9 @@ namespace RhinoGotchi.Levels
             _ghosts = new GhostConduit(level.GhostGeometry);
         }
 
+        /// <summary>Raised when a level starts, is evaluated, or stops. Always on the UI thread.</summary>
+        public static event Action<LevelRunner>? StateChanged;
+
         /// <summary>The level being played, or null.</summary>
         public static LevelRunner? Current { get; private set; }
 
@@ -46,6 +49,7 @@ namespace RhinoGotchi.Levels
 
             runner.ZoomToLevel();
             RhinoApp.WriteLine($"[RhinoGotchi] Level \"{level.Title}\" started. Command to use: {level.Command}.");
+            StateChanged?.Invoke(runner);
             return runner;
         }
 
@@ -57,6 +61,7 @@ namespace RhinoGotchi.Levels
             if (Current == this)
                 Current = null;
             Attempt.Doc.Views.Redraw();
+            StateChanged?.Invoke(this);
         }
 
         /// <summary>Asks the evaluator for a verdict now and reports it on the command line.</summary>
@@ -68,6 +73,7 @@ namespace RhinoGotchi.Levels
             LevelResult result = Level.Evaluator.Evaluate(Attempt);
             LastResult = result;
             Report(result);
+            StateChanged?.Invoke(this);
 
             if (result.Solved)
             {
