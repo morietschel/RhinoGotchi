@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Rhino 8 Windows can run on .NET Framework 4.8 (via SetDotNetRuntime) or .NET 7+.
+         Rhino 8 Mac runs on .NET 7+ only. Building both covers every Rhino 8 install. -->
+    <TargetFrameworks>net7.0;net48</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <TargetExt>.rhp</TargetExt>
+    <NoWarn>NU1701;NETSDK1086</NoWarn>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+
+    <Version>0.1.0</Version>
+    <Title>RhinoGotchi</Title>
+    <Company>Raven</Company>
+    <Description>RhinoGotchi plugin for Rhino 8 (Windows and Mac).</Description>
+    <RootNamespace>RhinoGotchi</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Compile against the oldest Rhino 8 SDK so the plugin loads in every Rhino 8 service release. -->
+    <PackageReference Include="RhinoCommon" Version="8.0.23304.9001" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" Condition="'$(TargetFramework)' == 'net48'" />
+  </ItemGroup>
+
+</Project>
