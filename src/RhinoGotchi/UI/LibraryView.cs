@@ -19,9 +19,10 @@ namespace RhinoGotchi.UI
         private readonly Label _count = Theme.Muted("");
         private readonly StackLayout _list = new StackLayout { Spacing = 6, HorizontalContentAlignment = HorizontalAlignment.Stretch };
 
-        public LibraryView(RhinoGotchiPanel host)
+        public LibraryView(RhinoGotchiPanel host, int startTab = 0)
         {
             _host = host;
+            _tab = startTab;
             Theme.SetUpPage(this, host, "Command Library",
                 "Pick a command to see how it works, step by step in the viewport, then try it yourself. ▶ marks commands with a demo.");
 
