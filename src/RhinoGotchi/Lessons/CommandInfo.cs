@@ -26,6 +26,23 @@ namespace RhinoGotchi.Lessons
             ["Circle"] = "Circle draws a circle from a center and a radius.",
             ["Line"] = "Line draws one straight segment between two points.",
             ["Rectangle"] = "Rectangle draws a closed four-sided curve from two corners.",
+            ["Offset"] = "Offset makes a parallel copy of a curve at a set distance.",
+            ["Trim"] = "Trim cuts away the parts of an object that cross a cutting object.",
+            ["Join"] = "Join connects curves or surfaces that touch end to end into one object.",
+            ["Fillet"] = "Fillet rounds the corner between two curves with an arc. (FilletEdge does it on solids.)",
+            ["Move"] = "Move slides objects from one point to another.",
+            ["Rotate"] = "Rotate turns objects around a center point by an angle.",
+            ["Scale"] = "Scale makes objects bigger or smaller from a base point.",
+            ["Mirror"] = "Mirror flips a copy of objects across a line: great for symmetric parts.",
+            ["ArrayPolar"] = "ArrayPolar copies objects evenly around a center point.",
+            ["OffsetSrf"] = "OffsetSrf makes a copy of a surface at a constant distance (and can make it solid).",
+            ["BlendSrf"] = "BlendSrf builds a smooth bridge surface between the edges of two surfaces.",
+            ["Contour"] = "Contour slices objects into evenly spaced section curves.",
+            ["Patch"] = "Patch fits a surface into a closed boundary of curves.",
+            ["Cap"] = "Cap fills planar open holes, turning an open surface into a closed solid.",
+            ["Shell"] = "Shell hollows out a solid, leaving walls of a set thickness.",
+            ["BooleanIntersection"] = "BooleanIntersection keeps only the volume where solids overlap.",
+            ["ExtrudeSrf"] = "ExtrudeSrf pushes a surface straight out into a solid.",
         };
 
         /// <summary>Every command that has an icon, so it can be a quiz answer.</summary>

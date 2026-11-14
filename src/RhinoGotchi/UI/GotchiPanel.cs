@@ -11,12 +11,12 @@ namespace RhinoGotchi.UI
     [Guid("c3a9e0d2-5b7f-4f61-9a3e-2d8b6f1c4e70")]
     public sealed class GotchiPanel : Panel
     {
-        private static LessonSession? _session;
+        private static GotchiGame? _game;
         private readonly LessonCanvas _canvas;
 
         public GotchiPanel()
         {
-            _canvas = new LessonCanvas(Session);
+            _canvas = new LessonCanvas(Game);
             Content = new Scrollable
             {
                 Content = _canvas,
@@ -26,8 +26,8 @@ namespace RhinoGotchi.UI
             };
         }
 
-        /// <summary>The lesson being played in the panel.</summary>
-        public static LessonSession Session => _session ??= new LessonSession(LessonCatalog.SurfacesOne());
+        /// <summary>The game shown in every RhinoGotchi panel. Progress is loaded from the plugin settings.</summary>
+        public static GotchiGame Game => _game ??= new GotchiGame(Progress.Load());
 
         public static System.Guid PanelId => typeof(GotchiPanel).GUID;
 

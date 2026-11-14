@@ -35,6 +35,35 @@ Output:
 
 Then type `RhinoGotchi`, pick two points, and a line is added.
 
+## The lesson panel
+
+Type `Gotchi` to open the RhinoGotchi panel.
+
+- **First run:** pick *Start from scratch* (Level 1) or *Find my level*, a
+  placement test with 2 questions per level (up to 20), easiest first. It stops at the
+  first miss, and that question's level is where you start. Every level below it
+  is marked done.
+- **Home (level map):** shows *Your level*, total XP, and a path of levels:
+  done (gold), current (green) and locked (gray). Done and current levels can be
+  played; you can retake the placement test any time.
+- **Progress** (finished levels, XP, placement taken) is saved in the plugin's
+  settings, per user on this machine, so it survives a Rhino restart.
+
+Levels live in `src/RhinoGotchi/Lessons/LessonCatalog.cs` (10 levels): Curves,
+Solids (includes the Box build level), Surfaces, Sweeps & Pipes, Editing Solids,
+Curve Tools, Transforms, Surface Tools, Advanced Solids, Mastery.
+
+Three question types, from easy to hard:
+
+| Type | Card | Used from |
+| --- | --- | --- |
+| Pick the icon | "Which one of these is Sweep2?" + 4 icons | Level 1 |
+| Name it | One big icon + 4 look-alike names | Level 3 |
+| Solve the task | A modeling task in words + 4 icons, no names | Level 4 |
+
+The placement test asks each level's first two questions, so it ramps from
+pick-the-icon to scenarios and shows an EASY / MEDIUM / HARD marker.
+
 ## Debug in VS Code (Mac and Windows)
 
 1. Install the recommended extensions (VS Code prompts you): **C#** and **C# Dev Kit**.

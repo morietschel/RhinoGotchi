@@ -29,9 +29,10 @@ namespace RhinoGotchi.Lessons
         private int _queueIndex;
         private LevelRunner? _runner;
 
-        public LessonSession(Lesson lesson)
+        public LessonSession(Lesson lesson, bool isPlacement = false)
         {
             Lesson = lesson;
+            IsPlacement = isPlacement;
             Restart();
             LevelRunner.StateChanged += OnLevelChanged;
         }
@@ -40,6 +41,17 @@ namespace RhinoGotchi.Lessons
         public event Action? Changed;
 
         public Lesson Lesson { get; }
+
+        /// <summary>
+        /// Placement test: no hearts, no repeats, and it ends at the first wrong answer.
+        /// The level of that question is where the player is placed.
+        /// </summary>
+        public bool IsPlacement { get; }
+
+        /// <summary>Placement only: the level the player lands on (all levels count when nothing was missed).</summary>
+        public int PlacedLevel => _firstMissTier ?? LessonCatalog.All.Count;
+
+        private int? _firstMissTier;
 
         public SessionScreen Screen { get; private set; }
 
@@ -96,6 +108,7 @@ namespace RhinoGotchi.Lessons
             Xp = 0;
             FirstTryCorrect = 0;
             QuizzesAsked = 0;
+            _firstMissTier = null;
             Screen = SessionScreen.Intro;
             ResetCard();
             Raise();
@@ -134,6 +147,10 @@ namespace RhinoGotchi.Lessons
                     Xp += quiz.Xp;
                 }
             }
+            else if (IsPlacement)
+            {
+                _firstMissTier ??= quiz.Tier;
+            }
             else
             {
                 Hearts = Math.Max(0, Hearts - 1);
@@ -147,6 +164,13 @@ namespace RhinoGotchi.Lessons
         {
             if (Screen == SessionScreen.Quiz && !Checked)
                 return;
+
+            if (IsPlacement && _firstMissTier != null)
+            {
+                Screen = SessionScreen.Complete; // placement ends at the first miss
+                Raise();
+                return;
+            }
 
             if (Hearts == 0)
             {
@@ -280,6 +304,9 @@ namespace RhinoGotchi.Lessons
             {
                 Quiz = quiz;
                 Command = quiz.Command;
+                Kind = quiz.Kind;
+                Prompt = quiz.Prompt;
+                Tier = quiz.Tier;
                 Distractors.AddRange(quiz.Distractors);
                 Xp = 0;
             }

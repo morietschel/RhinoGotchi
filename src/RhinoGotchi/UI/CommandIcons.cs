@@ -11,7 +11,7 @@ namespace RhinoGotchi.UI
     /// Each icon is a tiny isometric scene: blue for the result, orange for rails
     /// and paths, purple for profiles. Drawn in a 100x100 box, then scaled.
     /// </summary>
-    public static class CommandIcons
+    public static partial class CommandIcons
     {
         public static readonly Color Rail = Color.FromArgb(0xFF, 0x96, 0x00);
         public static readonly Color Profile = Color.FromArgb(0xCE, 0x82, 0xFF);
@@ -25,6 +25,11 @@ namespace RhinoGotchi.UI
         private const float S = 22f;      // iso scale: one model unit in icon pixels
         private const float Ox = 50f;     // iso origin in the 100x100 box
         private const float Oy = 54f;
+
+        static CommandIcons()
+        {
+            RegisterMore(Painters);
+        }
 
         public static bool Has(string command) => Painters.ContainsKey(command);
 
@@ -462,6 +467,8 @@ namespace RhinoGotchi.UI
             }
 
             public void Polygon(Point3d[] pts) => Add(pts, SurfLight, SurfDark);
+
+            public void Polygon(Point3d[] pts, Color light, Color dark) => Add(pts, light, dark);
 
             public void Disc(Point3d center, double radius)
             {
