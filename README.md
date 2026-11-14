@@ -3,6 +3,19 @@
 A RhinoCommon plugin for **Rhino 8 on Windows and Mac**, based on McNeel's
 [Your First Plugin](https://developer.rhino3d.com/guides/rhinocommon/your-first-plugin-windows/) guide.
 
+## RhinoGotchi panel: What Made This?
+
+The **RhinoGotchi** side panel has a daily game for learning Rhino commands.
+Each of five rounds draws real geometry in a perspective viewport: the starting
+curves or solids in orange, and the result in blue. Pick the command that made it
+(Loft, Revolve, Sweep1, Pipe, FilletEdge, Contour...). Every answer explains the
+command and has **Try** (runs it in Rhino) and **Help page** buttons.
+
+Nothing is added to your model, and your view is restored when you leave the game.
+Everyone gets the same rounds each day; daily scores and streaks are saved in the
+plugin settings, and practice rounds don't count. The panel home page also has a
+tip of the day, stats, and a reset action.
+
 One project builds two targets:
 
 | Target | Runs in |
@@ -33,7 +46,8 @@ Output:
 - **Windows:** drag the `.rhp` that matches your runtime onto Rhino 8
   (`net7.0` by default, `net48` if you switched with `SetDotNetRuntime`).
 
-Then type `RhinoGotchi`, pick two points, and a line is added.
+The plugin loads at startup and registers the **RhinoGotchi** panel. Type `RhinoGotchi` to open it,
+or open it from the panel tabs menu.
 
 ## Debug in VS Code (Mac and Windows)
 
@@ -42,7 +56,7 @@ Then type `RhinoGotchi`, pick two points, and a line is added.
    - **Rhino 8 (.NET 7+) - Mac / Windows**: builds `net7.0` and starts Rhino 8
      (`/Applications/Rhino 8.app` on Mac, `C:\Program Files\Rhino 8` on Windows).
    - **Rhino 8 (.NET Framework) - Windows**: builds `net48` and starts Rhino 8 with `/netfx`.
-3. Type `RhinoGotchi` in Rhino. Breakpoints in the command hit.
+3. Type `RhinoGotchi` in Rhino to open the panel. Breakpoints hit as you play.
 
 Rhino finds the plugin through `RHINO_PACKAGE_DIRS`, which points at the Debug
 build folder, so you don't install anything. Stop debugging (or quit Rhino)
@@ -61,8 +75,13 @@ Pick one and press F5.
 RhinoGotchi.sln
 src/RhinoGotchi/
   RhinoGotchi.csproj        multi-target net7.0;net48, outputs .rhp
-  RhinoGotchiPlugin.cs      the PlugIn class (one per .rhp)
-  RhinoGotchiCommand.cs     sample command: draw a line between two points
+  RhinoGotchiPlugin.cs      the PlugIn class: loads at startup, registers the panel
+  RhinoGotchiCommand.cs     RhinoGotchi command: opens the panel
+  Resources/RhinoGotchi.svg panel tab icon (embedded resource)
+  Core/                     daily seeding, saved stats, run-command/help actions
+  Content/                  game data: What Made This? shapes, tips
+  Display/ShapePreview.cs   display conduit that draws What Made This? rounds
+  UI/                       Eto panel, home page, What Made This? game, stats
   Properties/AssemblyInfo.cs   plugin GUID + Plug-in Manager info
   Properties/launchSettings.json
 .vscode/                    launch.json (F5 into Rhino), tasks.json (builds)
