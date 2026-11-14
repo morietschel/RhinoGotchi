@@ -26,6 +26,11 @@
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" Condition="'$(TargetFramework)' == 'net48'" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <!-- HttpClient for the online leaderboard. Part of the framework, but not referenced by default on net48. -->
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
   <ItemGroup>
     <!-- Side panel tab icon, loaded by Panels.RegisterPanel via this resource name. -->
     <EmbeddedResource Include="Resources\RhinoGotchi.svg" LogicalName="RhinoGotchi.Resources.RhinoGotchi.svg" />

@@ -15,6 +15,14 @@ namespace RhinoGotchi.Core
             Order => "Build Order",
             _ => game,
         };
+
+        /// <summary>A one-word name that fits in a tab.</summary>
+        public static string ShortTitle(string game) => game switch
+        {
+            Shape => "Shapes",
+            Order => "Build",
+            _ => game,
+        };
     }
 
     internal sealed class GameStats

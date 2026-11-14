@@ -39,6 +39,43 @@ Everyone gets the same rounds each day; daily scores and streaks are saved in th
 plugin settings, and practice rounds don't count. The panel home page also has a
 tip of the day, stats, and a reset action.
 
+## Leaderboard
+
+Daily games earn points (practice rounds don't). Players pick a public name and a small
+icon, then appear on a **Global** board (points across all games) and one board per game.
+
+| Game | Points per daily |
+| --- | --- |
+| What Made This? | 20 per right answer (max 100) |
+| Build Order | 100 for a first-try solve, 20 fewer per extra try, 10 fewer with the hint |
+
+Points and the profile are kept in the plugin settings and pushed as full totals, so a
+failed upload is made up for by the next one. Each game scores once per day.
+
+**One-time setup.** The backend is a free Firebase Realtime Database (Spark plan, no card):
+
+1. [console.firebase.google.com](https://console.firebase.google.com) → Add project → Build → Realtime Database → Create database.
+2. Rules tab → paste `firebase/database.rules.json` → Publish.
+3. Copy the database URL (like `https://my-project-default-rtdb.firebaseio.com`) into
+   `DatabaseUrl` in `Core/Leaderboard.cs`. While it is empty the leaderboard stays offline.
+   For a debug session you can set the `RHINOGOTCHI_LEADERBOARD_URL` environment variable instead.
+
+There is no login: anyone can write a row, so scores can be faked. The rules only limit
+the shape and size of what is written.
+
+**Data layout** (plain REST, so other games can share the same database):
+
+```
+boards/{board}/{playerId} = { "s": score, "n": name, "i": iconVersion, "t": serverTime }
+icons/{playerId}          = "base64 PNG or JPEG, 48×48"
+```
+
+`board` is a game key or `global`. To add a game: add its key to `Games` in
+`Core/Progress.cs` and call `Leaderboard.Award(game, points)` when a daily round ends.
+`Core/LeaderboardClient.cs` and `Core/MiniJson.cs` have no Rhino dependencies and can be
+copied into another project as is.
+
+
 One project builds two targets:
 
 | Target | Runs in |

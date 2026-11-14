@@ -143,6 +143,16 @@ namespace RhinoGotchi.UI
             _tabContent.Items.Add(GameRow(Games.Shape, "Name the command that made it", Glyph.Eye, 3,
                 () => _host.Navigate(new ShapeQuizView(_host, practice: false))));
 
+            _tabContent.Items.Add(new SectionLabel("LEADERBOARD"));
+            _tabContent.Items.Add(new ListRow(
+                Leaderboard.HasProfile ? "See the rankings" : "Join the leaderboard",
+                "Global and per-game boards", Glyph.Trophy, 1,
+                () => _host.Navigate(new LeaderboardView(_host)))
+            {
+                Right = $"{Leaderboard.TotalPoints:N0} pts",
+                RightAccent = true,
+            });
+
             _tabContent.Items.Add(new SectionLabel("YOUR PROGRESS"));
             var achievements = new ListRow("Trophies & hats",
                 $"{Achievements.UnlockedCount(GotchiState.Game.Stats)} of {Achievements.All.Count} unlocked", Glyph.Star, 2, _host.ShowTrophies)

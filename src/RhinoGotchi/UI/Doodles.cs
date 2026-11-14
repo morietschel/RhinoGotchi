@@ -5,7 +5,7 @@ namespace RhinoGotchi.UI
 {
     internal enum MascotMood { Happy, Excited, Thinking, Sleepy }
 
-    internal enum Glyph { Blocks, Eye, Curve, Cube, Arrows, Chain, Bulb, Flame, Star, Gamepad, Book, Chart }
+    internal enum Glyph { Blocks, Eye, Curve, Cube, Arrows, Chain, Bulb, Flame, Star, Gamepad, Book, Chart, Trophy }
 
     /// <summary>
     /// Little hand-drawn pictures for the panel: the mascot (drawn by Mascot) and simple white glyphs for badges. Everything is drawn in a 100x100 box.
@@ -149,6 +149,22 @@ namespace RhinoGotchi.UI
                     g.FillPath(ink, GraphicsPath.GetRoundRect(new RectangleF(20, 52, 14, 26), 3));
                     g.FillPath(ink, GraphicsPath.GetRoundRect(new RectangleF(43, 34, 14, 44), 3));
                     g.FillPath(ink, GraphicsPath.GetRoundRect(new RectangleF(66, 20, 14, 58), 3));
+                    break;
+                case Glyph.Trophy:
+                    var cup = new GraphicsPath();
+                    cup.MoveTo(30, 20);
+                    cup.LineTo(70, 20);
+                    cup.AddBezier(new PointF(70, 20), new PointF(70, 48), new PointF(60, 56), new PointF(50, 56));
+                    cup.AddBezier(new PointF(50, 56), new PointF(40, 56), new PointF(30, 48), new PointF(30, 20));
+                    cup.CloseFigure();
+                    g.FillPath(ink, cup);
+                    var handles = new GraphicsPath();
+                    handles.AddBezier(new PointF(31, 26), new PointF(14, 26), new PointF(14, 44), new PointF(34, 44));
+                    handles.StartFigure();
+                    handles.AddBezier(new PointF(69, 26), new PointF(86, 26), new PointF(86, 44), new PointF(66, 44));
+                    g.DrawPath(new Pen(ink, 5 * weight) { LineCap = PenLineCap.Round }, handles);
+                    g.FillRectangle(ink, 46, 54, 8, 14);
+                    g.FillPath(ink, GraphicsPath.GetRoundRect(new RectangleF(32, 66, 36, 11), 4));
                     break;
             }
         }
