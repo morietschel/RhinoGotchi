@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+	</defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 13.814,7.331 C 11.722,9.741 10.922,12.835 11.354,15.764 L 3.799,15.764 L 3.799,32.263 L 20.298,32.263 L 20.298,24.637 L 20.297,24.644 C 23.708,25.12 27.284,23.914 29.708,21.121 C 33.514,16.734 33.043,10.085 28.656,6.279 C 24.269,2.473 17.62,2.944 13.814,7.331 Z" stroke="#e1e1e1" stroke-width="1.511" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 15.701,32.479 L 3.654,20.847" fill="none" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 9.928,32.47 L 3.329,26.099" fill="none" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 20.298,31.155 L 4.284,15.693" fill="none" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 20.382,25.019 L 10.289,15.273" fill="none" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 24.369,24.317 L 11.356,11.752" fill="none" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 28.437,22.378 L 13.474,7.929" fill="none" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 30.819,19.176 L 16.288,5.145" fill="none" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 32.308,15.201 L 20.819,4.108" fill="none" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="round"/>
+ </g>
+</svg>

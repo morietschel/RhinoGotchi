@@ -1,0 +1,87 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-1.887" y2="-6.772" gradientTransform="translate(19.568 21.897)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.163" y2="0" gradientTransform="translate(5.768 23.403) rotate(-168.69) skewX(-77.7918)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.108" y2="0" gradientTransform="translate(5.898 21.65) rotate(-176.292) skewX(-85.9977)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.012" y2="0" gradientTransform="translate(17.449 18.72) rotate(-151.39) skewX(-58.5968)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_4" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.004" y2="0" gradientTransform="translate(24.257 14.331) rotate(-135) skewX(-40.2364)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_5" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.003" y2="0" gradientTransform="translate(30.213 13.89) rotate(-146.31) skewX(-51.9112)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_6" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.005" y2="0" gradientTransform="translate(22.428 18.604) rotate(-158.199) skewX(-65.596)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_7" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.002" y2="0" gradientTransform="translate(32.184 14.875) rotate(-153.435) skewX(-57.0948)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_8" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.004" y2="0" gradientTransform="translate(28.451 16.737) rotate(-165.964) skewX(-72.7839)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_9" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0.002" y2="0" gradientTransform="translate(18.222 20.921) rotate(-153.435) skewX(-55.3048)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_10" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="0" gradientTransform="translate(7.53 22.208)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_11" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="0" gradientTransform="translate(27.124 14.724)">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 19.869,16.997 L 16.898,18.093 C 15.73,18.523 15.134,19.822 15.568,20.988 L 16.882,24.522 L 16.627,24.638 C 15.245,25.392 15.035,27.375 16.332,28.386 L 21.96,32.77 C 23.272,33.792 25.208,33.08 25.546,31.451 L 27.003,24.423 C 27.339,22.799 25.868,21.42 24.318,21.767 L 24.064,21.843 L 22.756,18.323 C 22.324,17.161 21.032,16.567 19.869,16.997 Z M 21.908,26.826 L 21.873,26.997 L 21.744,26.896 L 21.807,26.786 L 21.908,26.826 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 17.341,2.262 L 13.417,3.249 L 9.614,5.1 L 7.561,6.58 L 4.059,13.119 L 3.697,23.05 L 4.24,23.203 L 9.01,24.005 L 15.168,22.957 L 22.291,20.859 L 26.336,19.193 L 31.83,15.863 L 33.158,13.581 L 33.098,13.181 L 28.751,6.457 L 20.359,2.324 L 17.341,2.262 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <path d="M 9.278,17.201 L 4.958,20.08 L 4.058,22.18 L 4.418,12.521 L 7.898,6.161 L 9.938,4.721 L 13.718,2.921 L 17.618,1.961 L 20.617,2.021 L 28.957,6.041 L 33.277,12.581 L 30.937,11.621 L 24.757,12.221 L 16.658,14.261 L 9.278,17.201 Z" fill="#6582fc" stroke-width="0.75" stroke-linejoin="round" stroke="#231f20" marker-start="none" marker-end="none"/>
+  <path d="M 17.243,2.336 L 13.343,3.296 L 9.563,5.096 L 7.523,6.536 L 4.043,12.896 L 3.683,22.555 L 4.223,22.704 L 8.963,23.484 L 15.083,22.464 L 22.162,20.424 L 26.182,18.804 L 31.642,15.565 L 32.962,13.345 L 32.902,12.956 L 28.582,6.416 L 20.242,2.396 L 17.243,2.336 Z" stroke-width="1.5" stroke="#231f20" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <path d="M 4.393,13.188 L 8.413,10.428 L 10.453,5.268 L 8.053,6.948 L 4.393,13.188 Z" stroke="none" fill="#304ab6" stroke-linejoin="round" stroke-width="0.75" marker-start="none" marker-end="none"/>
+  <path d="M 8.505,10.195 L 14.653,7.728 L 13.933,3.948 L 10.453,5.268 L 8.505,10.195 Z" stroke="none" fill="#304ab6" stroke-linejoin="round" stroke-width="0.75" marker-start="none" marker-end="none"/>
+  <path d="M 14.653,7.728 L 21.566,5.993 L 17.846,2.813 L 13.946,3.773 L 14.653,7.728 Z" stroke="none" fill="#304ab6" stroke-linejoin="round" stroke-width="0.75" marker-start="none" marker-end="none"/>
+  <path d="M 26.846,5.693 L 21.566,5.993 L 17.846,2.813 L 21.026,2.813 L 26.846,5.693 Z" stroke="none" fill="#304ab6" stroke-linejoin="round" stroke-width="0.75" marker-start="none" marker-end="none"/>
+  <path d="M 8.55,17.25 L 8.078,10.568 L 10.297,4.699" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 16.066,14.306 L 14.378,7.448 L 13.658,3.968" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 24.18,12.026 L 21.638,6.308 L 16.626,2.488" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 26.858,5.828 L 30.262,11.717" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 4.058,13.328 L 8.265,10.092 L 14.459,7.775 L 21.638,6.308 L 26.858,5.828" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 4.058,22.18 L 4.118,19.96 L 8.498,17.501 L 15.998,14.261 L 24.577,12.281 L 30.397,11.921 L 32.797,12.821 L 31.477,15.041 L 26.017,18.28 L 21.997,19.9 L 14.918,21.94 L 8.798,22.96 L 4.058,22.18 Z" stroke="#231f20" stroke-linejoin="round" stroke-width="0.75" marker-start="none" marker-end="none"/>
+  <path d="M 4.537,21.406 L 4.357,23.326 L 8.557,24.106 L 14.617,23.266 L 21.337,21.406 L 26.676,19.66 L 32.196,16.181 L 33.337,13.727 L 30.517,12.467 L 24.397,13.307 L 16.417,15.467 L 8.677,18.587 L 4.537,21.406 Z" stroke="#ffffff" stroke-linejoin="round" stroke-width="0.75" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 4.447,23.416 L 6.967,23.356 L 11.947,22.396 L 17.798,20.56" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 4.747,21.556 L 6.967,21.736 L 12.247,21.316 L 18.937,20.5 L 14.107,20.056 L 10.147,19.456 L 8.587,18.737" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 18.847,19.936 L 16.987,16.877 L 16.507,15.617" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 24.787,13.457 L 24.007,14.957 L 19.417,20.26" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 31.207,13.157 L 29.527,14.477" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 20.647,19.636 L 24.727,17.417 L 28.567,15.077 L 29.527,14.477" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 33.247,14.117 L 31.327,15.557" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 31.327,15.557 L 25.987,17.837 L 19.837,20.26 L 23.587,19.996 L 25.567,19.636" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 15.083,22.464 L 19.417,20.26" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 7.447,23.416 L 7.567,21.556 L 11.287,19.276 L 17.647,16.937 L 24.787,14.897" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <path d="M 23.803,15.106 L 30.112,14.477 L 31.912,15.197 L 30.892,17.057" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#ffffff" stroke-width="0.75"/>
+  <g id="Group" stroke="none">
+   <path d="M 17.676,20.203 L 20.647,19.107 L 22.741,24.739 L 24.799,23.966 L 23.342,30.994 L 17.714,26.61 L 19.771,25.834 L 17.676,20.203 Z" fill="#ffffff" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+   <path d="M 20.388,18.407 L 17.417,19.503 C 17.031,19.646 16.833,20.076 16.977,20.462 L 18.813,25.398 L 17.45,25.912 C 16.907,26.117 16.797,26.841 17.255,27.198 L 22.883,31.582 C 23.318,31.92 23.96,31.685 24.071,31.145 L 25.528,24.117 C 25.647,23.543 25.085,23.062 24.536,23.268 L 23.179,23.778 L 21.345,18.847 C 21.202,18.462 20.774,18.265 20.388,18.407 Z M 20.207,20.063 L 22.042,24.998 C 22.185,25.385 22.617,25.581 23.003,25.436 L 23.794,25.138 L 22.855,29.669 L 19.22,26.837 L 20.034,26.531 C 20.417,26.386 20.612,25.958 20.469,25.574 L 18.635,20.643 L 20.207,20.063 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

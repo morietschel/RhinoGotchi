@@ -1,0 +1,37 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m21.509 20.267-2.079 2.131 3.486 3.402c1.55 1.512 1.368 3.338 0 4.673-1.394 1.36-3.313 1.543-4.893 0l-3.488-3.402-2.079 2.131 3.486 3.402c2.822 2.755 6.59 2.405 9.053 0 2.473-2.412 2.841-6.164 0-8.935z" fill="" stroke-width="3.5px" x_rma_id="2" stroke="#666" stroke-linejoin="round" />
+    <g clip-path="url(#b)">
+      <image height="1" image-rendering="optimizeSpeed" mask="url(#c)" preserveAspectRatio="none" transform="matrix(16.51 0 0 -15.009 9.744 21.792)" width="1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAgCAYAAACYTcH3AAAABHNCSVQICAgIfAhkiAAAAHhJREFUWIXtzisOA0EQA9FK7n/MBcOGbs/2JyzMCg3wkyzTel3XNRHBfd88z0Nmcs4hM5kZMpOqorupKmaG7qa7mZmfqyoAupvM/H5EEBHsvVlrMTO8+SOOURyjOEZxjOIYxTGKYxTHKI5RHKM4RnGM4hjFMYpjlA/no2VfDzsAlgAAAABJRU5ErkJggg==" />
+    </g>
+    <path d="m10.44 6.038-1.441 1.536v13.412l1.496 1.55h15.003l1.5-1.5v-13.456l-1.526-1.542zm14.411 1.489.658.666v12.226l-.628.628h-13.753l-.64-.662v-12.222l.597-.636z" fill="" stroke-width="3.5px" x_rma_id="3" stroke="#666" stroke-linejoin="round" />
+    <path d="m10.5 8.284v12.007l.745.744h13.508v-1.489h-12.764v-11.262z" fill="#fff" fill-opacity=".635294" stroke-width="3.5px" x_rma_id="4" stroke="#666" stroke-linejoin="round" />
+    <path d="m11.245 7.539v1.489h12.763v11.263h1.489v-12.007l-.744-.745z" fill-opacity=".247059" fill="" stroke-width="3.5px" x_rma_id="5" stroke="#666" stroke-linejoin="round" />
+    <path d="m13.496 10.541v1.489h9.006v-1.489z" fill="#fff" fill-opacity=".392157" stroke-width="3.5px" x_rma_id="6" stroke="#666" stroke-linejoin="round" />
+    <path d="m13.496 12.042v1.489h9.006v-1.489z" fill-opacity=".145098" fill="" stroke-width="3.5px" x_rma_id="7" stroke="#666" stroke-linejoin="round" />
+    <path d="m13.496 15.044v1.489h9.006v-1.489z" fill="#fff" fill-opacity=".392157" stroke-width="3.5px" x_rma_id="8" stroke="#666" stroke-linejoin="round" />
+    <path d="m13.496 16.545v1.489h9.006v-1.489z" fill-opacity=".145098" fill="" stroke-width="3.5px" x_rma_id="9" stroke="#666" stroke-linejoin="round" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <clipPath id="b">
+    <path clip-rule="evenodd" d="m9.744 20.686v-12.817l1.019-1.086h14.399l1.092 1.104v12.841l-1.064 1.064h-14.378z" fill="" stroke-width="" x_rma_id="1" />
+  </clipPath>
+  <mask id="c" height="1" maskUnits="userSpaceOnUse" width="1" x="0" y="0">
+    <image height="1" image-rendering="optimizeSpeed" preserveAspectRatio="none" width="1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAgCAAAAAC9Jp4rAAAAAXNCSVQI5gpbmQAAAJ5JREFUOI3tlMFtA0EMA4dcwddCKsnPLbgXt+Y23EhaSHC79MMIkId3rwCHXw5ICJCk6+cee495rX271+UsUDRBCB/1nQZMEZReATrMqtBIVQM58yRhwgialxH3zN2n7BgDC9KWkrYg4p/pPH+D/pn3ZBKpLzZV42QNBqvjYbgt3F8GYZHFtqr2XqTjGaRQAtqqyqpN4+AntLp9Hf6WB84eOdOGwGI9AAAAAElFTkSuQmCC" />
+  </mask>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m21.509 20.267-2.079 2.131 3.486 3.402c1.55 1.512 1.368 3.338 0 4.673-1.394 1.36-3.313 1.543-4.893 0l-3.488-3.402-2.079 2.131 3.486 3.402c2.822 2.755 6.59 2.405 9.053 0 2.473-2.412 2.841-6.164 0-8.935z" fill="" stroke-width="" x_rma_id="2" />
+    <g clip-path="url(#b)">
+      <image height="1" image-rendering="optimizeSpeed" mask="url(#c)" preserveAspectRatio="none" transform="matrix(16.51 0 0 -15.009 9.744 21.792)" width="1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAgCAYAAACYTcH3AAAABHNCSVQICAgIfAhkiAAAAHhJREFUWIXtzisOA0EQA9FK7n/MBcOGbs/2JyzMCg3wkyzTel3XNRHBfd88z0Nmcs4hM5kZMpOqorupKmaG7qa7mZmfqyoAupvM/H5EEBHsvVlrMTO8+SOOURyjOEZxjOIYxTGKYxTHKI5RHKM4RnGM4hjFMYpjlA/no2VfDzsAlgAAAABJRU5ErkJggg==" />
+    </g>
+    <path d="m10.44 6.038-1.441 1.536v13.412l1.496 1.55h15.003l1.5-1.5v-13.456l-1.526-1.542zm14.411 1.489.658.666v12.226l-.628.628h-13.753l-.64-.662v-12.222l.597-.636z" fill="" stroke-width="" x_rma_id="3" />
+    <path d="m10.5 8.284v12.007l.745.744h13.508v-1.489h-12.764v-11.262z" fill="#fff" fill-opacity=".635294" stroke-width="" x_rma_id="4" />
+    <path d="m11.245 7.539v1.489h12.763v11.263h1.489v-12.007l-.744-.745z" fill-opacity=".247059" fill="" stroke-width="" x_rma_id="5" />
+    <path d="m13.496 10.541v1.489h9.006v-1.489z" fill="#fff" fill-opacity=".392157" stroke-width="" x_rma_id="6" />
+    <path d="m13.496 12.042v1.489h9.006v-1.489z" fill-opacity=".145098" fill="" stroke-width="" x_rma_id="7" />
+    <path d="m13.496 15.044v1.489h9.006v-1.489z" fill="#fff" fill-opacity=".392157" stroke-width="" x_rma_id="8" />
+    <path d="m13.496 16.545v1.489h9.006v-1.489z" fill-opacity=".145098" fill="" stroke-width="" x_rma_id="9" />
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="11.516" gradientTransform="translate(14.303 19.367) rotate(-35.0258) skewX(0.238437) scale(1 0.998524)">
+   <stop offset="0" stop-color="#000000"/>
+   <stop offset="0.255129247903824" stop-color="#000000"/>
+   <stop offset="0.549348771572113" stop-color="#000000"/>
+   <stop offset="1" stop-color="#000000"/>
+  </radialGradient>
+  <radialGradient id="RadialGradient_1" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="11.554" gradientTransform="translate(14.293 19.374) rotate(-35.027) skewX(0.237653) scale(1 0.998529)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="0.255129247903824" stop-color="#f0f0f0"/>
+   <stop offset="0.549348771572113" stop-color="#c1c0bf"/>
+   <stop offset="1" stop-color="#616161"/>
+  </radialGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 11.333,21.827 C 13.868,25.099 18.588,25.7 21.873,23.175 C 25.157,20.651 25.77,15.952 23.235,12.678 C 20.699,9.401 15.975,8.799 12.689,11.328 C 9.405,13.855 8.797,18.556 11.333,21.827 Z" stroke-width="4.485" stroke="#666666" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#RadialGradient)"/>
+  <path d="M 10.82,20.997 L 9.767,19.5 L 1.502,19.5 C 1.488,19.943 1.556,20.366 1.704,20.774 C 1.941,21.447 2.323,22.109 2.845,22.762 C 3.369,23.414 4.125,24.169 5.114,25.025 C 6.649,26.357 7.684,27.413 8.225,28.191 C 8.764,28.968 9.034,29.705 9.034,30.397 C 9.034,31.125 8.788,31.738 8.296,32.238 C 7.806,32.738 7.166,32.987 6.376,32.987 C 5.542,32.987 4.643,32.803 4.142,32.272 C 3.641,31.741 3.174,30.935 3.167,29.995 L 1.511,30.017 C 1.631,31.423 2.267,32.689 3.063,33.426 C 3.859,34.162 5.071,34.506 6.413,34.506 C 7.768,34.506 8.841,34.109 9.63,33.313 C 10.42,32.519 10.815,31.532 10.815,30.356 C 10.815,29.758 10.7,29.17 10.468,28.594 C 10.238,28.015 9.854,27.406 9.318,26.768 C 8.781,26.13 7.891,25.253 6.645,24.138 C 5.605,23.214 4.936,22.586 4.641,22.258 C 4.346,21.927 3.939,21.375 3.747,21.042 L 10.82,20.997 Z" fill="#e1e1e1" fill-rule="nonzero" stroke-linejoin="round" stroke-linecap="round" stroke="none" stroke-width="0.494" marker-start="none" marker-end="none"/>
+  <g id="Group" fill="#e1e1e1" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.721" fill-opacity="0.501961">
+   <path d="M 9.741,3.735 L 12.721,14.245" fill="none" fill-opacity="0.501961"/>
+   <path d="M 2.235,3.735 L 8.079,14.245" fill="none" fill-opacity="0.501961"/>
+   <path d="M 17.248,3.735 L 17.319,10.229" fill="none" fill-opacity="0.501961"/>
+   <path d="M 24.754,3.735 L 22.004,14.245" fill="none" fill-opacity="0.501961"/>
+   <path d="M 32.262,3.735 L 26.647,14.245" fill="none" fill-opacity="0.501961"/>
+   <path d="M 30.297,7.415 L 4.282,7.415" fill="none" fill-opacity="0.501961"/>
+   <path d="M 32.265,3.735 L 2.235,3.735" fill="none" fill-opacity="0.501961"/>
+   <path d="M 27.608,12.448 L 7.079,12.448" fill="none" fill-opacity="0.501961"/>
+   <path d="M 26.648,14.244 L 8.079,14.244" fill="none" fill-opacity="0.501961"/>
+   <path d="M 17.319,10.229 L 17.363,14.245" fill="none" fill-opacity="0.501961"/>
+   <path d="M 5.844,10.229 L 17.319,10.229" fill="none" fill-opacity="0.501961"/>
+   <path d="M 17.319,10.229 L 28.791,10.229" fill="none" fill-opacity="0.501961"/>
+  </g>
+  <path d="M 11.313,21.842 C 13.857,25.125 18.592,25.728 21.888,23.195 C 25.183,20.662 25.798,15.948 23.255,12.663 C 20.71,9.375 15.971,8.771 12.674,11.309 C 9.379,13.844 8.769,18.56 11.313,21.842 Z" stroke="#000000" stroke-width="1.442" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#RadialGradient_1)"/>
+ </g>
+</svg>

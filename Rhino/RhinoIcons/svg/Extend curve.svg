@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke="none">
+   <rect x="-2.251" y="-2.251" width="4.502" height="4.502" transform="translate(4.496 18) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 1.5,15.004 L 1.5,20.995 L 7.491,20.995 L 7.491,15.004 L 1.5,15.004 Z M 6.002,16.493 L 6.002,19.506 L 2.989,19.506 L 2.989,16.493 L 6.002,16.493 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 6.746,16.511 L 6.746,19.488 L 13.5,19.488 L 13.5,16.511 L 6.746,16.511 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <rect x="-1.5" y="-1.501" width="3" height="3.002" transform="translate(16.501 18) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.489" stroke-opacity="0.996078" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <rect x="-1.5" y="-1.501" width="3" height="3.002" transform="translate(21.003 18) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.489" stroke-opacity="0.996078" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <rect x="-1.5" y="-1.501" width="3" height="3.002" transform="translate(25.506 18) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.489" stroke-opacity="0.996078" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <rect x="-1.5" y="-1.501" width="3" height="3.002" transform="translate(30.007 18) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.489" stroke-opacity="0.996078" stroke-linejoin="miter" fill-opacity="0.996078"/>
+ </g>
+</svg>

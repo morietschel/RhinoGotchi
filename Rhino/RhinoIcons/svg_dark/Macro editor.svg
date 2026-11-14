@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+	</defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 6.01,1.541 L 6.01,30.028 L 34.495,30.028 L 34.495,1.541 L 6.01,1.541 Z M 29.995,6.041 L 29.995,25.528 L 10.51,25.528 L 10.51,6.041 L 29.995,6.041 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M -0.001,17.999 L -0.001,36.011 L 31.499,36.011 L 31.499,17.999 L -0.001,17.999 Z M 26.99,22.508 L 26.99,31.502 L 4.508,31.502 L 4.508,22.508 L 26.99,22.508 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" stroke="none">
+   <g id="Group_1">
+    <rect x="-6.752" y="-6.753" width="13.505" height="13.507" transform="translate(8.998 27.037) rotate(90)" stroke-linejoin="miter" fill="#c5c5c5"/>
+    <path d="M 1.499,19.539 L 1.499,34.533 L 16.495,34.533 L 16.495,19.539 L 1.499,19.539 Z M 15.007,21.027 L 15.007,33.045 L 2.987,33.045 L 2.987,21.027 L 15.007,21.027 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   </g>
+   <path d="M 3,21.246 L 3,33.037 L 14.791,33.037 L 14.791,31.549 L 4.488,31.549 L 4.488,21.246 L 3,21.246 Z" stroke-width="0.5" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.635294"/>
+   <path d="M 3.199,21.047 L 3.199,22.535 L 13.502,22.535 L 13.502,32.838 L 14.99,32.838 L 14.99,21.047 L 3.199,21.047 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.290196"/>
+  </g>
+  <g id="Group_2" stroke="none">
+   <g id="Group_3">
+    <rect x="-6.752" y="-6.753" width="13.505" height="13.507" transform="translate(22.501 27.04) rotate(90)" stroke-linejoin="miter" fill="#c5c5c5"/>
+    <path d="M 15.002,19.542 L 15.002,34.537 L 29.998,34.537 L 29.998,19.542 L 15.002,19.542 Z M 28.51,21.03 L 28.51,33.049 L 16.49,33.049 L 16.49,21.03 L 28.51,21.03 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   </g>
+   <path d="M 16.503,21.249 L 16.503,33.04 L 28.294,33.04 L 28.294,31.552 L 17.991,31.552 L 17.991,21.249 L 16.503,21.249 Z" stroke-width="0.5" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.635294"/>
+   <path d="M 16.702,21.05 L 16.702,22.538 L 27.005,22.538 L 27.005,32.841 L 28.493,32.841 L 28.493,21.05 L 16.702,21.05 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.290196"/>
+  </g>
+  <g id="Group_4" stroke="none">
+   <rect x="-12.002" y="-12.003" width="24.004" height="24.006" transform="translate(20.253 15.785) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 7.506,3.038 L 7.506,28.531 L 33,28.531 L 33,3.038 L 7.506,3.038 Z M 31.512,4.526 L 31.512,27.043 L 8.994,27.043 L 8.994,4.526 L 31.512,4.526 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 10.501,24.043 L 10.501,25.531 L 21.003,25.531 L 21.003,24.043 L 10.501,24.043 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 10.501,21.042 L 10.501,22.53 L 16.502,22.53 L 16.502,21.042 L 10.501,21.042 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 10.501,18.042 L 10.501,19.53 L 19.502,19.53 L 19.502,18.042 L 10.501,18.042 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 10.501,15.041 L 10.501,16.529 L 16.502,16.529 L 16.502,15.041 L 10.501,15.041 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 10.501,9.04 L 10.501,10.528 L 18.002,10.528 L 18.002,9.04 L 10.501,9.04 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 10.501,6.039 L 10.501,7.527 L 24.004,7.527 L 24.004,6.039 L 10.501,6.039 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 19.502,21.043 L 19.502,22.531 L 25.504,22.531 L 25.504,21.043 L 19.502,21.043 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 21.003,18.042 L 21.003,19.53 L 24.004,19.53 L 24.004,18.042 L 21.003,18.042 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 10.501,12.041 L 10.501,13.529 L 13.501,13.529 L 13.501,12.041 L 10.501,12.041 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 22.503,24.044 L 22.503,25.532 L 25.504,25.532 L 25.504,24.044 L 22.503,24.044 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 18.003,15.041 L 18.003,16.529 L 24.004,16.529 L 24.004,15.041 L 18.003,15.041 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 15.002,12.041 L 15.002,13.529 L 21.003,13.529 L 21.003,12.041 L 15.002,12.041 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 22.503,12.041 L 22.503,13.529 L 27.005,13.529 L 27.005,12.041 L 22.503,12.041 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 19.502,9.039 L 19.502,10.527 L 25.504,10.527 L 25.504,9.039 L 19.502,9.039 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+  <path d="M 25.504,6.039 L 25.504,7.527 L 28.505,7.527 L 28.505,6.039 L 25.504,6.039 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.482353"/>
+ </g>
+</svg>

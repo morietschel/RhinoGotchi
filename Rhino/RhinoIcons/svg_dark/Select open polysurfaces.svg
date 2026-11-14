@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-14.255" y2="18.757" gradientTransform="translate(22.502 5.246)">
+   <stop offset="0" stop-color="#fff7a2"/>
+   <stop offset="0.1" stop-color="#fff7a2"/>
+   <stop offset="0.2" stop-color="#fff7a2"/>
+   <stop offset="0.3" stop-color="#fff7a1"/>
+   <stop offset="0.4" stop-color="#fff6a0"/>
+   <stop offset="0.5" stop-color="#ebc051"/>
+   <stop offset="0.6" stop-color="#d78a02"/>
+   <stop offset="0.7" stop-color="#d78901"/>
+   <stop offset="0.8" stop-color="#d78900"/>
+   <stop offset="0.9" stop-color="#d78900"/>
+   <stop offset="1" stop-color="#d78900"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 21.443,1.246 L 4.497,6.598 L 4.497,24.36 L 16.058,33.253 L 33.006,27.903 L 33.006,10.14 L 21.443,1.246 Z M 20.56,6.243 L 28.506,12.355 L 28.506,24.604 L 16.941,28.256 L 8.997,22.145 L 8.997,9.895 L 20.56,6.243 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 33.011,28.503 L 33.011,33.011 L 28.504,33.011 L 28.504,34.5 L 34.5,34.5 L 34.5,28.503 L 33.011,28.503 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.499,1.499 L 1.499,7.496 L 2.988,7.496 L 2.988,2.988 L 7.496,2.988 L 7.496,1.499 L 1.499,1.499 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 6.746,8.247 L 21.001,3.745 L 21.001,14.293 L 16.499,15.75 L 16.598,20.142 L 6.746,23.253 L 6.746,8.247 Z" stroke="none" stroke-width="0.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 6.746,23.253 L 21.001,18.751 L 30.755,26.254 L 16.499,30.755 L 6.746,23.253 Z" fill="#fff7a2" stroke="none" stroke-width="0.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 21.001,18.751 L 21.001,3.745 L 30.755,11.248 L 30.755,26.254 L 21.001,18.751 Z" fill="#d78900" stroke="none" stroke-width="0.72" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 21.147,2.918 L 6.001,7.701 L 6.001,23.619 L 16.352,31.581 L 31.499,26.799 L 31.499,10.881 L 21.147,2.918 Z M 20.854,4.571 L 30.01,11.614 L 30.01,25.708 L 16.645,29.928 L 7.49,22.886 L 7.49,8.792 L 20.854,4.571 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 20.765,13.542 L 15.754,15.213 L 15.754,20.252 L 17.243,20.252 L 17.243,16.286 L 21.236,14.955 L 20.765,13.542 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 20.256,3.745 L 20.256,18.205 L 6.521,22.543 L 6.97,23.962 L 21.745,19.296 L 21.745,3.745 L 20.256,3.745 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 6.746,8.247 L 21.001,10.498 L 21.001,14.249 L 16.499,15.75 L 16.499,20.252 L 6.746,23.253 L 6.746,8.247 Z" stroke-opacity="0.345098" stroke="none" fill="#000000" stroke-linejoin="miter" stroke-width="1.489" marker-start="none" marker-end="none" fill-opacity="0.345098"/>
+ </g>
+</svg>

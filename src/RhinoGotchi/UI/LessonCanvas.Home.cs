@@ -67,7 +67,7 @@ namespace RhinoGotchi.UI
             g.FillPath(_t.Border, GraphicsPath.GetRoundRect(new RectangleF(rect.X, rect.Y + 4, rect.Width, rect.Height), 14));
             g.FillPath(_t.Border, GraphicsPath.GetRoundRect(top, 14));
             g.FillPath(_hover == id ? _t.TileHover : _t.TileFace, GraphicsPath.GetRoundRect(new RectangleF(top.X + 2, top.Y + 2, top.Width - 4, top.Height - 4), 12));
-            CommandIcons.Draw(g, icon, new RectangleF(top.X + 10, top.Y + (cardH - 66) / 2, 66, 66));
+            LessonIcons.Draw(g, icon, new RectangleF(top.X + 10, top.Y + (cardH - 66) / 2, 66, 66));
             g.DrawText(Bold(15), _t.Text, textX, top.Y + 14, title);
             Wrapped(g, textX, top.Y + 38, textW, Regular(12), _t.SubtleText, body);
             _hits.Add((new RectangleF(rect.X, rect.Y, rect.Width, rect.Height + 4), id, action));

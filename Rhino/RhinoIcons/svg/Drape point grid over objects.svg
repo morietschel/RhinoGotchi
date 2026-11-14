@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="15.508" gradientTransform="translate(13.943 22.352) rotate(-35.0202) skewX(0.254686) scale(1 0.998388)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="0.255129247903824" stop-color="#f0f0f0"/>
+   <stop offset="0.731370389461517" stop-color="#c1c0bf"/>
+   <stop offset="1" stop-color="#616161"/>
+  </radialGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 9.014,26.38 C 12.826,31.297 19.918,32.202 24.855,28.407 C 29.791,24.612 30.712,17.55 26.903,12.63 C 23.092,7.706 15.993,6.8 11.053,10.602 C 6.119,14.4 5.204,21.463 9.014,26.38 Z" stroke="#231f20" stroke-width="1.44" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#RadialGradient)"/>
+  <g id="Group" stroke-linejoin="miter" stroke-opacity="0.996078" stroke="none" stroke-width="1.488" fill="#231f20" fill-opacity="0.996078">
+   <ellipse rx="2.25" ry="2.25" transform="translate(6.75 30.751) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(14.25 30.75) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(21.75 30.75) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(29.251 30.75) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(6.75 23.251) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(14.25 23.25) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(21.75 23.25) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(29.251 23.25) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(6.75 15.751) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(14.25 15.75) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(21.75 15.75) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(29.251 15.75) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(6.75 8.251) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(14.25 8.25) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(21.75 8.25) rotate(180)" fill-opacity="0.996078"/>
+   <ellipse rx="2.25" ry="2.25" transform="translate(29.251 8.25) rotate(180)" fill-opacity="0.996078"/>
+  </g>
+ </g>
+</svg>

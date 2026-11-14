@@ -26,7 +26,21 @@
   <ItemGroup>
     <!-- Compile against the oldest Rhino 8 SDK so the plugin loads in every Rhino 8 service release. -->
     <PackageReference Include="RhinoCommon" Version="8.0.23304.9001" ExcludeAssets="runtime" />
+    <!-- System.Drawing.Bitmap (for SVG icons) on .NET 7. Compile-only: Rhino 8 provides it at runtime. -->
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" ExcludeAssets="runtime" Condition="'$(TargetFramework)' == 'net7.0'" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" Condition="'$(TargetFramework)' == 'net48'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Side panel tab icon, loaded by Panels.RegisterPanel via this resource name. -->
+    <EmbeddedResource Include="Resources\RhinoGotchi.svg" LogicalName="RhinoGotchi.Resources.RhinoGotchi.svg" />
+    <!-- The team's command dataset, read by the Command Library for descriptions. -->
+    <EmbeddedResource Include="..\..\Rhino\rhino_commands_all.csv" LogicalName="RhinoGotchi.Data.rhino_commands_all.csv" Link="Data\rhino_commands_all.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Command icons, copied next to the .rhp as Icons\*.svg and rendered at runtime (recolored for dark mode). -->
+    <None Include="..\..\Rhino\RhinoIcons\svg\*.svg" LinkBase="Icons" CopyToOutputDirectory="PreserveNewest" Visible="false" />
   </ItemGroup>
 
 </Project>

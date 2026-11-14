@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="12.655" cy="23.342" r="22.7020115848794" gradientTransform="matrix(-0.999969 -0.00631714 0.00631714 -0.999969 17.882 18.11)">
+   <stop offset="0" stop-color="#fafbff"/>
+   <stop offset="0.224390134215355" stop-color="#d1d3d4"/>
+   <stop offset="0.629772424697876" stop-color="#a7a9ac"/>
+   <stop offset="1" stop-color="#777777"/>
+  </radialGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <ellipse rx="15.675" ry="15.675" transform="translate(17.997 17.998) rotate(179.638)" stroke-width="1.65" stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 32.989,28.472 L 32.989,32.983 L 28.478,32.983 L 28.478,34.472 L 34.478,34.472 L 34.478,28.472 L 32.989,28.472 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.5,1.5 L 1.5,7.5 L 2.954,7.5 L 2.954,2.954 L 7.5,2.954 L 7.5,1.5 L 1.5,1.5 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <ellipse rx="14.247" ry="14.247" transform="translate(17.997 17.997) rotate(179.638)" stroke-width="1.5" stroke-opacity="0.482353" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0.482353" fill="url(#RadialGradient)"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#7b7b7b" stroke="none"/>
+  </mask>
+  <g id="Group" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#000000" mask="url(#TranspMask)">
+   <path d="M 7.574,13.492 C 6.25,13.995 5.128,14.612 4.327,15.334 C 3.527,16.056 2.982,16.949 3,17.976 C 3.007,18.39 3.348,18.72 3.762,18.713 C 4.176,18.706 4.506,18.365 4.499,17.951 C 4.484,17.03 5.564,15.86 8.107,14.895 C 10.552,13.966 13.993,13.371 17.839,13.362 C 21.687,13.353 25.15,13.931 27.629,14.849 C 30.225,15.81 31.342,16.971 31.358,17.908 C 31.365,18.322 31.706,18.652 32.12,18.645 C 32.534,18.638 32.864,18.297 32.857,17.883 C 32.825,15.951 30.87,14.45 28.15,13.443 C 25.464,12.448 21.816,11.853 17.836,11.863 C 13.857,11.872 10.229,12.484 7.574,13.492 Z" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+   <path d="M 13.442,7.707 C 12.447,10.393 11.852,14.04 11.862,18.02 C 11.871,22 12.483,25.628 13.491,28.282 C 13.994,29.607 14.61,30.729 15.332,31.529 C 16.054,32.33 16.946,32.874 17.973,32.857 C 18.387,32.851 18.717,32.509 18.71,32.095 C 18.704,31.681 18.362,31.351 17.948,31.358 C 17.029,31.373 15.859,30.293 14.894,27.75 C 13.965,25.305 13.37,21.864 13.361,18.017 C 13.352,14.17 13.931,10.708 14.849,8.228 C 15.81,5.632 16.97,4.515 17.907,4.499 C 18.321,4.492 18.651,4.151 18.644,3.737 C 18.637,3.323 18.296,2.993 17.882,3 C 15.939,3.033 14.442,5.007 13.442,7.707 Z" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  </g>
+  <ellipse rx="14.246" ry="14.246" transform="translate(17.999 17.999) rotate(179.638)" stroke-width="1.507" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round"/>
+ </g>
+</svg>

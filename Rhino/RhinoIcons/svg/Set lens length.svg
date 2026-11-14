@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="27.791" y2="0" gradientTransform="translate(26.467 2.399) rotate(90)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#dbdbdb"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 28.111,5.436 L 0.699,22.209" fill="none" stroke-opacity="0.498039" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.108" fill-opacity="0.498039"/>
+  <path d="M 27.967,32.355 L 0.554,14.4" fill="none" stroke-opacity="0.498039" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.108" fill-opacity="0.498039"/>
+  <ellipse rx="2.281" ry="2.281" transform="translate(7.544 18.044) rotate(112.823)" stroke-width="1.494" fill="#ffffff" stroke="#000000" stroke-linejoin="miter"/>
+  <g id="Group">
+   <path d="M 27.382,5.247 L 27.365,5.269 C 24.771,8.92 23.212,13.6 23.212,18.7 C 23.212,23.799 24.771,28.479 27.365,32.13 L 27.541,32.355 L 29.424,32.355 L 29.6,32.13 C 32.194,28.479 33.753,23.799 33.753,18.7 C 33.753,13.6 32.194,8.92 29.6,5.269 L 29.582,5.247 L 27.382,5.247 Z" stroke-width="1.494" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+   <rect x="-12.792" y="-0.753" width="25.584" height="1.506" transform="translate(28.482 18.793) rotate(90)" fill="#ffffff" stroke="none" stroke-width="1.108" stroke-linejoin="miter"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m5.317 7.731 16.506-5.487 10.504 9.754-15.006 5.252z" fill="#fff" fill-rule="evenodd" stroke-width="3.5px" x_rma_id="1" stroke="#666" stroke-linejoin="round" />
+    <path d="m5.317 25.081v-17.35l12.004 9.519v16.506z" fill="#c5c5c5" fill-rule="evenodd" stroke-width="3.5px" x_rma_id="2" stroke="#666" stroke-linejoin="round" />
+    <path d="m21.588 1.537-16.506 5.487c-.305.101-.51.386-.51.707v17.35c0 .238.115.463.308.603l12.004 8.675c.492.355 1.181.003 1.181-.603v-15.978l14.507-5.078c.529-.185.671-.867.261-1.248l-10.504-9.754c-.199-.185-.483-.247-.741-.161zm.051 1.552 9.276 8.614-13.84 4.844c-.299.104-.499.386-.499.703v15.049l-10.515-7.599v-16.432z" fill="" stroke-width="3.5px" x_rma_id="3" stroke="#666" stroke-linejoin="round" />
+    <path d="m16.017 4.175 4.931 11.777-3.627 4.372-12.004.001z" style="fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#6582fc" stroke-width="4.489" x_rma_id="4" stroke="#666" stroke-linejoin="round" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m5.317 7.731 16.506-5.487 10.504 9.754-15.006 5.252z" fill="#fff" fill-rule="evenodd" stroke-width="" x_rma_id="1" />
+    <path d="m5.317 25.081v-17.35l12.004 9.519v16.506z" fill="#c5c5c5" fill-rule="evenodd" stroke-width="" x_rma_id="2" />
+    <path d="m21.588 1.537-16.506 5.487c-.305.101-.51.386-.51.707v17.35c0 .238.115.463.308.603l12.004 8.675c.492.355 1.181.003 1.181-.603v-15.978l14.507-5.078c.529-.185.671-.867.261-1.248l-10.504-9.754c-.199-.185-.483-.247-.741-.161zm.051 1.552 9.276 8.614-13.84 4.844c-.299.104-.499.386-.499.703v15.049l-10.515-7.599v-16.432z" fill="" stroke-width="" x_rma_id="3" />
+    <path d="m16.017 4.175 4.931 11.777-3.627 4.372-12.004.001z" style="fill-rule:evenodd;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#6582fc" stroke-width="1.489" x_rma_id="4" />
+  </g>
+</svg>

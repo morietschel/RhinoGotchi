@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 29.723,16.42 L 8.086,2.648 C 6.667,1.745 5.502,2.377 5.488,4.06 L 5.25,31.515 C 5.236,33.198 6.391,33.853 7.827,32.977 L 29.692,19.644 C 31.128,18.768 31.142,17.323 29.723,16.42 Z" stroke-width="1.5" stroke="#231f20" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <g id="Group" stroke="none">
+   <path d="M 8.091,11.971 L 17.266,9.217 L 22.771,13.804 L 14.054,16.557 L 8.091,11.971 Z" stroke-width="1.5" fill="#ffffff" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+   <path d="M 14.056,16.557 L 22.771,13.804 L 22.771,22.98 L 14.056,25.732 L 14.056,16.557 Z" stroke-width="1.5" fill="#c5c5c5" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+   <path d="M 17.266,18.392 L 17.266,9.217 L 22.771,13.804 L 22.771,22.98 L 17.266,18.392 Z" stroke-width="1.5" fill="#c5c5c5" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+   <path d="M 8.091,21.144 L 17.266,18.392 L 22.771,22.98 L 14.054,25.732 L 8.091,21.144 Z" stroke-width="1.5" fill="#ffffff" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+   <path d="M 17.242,18.239 L 16.371,19.46 L 22.794,24.048 L 23.665,22.827 L 17.242,18.239 Z" stroke-width="0.5" fill="#20b200" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 16.577,15.58 L 12.908,16.76 L 13.367,18.187 L 17.036,17.007 L 16.577,15.58 Z" stroke-width="0.5" fill="#20b200" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 16.569,8.963 L 8.312,11.716 C 7.77,11.897 7.622,12.598 8.045,12.982 L 12.846,17.347 L 12.846,19.769 L 14.346,19.769 L 14.346,17.016 C 14.346,16.804 14.256,16.603 14.1,16.461 L 10.001,12.734 L 17.044,10.386 L 16.569,8.963 Z" stroke-width="0.5" fill="#e10000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 16.196,9.239 C 15.956,9.575 16.034,10.044 16.371,10.285 L 22.48,14.648 L 22.48,22.888 L 14.288,25.475 C 13.893,25.6 13.674,26.022 13.798,26.416 C 13.923,26.811 14.345,27.03 14.739,26.906 L 23.455,24.153 C 23.767,24.054 23.98,23.765 23.98,23.438 L 23.98,14.263 C 23.98,14.02 23.863,13.793 23.665,13.652 L 17.242,9.064 C 16.906,8.824 16.437,8.902 16.196,9.239 Z" stroke-width="0.5" fill="#20b200" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   <path d="M 16.057,9.675 L 16.057,18.309 L 8.312,20.891 C 7.744,21.081 7.617,21.831 8.092,22.197 L 14.056,26.785 C 14.384,27.037 14.856,26.976 15.108,26.648 C 15.36,26.32 15.299,25.848 14.971,25.596 L 10.125,21.868 L 17.044,19.561 C 17.35,19.459 17.557,19.172 17.557,18.85 L 17.557,9.675 C 17.557,9.261 17.22,8.925 16.807,8.925 C 16.393,8.925 16.057,9.261 16.057,9.675 Z" stroke-width="0.5" fill="#e10000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 29.723,16.42 L 8.086,2.648 C 6.667,1.745 5.502,2.377 5.488,4.06 L 5.25,31.515 C 5.236,33.198 6.391,33.853 7.827,32.977 L 29.692,19.644 C 31.128,18.768 31.142,17.323 29.723,16.42 Z" stroke="#e1e1e1" stroke-width="1.5" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

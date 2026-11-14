@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="-2.249" y="-2.249" width="4.498" height="4.498" transform="translate(23.234 24.723) rotate(90)" stroke-opacity="0.498039" fill="#231f20" stroke="none" stroke-width="0.641" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <rect x="-2.249" y="-2.249" width="4.498" height="4.498" transform="translate(32.251 17.251) rotate(90)" stroke-opacity="0.498039" fill="#231f20" stroke="none" stroke-width="0.641" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <rect x="-2.249" y="-2.249" width="4.498" height="4.498" transform="translate(32.251 8.251) rotate(90)" stroke-opacity="0.498039" fill="#231f20" stroke="none" stroke-width="0.641" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <rect x="-2.249" y="-2.249" width="4.498" height="4.498" transform="translate(15.751 8.251) rotate(90)" stroke-opacity="0.498039" fill="#231f20" stroke="none" stroke-width="0.641" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <rect x="-2.249" y="-2.249" width="4.498" height="4.498" transform="translate(15.751 17.251) rotate(90)" stroke-opacity="0.498039" fill="#231f20" stroke="none" stroke-width="0.641" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <rect x="-2.249" y="-2.249" width="4.498" height="4.498" transform="translate(6.784 26.281) rotate(90)" stroke-opacity="0.498039" fill="#231f20" stroke="none" stroke-width="0.641" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <path d="M 13.5,19.5 L 13.5,18.521 L 7.99,24.023 L 9.033,24.03 L 9.033,25.106 L 14.635,19.483 L 13.5,19.5 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none"/>
+  <path d="M 15,10.5 L 15,15 L 16.49,15 L 16.49,10.5 L 15,10.5 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 18,7.514 L 18,9.004 L 30,9.004 L 30,7.514 L 18,7.514 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 31.5,10.5 L 31.5,15 L 32.99,15 L 32.99,10.5 L 31.5,10.5 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 30,19.5 L 30,18.57 L 25.455,23.079 L 25.467,25.174 L 31.177,19.463 L 30,19.5 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

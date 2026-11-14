@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- Virtual-pet egg with a little rhino horn on its screen -->
+  <path d="M12 1.5C6.9 1.5 3.5 7.2 3.5 13.2c0 5.1 3.6 9.3 8.5 9.3s8.5-4.2 8.5-9.3C20.5 7.2 17.1 1.5 12 1.5z"
+        fill="#2E9E8F" stroke="#1C5F56" stroke-width="1"/>
+  <rect x="6.5" y="7.5" width="11" height="8.5" rx="1.6" fill="#E9F3EF" stroke="#1C5F56" stroke-width="0.8"/>
+  <!-- rhino head on the screen -->
+  <path d="M8.3 14.3c0-2.2 1.5-3.6 3.6-3.6h1.4l1.6-2 0.4 2.3c1.1 0.4 1.6 1.5 1.6 2.7v0.6z" fill="#3A4750"/>
+  <circle cx="12.1" cy="12.3" r="0.55" fill="#E9F3EF"/>
+  <!-- buttons -->
+  <circle cx="8.5" cy="19" r="1.1" fill="#DEA028"/>
+  <circle cx="12" cy="19.6" r="1.1" fill="#DEA028"/>
+  <circle cx="15.5" cy="19" r="1.1" fill="#DEA028"/>
+</svg>

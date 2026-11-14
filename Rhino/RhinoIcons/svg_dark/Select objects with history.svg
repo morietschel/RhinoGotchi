@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 20.255,4.623 L 4.499,10.157 C 3.025,10.674 2.515,12.505 3.508,13.711 L 16.263,29.185 C 17.103,30.204 18.639,30.283 19.58,29.355 L 32.334,16.773 C 33.268,15.852 33.217,14.327 32.224,13.469 L 22.471,5.043 C 21.861,4.516 21.016,4.355 20.255,4.623 Z M 20.516,9.3 L 27.439,15.281 L 18.171,24.424 L 9.03,13.335 L 20.516,9.3 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 33.011,28.503 L 33.011,33.011 L 28.504,33.011 L 28.504,34.5 L 34.5,34.5 L 34.5,28.503 L 33.011,28.503 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.499,1.499 L 1.499,7.496 L 2.988,7.496 L 2.988,2.988 L 7.496,2.988 L 7.496,1.499 L 1.499,1.499 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 21.001,6.746 L 18,27.754 L 5.245,12.28 L 21.001,6.746 Z" fill="#fedd75" stroke-linecap="round" stroke-linejoin="round" stroke="none" stroke-width="0.48" marker-start="none" marker-end="none"/>
+  <path d="M 21.001,6.746 L 30.754,15.172 L 17.249,27.754 L 21.001,6.746 Z" fill="#ba9729" stroke-linecap="round" stroke-linejoin="round" stroke="none" stroke-width="0.48" marker-start="none" marker-end="none"/>
+  <path d="M 20.754,6.043 L 4.998,11.577 C 4.51,11.748 4.341,12.354 4.67,12.753 L 17.425,28.227 C 17.703,28.564 18.211,28.59 18.522,28.284 L 31.276,15.702 C 31.585,15.397 31.569,14.892 31.24,14.608 L 21.487,6.182 C 21.285,6.008 21.005,5.955 20.754,6.043 Z M 20.84,7.591 L 29.657,15.208 L 18.056,26.652 L 6.497,12.629 L 20.84,7.591 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

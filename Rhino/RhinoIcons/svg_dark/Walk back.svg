@@ -1,0 +1,31 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m14.264 29.272h7.472v-7.472h4.483l-8.219-15.69-8.218 15.69h4.482z" style="fill-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;" fill="#c0ff72" stroke-width="4.482" x_rma_id="3" stroke="#666" stroke-linejoin="round" />
+    <g mask="url(#d)">
+      <path d="m14.264 29.272h7.472v-7.472h4.483l-8.219-15.69-8.218 15.69h4.482z" fill="#4cb624" fill-rule="evenodd" stroke-width="3.5px" x_rma_id="4" stroke="#666" stroke-linejoin="round" />
+    </g>
+    <path d="m14.264 29.272h7.472v-7.472h4.483l-8.219-15.69-8.218 15.69h4.482z" fill="none" stroke="#666" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4.482" x_rma_id="5" stroke-linejoin="round" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <clipPath id="b">
+    <path d="m9.782 6.11h16.437v23.162h-16.437z" fill="" stroke-width="" x_rma_id="1" />
+  </clipPath>
+  <linearGradient id="c" gradientTransform="matrix(-.329 19.405 -19.405 -.329 17.763 8.742)" gradientUnits="userSpaceOnUse" spreadMethod="pad" x1="0" x2="1" y1="0" y2="0">
+    <stop offset="0" stop-color="#fff" />
+    <stop offset="1" stop-color="#fff" stop-opacity="0" />
+  </linearGradient>
+  <mask id="d" height="1" maskUnits="userSpaceOnUse" width="1" x="0" y="0">
+    <g clip-path="url(#b)">
+      <path d="m9.782 6.11h16.437v23.162h-16.437z" fill="url(#c)" fill-rule="evenodd" stroke-width="" x_rma_id="2" />
+    </g>
+  </mask>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m14.264 29.272h7.472v-7.472h4.483l-8.219-15.69-8.218 15.69h4.482z" style="fill-rule:evenodd;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;" fill="#c0ff72" stroke-width="1.482" x_rma_id="3" />
+    <g mask="url(#d)">
+      <path d="m14.264 29.272h7.472v-7.472h4.483l-8.219-15.69-8.218 15.69h4.482z" fill="#4cb624" fill-rule="evenodd" stroke-width="" x_rma_id="4" />
+    </g>
+    <path d="m14.264 29.272h7.472v-7.472h4.483l-8.219-15.69-8.218 15.69h4.482z" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.482" x_rma_id="5" />
+  </g>
+</svg>

@@ -1,86 +1,132 @@
+using System;
 using Eto.Drawing;
+using Eto.Forms;
+using RhinoGotchi.Core;
 
 namespace RhinoGotchi.UI
 {
-    /// <summary>Colors for the lesson panel, light and dark (follows Rhino's appearance).</summary>
-    internal sealed class Theme
+    /// <summary>
+    /// Shared building blocks in the RhinoGotchi style (see <see cref="Palette"/>): bold text,
+    /// chunky buttons, rounded cards and colored tiles. Colors follow Rhino's light or dark mode.
+    /// </summary>
+    internal static class Theme
     {
-        public Color Background, Text, SubtleText, Border, TileFace, TileHover;
-        public Color SelectedFace, SelectedBorder, SelectedText;
-        public Color Green, GreenShadow, GreenBanner, GreenText;
-        public Color Red, RedShadow, RedBanner, RedText;
-        public Color Blue, BlueShadow;
-        public Color Disabled, DisabledText, Track;
-        public Color Purple, Orange, Gold, Heart;
+        public static Palette P => Palette.Current;
 
-        public static Theme Current => IsDark() ? Dark : Light;
+        // Meaning-based colors used by the games.
+        public static Color Hit => P.Green;              // right answer / right place
+        public static Color Near => P.Gold;              // close: used, but elsewhere / highlighted
+        public static Color Miss => P.DisabledText;      // not part of the answer
+        public static Color Tile => P.TileFace;          // neutral tile or card
+        public static Color TileText => P.Text;
+        public static Color Selected => P.SelectedFace;  // a filled slot
+        public static Color Light => Colors.White;
 
-        private static bool IsDark()
+        public static Font TitleFont => new Font(SystemFont.Bold, 16);
+        public static Font HeadingFont => new Font(SystemFont.Bold, 11);
+        public static Font BodyFont => new Font(SystemFont.Default, 10);
+
+        public static Label Title(string text) => new Label { Text = text, Font = TitleFont, TextColor = P.Text };
+
+        public static Label Heading(string text) => new Label { Text = text, Font = HeadingFont, TextColor = P.Text };
+
+        public static Label Body(string text) => new Label { Text = text, Wrap = WrapMode.Word, Font = BodyFont, TextColor = P.Text };
+
+        public static Label Muted(string text) =>
+            new Label { Text = text, Wrap = WrapMode.Word, Font = BodyFont, TextColor = P.SubtleText };
+
+        /// <summary>A tile with centered bold text, e.g. a Build Order slot. Width 0 stretches to fill its cell.</summary>
+        public static ChunkyButton Chip(string text, Color back, Color fore, int width = 0, int height = 34)
         {
-            try { return Rhino.Runtime.HostUtils.RunningInDarkMode; }
-            catch { return false; }
+            var chip = new ChunkyButton(text, ButtonKind.Tile, height) { Font = new Font(SystemFont.Bold, 9) };
+            chip.SetColors(back, back == P.TileFace || back == P.SelectedFace ? (back == P.SelectedFace ? P.SelectedBorder : P.Border) : Darken(back, 0.12f), fore);
+            if (width > 0)
+                chip.Width = width;
+            return chip;
         }
 
-        private static Color C(int rgb) => Color.FromArgb((rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF);
-
-        public static readonly Theme Light = new Theme
+        /// <summary>
+        /// A rounded card for explanations and results. A colored accent turns it into a verdict banner
+        /// (green for right, gold/red for close or wrong); the neutral tile color gives a plain card.
+        /// </summary>
+        public static StyledCard Card(Color accent, params Control[] rows)
         {
-            Background = C(0xFFFFFF),
-            Text = C(0x4B4B4B),
-            SubtleText = C(0x777777),
-            Border = C(0xE5E5E5),
-            TileFace = C(0xFFFFFF),
-            TileHover = C(0xF7F7F7),
-            SelectedFace = C(0xDDF4FF),
-            SelectedBorder = C(0x84D8FF),
-            SelectedText = C(0x1899D6),
-            Green = C(0x58CC02),
-            GreenShadow = C(0x58A700),
-            GreenBanner = C(0xD7FFB8),
-            GreenText = C(0x58A700),
-            Red = C(0xFF4B4B),
-            RedShadow = C(0xEA2B2B),
-            RedBanner = C(0xFFDFE0),
-            RedText = C(0xEA2B2B),
-            Blue = C(0x1CB0F6),
-            BlueShadow = C(0x1899D6),
-            Disabled = C(0xE5E5E5),
-            DisabledText = C(0xAFAFAF),
-            Track = C(0xE5E5E5),
-            Purple = C(0xCE82FF),
-            Orange = C(0xFF9600),
-            Gold = C(0xFFC800),
-            Heart = C(0xFF4B4B),
-        };
+            var stack = new StackLayout { Spacing = 4, HorizontalContentAlignment = HorizontalAlignment.Stretch };
+            bool neutral = accent == P.TileFace;
+            bool first = true;
+            foreach (var row in rows)
+            {
+                if (row is Label l)
+                    l.TextColor = first && !neutral ? Darken(accent, 0.15f) : P.Text;
+                first = false;
+                stack.Items.Add(row);
+            }
+            return neutral
+                ? new StyledCard(stack)
+                : new StyledCard(stack, Mix(accent, P.Background, 0.82f), accent);
+        }
 
-        public static readonly Theme Dark = new Theme
+        /// <summary>A plain rounded card around any content.</summary>
+        public static StyledCard Box(Control content, int padding = 10) => new StyledCard(content, padding: padding);
+
+        public static ChunkyButton Button(string text, Action onClick, ButtonKind kind = ButtonKind.Outline)
         {
-            Background = C(0x131F24),
-            Text = C(0xF1F7FB),
-            SubtleText = C(0x8FA6B2),
-            Border = C(0x37464F),
-            TileFace = C(0x131F24),
-            TileHover = C(0x1B2B32),
-            SelectedFace = C(0x1B3A4B),
-            SelectedBorder = C(0x3F85A7),
-            SelectedText = C(0x49C0F8),
-            Green = C(0x93D333),
-            GreenShadow = C(0x79B933),
-            GreenBanner = C(0x202F36),
-            GreenText = C(0x93D333),
-            Red = C(0xEE5555),
-            RedShadow = C(0xD84848),
-            RedBanner = C(0x202F36),
-            RedText = C(0xEE5555),
-            Blue = C(0x49C0F8),
-            BlueShadow = C(0x3F85A7),
-            Disabled = C(0x37464F),
-            DisabledText = C(0x52656D),
-            Track = C(0x37464F),
-            Purple = C(0xCE82FF),
-            Orange = C(0xFF9600),
-            Gold = C(0xFFC800),
-            Heart = C(0xEE5555),
-        };
+            var b = new ChunkyButton(text, kind);
+            b.Click += (s, e) => onClick();
+            return b;
+        }
+
+        public static ChunkyButton Primary(string text, Action onClick) => Button(text, onClick, ButtonKind.Primary);
+
+        public static ChunkyButton Secondary(string text, Action onClick) => Button(text, onClick, ButtonKind.Secondary);
+
+        public static StackLayout Row(params Control[] controls)
+        {
+            var row = new StackLayout { Orientation = Orientation.Horizontal, Spacing = 6 };
+            foreach (var c in controls)
+                row.Items.Add(c);
+            return row;
+        }
+
+        /// <summary>Lays controls out left to right, wrapping every <paramref name="columns"/>.</summary>
+        public static TableLayout Grid(int columns, params Control[] controls)
+        {
+            var table = new TableLayout { Spacing = new Size(6, 6) };
+            for (int i = 0; i < controls.Length; i += columns)
+            {
+                var row = new TableRow();
+                for (int j = i; j < Math.Min(i + columns, controls.Length); j++)
+                    row.Cells.Add(new TableCell(controls[j], true));
+                for (int j = controls.Length; j < i + columns; j++)
+                    row.Cells.Add(new TableCell(null, true));
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+
+        /// <summary>"Try it in Rhino" and "Help page" buttons for a command.</summary>
+        public static StackLayout CommandButtons(string command) => Row(
+            Primary($"Try {command}", () => RhinoActions.Run(command)),
+            Secondary("Help page", () => RhinoActions.OpenHelp(command)));
+
+        /// <summary>Gives a view the standard padding, background and a header with a back button.</summary>
+        public static void SetUpPage(StackLayout page, RhinoGotchiPanel host, string title, string subtitle,
+            string backText = "← Home", Action? back = null)
+        {
+            page.Padding = 14;
+            page.Spacing = 10;
+            page.BackgroundColor = P.Background;
+            page.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+            page.Items.Add(new StackLayoutItem(Button(backText, back ?? host.ShowHome), HorizontalAlignment.Left));
+            page.Items.Add(Title(title));
+            page.Items.Add(Muted(subtitle));
+        }
+
+        public static Color Darken(Color c, float amount) =>
+            new Color(Math.Max(0, c.R - amount), Math.Max(0, c.G - amount), Math.Max(0, c.B - amount), c.A);
+
+        /// <summary>Blends <paramref name="a"/> toward <paramref name="b"/> by <paramref name="t"/> (0 = a, 1 = b).</summary>
+        public static Color Mix(Color a, Color b, float t) =>
+            new Color(a.R + (b.R - a.R) * t, a.G + (b.G - a.G) * t, a.B + (b.B - a.B) * t, 1);
     }
 }

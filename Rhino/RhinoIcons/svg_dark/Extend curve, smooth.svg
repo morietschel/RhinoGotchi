@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 10.36,17.076 L 8.497,19.397 C 14.204,23.979 19.566,23.835 23.167,24.082 C 25.064,24.212 26.128,24.431 26.865,25.018 C 27.536,25.552 28.207,26.651 28.435,29.365 L 31.402,29.116 C 31.146,26.072 30.333,23.975 28.72,22.69 C 27.169,21.454 25.137,21.233 23.37,21.112 C 19.521,20.848 15.177,20.942 10.36,17.076 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 5.472,3.984 C 2.18,7.291 2.18,12.656 5.472,15.962 L 6.527,14.913 C 3.813,12.187 3.813,7.76 6.527,5.033 C 9.237,2.31 13.637,2.309 16.349,5.033 C 19.642,8.343 24.988,8.343 28.281,5.033 L 27.226,3.984 C 24.515,6.708 20.115,6.708 17.404,3.984 C 14.11,0.676 8.764,0.675 5.472,3.984 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <path d="M 4.505,13.506 L 4.505,19.495 L 10.494,19.495 L 10.494,13.506 L 4.505,13.506 Z M 9.006,14.994 L 9.006,18.007 L 5.993,18.007 L 5.993,14.994 L 9.006,14.994 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 27.011,28.51 L 27.011,34.499 L 33,34.499 L 33,28.51 L 27.011,28.51 Z M 31.512,29.998 L 31.512,33.011 L 28.499,33.011 L 28.499,29.998 L 31.512,29.998 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

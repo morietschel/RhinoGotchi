@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 17.709,16.666 L 16.814,17.857 L 28.831,26.87 L 29.726,25.679 L 17.709,16.666 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <path d="M 4.499,7.504 L 4.499,27.02 L 30.023,27.02 L 30.023,7.504 L 4.499,7.504 Z M 28.533,8.994 L 28.533,25.53 L 5.989,25.53 L 5.989,8.994 L 28.533,8.994 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" stroke="none">
+   <rect x="-2.253" y="-2.253" width="4.507" height="4.507" transform="translate(18.012 18.013) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 15.013,15.014 L 15.013,21.011 L 21.01,21.011 L 21.01,15.014 L 15.013,15.014 Z M 19.52,16.504 L 19.52,19.521 L 16.503,19.521 L 16.503,16.504 L 19.52,16.504 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_1" stroke="none">
+   <rect x="-2.24" y="-2.24" width="4.481" height="4.481" transform="translate(28.515 25.511) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 25.529,22.525 L 25.529,28.496 L 31.5,28.496 L 31.5,22.525 L 25.529,22.525 Z M 30.01,24.015 L 30.01,27.006 L 27.019,27.006 L 27.019,24.015 L 30.01,24.015 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

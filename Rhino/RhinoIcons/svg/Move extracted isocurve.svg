@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="21.064" y2="0" gradientTransform="translate(20.817 26.118) rotate(-112.951) skewX(-0.236611) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="20.084" y2="0" gradientTransform="translate(4.245 -6.045) rotate(72.2895) skewX(1.47695) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#f0f0f0"/>
+   <stop offset="0.1" stop-color="#f1f1f1"/>
+   <stop offset="0.2" stop-color="#f2f2f2"/>
+   <stop offset="0.3" stop-color="#f3f3f3"/>
+   <stop offset="0.4" stop-color="#f5f5f5"/>
+   <stop offset="0.5" stop-color="#f8f8f8"/>
+   <stop offset="0.6" stop-color="#fafafa"/>
+   <stop offset="0.7" stop-color="#fcfcfc"/>
+   <stop offset="0.8" stop-color="#fdfdfd"/>
+   <stop offset="0.9" stop-color="#fefefe"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="20.083" y2="0" gradientTransform="translate(7.997 9.712) rotate(72.2886) skewX(1.47232) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#f0f0f0"/>
+   <stop offset="0.1" stop-color="#f1f1f1"/>
+   <stop offset="0.2" stop-color="#f2f2f2"/>
+   <stop offset="0.3" stop-color="#f3f3f3"/>
+   <stop offset="0.4" stop-color="#f5f5f5"/>
+   <stop offset="0.5" stop-color="#f8f8f8"/>
+   <stop offset="0.6" stop-color="#fafafa"/>
+   <stop offset="0.7" stop-color="#fcfcfc"/>
+   <stop offset="0.8" stop-color="#fdfdfd"/>
+   <stop offset="0.9" stop-color="#fefefe"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 3.744,9.961 C 4.663,12.927 6.469,17.505 9.075,19.607 C 11.68,21.712 13.485,26.288 14.405,29.254 C 20.354,27.182 26.305,25.109 32.256,23.037 C 31.337,20.071 29.531,15.493 26.926,13.39 C 24.32,11.287 22.515,6.71 21.596,3.744 C 15.646,5.817 9.695,7.889 3.744,9.961 Z" stroke-width="1.489" stroke="#231f20" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 5.402,15.214 C 11.351,13.141 17.302,11.069 23.253,8.996" fill="none" stroke-width="2.977" stroke="#ffffff" stroke-opacity="0.996078" stroke-linecap="round" stroke-linejoin="round" fill-opacity="0.996078"/>
+  <path d="M 27.004,24.753 C 26.085,21.787 24.279,17.21 21.674,15.106 C 19.068,13.004 17.263,8.426 16.344,5.46" fill="none" stroke-width="2.977" stroke="#ffffff" stroke-opacity="0.996078" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.996078"/>
+  <g id="Group" stroke="none">
+   <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(18 10.498) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 15.004,7.502 L 15.004,13.492 L 20.995,13.492 L 20.995,7.502 L 15.004,7.502 Z M 19.506,8.991 L 19.506,12.003 L 16.493,12.003 L 16.493,8.991 L 19.506,8.991 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 22.817,29.351 L 24.511,28.803 L 22.987,34.355 L 17.729,30.985 L 19.427,30.439 L 22.817,29.351 Z" fill="#000000" stroke-width="0.23" stroke="#000000" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 22.319,32.721 L 14.657,14.686" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="miter"/>
+ </g>
+</svg>

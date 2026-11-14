@@ -1,0 +1,107 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <g clip-path="url(#b)" opacity=".501961">
+      <path d="m8.747 19.344 10.288-3.364" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#c)" opacity=".501961">
+      <path d="m13.388 7.543 5.647 8.437" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#d)" opacity=".501961">
+      <path d="m7.644 9.709 11.058 14.451" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#e)" opacity=".501961">
+      <path d="m25.93 2.812 8.086 16.93" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#f)" opacity=".501961">
+      <path d="m19.472 5.247 9.197 16.037" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#g)" opacity=".501961">
+      <path d="m2.214 11.757 11.835 13.745" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#h)" opacity=".501961">
+      <path d="m2.214 11.757 23.716-8.945" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#i)" opacity=".501961">
+      <path d="m5.66 15.758 22.662-7.937" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#j)" opacity=".501961">
+      <path d="m11.529 22.576 20.796-6.376" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#k)" opacity=".501961">
+      <path d="m14.049 25.502 19.967-5.76" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <path d="m19.035 15.98 4.535 6.776" fill="none" stroke="#666" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4.936" x_rma_id="21" stroke-linejoin="round" />
+    <path d="m19.035 15.98 11.404-3.728" fill="none" stroke="#666" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4.936" x_rma_id="22" stroke-linejoin="round" />
+    <path d="m2.25 14.157v6.051h6.051v3.026l6.051-6.051-6.051-6.051v3.025z" fill="#fff" fill-rule="evenodd" stroke-width="3.5px" x_rma_id="23" stroke="#666" stroke-linejoin="round" />
+    <path d="m7.55 11.132v2.274h-5.3c-.415 0-.751.336-.751.751v6.051c0 .414.336.75.751.75h5.3v2.276c0 .666.81 1.001 1.281.53l6.051-6.051c.293-.293.293-.768 0-1.061l-6.051-6.051c-.471-.471-1.281-.136-1.281.531zm1.501 1.811 4.239 4.24-4.239 4.239v-1.214c0-.415-.336-.751-.75-.751h-5.301v-4.55h5.301c.414 0 .75-.336.75-.75z" fill="" stroke-width="3.5px" x_rma_id="24" stroke="#666" stroke-linejoin="round" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <clipPath id="b">
+    <path d="m7.779 15.012h12.224v5.3h-12.224z" fill="" stroke-width="" x_rma_id="1" />
+  </clipPath>
+  <clipPath id="c">
+    <path d="m12.42 6.575h7.583v10.373h-7.583z" fill="" stroke-width="" x_rma_id="2" />
+  </clipPath>
+  <clipPath id="d">
+    <path d="m6.676 8.741h12.994v16.387h-12.994z" fill="" stroke-width="" x_rma_id="3" />
+  </clipPath>
+  <clipPath id="e">
+    <path d="m24.962 1.844h10.022v18.866h-10.022z" fill="" stroke-width="" x_rma_id="4" />
+  </clipPath>
+  <clipPath id="f">
+    <path d="m18.504 4.279h11.133v17.973h-11.133z" fill="" stroke-width="" x_rma_id="5" />
+  </clipPath>
+  <clipPath id="g">
+    <path d="m1.246 10.789h13.771v15.681h-13.771z" fill="" stroke-width="" x_rma_id="6" />
+  </clipPath>
+  <clipPath id="h">
+    <path d="m1.246 1.844h25.652v10.881h-25.652z" fill="" stroke-width="" x_rma_id="7" />
+  </clipPath>
+  <clipPath id="i">
+    <path d="m4.692 6.853h24.598v9.873h-24.598z" fill="" stroke-width="" x_rma_id="8" />
+  </clipPath>
+  <clipPath id="j">
+    <path d="m10.561 15.232h22.732v8.312h-22.732z" fill="" stroke-width="" x_rma_id="9" />
+  </clipPath>
+  <clipPath id="k">
+    <path d="m13.081 18.774h21.903v7.696h-21.903z" fill="" stroke-width="" x_rma_id="10" />
+  </clipPath>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <g clip-path="url(#b)" opacity=".501961">
+      <path d="m8.747 19.344 10.288-3.364" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#c)" opacity=".501961">
+      <path d="m13.388 7.543 5.647 8.437" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#d)" opacity=".501961">
+      <path d="m7.644 9.709 11.058 14.451" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#e)" opacity=".501961">
+      <path d="m25.93 2.812 8.086 16.93" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#f)" opacity=".501961">
+      <path d="m19.472 5.247 9.197 16.037" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#g)" opacity=".501961">
+      <path d="m2.214 11.757 11.835 13.745" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#h)" opacity=".501961">
+      <path d="m2.214 11.757 23.716-8.945" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#i)" opacity=".501961">
+      <path d="m5.66 15.758 22.662-7.937" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#j)" opacity=".501961">
+      <path d="m11.529 22.576 20.796-6.376" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <g clip-path="url(#k)" opacity=".501961">
+      <path d="m14.049 25.502 19.967-5.76" fill="none" stroke="#E1E1E1" stroke-linecap="round" stroke-miterlimit="10" stroke-width=".968" />
+    </g>
+    <path d="m19.035 15.98 4.535 6.776" fill="none" stroke="#1c9a00" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.936" x_rma_id="21" />
+    <path d="m19.035 15.98 11.404-3.728" fill="none" stroke="#c30000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.936" x_rma_id="22" />
+    <path d="m2.25 14.157v6.051h6.051v3.026l6.051-6.051-6.051-6.051v3.025z" fill="#fff" fill-rule="evenodd" stroke-width="" x_rma_id="23" />
+    <path d="m7.55 11.132v2.274h-5.3c-.415 0-.751.336-.751.751v6.051c0 .414.336.75.751.75h5.3v2.276c0 .666.81 1.001 1.281.53l6.051-6.051c.293-.293.293-.768 0-1.061l-6.051-6.051c-.471-.471-1.281-.136-1.281.531zm1.501 1.811 4.239 4.24-4.239 4.239v-1.214c0-.415-.336-.751-.75-.751h-5.301v-4.55h5.301c.414 0 .75-.336.75-.75z" fill="" stroke-width="" x_rma_id="24" />
+  </g>
+</svg>

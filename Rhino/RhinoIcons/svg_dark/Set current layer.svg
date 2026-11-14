@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 18.539,0.849 L 9.489,12.225 C 9.172,12.623 9,13.117 9,13.626 L 9,25.891 C 9,27.323 10.323,28.392 11.723,28.09 L 34.235,23.241 C 35.271,23.018 36.012,22.101 36.012,21.042 L 36.012,8.775 C 36.012,8.198 35.79,7.643 35.393,7.225 C 31.246,2.86 25.94,1.114 20.753,0.046 C 19.923,-0.125 19.067,0.185 18.539,0.849 Z M 31.512,9.739 L 31.512,19.225 L 13.5,23.104 L 13.5,14.411 L 21.182,4.752 L 21.647,4.856 C 25.182,5.721 28.307,6.961 30.886,9.148 L 31.512,9.739 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" stroke="none">
+   <g id="Group_1" stroke-linejoin="miter" stroke-width="0.48">
+    <path d="M 11.249,21.767 L 20.299,10.389 L 20.299,14.479 L 11.249,25.855 L 11.249,21.767 Z" fill="#ff4b00" marker-start="none" marker-end="none"/>
+    <path d="M 11.249,17.679 L 20.299,6.302 L 20.299,10.389 L 11.249,21.767 L 11.249,17.679 Z" fill="#ffffff" marker-start="none" marker-end="none"/>
+    <path d="M 20.299,6.302 L 11.249,17.679 L 11.249,13.59 L 20.299,2.214 L 20.299,6.302 Z" fill="#6582fc" marker-start="none" marker-end="none"/>
+    <path d="M 33.761,12.828 C 30.581,9.148 24.76,7.186 20.299,6.302 C 20.299,4.938 20.299,3.576 20.299,2.214 C 24.76,3.098 30.581,5.06 33.761,8.739 C 33.761,10.103 33.761,11.465 33.761,12.828 Z" fill="#122877" marker-start="none" marker-end="none"/>
+    <path d="M 20.299,6.302 C 24.76,7.186 30.581,9.148 33.761,12.828 C 33.761,14.191 33.761,15.554 33.761,16.917 C 30.581,13.237 24.76,11.275 20.299,10.389 C 20.299,9.027 20.299,7.664 20.299,6.302 Z" fill="#b6b6b6" marker-start="none" marker-end="none"/>
+    <path d="M 20.299,10.389 C 24.76,11.275 30.581,13.237 33.761,16.917 C 33.761,18.28 33.761,19.642 33.761,21.006 C 30.581,17.326 24.76,15.363 20.299,14.479 C 20.299,13.115 20.299,11.753 20.299,10.389 Z" fill="#ce0000" marker-start="none" marker-end="none"/>
+    <path d="M 20.299,14.479 C 24.76,15.363 30.581,17.326 33.761,21.006 C 26.257,22.622 18.753,24.239 11.249,25.855 C 14.266,22.063 17.283,18.271 20.299,14.479 Z" fill="#ff9163" marker-start="none" marker-end="none"/>
+   </g>
+   <path d="M 19.716,1.75 L 10.666,13.126 C 10.561,13.258 10.504,13.421 10.504,13.59 L 10.504,25.855 C 10.504,26.328 10.942,26.682 11.405,26.582 L 33.917,21.733 C 34.26,21.659 34.505,21.356 34.505,21.006 L 34.505,8.739 C 34.505,8.548 34.432,8.364 34.3,8.226 C 30.473,4.197 25.537,2.532 20.449,1.484 C 20.174,1.428 19.891,1.53 19.716,1.75 Z M 33.016,9.057 L 33.016,20.404 L 11.993,24.933 L 11.993,13.85 L 20.59,3.042 L 21.998,3.357 C 25.654,4.251 29.031,5.567 31.855,7.961 L 33.016,9.057 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 16.174,34.498 L 16.514,34.013 C 15.128,32.97 13.587,31.364 11.89,29.195 C 10.193,27.025 8.898,24.998 8.004,23.114 L 7.286,22.628 C 6.69,22.214 6.285,21.906 6.071,21.705 C 5.987,22.009 5.803,22.508 5.518,23.201 L 5.246,23.832 C 4.857,24.739 4.496,25.41 4.163,25.843 C 3.829,26.277 3.455,26.566 3.041,26.708 C 3.74,27.446 4.381,27.815 4.964,27.815 C 5.463,27.815 6.016,27.138 6.625,25.785 L 6.926,25.105 C 8.021,26.951 9.426,28.745 11.142,30.486 C 12.858,32.229 14.536,33.566 16.174,34.498 Z" fill="#e1e1e1" fill-rule="nonzero" stroke="none" stroke-width="0.12" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

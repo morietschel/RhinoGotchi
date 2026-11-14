@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 25.861,1.65 L 16.271,11.24 L 22.661,17.629 L 32.25,8.04 L 25.861,1.65 Z M 25.861,3.765 L 30.135,8.04 L 22.661,15.514 L 18.386,11.24 L 25.861,3.765 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" stroke="none">
+   <rect x="-3.77" y="-7.541" width="7.54" height="15.082" transform="translate(9.789 15.011) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 1.5,10.493 L 1.5,19.529 L 18.078,19.529 L 18.078,10.493 L 1.5,10.493 Z M 16.582,11.989 L 16.582,18.033 L 2.996,18.033 L 2.996,11.989 L 16.582,11.989 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_1" stroke="none" fill="#122877">
+   <path d="M 17.248,30.854 L 17.248,11.248 L 26.297,30.854 L 17.248,30.854 Z" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+   <path d="M 16.5,11.248 L 16.5,30.854 C 16.5,31.266 16.835,31.602 17.248,31.602 L 26.297,31.602 C 26.842,31.602 27.204,31.035 26.976,30.54 L 17.927,10.934 C 17.592,10.21 16.5,10.45 16.5,11.248 Z M 17.996,14.653 L 25.127,30.106 L 17.996,30.106 L 17.996,14.653 Z" stroke-width="0.5" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

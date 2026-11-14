@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 25.628,2.182 L 33.752,19.189" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.973" fill-opacity="0.501961"/>
+  <path d="M 13.806,24.943 L 33.752,19.189" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <path d="M 11.289,22.019 L 32.062,15.651" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <path d="M 5.426,15.209 L 28.064,7.281" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <path d="M 1.984,11.213 L 25.674,2.278" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <path d="M 1.984,11.213 L 13.806,24.943" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <path d="M 19.224,4.71 L 28.41,20.729" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <path d="M 7.409,9.167 L 18.454,23.602" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <path d="M 13.146,7.003 L 17.154,12.991" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <path d="M 8.51,18.791 L 15.591,16.477" fill="none" stroke="#e1e1e1" stroke-linejoin="miter" stroke-linecap="round" stroke-opacity="0.501961" stroke-width="0.967" fill-opacity="0.501961"/>
+  <g id="Group" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#e1e1e1" fill-opacity="1.000000">
+   <path d="M 14.977,28.522 L 14.977,34.614 L 21.069,34.614 L 21.069,28.522 L 14.977,28.522 Z M 19.558,30.033 L 19.558,33.103 L 16.488,33.103 L 16.488,30.033 L 19.558,30.033 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 16.5,17.865 L 16.5,28.528 L 18.011,28.528 L 18.011,17.865 L 16.5,17.865 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 20.708,14.806 L 30.184,11.72" fill="none" stroke-linejoin="miter" stroke-linecap="round" stroke-width="1.934" stroke="#c30000"/>
+  <path d="M 20.092,17.381 L 23.317,22.2" fill="none" stroke-linejoin="miter" stroke-linecap="round" stroke-width="1.934" stroke="#1c9a00"/>
+  <g id="Group_1" fill-rule="evenodd" stroke="none" stroke-width="0.5" fill="#e1e1e1" fill-opacity="1.000000">
+   <path d="M 15.001,11.991 L 15.001,17.99 L 21,17.99 L 21,11.991 L 15.001,11.991 Z M 19.512,13.479 L 19.512,16.502 L 16.489,16.502 L 16.489,13.479 L 19.512,13.479 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

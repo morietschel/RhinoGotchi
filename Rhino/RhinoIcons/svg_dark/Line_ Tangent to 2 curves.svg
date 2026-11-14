@@ -1,0 +1,27 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <g fill-opacity=".996078">
+      <path d="m1.487 12.007v2.978c4.563 0 8.269 3.705 8.269 8.27 0 4.563-3.706 8.269-8.269 8.269v2.978c6.208 0 11.247-5.039 11.247-11.247 0-6.21-5.039-11.248-11.247-11.248z" fill="#fff" stroke-width="3.5px" x_rma_id="1" stroke="#666" stroke-linejoin="round" />
+      <path d="m23.266 12.746c0 6.208 5.038 11.247 11.247 11.247v-2.978c-4.564 0-8.269-3.706-8.269-8.269 0-4.564 3.705-8.269 8.269-8.269v-2.978c-6.209 0-11.247 5.038-11.247 11.247z" fill="#fff" stroke-width="3.5px" x_rma_id="2" stroke="#666" stroke-linejoin="round" />
+      <path d="m25.656 6.3-16.514 22.518 1.201.881 16.514-22.518z" fill="#E1E1E1" stroke-width="0.5px" stroke="#E1E1E1" />
+    </g>
+    <path d="m8.242 30.735v-4.478h4.478v4.478z" fill="#fff" fill-rule="evenodd" stroke-width="3.5px" x_rma_id="4" stroke="#666" stroke-linejoin="round" />
+    <path d="m7.497 25.512v5.967h5.967v-5.967zm4.478 1.489v2.989h-2.989v-2.989z" fill="" stroke-width="3.5px" x_rma_id="5" stroke="#666" stroke-linejoin="round" />
+    <path d="m23.229 9.743v-4.503h4.503v4.503z" fill="#fff" fill-rule="evenodd" stroke-width="3.5px" x_rma_id="6" stroke="#666" stroke-linejoin="round" />
+    <path d="m22.484 4.495v5.992h5.992v-5.992zm4.503 1.489v3.014h-3.014v-3.014z" fill="" stroke-width="3.5px" x_rma_id="7" stroke="#666" stroke-linejoin="round" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <g fill-opacity=".996078">
+      <path d="m1.487 12.007v2.978c4.563 0 8.269 3.705 8.269 8.27 0 4.563-3.706 8.269-8.269 8.269v2.978c6.208 0 11.247-5.039 11.247-11.247 0-6.21-5.039-11.248-11.247-11.248z" fill="#fff" stroke-width="" x_rma_id="1" />
+      <path d="m23.266 12.746c0 6.208 5.038 11.247 11.247 11.247v-2.978c-4.564 0-8.269-3.706-8.269-8.269 0-4.564 3.705-8.269 8.269-8.269v-2.978c-6.209 0-11.247 5.038-11.247 11.247z" fill="#fff" stroke-width="" x_rma_id="2" />
+      <path d="m25.656 6.3-16.514 22.518 1.201.881 16.514-22.518z" fill="#E1E1E1" stroke-width="0.5px" stroke="#E1E1E1" />
+    </g>
+    <path d="m8.242 30.735v-4.478h4.478v4.478z" fill="#fff" fill-rule="evenodd" stroke-width="" x_rma_id="4" />
+    <path d="m7.497 25.512v5.967h5.967v-5.967zm4.478 1.489v2.989h-2.989v-2.989z" fill="" stroke-width="" x_rma_id="5" />
+    <path d="m23.229 9.743v-4.503h4.503v4.503z" fill="#fff" fill-rule="evenodd" stroke-width="" x_rma_id="6" />
+    <path d="m22.484 4.495v5.992h5.992v-5.992zm4.503 1.489v3.014h-3.014v-3.014z" fill="" stroke-width="" x_rma_id="7" />
+  </g>
+</svg>

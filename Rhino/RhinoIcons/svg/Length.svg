@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 31.499,18 L 31.499,34.506 L 32.988,34.506 L 32.988,18 L 31.499,18 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 1.499,4.5 L 1.499,21.006 L 2.988,21.006 L 2.988,4.5 L 1.499,4.5 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 6.76,16.621 L 6.595,18.1 C 11.9,18.692 13.899,21.5 16.219,24.531 C 18.586,27.623 21.233,30.837 27.813,31.404 L 27.94,29.921 C 21.99,29.408 19.681,26.604 17.402,23.626 C 15.083,20.597 12.75,17.289 6.76,16.621 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 3.724,17.244 L 8.974,13.493 L 8.974,20.995 L 3.724,17.244 Z" fill="#000000" stroke="none" stroke-width="1.489" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 30.713,30.749 L 25.463,26.998 L 25.463,34.5 L 30.713,30.749 Z" fill="#000000" stroke="none" stroke-width="1.489" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 1.504,1.516 L 1.504,4.493 C 5.81,4.493 8.549,5.298 10.557,6.415 C 12.597,7.551 13.992,9.061 15.614,10.779 C 17.213,12.472 19.005,14.33 21.713,15.723 C 24.434,17.122 27.963,17.998 33.016,17.998 L 33.016,15.021 C 28.314,15.021 25.278,14.209 23.075,13.076 C 20.86,11.936 19.369,10.418 17.779,8.735 C 16.212,7.076 14.513,5.21 12.005,3.814 C 9.463,2.399 6.201,1.516 1.504,1.516 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+ </g>
+</svg>

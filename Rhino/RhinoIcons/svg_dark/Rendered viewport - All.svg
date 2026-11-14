@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="18" gradientTransform="translate(17.678 8.047) scale(1 0.447056)">
+   <stop offset="0" stop-color="#fefefe"/>
+   <stop offset="0.1" stop-color="#f5f5f5"/>
+   <stop offset="0.2" stop-color="#eaeaea"/>
+   <stop offset="0.3" stop-color="#dddddd"/>
+   <stop offset="0.4" stop-color="#cccccc"/>
+   <stop offset="0.5" stop-color="#b5b5b5"/>
+   <stop offset="0.6" stop-color="#949494"/>
+   <stop offset="0.7" stop-color="#686868"/>
+   <stop offset="0.8" stop-color="#404040"/>
+   <stop offset="0.9" stop-color="#1e1e1e"/>
+   <stop offset="1" stop-color="#000000"/>
+  </radialGradient>
+  <radialGradient id="RadialGradient_1" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="19.888" gradientTransform="translate(12.582 21.62) rotate(-34.3005) scale(1 0.982301)">
+   <stop offset="0" stop-color="#84a3ff"/>
+   <stop offset="0.172976478934288" stop-color="#2f7eff"/>
+   <stop offset="0.706207752227783" stop-color="#000d63"/>
+   <stop offset="1" stop-color="#2715ad"/>
+  </radialGradient>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="10.42" y2="0" gradientTransform="translate(6.909 22.248) rotate(11.6766) skewX(23.3542)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="4.118" y2="-4.118" gradientTransform="translate(9.994 25.396)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#acacac"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 7.526,25.812 C 11.842,31.38 19.872,32.405 25.463,28.107 C 31.054,23.81 32.097,15.813 27.783,10.242 C 23.467,4.666 15.428,3.64 9.834,7.945 C 4.247,12.246 3.211,20.244 7.526,25.812 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 1.52,0 L 1.52,36 L 3.008,36 L 3.008,0 L 1.52,0 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 7.532,0 L 7.532,36 L 9.02,36 L 9.02,0 L 7.532,0 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 13.509,0 L 13.509,36 L 14.997,36 L 14.997,0 L 13.509,0 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 19.522,0 L 19.522,36 L 21.01,36 L 21.01,0 L 19.522,0 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 25.499,0 L 25.499,36 L 26.987,36 L 26.987,0 L 25.499,0 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 31.478,0 L 31.478,36 L 32.966,36 L 32.966,0 L 31.478,0 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 0,3.033 L 0,4.521 L 36,4.521 L 36,3.033 L 0,3.033 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 0,9.045 L 0,10.533 L 36,10.533 L 36,9.045 L 0,9.045 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 0,15.021 L 0,16.509 L 36,16.509 L 36,15.021 L 0,15.021 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 0,21.035 L 0,22.523 L 36,22.523 L 36,21.035 L 0,21.035 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 0,27.011 L 0,28.499 L 36,28.499 L 36,27.011 L 0,27.011 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <path d="M 0,32.991 L 0,34.479 L 36,34.479 L 36,32.991 L 0,32.991 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.698039"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#RadialGradient)" stroke="none"/>
+  </mask>
+  <path d="M -0.323,16.094 L -0.323,0 L 35.678,0 L 35.678,16.094 L -0.323,16.094 Z" stroke="none" fill="#231f20" stroke-opacity="0.996078" stroke-width="2.256" stroke-linejoin="miter" marker-start="none" marker-end="none" mask="url(#TranspMask)"/>
+  <path d="M 7.526,25.812 C 11.842,31.38 19.872,32.405 25.463,28.107 C 31.054,23.81 32.097,15.813 27.783,10.242 C 23.467,4.666 15.428,3.64 9.834,7.945 C 4.247,12.246 3.211,20.244 7.526,25.812 Z" stroke-linejoin="miter" stroke-width="1.2" stroke="none" marker-start="none" marker-end="none" fill="url(#RadialGradient_1)"/>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_1)" stroke="none"/>
+  </mask>
+  <path d="M 9.626,25.692 C 11.631,27.696 14.327,28.253 15.645,26.935 C 16.962,25.618 16.406,22.922 14.402,20.918 C 12.397,18.914 9.701,18.357 8.383,19.675 C 7.066,20.992 7.622,23.688 9.626,25.692 Z" stroke-linejoin="miter" stroke="none" stroke-linecap="round" stroke-width="0.302" marker-start="none" marker-end="none" mask="url(#TranspMask_1)" fill="url(#LinearGradient)"/>
+  <path d="M 7.526,25.812 C 11.842,31.38 19.872,32.405 25.463,28.107 C 31.054,23.81 32.097,15.813 27.783,10.242 C 23.467,4.666 15.428,3.64 9.834,7.945 C 4.247,12.246 3.211,20.244 7.526,25.812 Z" stroke-linejoin="miter" stroke="#000000" stroke-width="1.44" marker-start="none" marker-end="none"/>
+  <g id="Group" stroke-linejoin="miter" stroke="none" stroke-width="1.488">
+   <path d="M 23.755,12.037 C 26.84,15.122 27.557,17.574 28.425,16.706 C 29.292,15.839 29.318,12.477 26.233,9.392 C 22.981,6.14 19.62,6.166 18.752,7.034 C 17.885,7.901 20.003,8.284 23.755,12.037 Z" fill="#37baff" stroke-opacity="0.082353" marker-start="none" marker-end="none" fill-opacity="0.082353"/>
+   <path d="M 19.251,7.353 C 20.047,6.556 23.126,6.544 26.103,9.521 C 28.929,12.346 28.916,15.426 28.12,16.221 C 27.324,17.018 26.649,14.778 23.823,11.952 C 20.392,8.52 18.455,8.148 19.251,7.353 Z" fill="#45bcff" stroke-opacity="0.129412" marker-start="none" marker-end="none" fill-opacity="0.129412"/>
+   <path d="M 19.75,7.672 C 20.475,6.947 23.271,6.948 25.974,9.65 C 28.54,12.216 28.54,15.013 27.816,15.737 C 27.091,16.462 26.458,14.434 23.892,11.868 C 20.781,8.756 19.026,8.396 19.75,7.672 Z" fill="#54beff" stroke-opacity="0.172549" marker-start="none" marker-end="none" fill-opacity="0.172549"/>
+   <path d="M 20.25,7.991 C 20.903,7.338 23.417,7.352 25.844,9.78 C 28.151,12.086 28.165,14.6 27.512,15.253 C 26.858,15.907 26.268,14.091 23.961,11.784 C 21.17,8.992 19.597,8.644 20.25,7.991 Z" fill="#62bfff" stroke-opacity="0.215686" marker-start="none" marker-end="none" fill-opacity="0.215686"/>
+   <path d="M 20.749,8.311 C 21.331,7.729 23.562,7.756 25.715,9.909 C 27.762,11.956 27.789,14.188 27.207,14.769 C 26.626,15.351 26.077,13.747 24.03,11.7 C 21.559,9.228 20.167,8.892 20.749,8.311 Z" fill="#71c1ff" stroke-opacity="0.258824" marker-start="none" marker-end="none" fill-opacity="0.258824"/>
+   <path d="M 21.248,8.63 C 21.759,8.12 23.707,8.16 25.586,10.038 C 27.373,11.826 27.413,13.775 26.903,14.285 C 26.393,14.795 25.886,13.403 24.099,11.616 C 21.948,9.464 20.738,9.14 21.248,8.63 Z" fill="#7fc3ff" stroke-opacity="0.301961" marker-start="none" marker-end="none" fill-opacity="0.301961"/>
+   <path d="M 21.748,8.949 C 22.186,8.51 23.853,8.564 25.456,10.168 C 26.984,11.695 27.038,13.362 26.599,13.801 C 26.16,14.24 25.696,13.06 24.168,11.532 C 22.337,9.7 21.309,9.388 21.748,8.949 Z" fill="#8ec4ff" stroke-opacity="0.349020" marker-start="none" marker-end="none" fill-opacity="0.349020"/>
+   <path d="M 22.247,9.268 C 22.614,8.901 23.998,8.968 25.327,10.297 C 26.595,11.565 26.662,12.949 26.295,13.317 C 25.927,13.684 25.505,12.716 24.237,11.448 C 22.726,9.936 21.88,9.636 22.247,9.268 Z" fill="#9dc6ff" stroke-opacity="0.392157" marker-start="none" marker-end="none" fill-opacity="0.392157"/>
+   <path d="M 22.746,9.588 C 23.042,9.292 24.143,9.372 25.198,10.426 C 26.206,11.435 26.286,12.537 25.99,12.833 C 25.695,13.128 25.314,12.372 24.306,11.364 C 23.115,10.172 22.45,9.884 22.746,9.588 Z" fill="#abc7ff" stroke-opacity="0.435294" marker-start="none" marker-end="none" fill-opacity="0.435294"/>
+   <path d="M 23.246,9.907 C 23.47,9.683 24.289,9.776 25.068,10.556 C 25.817,11.305 25.911,12.124 25.686,12.349 C 25.462,12.573 25.124,12.029 24.375,11.28 C 23.504,10.408 23.021,10.132 23.246,9.907 Z" fill="#bac9ff" stroke-opacity="0.478431" marker-start="none" marker-end="none" fill-opacity="0.478431"/>
+   <path d="M 23.745,10.226 C 23.898,10.074 24.434,10.18 24.939,10.685 C 25.428,11.175 25.535,11.711 25.382,11.865 C 25.229,12.017 24.933,11.685 24.444,11.196 C 23.893,10.644 23.592,10.38 23.745,10.226 Z" fill="#c8cbff" stroke-opacity="0.521569" marker-start="none" marker-end="none" fill-opacity="0.521569"/>
+   <path d="M 24.513,11.112 C 24.743,11.342 24.997,11.462 25.078,11.381 C 25.16,11.299 25.04,11.045 24.81,10.815 C 24.58,10.585 24.326,10.465 24.245,10.546 C 24.163,10.628 24.283,10.881 24.513,11.112 Z" fill="#d7ccff" stroke-opacity="0.564706" marker-start="none" marker-end="none" fill-opacity="0.564706"/>
+  </g>
+ </g>
+</svg>

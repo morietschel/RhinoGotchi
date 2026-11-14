@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.092" gradientTransform="translate(14.439 21.419) rotate(-64.0477) skewX(1.01257) scale(1 1.45089)">
+   <stop offset="0" stop-color="#becafc"/>
+   <stop offset="0.224390134215355" stop-color="#becafc"/>
+   <stop offset="0.629772424697876" stop-color="#6e8efe"/>
+   <stop offset="1" stop-color="#304ab6"/>
+  </radialGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 8.993,0 L 8.993,1.611 C 9.015,16.349 20.285,28.582 34.486,28.58 L 36.038,28.554 L 35.961,24.055 L 34.447,24.081 C 23.036,24.081 13.512,14.138 13.493,1.608 L 13.493,0 L 8.993,0 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <g id="Group" stroke-width="4.5" stroke="#666666" stroke-linejoin="round" stroke-linecap="round">
+   <path d="M 30.72,17.342 C 30.716,16.14 30.355,14.94 29.747,13.894 C 29.072,12.732 28.093,11.76 26.985,10.98 C 25.732,10.097 24.314,9.457 22.843,9.029 C 21.266,8.569 19.628,8.352 17.978,8.352 C 14.797,8.354 11.575,9.162 8.989,10.988 C 7.883,11.769 6.895,12.736 6.217,13.898 C 5.608,14.942 5.251,16.144 5.25,17.345 C 5.249,18.545 5.605,19.745 6.216,20.789 C 6.896,21.95 7.889,22.917 8.995,23.696 C 11.585,25.527 14.783,26.33 17.979,26.331 C 21.178,26.332 24.376,25.529 26.97,23.702 C 28.077,22.922 29.076,21.953 29.756,20.792 C 30.369,19.747 30.724,18.545 30.72,17.342 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <g id="Group_1" stroke-linejoin="round" stroke-linecap="round" stroke="#231f20" stroke-width="1.487" fill="url(#RadialGradient)">
+   <path d="M 30.713,17.268 C 30.709,16.066 30.348,14.866 29.74,13.82 C 29.065,12.658 28.086,11.686 26.978,10.906 C 25.725,10.023 24.307,9.383 22.836,8.955 C 21.259,8.495 19.621,8.278 17.971,8.278 C 14.79,8.28 11.568,9.088 8.982,10.914 C 7.876,11.695 6.888,12.662 6.21,13.824 C 5.601,14.868 5.244,16.07 5.243,17.271 C 5.242,18.471 5.598,19.671 6.209,20.715 C 6.889,21.876 7.882,22.843 8.988,23.622 C 11.578,25.453 14.776,26.256 17.972,26.257 C 21.171,26.258 24.369,25.455 26.963,23.628 C 28.07,22.848 29.069,21.879 29.749,20.718 C 30.362,19.673 30.717,18.471 30.713,17.268 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 11.979,1.534 L 10.492,1.537 C 10.514,15.535 21.199,27.001 34.46,27 L 34.459,25.513 C 22.108,25.514 11.999,14.804 11.979,1.534 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <g id="Group_2" stroke="none">
+   <rect x="-2.247" y="-2.247" width="4.495" height="4.495" transform="translate(17.979 18.017) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 14.987,15.025 L 14.987,21.007 L 20.969,21.007 L 20.969,15.025 L 14.987,15.025 Z M 19.482,16.512 L 19.482,19.52 L 16.474,19.52 L 16.474,16.512 L 19.482,16.512 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

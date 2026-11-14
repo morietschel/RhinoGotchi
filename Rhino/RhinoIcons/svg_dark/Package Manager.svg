@@ -1,0 +1,65 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m5.274 20.32v-17.764l25.358-.094.094 17.905-1.641 7.594-8.437 5.578-.328-5.297-2.953-.047-.375 2.625-10.406-2.812z" style="fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;" fill="#d69e42" stroke-width="4.5" x_rma_id="5" stroke="#666" stroke-linejoin="round" />
+    <g mask="url(#e)">
+      <path d="m7.055 21.211 9.937 1.969v4.312l3.703.005.047-1.27 8.296-5.11z" fill="#7f4100" fill-rule="evenodd" stroke-width="3.5px" x_rma_id="6" stroke="#666" stroke-linejoin="round" />
+    </g>
+    <path d="m6.794 20.18 22.546.047" style="stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:.498039;" fill="none" stroke-width="4.5" x_rma_id="7" stroke="#666" stroke-linejoin="round" />
+    <g mask="url(#h)">
+      <path d="m7.055 21.211 9.937 1.969v4.312l3.705-.043.045-1.222 8.296-5.11z" fill="#7f4100" fill-rule="evenodd" stroke-width="3.5px" x_rma_id="8" stroke="#666" stroke-linejoin="round" />
+    </g>
+    <path d="m6.867 21.352 9.937 1.969v7.64" style="stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="none" stroke-width="4.125" x_rma_id="9" stroke="#666" stroke-linejoin="round" />
+    <path d="m29.038 21.117-8.296 5.11-.206 5.489" style="stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="none" stroke-width="4.125" x_rma_id="10" stroke="#666" stroke-linejoin="round" />
+    <g fill="#fff">
+      <path d="m6.841 22.008 2.212.732 2.245.589 4.23 1.029.082 4.646-3.849-.881-2.162-.455-2.196-.316 2.092.738 2.128.599 4.272 1.124.312-.069.136-.289-.09-5.391-.081-.224-.203-.126-4.539-.965-2.279-.443-1.145-.198z" fill-opacity=".701961" fill="#fff" stroke-width="3.5px" x_rma_id="11" stroke="#666" stroke-linejoin="round" />
+      <path d="m29.105 21.914-2.006.988-1.931 1.102-1.902 1.146-1.883 1.176-.095.08-.072.102-.045.116-.014.122.003 1.218.012 1.219.02 1.219.029 1.219.069.243.183.175.246.056.24-.077 1.581-1.081 1.565-1.105 1.539-1.145 1.479-1.238-1.737.84-1.671.941-1.647.981-.888.547.002-.364-.004-1.219-.012-1.219-.015-.953 1.613-1.083 1.824-1.268 1.795-1.312z" fill-opacity=".498039" fill="#fff" stroke-width="3.5px" x_rma_id="12" stroke="#666" stroke-linejoin="round" />
+      <path d="m29.522 3.148-5.735.02-5.733.056-5.733.086-5.732.119-.165.034-.14.093-.095.139-.036.164-.039 3.645-.015 3.646.021 3.646.111 3.649.291-3.639.203-3.642.167-3.642.126-3.213 5.315-.021 5.733-.056 5.733-.086 5.307-.112.139 3.173.181 3.607.217 3.605.302 3.604.098-3.614.007-3.613-.031-3.611-.053-3.61-.037-.166-.098-.139-.143-.092z" fill-opacity=".498039" fill="#fff" stroke-width="3.5px" x_rma_id="13" stroke="#666" stroke-linejoin="round" />
+    </g>
+    <path d="m14.339 18.681h7.503v-6.807h3.001l-6.753-7.658-6.753 7.658h3.002z" style="fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#c0d655" stroke-width="4.489" x_rma_id="14" stroke="#666" stroke-linejoin="round" />
+    <path d="m15.493 17.416h5.219l-.012-6.585h2.086l-4.625-5.117-4.766 5.117h2.087z" style="stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:.498039;" fill="none" stroke-width="3.75" x_rma_id="15" stroke="#666" stroke-linejoin="round" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <clipPath id="b">
+    <path d="m7.055 21.117h21.983v6.38h-21.983z" fill="" stroke-width="" x_rma_id="1" />
+  </clipPath>
+  <linearGradient id="c">
+    <stop offset="0" stop-color="#fff" />
+    <stop offset="1" stop-color="#fff" stop-opacity="0" />
+  </linearGradient>
+  <linearGradient id="d" gradientTransform="matrix(-8.999 -.656 .656 -8.999 25.543 28.945)" gradientUnits="userSpaceOnUse" spreadMethod="pad" x1="0" x2="1" xlink:href="#c" y1="0" y2="0" />
+  <mask id="e" height="1" maskUnits="userSpaceOnUse" width="1" x="0" y="0">
+    <g clip-path="url(#b)">
+      <path d="m7.055 21.117h21.983v6.38h-21.983z" fill="url(#d)" fill-rule="evenodd" stroke-width="" x_rma_id="2" />
+    </g>
+  </mask>
+  <clipPath id="f">
+    <path d="m7.055 21.117h21.983v6.375h-21.983z" fill="" stroke-width="" x_rma_id="3" />
+  </clipPath>
+  <linearGradient id="g" gradientTransform="matrix(9.233 -.797 .797 9.233 10.638 24.68)" gradientUnits="userSpaceOnUse" spreadMethod="pad" x1="0" x2="1" xlink:href="#c" y1="0" y2="0" />
+  <mask id="h" height="1" maskUnits="userSpaceOnUse" width="1" x="0" y="0">
+    <g clip-path="url(#f)">
+      <path d="m7.055 21.117h21.983v6.375h-21.983z" fill="url(#g)" fill-rule="evenodd" stroke-width="" x_rma_id="4" />
+    </g>
+  </mask>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m5.274 20.32v-17.764l25.358-.094.094 17.905-1.641 7.594-8.437 5.578-.328-5.297-2.953-.047-.375 2.625-10.406-2.812z" style="fill-rule:evenodd;stroke:#402100;stroke-linejoin:round;stroke-miterlimit:10;" fill="#d69e42" stroke-width="1.5" x_rma_id="5" />
+    <g mask="url(#e)">
+      <path d="m7.055 21.211 9.937 1.969v4.312l3.703.005.047-1.27 8.296-5.11z" fill="#7f4100" fill-rule="evenodd" stroke-width="" x_rma_id="6" />
+    </g>
+    <path d="m6.794 20.18 22.546.047" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:.498039;" fill="none" stroke-width="1.5" x_rma_id="7" />
+    <g mask="url(#h)">
+      <path d="m7.055 21.211 9.937 1.969v4.312l3.705-.043.045-1.222 8.296-5.11z" fill="#7f4100" fill-rule="evenodd" stroke-width="" x_rma_id="8" />
+    </g>
+    <path d="m6.867 21.352 9.937 1.969v7.64" style="stroke:#402100;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="none" stroke-width="1.125" x_rma_id="9" />
+    <path d="m29.038 21.117-8.296 5.11-.206 5.489" style="stroke:#402100;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="none" stroke-width="1.125" x_rma_id="10" />
+    <g fill="#fff">
+      <path d="m6.841 22.008 2.212.732 2.245.589 4.23 1.029.082 4.646-3.849-.881-2.162-.455-2.196-.316 2.092.738 2.128.599 4.272 1.124.312-.069.136-.289-.09-5.391-.081-.224-.203-.126-4.539-.965-2.279-.443-1.145-.198z" fill-opacity=".701961" fill="#fff" stroke-width="" x_rma_id="11" />
+      <path d="m29.105 21.914-2.006.988-1.931 1.102-1.902 1.146-1.883 1.176-.095.08-.072.102-.045.116-.014.122.003 1.218.012 1.219.02 1.219.029 1.219.069.243.183.175.246.056.24-.077 1.581-1.081 1.565-1.105 1.539-1.145 1.479-1.238-1.737.84-1.671.941-1.647.981-.888.547.002-.364-.004-1.219-.012-1.219-.015-.953 1.613-1.083 1.824-1.268 1.795-1.312z" fill-opacity=".498039" fill="#fff" stroke-width="" x_rma_id="12" />
+      <path d="m29.522 3.148-5.735.02-5.733.056-5.733.086-5.732.119-.165.034-.14.093-.095.139-.036.164-.039 3.645-.015 3.646.021 3.646.111 3.649.291-3.639.203-3.642.167-3.642.126-3.213 5.315-.021 5.733-.056 5.733-.086 5.307-.112.139 3.173.181 3.607.217 3.605.302 3.604.098-3.614.007-3.613-.031-3.611-.053-3.61-.037-.166-.098-.139-.143-.092z" fill-opacity=".498039" fill="#fff" stroke-width="" x_rma_id="13" />
+    </g>
+    <path d="m14.339 18.681h7.503v-6.807h3.001l-6.753-7.658-6.753 7.658h3.002z" style="fill-rule:evenodd;stroke:#739d31;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#c0d655" stroke-width="1.489" x_rma_id="14" />
+    <path d="m15.493 17.416h5.219l-.012-6.585h2.086l-4.625-5.117-4.766 5.117h2.087z" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:.498039;" fill="none" stroke-width=".75" x_rma_id="15" />
+  </g>
+</svg>

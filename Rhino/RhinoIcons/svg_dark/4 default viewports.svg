@@ -1,0 +1,29 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" stroke-miterlimit="10" stroke-width="1.489" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <g fill="#c5c5c5" fill-rule="evenodd" stroke="#000" stroke-linecap="round">
+      <path d="m17.314 18.763v-13.523h14.987v13.523z" fill="#c5c5c5" stroke-width="3.5px" x_rma_id="1" stroke="#666" stroke-linejoin="round" />
+      <path d="m2.29 18.763v-13.523h14.987v13.523z" fill="#c5c5c5" stroke-width="3.5px" x_rma_id="2" stroke="#666" stroke-linejoin="round" />
+      <path d="m17.314 32.258v-13.523h14.987v13.523z" fill="#c5c5c5" stroke-width="3.5px" x_rma_id="3" stroke="#666" stroke-linejoin="round" />
+      <path d="m2.29 32.258v-13.523h14.987v13.523z" fill="#c5c5c5" stroke-width="3.5px" x_rma_id="4" stroke="#666" stroke-linejoin="round" />
+    </g>
+    <path d="m3.007 30.785h5.972" fill="none" stroke="#858585" stroke-linejoin="round" stroke-width="1.489" />
+    <path d="m3.007 17.279h5.972" fill="none" stroke="#666" stroke-linejoin="round" stroke-width="4.489" x_rma_id="6" />
+    <path d="m18.037 30.785h5.973" fill="none" stroke="#666" stroke-linejoin="round" stroke-width="4.489" x_rma_id="7" />
+    <path d="m18.037 17.279h5.973" fill="none" stroke="#666" stroke-linejoin="round" stroke-width="4.489" x_rma_id="8" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <g clip-path="url(#a)" stroke-miterlimit="10" stroke-width="1.489" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <g fill="#c5c5c5" fill-rule="evenodd" stroke="#000" stroke-linecap="round">
+      <path d="m17.314 18.763v-13.523h14.987v13.523z" fill="#c5c5c5" stroke-width="" x_rma_id="1" />
+      <path d="m2.29 18.763v-13.523h14.987v13.523z" fill="#c5c5c5" stroke-width="" x_rma_id="2" />
+      <path d="m17.314 32.258v-13.523h14.987v13.523z" fill="#c5c5c5" stroke-width="" x_rma_id="3" />
+      <path d="m2.29 32.258v-13.523h14.987v13.523z" fill="#c5c5c5" stroke-width="" x_rma_id="4" />
+    </g>
+    <path d="m3.007 30.785h5.972" fill="none" stroke="#858585" stroke-linejoin="round" stroke-width="1.489" />
+    <path d="m3.007 17.279h5.972" fill="none" stroke="#656565" stroke-linejoin="round" stroke-width="1.489" x_rma_id="6" />
+    <path d="m18.037 30.785h5.973" fill="none" stroke="#132e8c" stroke-linejoin="round" stroke-width="1.489" x_rma_id="7" />
+    <path d="m18.037 17.279h5.973" fill="none" stroke="#656565" stroke-linejoin="round" stroke-width="1.489" x_rma_id="8" />
+  </g>
+</svg>

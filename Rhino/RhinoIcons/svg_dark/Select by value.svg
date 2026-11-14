@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+	</defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 12.835,18.991 L 18.714,20.541 L 28.143,11.112 L 20.781,3.75 L 11.285,13.18 L 12.835,18.991 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 14.001,18.03 L 8.389,23.64 C 7.597,24.43 7.72,26.219 8.526,26.993 C 9.381,27.813 10.99,28.156 12.085,26.993 C 12.695,26.345 13.375,25.741 14.07,25.147 C 15.027,24.325 16.805,24.462 17.762,25.419 C 18.545,26.2 18.529,28.31 17.627,29.183 L 13.385,33.29" fill="none" stroke-width="4.5" stroke="#666666" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 33.011,28.503 L 33.011,33.011 L 28.504,33.011 L 28.504,34.5 L 34.5,34.5 L 34.5,28.503 L 33.011,28.503 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.499,1.499 L 1.499,7.496 L 2.988,7.496 L 2.988,2.988 L 7.496,2.988 L 7.496,1.499 L 1.499,1.499 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+ <g id="tag - select" transform="scale(1 -1)">
+  <path d="M 12.738,19.217 L 18.617,20.767 L 28.046,11.338 L 20.684,3.976 L 11.188,13.406 L 12.738,19.217 Z" fill="#ffc400" stroke-width="1.55" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none"/>
+  <path d="M 13.904,18.256 L 8.292,23.866 C 7.5,24.656 7.623,26.445 8.429,27.219 C 9.284,28.039 10.893,28.382 11.988,27.219 C 12.598,26.571 13.278,25.967 13.973,25.373 C 14.93,24.551 16.708,24.688 17.665,25.645 C 18.448,26.426 18.432,28.536 17.53,29.409 L 13.288,33.516" fill="none" stroke-width="1.642" stroke-linejoin="round" stroke-linecap="round"/>
+ </g>
+ <g id="Key-Select" transform="scale(1 -1)"/>
+</svg>

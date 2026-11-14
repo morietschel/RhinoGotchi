@@ -1,0 +1,62 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="11.249" gradientTransform="translate(25.5 5.251)">
+   <stop offset="0" stop-color="#c5c5c5"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="-4.5" gradientTransform="translate(14.251 9.001)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </linearGradient>
+  <image id="Bitmap" preserveAspectRatio="none" width="1" height="1" xlink:href="data:image/png;base64,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">
+   <title>1</title>
+  </image>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 17.89,17.688 L 16.744,19.037 L 18.923,28.825 L 26.334,35.999 L 36,36 L 36,27.565 L 27.353,19.165 L 17.89,17.688 Z" fill="#666666" stroke-linejoin="miter" stroke-opacity="0.996078" stroke="none" stroke-width="1.441" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 1.509,7.503 C 1.508,7.674 1.518,7.844 1.537,8.013 C 1.615,8.699 1.847,9.339 2.196,9.896 C 2.989,11.157 4.399,12.004 6.009,12.004 L 22.508,12.004 L 22.508,7.504 L 6.009,7.504 C 6.009,6.675 6.682,6.003 7.508,6.003 L 24.007,6.003 L 24.008,1.504 L 7.509,1.503 C 4.195,1.503 1.509,4.19 1.509,7.503 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 18.009,7.503 C 18.008,7.675 18.018,7.846 18.037,8.015 C 18.114,8.693 18.342,9.326 18.685,9.878 C 19.475,11.148 20.89,12.004 22.508,12.004 C 23.54,12.004 24.49,11.655 25.249,11.071 L 25.509,10.844 L 25.509,28.504 L 10.509,28.504 L 10.509,10.504 L 6.009,10.504 L 6.009,33.004 L 30.009,33.004 L 30.009,7.503 C 30.007,4.19 27.321,1.503 24.008,1.503 C 20.695,1.503 18.009,4.191 18.009,7.503 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" fill-rule="evenodd" stroke="none">
+   <g id="Group_1" stroke-width="0.5" fill="#000000" fill-opacity="1.000000">
+    <path d="M 19.507,7.5 C 19.505,9.153 20.847,10.495 22.5,10.495 C 24.152,10.495 25.495,9.154 25.495,7.501 L 25.495,6.007 L 21.406,6.007 L 21.508,5.819 C 22.048,5.019 22.963,4.494 24,4.494 C 25.658,4.494 27.006,5.84 27.007,7.501 L 27.007,30.007 L 8.995,30.007 L 8.995,10.501 L 7.507,10.501 L 7.507,31.495 L 28.495,31.495 L 28.495,7.5 C 28.493,5.019 26.481,3.006 24,3.006 C 21.519,3.006 19.507,5.019 19.507,7.5 Z M 22.5,9.007 C 21.668,9.007 20.994,8.332 20.995,7.498 L 24.007,7.498 C 24.007,8.331 23.331,9.007 22.5,9.007 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+    <path d="M 3.007,7.5 C 3.005,9.154 4.347,10.495 6.001,10.495 L 22.5,10.495 L 22.5,9.007 L 6.001,9.007 C 5.168,9.007 4.494,8.331 4.495,7.501 C 4.495,5.84 5.842,4.494 7.5,4.494 L 23.999,4.494 L 24,3.007 L 7.501,3.006 C 5.019,3.006 3.007,5.019 3.007,7.5 Z" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   </g>
+   <path d="M 24.012,7.489 C 24.012,8.325 23.337,9.001 22.506,9.001 C 21.674,9.001 21,8.325 21,7.494 L 24.012,7.489 Z" fill="#a5a5a5" stroke-width="0.24" marker-start="none" marker-end="none"/>
+   <path d="M 24.006,4.488 C 25.665,4.488 27.012,5.835 27.012,7.494 L 27,30 L 8.989,30 L 9.001,10.489 L 22.506,10.489 C 24.158,10.489 25.5,9.147 25.5,7.494 L 25.5,6.001 L 21.413,6.001 L 21.514,5.814 C 22.055,5.014 22.969,4.488 24.006,4.488 Z" stroke-width="0.24" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+   <path d="M 20.687,4.488 L 20.28,4.982 C 19.795,5.699 19.512,6.563 19.512,7.494 C 19.512,7.907 19.596,8.301 19.747,8.659 L 19.932,9.001 L 6.001,9.001 C 5.169,9.001 4.494,8.325 4.495,7.494 C 4.495,5.835 5.842,4.488 7.5,4.488 L 20.687,4.488 Z" stroke-width="0.24" marker-start="none" marker-end="none" fill="url(#LinearGradient_1)"/>
+   <path d="M 10.5,27.007 L 10.5,28.495 L 21,28.495 L 21,27.007 L 10.5,27.007 Z" stroke-width="0.5" fill="#000000" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+   <path d="M 10.501,24.007 L 10.501,25.495 L 24,25.495 L 24,24.007 L 10.501,24.007 Z" stroke-width="0.5" fill="#000000" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+   <path d="M 10.501,21.007 L 10.501,22.495 L 15.001,22.495 L 15.001,21.007 L 10.501,21.007 Z" stroke-width="0.5" fill="#000000" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+   <path d="M 10.501,18.007 L 10.501,19.495 L 19.5,19.495 L 19.5,18.007 L 10.501,18.007 Z" stroke-width="0.5" fill="#000000" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+   <path d="M 10.5,15.007 L 10.5,16.495 L 21,16.495 L 21,15.007 L 10.5,15.007 Z" stroke-width="0.5" fill="#000000" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+   <path d="M 10.501,12.007 L 10.501,13.495 L 24,13.495 L 24,12.007 L 10.501,12.007 Z" stroke-width="0.5" fill="#000000" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+   <path d="M 18,21.007 L 18,22.495 L 22.5,22.495 L 22.5,21.007 L 18,21.007 Z" stroke-width="0.5" fill="#000000" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  </g>
+  <g id="ClipView" stroke-linejoin="miter" stroke="none">
+   <rect x="-18" y="-18" width="36" height="36" transform="translate(18 18) rotate(90)" stroke-width="0"/>
+   <clipPath id="ClipPath">
+    <path d="M 0,35.999 L 0,0 L 36,0 L 36,35.999 L 0,35.999 Z"/>
+   </clipPath>
+   <g clip-path="url(#ClipPath)">
+    <g id="Group_2" stroke-opacity="0.996078" fill-opacity="0.996078">
+     <path d="M 26.682,20.923 L 15.001,15.751 L 20.204,27.461 L 47.437,54.694 L 53.909,48.15 L 26.682,20.923 Z" fill="#000000" stroke-width="1.44" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     <clipPath id="clip-path">
+      <use xlink:href="#Shape"/>
+     </clipPath>
+     <g clip-path="url(#clip-path)">
+      <use xlink:href="#Bitmap" transform="translate(16.676 26.971) scale(9.545 -9.547)"/>
+     </g>
+     <path d="M 20.918,26.971 L 16.676,17.424 L 26.221,21.668 L 20.918,26.971 Z" stroke-width="1.488" marker-start="none" marker-end="none" fill="none" id="Shape" fill-opacity="0.996078"/>
+     <path d="M 18.562,21.668 L 16.676,17.424 L 20.918,19.311 L 18.562,21.668 Z" stroke-width="1.488" fill="#231f20" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     <path d="M 47.434,53.487 L 20.918,26.971 C 19.882,25.199 20.292,24.901 21.979,25.909 L 48.495,52.427 L 47.434,53.487 Z" stroke-width="1.488" fill="#ffbf4f" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     <path d="M 48.466,52.396 L 21.95,25.88 C 21.649,23.372 22.768,22.369 25.133,22.699 L 51.649,49.215 L 48.466,52.396 Z" stroke-width="1.488" fill="#ff6114" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+     <path d="M 51.647,49.215 L 25.131,22.699 C 24.095,20.927 24.505,20.63 26.193,21.638 L 52.708,48.154 L 51.647,49.215 Z" stroke-width="1.488" fill="#bd0300" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

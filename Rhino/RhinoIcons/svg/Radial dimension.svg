@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 3.006,3 L 3.006,7.5 L 4.494,7.5 L 4.494,3 L 3.006,3 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 1.5,4.506 L 1.5,5.994 L 6,5.994 L 6,4.506 L 1.5,4.506 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 3,21.006 L 3,22.494 C 12.933,22.494 20.995,14.432 20.995,4.499 L 19.507,4.499 C 19.507,13.611 12.112,21.006 3,21.006 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 15.007,18.006 L 15.007,22.5 L 16.495,22.5 L 16.495,19.494 L 19.501,19.494 L 19.501,18.006 L 15.007,18.006 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 16.277,18.223 L 15.224,19.276 L 22.942,26.994 L 34.5,26.994 L 34.5,25.506 L 23.559,25.506 L 16.277,18.223 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 25.5,24 L 31.5,24 L 31.5,22.5 L 33,22.5 L 33,19.5 L 31.5,19.5 L 31.5,18 L 27,18 L 27,13.5 L 25.5,13.5 L 25.5,24 Z M 27,22.5 L 27,19.5 L 31.5,19.5 L 31.5,22.5 L 27,22.5 Z M 31.5,18 L 31.5,13.5 L 33,13.5 L 33,18 L 31.5,18 Z" stroke-linejoin="miter" stroke-width="1.104" fill="#231f20" stroke="none" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

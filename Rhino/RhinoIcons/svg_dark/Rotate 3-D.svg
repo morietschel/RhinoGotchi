@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="14.768" y2="12.787" gradientTransform="matrix(0.707108 -0.707108 0.707108 0.707108 -9.827 0.949)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="0.1" stop-color="#6a86fc"/>
+   <stop offset="0.2" stop-color="#718cfc"/>
+   <stop offset="0.3" stop-color="#7992fc"/>
+   <stop offset="0.4" stop-color="#839bfc"/>
+   <stop offset="0.5" stop-color="#92a6fc"/>
+   <stop offset="0.6" stop-color="#a0b1fc"/>
+   <stop offset="0.7" stop-color="#aabafc"/>
+   <stop offset="0.8" stop-color="#b2c0fc"/>
+   <stop offset="0.9" stop-color="#b9c6fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="4.495" cy="27.782" r="16.6114445488645" gradientTransform="matrix(0 -1 1 0 -21.779 5.996)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="0.1" stop-color="#fcfcfc"/>
+   <stop offset="0.2" stop-color="#f7f7f7"/>
+   <stop offset="0.3" stop-color="#f2f2f2"/>
+   <stop offset="0.4" stop-color="#ebebeb"/>
+   <stop offset="0.5" stop-color="#e2e2e2"/>
+   <stop offset="0.6" stop-color="#d9d9d9"/>
+   <stop offset="0.7" stop-color="#d2d2d2"/>
+   <stop offset="0.8" stop-color="#cdcdcd"/>
+   <stop offset="0.9" stop-color="#c8c8c8"/>
+   <stop offset="1" stop-color="#c5c5c5"/>
+  </radialGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 0,9.02 L 0,34.532 L 12.004,34.532 L 12.004,9.02 L 0,9.02 Z M 7.504,13.52 L 7.504,30.032 L 4.5,30.032 L 4.5,13.52 L 7.504,13.52 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 18.595,1.468 L 10.107,9.955 L 28.145,27.995 L 36.635,19.508 L 18.595,1.468 Z M 18.595,7.831 L 30.27,19.507 L 28.146,21.632 L 16.47,9.956 L 18.595,7.831 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" stroke="none">
+   <rect x="-10.506" y="-3.751" width="21.012" height="7.503" transform="translate(23.365 14.735) rotate(45)" stroke-linejoin="miter" fill="url(#LinearGradient)"/>
+   <path d="M 18.589,3.6 L 12.23,9.958 L 28.139,25.869 L 34.499,19.511 L 18.589,3.6 Z M 18.589,5.705 L 32.394,19.51 L 28.14,23.764 L 14.335,9.959 L 18.589,5.705 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 9.748,28.537 L 9.748,30.026 C 14.77,30.026 19.397,27.991 23.146,24.58 L 22.143,23.479 C 18.63,26.676 14.349,28.537 9.748,28.537 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 18.001,22.533 L 18.001,24.022 L 22.51,24.022 L 22.51,28.532 L 23.999,28.532 L 23.999,22.533 L 18.001,22.533 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group_1" stroke="none">
+   <rect x="-10.506" y="-3.751" width="21.012" height="7.503" transform="translate(5.996 21.779) rotate(90)" stroke-linejoin="miter" fill="url(#RadialGradient)"/>
+   <path d="M 1.499,10.528 L 1.499,33.029 L 10.492,33.029 L 10.492,10.528 L 1.499,10.528 Z M 9.003,12.017 L 9.003,31.54 L 2.988,31.54 L 2.988,12.017 L 9.003,12.017 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

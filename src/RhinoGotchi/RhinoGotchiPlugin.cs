@@ -1,5 +1,7 @@
 using Rhino;
 using Rhino.PlugIns;
+using Rhino.UI;
+using RhinoGotchi.UI;
 
 namespace RhinoGotchi
 {
@@ -9,6 +11,9 @@ namespace RhinoGotchi
     /// </summary>
     public class RhinoGotchiPlugin : PlugIn
     {
+        /// <summary>Embedded SVG used for the side panel tab icon.</summary>
+        internal const string IconResource = "RhinoGotchi.Resources.RhinoGotchi.svg";
+
         public RhinoGotchiPlugin()
         {
             Instance = this;
@@ -19,14 +24,29 @@ namespace RhinoGotchi
 
         // Load with Rhino instead of on first use. A load-on-demand plugin is only known
         // through the command list Rhino cached last session, so newly added commands
-        // (like GotchiLevel) are "unknown" until the plugin happens to load.
+        // (like GotchiLevel) are "unknown" until the plugin happens to load. It also makes
+        // the RhinoGotchi panel tab available without running a command first.
         public override PlugInLoadTime LoadTime => PlugInLoadTime.AtStartup;
 
         protected override LoadReturnCode OnLoad(ref string errorMessage)
         {
-            Rhino.UI.Panels.RegisterPanel(this, typeof(UI.GotchiPanel), "RhinoGotchi",
-                typeof(RhinoGotchiPlugin).Assembly, "RhinoGotchi.Resources.GotchiPanel.svg", Rhino.UI.PanelType.System);
-            RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}). Type Gotchi to open the lesson panel.");
+            Panels.RegisterPanel(
+                this,
+                typeof(RhinoGotchiPanel),
+                "RhinoGotchi",
+                typeof(RhinoGotchiPlugin).Assembly,
+                IconResource,
+                PanelType.System);
+
+            Panels.RegisterPanel(
+                this,
+                typeof(GotchiPanel),
+                "Gotchi Lessons",
+                typeof(RhinoGotchiPlugin).Assembly,
+                "RhinoGotchi.Resources.GotchiPanel.svg",
+                PanelType.System);
+
+            RhinoApp.WriteLine($"RhinoGotchi loaded ({RuntimeLabel()}). Type RhinoGotchi for the games panel, or Gotchi for the lesson panel.");
             return LoadReturnCode.Success;
         }
 

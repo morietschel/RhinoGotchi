@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke-linejoin="miter" stroke="none" stroke-width="0.512">
+   <path d="M 9.792,23.101 L 19.422,10.992 L 19.422,15.344 L 9.792,27.451 L 9.792,23.101 Z" fill="#ff4b00" marker-start="none" marker-end="none"/>
+   <path d="M 9.792,18.749 L 19.422,6.643 L 19.422,10.992 L 9.792,23.101 L 9.792,18.749 Z" fill="#ffffff" marker-start="none" marker-end="none"/>
+   <path d="M 19.422,6.643 L 9.792,18.749 L 9.792,14.398 L 19.422,2.292 L 19.422,6.643 Z" fill="#6582fc" marker-start="none" marker-end="none"/>
+   <path d="M 33.748,13.587 C 30.364,9.672 24.17,7.583 19.422,6.643 C 19.422,5.192 19.422,3.742 19.422,2.292 C 24.17,3.232 30.364,5.321 33.748,9.238 C 33.748,10.688 33.748,12.137 33.748,13.587 Z" fill="#122877" marker-start="none" marker-end="none"/>
+   <path d="M 19.422,6.643 C 24.17,7.583 30.364,9.672 33.748,13.587 C 33.748,15.039 33.748,16.489 33.748,17.939 C 30.364,14.024 24.17,11.935 19.422,10.992 C 19.422,9.543 19.422,8.093 19.422,6.643 Z" fill="#b6b6b6" marker-start="none" marker-end="none"/>
+   <path d="M 19.422,10.992 C 24.17,11.935 30.364,14.024 33.748,17.939 C 33.748,19.39 33.748,20.839 33.748,22.29 C 30.364,18.374 24.17,16.286 19.422,15.344 C 19.422,13.894 19.422,12.444 19.422,10.992 Z" fill="#ce0000" marker-start="none" marker-end="none"/>
+   <path d="M 19.422,15.344 C 24.17,16.286 30.364,18.374 33.748,22.29 C 25.763,24.009 17.778,25.731 9.792,27.451 C 13.002,23.416 16.212,19.381 19.422,15.344 Z" fill="#ff9163" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 18.829,1.802 L 9.182,13.929 C 9.077,14.062 9.019,14.227 9.019,14.397 L 9.019,27.473 C 9.019,27.951 9.461,28.308 9.929,28.207 L 33.927,23.037 C 34.273,22.963 34.52,22.656 34.52,22.303 L 34.52,9.228 C 34.52,9.035 34.446,8.85 34.313,8.71 C 30.243,4.424 24.989,2.652 19.569,1.533 C 19.292,1.476 19.006,1.58 18.829,1.802 Z M 33.017,9.549 L 33.017,21.696 L 10.522,26.542 L 10.522,14.659 L 19.712,3.106 L 21.239,3.448 C 25.141,4.402 28.747,5.807 31.765,8.366 L 33.017,9.549 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 2.959,19.573 C 2.959,27.624 7.839,34.516 14.292,34.516 C 16.791,34.516 19.072,33.455 20.912,31.709 L 21.401,31.201 L 22.585,32.247 L 24.448,26.602 L 19.076,29.146 L 20.232,30.168 L 19.838,30.577 C 18.238,32.096 16.322,32.955 14.292,32.955 C 9.07,32.955 4.52,27.187 4.52,19.573 C 4.52,11.989 9.096,6.191 14.292,6.191 C 14.916,6.191 16.304,6.404 16.561,6.704 L 17.748,5.689 C 17.272,5.134 16.406,4.908 15.835,4.796 C 15.192,4.67 14.564,4.63 14.292,4.63 C 7.865,4.63 2.959,11.552 2.959,19.573 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

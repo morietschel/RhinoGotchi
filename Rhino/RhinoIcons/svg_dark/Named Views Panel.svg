@@ -1,0 +1,109 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-9.422" y2="0.141" gradientTransform="translate(32.434 15.82)">
+   <stop offset="0" stop-color="#191919"/>
+   <stop offset="1" stop-color="#666666"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="8.486" y2="2.664" gradientTransform="translate(8.268 14.072)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-0.703" y2="1.781" gradientTransform="translate(10.591 25.007)">
+   <stop offset="0" stop-color="#333333"/>
+   <stop offset="1" stop-color="#7f7f7f"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-3.856" y2="0.139" gradientTransform="translate(9.811 15.127)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_4" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="7.69" y2="-4.798" gradientTransform="translate(12.557 19.831)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_5" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-7.693" y2="4.798" gradientTransform="translate(29.835 9.266)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_6" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="4.3" y2="0" gradientTransform="matrix(0.0773163 -0.997391 0.995331 0.0940552 -0.003 2.064)">
+   <stop offset="0" stop-color="#b3b3b3"/>
+   <stop offset="0.1" stop-color="#a8a8a8"/>
+   <stop offset="0.2" stop-color="#9b9b9b"/>
+   <stop offset="0.3" stop-color="#8a8a8a"/>
+   <stop offset="0.4" stop-color="#757575"/>
+   <stop offset="0.5" stop-color="#5a5a5a"/>
+   <stop offset="0.6" stop-color="#3e3e3e"/>
+   <stop offset="0.7" stop-color="#292929"/>
+   <stop offset="0.8" stop-color="#181818"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_7" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.004" y2="0" gradientTransform="matrix(0.0755463 -0.998535 0.994171 0.0966034 0.003 0.48)">
+   <stop offset="0" stop-color="#b3b3b3"/>
+   <stop offset="0.1" stop-color="#a8a8a8"/>
+   <stop offset="0.2" stop-color="#9b9b9b"/>
+   <stop offset="0.3" stop-color="#8a8a8a"/>
+   <stop offset="0.4" stop-color="#757575"/>
+   <stop offset="0.5" stop-color="#5a5a5a"/>
+   <stop offset="0.6" stop-color="#3e3e3e"/>
+   <stop offset="0.7" stop-color="#292929"/>
+   <stop offset="0.8" stop-color="#181818"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_8" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="3.858" y2="0" gradientTransform="translate(2.346 15.047) rotate(2.06449)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 17.033,29.283 C 16.32,28.205 15.055,25.383 14.26,25.043 C 11.752,23.972 5.815,25.216 3.57,23.252 C 1.806,21.71 2.314,11.613 2.342,8.637 C 2.379,4.531 8.228,6.639 9.951,6.565 C 13.396,6.415 30.748,6.889 32.106,6.846 C 34.284,6.776 34.139,22.215 32.6,23.322 C 30.847,24.586 28.802,24.618 27.863,25.184 C 27.633,25.32 26.311,28.993 25.936,29.325 C 25.921,29.334 17.175,29.493 17.033,29.283 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 7.498,24.417 C 10.065,24.417 11.077,24.148 13.475,24.8 C 14.013,28.821 6.325,28.68 7.498,24.417 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <ellipse rx="8.625" ry="8.696" transform="translate(21.271 14.593) rotate(90)" stroke-width="4.5" stroke="#666666" stroke-linejoin="miter"/>
+  <path d="M 17.033,29.219 C 16.32,28.141 15.055,25.319 14.26,24.979 C 11.752,23.908 5.815,25.152 3.57,23.188 C 1.806,21.646 2.314,11.549 2.342,8.573 C 2.379,4.467 8.228,6.575 9.951,6.501 C 13.396,6.351 30.748,6.825 32.106,6.782 C 34.284,6.712 34.139,22.151 32.6,23.258 C 30.847,24.522 28.802,24.554 27.863,25.12 C 27.633,25.256 26.311,28.929 25.936,29.261 C 25.921,29.27 17.175,29.429 17.033,29.219 Z" stroke="#231f20" stroke-width="1.505" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_1)" stroke="none"/>
+  </mask>
+  <path d="M 10.161,23.96 C 10.442,17.93 9.211,18.231 8.968,15.755 C 8.696,12.925 9.075,8.834 9.041,6.361 C 11.326,6.422 15.036,6.153 17.595,6.153 C 17.947,7.522 15.085,14.239 15.071,15.547 C 15,20.947 17.876,25.853 10.161,23.96 Z" fill="#231f20" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none" mask="url(#TranspMask)"/>
+  <path d="M 7.498,24.353 C 10.065,24.353 11.077,24.084 13.475,24.736 C 14.013,28.757 6.325,28.616 7.498,24.353 Z" stroke="#231f20" stroke-width="1.505" stroke-linejoin="miter" marker-start="none" marker-end="none" fill="url(#LinearGradient_2)"/>
+  <path d="M 8.15,23.011 C 7.502,23.86 5.333,22.608 5.848,21.93 C 6.472,21.108 8.583,22.219 8.15,23.011 Z" stroke="#231f20" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <ellipse rx="8.625" ry="8.696" transform="translate(21.271 14.529) rotate(90)" fill="#191919" stroke="#231f20" stroke-width="1.491" stroke-linejoin="miter"/>
+  <ellipse rx="5.284" ry="5.517" transform="translate(21.159 14.549) rotate(90)" fill="#000000" stroke="#231f20" stroke-linejoin="miter"/>
+  <path d="M 26.425,26.693 C 25.76,26.755 16.367,26.778 16.45,26.882 C 16.689,27.182 13.909,24.381 14.341,24.444 C 15.606,24.63 20.872,25.805 27.887,24.585 C 27.037,25.724 26.434,26.272 26.425,26.693 Z" fill="#000000" stroke="#231f20" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_3)" stroke="none"/>
+  </mask>
+  <path d="M 10.302,23.629 C 10.324,23.101 10.501,19.234 10.371,18.898 C 10.238,18.544 10.027,17.47 9.743,17.18 C 9.057,16.49 9.596,8.793 9.53,7.202 C 9.468,5.725 6.058,5.913 5.675,6.571 C 5.622,6.66 5.801,18.348 5.955,18.843 C 6.05,19.148 6.734,19.188 7.122,19.382 C 8.434,20.038 8.763,19.851 9.603,21.156 C 10.127,21.971 10.01,22.887 10.302,23.629 Z" stroke="none" fill="#231f20" stroke-linejoin="miter" marker-start="none" marker-end="none" mask="url(#TranspMask_1)"/>
+  <mask id="TranspMask_2">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_4)" stroke="none"/>
+  </mask>
+  <path d="M 20.449,20.069 C 16.208,19.74 14.796,15.372 15.544,13.112 C 15.849,13.268 20.567,14.171 20.579,14.371 C 20.718,16.594 20.645,20.135 20.449,20.069 Z" fill="#77a6fe" stroke-width="2.058" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none" mask="url(#TranspMask_2)"/>
+  <mask id="TranspMask_3">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_5)" stroke="none"/>
+  </mask>
+  <path d="M 21.944,9.031 C 26.184,9.362 27.595,13.727 26.846,15.987 C 26.542,15.83 21.823,14.929 21.814,14.728 C 21.673,12.507 21.747,8.967 21.944,9.031 Z" fill="#7fff81" stroke-width="2.058" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none" mask="url(#TranspMask_3)"/>
+  <ellipse rx="5.939" ry="5.988" transform="translate(21.195 14.593) rotate(90)" stroke-opacity="0.498039" stroke="#ffffff" stroke-width="0.483" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <ellipse rx="4.908" ry="4.949" transform="translate(21.273 14.62) rotate(90)" stroke="#ffffff" stroke-width="0.275" stroke-opacity="0.498039" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <ellipse rx="3.653" ry="3.683" transform="translate(21.287 14.702) rotate(90)" stroke="#ffffff" stroke-width="0.202" stroke-opacity="0.498039" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <ellipse rx="2.542" ry="2.563" transform="translate(21.261 14.654) rotate(90)" stroke="#ffffff" stroke-width="0.14" stroke-opacity="0.498039" stroke-linejoin="miter" fill-opacity="0.498039"/>
+  <mask id="TranspMask_4">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_6)" stroke="none"/>
+  </mask>
+  <ellipse rx="3.399" ry="1.825" transform="translate(18.029 16.257) rotate(62.2289) skewX(0.295849)" fill="#b4ceff" stroke-linejoin="miter" stroke="none" stroke-width="1.707" mask="url(#TranspMask_4)"/>
+  <g id="Group" stroke-linejoin="miter">
+   <ellipse rx="1.424" ry="1.394" transform="translate(21.287 14.702) rotate(90)" stroke-opacity="0.498039" stroke="#ffffff" stroke-width="0.114" fill-opacity="0.498039"/>
+   <mask id="TranspMask_5">
+    <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_7)" stroke="none"/>
+   </mask>
+   <ellipse rx="0.812" ry="0.429" transform="translate(20.675 14.973) rotate(62.7409) skewX(1.21309)" fill="#b4ceff" stroke="none" stroke-width="0.407" mask="url(#TranspMask_5)"/>
+  </g>
+  <ellipse rx="7.379" ry="7.439" transform="translate(21.271 14.529) rotate(90)" stroke="#cccccc" stroke-width="1.276" stroke-linejoin="miter"/>
+  <mask id="TranspMask_6">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_8)" stroke="none"/>
+  </mask>
+  <path d="M 2.997,8.273 C 3.059,6.796 6.108,6.397 6.491,7.055 C 6.544,7.144 6.723,19.055 6.23,19.176 C 5.013,19.476 4.556,19.983 4.309,20.132 C 3.685,20.517 3.829,20.869 3.513,21.491 C 3.267,21.975 2.581,9.763 2.997,8.273 Z" fill="#ffffff" stroke="none" stroke-linejoin="miter" marker-start="none" marker-end="none" mask="url(#TranspMask_6)"/>
+ </g>
+</svg>

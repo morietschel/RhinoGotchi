@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="31.97" y2="0" gradientTransform="matrix(0.575714 0.817657 -0.831589 0.555923 -9.752 -13.464)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke="none">
+   <g id="Group_1">
+    <rect x="-9.753" y="-14.255" width="19.506" height="28.511" transform="translate(17.999 17.999) rotate(90)" stroke-linejoin="miter" fill="url(#LinearGradient)"/>
+    <path d="M 2.998,7.5 L 2.998,28.496 L 32.998,28.496 L 32.998,7.5 L 2.998,7.5 Z M 31.509,8.989 L 31.509,27.007 L 4.487,27.007 L 4.487,8.989 L 31.509,8.989 Z" stroke-width="0.5" fill="#ffea00" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   </g>
+   <path d="M 17.255,9.059 L 17.255,26.94 L 18.744,26.94 L 18.744,9.059 L 17.255,9.059 Z" stroke-width="0.5" fill="#ffea00" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  </g>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(6.747 24.752) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#6cb02a"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(11.248 24.752) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#70df40"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(15.75 24.752) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#9bfe6f"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(20.252 24.752) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#b2fe91"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(6.747 20.25) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#32a757"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(11.249 20.251) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#4dd78a"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(15.751 20.251) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#5bcfdb"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(20.252 20.25) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#8bbafe"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(6.746 15.748) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#5543a7"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(11.248 15.749) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#9d50c7"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(15.75 15.749) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#e28aef"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(20.252 15.748) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#f7a9ca"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(6.747 11.246) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#a73163"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(11.249 11.248) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#b62e23"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(15.751 11.248) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#df822c"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(20.252 11.246) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#f9df66"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(24.754 24.751) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#6cb02a"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(29.255 24.751) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#70df40"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(24.754 20.249) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#32a757"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(29.256 20.25) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#4dd78a"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(24.753 15.747) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#5543a7"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(29.255 15.748) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#9d50c7"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(24.754 11.245) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#a73163"/>
+  <rect x="-2.25" y="-2.25" width="4.501" height="4.501" transform="translate(29.256 11.247) rotate(90)" stroke-linejoin="miter" stroke-width="1.489" stroke="none" fill="#b62e23"/>
+  <path d="M 33.011,28.503 L 33.011,33.011 L 28.504,33.011 L 28.504,34.5 L 34.5,34.5 L 34.5,28.503 L 33.011,28.503 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.499,1.499 L 1.499,7.496 L 2.988,7.496 L 2.988,2.988 L 7.496,2.988 L 7.496,1.499 L 1.499,1.499 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

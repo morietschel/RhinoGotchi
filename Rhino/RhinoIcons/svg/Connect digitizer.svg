@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 6.733,28.505 L 6.733,29.993 L 18.734,29.993 L 18.734,28.505 L 6.733,28.505 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 22.707,10.724 L 6.206,27.223 L 7.259,28.276 L 23.76,11.777 L 22.707,10.724 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 17.99,18.75 L 17.99,27.75 L 19.478,27.75 L 19.478,18.75 L 17.99,18.75 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <rect x="-1.499" y="-8.249" width="2.999" height="16.499" transform="translate(15.733 4.5) rotate(90)" stroke="none" stroke-opacity="0.996078" fill="#970044" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <rect x="-6.75" y="-2.25" width="13.5" height="4.5" transform="translate(12.733 11.25) rotate(90)" stroke="none" stroke-opacity="0.996078" fill="#970044" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <ellipse rx="4.499" ry="4.499" transform="translate(14.982 18) rotate(-170.533)" stroke="none" stroke-opacity="0.996078" fill="#970044" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <ellipse rx="2.249" ry="2.25" transform="translate(18.731 29.25) rotate(180)" stroke="none" stroke-opacity="0.996078" fill="#970044" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <path d="M 8.152,23.17 L 3.653,27.67 C 2.251,29.072 3.249,31.482 5.233,31.482 L 11.983,31.482 C 13.215,31.482 14.216,30.481 14.216,29.249 C 14.216,28.016 13.215,27.016 11.983,27.016 L 10.622,27.016 L 11.311,26.327 C 12.182,25.456 12.182,24.041 11.31,23.169 C 10.439,22.298 9.024,22.298 8.152,23.17 Z" stroke-width="0.5" stroke="none" fill="#970145" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <ellipse rx="2.249" ry="2.249" transform="translate(23.232 11.25) rotate(180)" stroke="none" stroke-opacity="0.996078" fill="#231f20" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+ </g>
+</svg>

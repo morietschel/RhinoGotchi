@@ -47,7 +47,7 @@ namespace RhinoGotchi.UI
         private object? _wasStep;
         private string _bubble = Thinking[0];
         private int _bubbleSeed;
-        private Theme _t = Theme.Light;
+        private Palette _t = Palette.Light;
 
         public LessonCanvas(GotchiGame game)
         {
@@ -211,7 +211,7 @@ namespace RhinoGotchi.UI
             base.OnPaint(e);
             Graphics g = e.Graphics;
             g.AntiAlias = true;
-            _t = Theme.Current;
+            _t = Palette.Current;
             _hits.Clear();
 
             float w = Width, h = Height;
@@ -257,7 +257,7 @@ namespace RhinoGotchi.UI
             int quizzes = _session.Lesson.Steps.OfType<IconQuizStep>().Count();
             y = InfoRow(g, w, y, _t.Purple, $"{quizzes} icon quizzes");
             y = InfoRow(g, w, y, _t.Orange, $"{cards - quizzes} build challenge{(cards - quizzes == 1 ? "" : "s")} in the viewport");
-            y = InfoRow(g, w, y, _t.Heart, $"{LessonSession.MaxHearts} hearts. Mistakes come back at the end!");
+            y = InfoRow(g, w, y, _t.Red, $"{LessonSession.MaxHearts} hearts. Mistakes come back at the end!");
 
             return Footer(g, w, h, y + Gap, () =>
                 ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "START LESSON", _t.Green, _t.GreenShadow, Colors.White, "primary", _session.Begin));
@@ -307,7 +307,7 @@ namespace RhinoGotchi.UI
                 float side = Math.Min(w - 2 * Pad, 170);
                 var card = new RectangleF((w - side) / 2, y, side, side);
                 Card(g, card, _t.TileFace, _t.Border);
-                CommandIcons.Draw(g, quiz.Command, new RectangleF(card.X + 14, card.Y + 14, side - 28, side - 28));
+                LessonIcons.Draw(g, quiz.Command, new RectangleF(card.X + 14, card.Y + 14, side - 28, side - 28));
                 y += side + 4 + Gap + 4;
             }
 
@@ -362,7 +362,7 @@ namespace RhinoGotchi.UI
             var card = new RectangleF(Pad, y, w - 2 * Pad, cardH);
             Card(g, card, _t.TileFace, _t.Border);
             var iconRect = new RectangleF(card.X + 8, card.Y + 8, cardH - 16, cardH - 16);
-            CommandIcons.Draw(g, command, iconRect);
+            LessonIcons.Draw(g, command, iconRect);
             float tx = iconRect.Right + 8, tW = card.Right - tx - 12;
             g.DrawText(Bold(16), _t.Blue, tx, card.Y + 14, command);
             Wrapped(g, tx, card.Y + 38, tW, Regular(12), _t.SubtleText, CommandInfo.Tip(command), maxLines: 4);
@@ -423,7 +423,7 @@ namespace RhinoGotchi.UI
             {
                 ("TOTAL XP", _session.Xp.ToString(), _t.Gold),
                 ("ACCURACY", $"{acc}%", _t.Green),
-                ("HEARTS", $"{_session.Hearts}/{LessonSession.MaxHearts}", _t.Heart),
+                ("HEARTS", $"{_session.Hearts}/{LessonSession.MaxHearts}", _t.Red),
             };
             float cw = (w - 2 * Pad - 2 * 8) / 3;
             for (int i = 0; i < stats.Length; i++)
@@ -450,7 +450,7 @@ namespace RhinoGotchi.UI
             y += 130;
             Heart(g, new PointF(w / 2, y + 22), 44, _t.Disabled);
             y += 56;
-            y += Centered(g, "Out of hearts!", Bold(24), _t.Heart, w, y) + 8;
+            y += Centered(g, "Out of hearts!", Bold(24), _t.Red, w, y) + 8;
             y += Wrapped(g, Pad + 12, y, w - 2 * Pad - 24, Regular(14), _t.SubtleText,
                 "Every mistake costs a heart. Shake it off and take another run at it!", center: true) + 8;
             float footerTop = y + Gap;
@@ -484,8 +484,8 @@ namespace RhinoGotchi.UI
                 string hearts = _session.Hearts.ToString();
                 SizeF hs = Bold(16).MeasureString(hearts);
                 hx = w - Pad - hs.Width;
-                g.DrawText(Bold(16), _t.Heart, hx, y + 1, hearts);
-                Heart(g, new PointF(hx - 14, y + 11), 20, _t.Heart);
+                g.DrawText(Bold(16), _t.Red, hx, y + 1, hearts);
+                Heart(g, new PointF(hx - 14, y + 11), 20, _t.Red);
             }
 
             // Progress
@@ -571,7 +571,7 @@ namespace RhinoGotchi.UI
             // The icon. After Check, every tile shows its name: wrong answers teach too.
             float labelH = _session.Checked ? 22 : 0;
             var iconRect = new RectangleF(inner.X + 12, inner.Y + 14, inner.Width - 24, inner.Height - 22 - labelH);
-            CommandIcons.Draw(g, command, iconRect);
+            LessonIcons.Draw(g, command, iconRect);
 
             if (_session.Checked)
             {
@@ -782,7 +782,7 @@ namespace RhinoGotchi.UI
         private void Confetti(Graphics g, float w, float y)
         {
             var rnd = new Random(7);
-            Color[] colors = { _t.Green, _t.Blue, _t.Gold, _t.Purple, _t.Heart, _t.Orange };
+            Color[] colors = { _t.Green, _t.Blue, _t.Gold, _t.Purple, _t.Red, _t.Orange };
             float fall = Ease(AnimProgress) * 12;
             for (int i = 0; i < 26; i++)
             {

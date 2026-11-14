@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="5.616" cy="30.491" r="27.9600824748426">
+   <stop offset="0" stop-color="#becafc"/>
+   <stop offset="0.1" stop-color="#bcc8fb"/>
+   <stop offset="0.2" stop-color="#b9c6fa"/>
+   <stop offset="0.3" stop-color="#b6c3f8"/>
+   <stop offset="0.4" stop-color="#b1bef6"/>
+   <stop offset="0.5" stop-color="#aab8f2"/>
+   <stop offset="0.6" stop-color="#9eadec"/>
+   <stop offset="0.7" stop-color="#8799e1"/>
+   <stop offset="0.8" stop-color="#5e73cd"/>
+   <stop offset="0.9" stop-color="#425abf"/>
+   <stop offset="1" stop-color="#304ab6"/>
+  </radialGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke="none">
+   <path d="M 4.669,11.777 C 9.651,18.312 9.924,23.787 7.672,32.794 C 23.436,32.794 30.191,26.039 30.191,13.278 L 12.176,4.27 C 11.618,9.093 9.367,11.334 4.669,11.777 Z" stroke-linejoin="round" marker-start="none" marker-end="none" fill="url(#RadialGradient)"/>
+   <path d="M 10.696,4.098 C 10.218,8.229 8.507,9.918 4.529,10.294 C 3.367,10.403 2.777,11.752 3.484,12.68 C 8.093,18.726 8.412,23.693 6.226,32.432 C 5.992,33.371 6.703,34.283 7.672,34.283 C 15.729,34.283 21.79,32.562 25.837,28.929 C 29.919,25.267 31.68,19.912 31.68,13.278 C 31.68,12.713 31.361,12.198 30.857,11.945 L 12.842,2.937 C 11.918,2.476 10.814,3.073 10.696,4.098 Z M 13.283,6.489 L 28.67,14.183 L 28.625,15.494 C 28.271,20.481 26.68,24.17 23.848,26.712 C 20.985,29.281 16.647,30.87 10.445,31.227 L 9.563,31.251 L 9.861,29.822 C 11.091,23.431 10.705,18.583 7.623,13.463 L 7.213,12.826 L 7.587,12.726 C 10.372,11.86 12.157,10.068 13.067,7.253 L 13.283,6.489 Z" stroke-width="0.5" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 21.195,10.275 C 21.195,16.11 16.693,20.795 9.173,20.795 C 8.35,20.795 7.683,21.462 7.683,22.285 C 7.683,23.107 8.35,23.774 9.173,23.774 C 18.15,23.774 24.174,17.937 24.174,10.275 C 24.174,9.452 23.507,8.785 22.685,8.785 C 21.862,8.785 21.195,9.452 21.195,10.275 Z" stroke-width="0.5" stroke="none" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 10.297,7.8 C 9.76,8.422 9.829,9.363 10.451,9.901 L 26.965,24.163 C 27.587,24.7 28.528,24.631 29.066,24.009 C 29.603,23.387 29.534,22.446 28.912,21.908 L 12.398,7.646 C 11.776,7.109 10.835,7.178 10.297,7.8 Z" stroke-width="0.5" stroke="none" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 7.433,9.912 C 6.818,10.458 6.763,11.401 7.309,12.015 C 13.279,18.731 16.691,23.625 16.691,31.293 C 16.691,32.115 17.358,32.782 18.181,32.782 C 19.003,32.782 19.67,32.115 19.67,31.293 C 19.67,22.45 15.581,16.837 9.536,10.036 C 8.99,9.421 8.047,9.366 7.433,9.912 Z" stroke-width="0.5" stroke="none" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

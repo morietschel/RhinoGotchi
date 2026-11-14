@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="14.189" gradientTransform="translate(17.198 9.708)">
+   <stop offset="0" stop-color="#6f6f6f"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="4.227" y2="-3.55" gradientTransform="matrix(-0.775894 -0.630722 0.630859 -0.776001 2.781 0.186)">
+   <stop offset="0" stop-color="#e6e6e6"/>
+   <stop offset="0.1" stop-color="#dadada"/>
+   <stop offset="0.2" stop-color="#cbcbcb"/>
+   <stop offset="0.3" stop-color="#b8b8b8"/>
+   <stop offset="0.4" stop-color="#9c9c9c"/>
+   <stop offset="0.5" stop-color="#737373"/>
+   <stop offset="0.6" stop-color="#4a4a4a"/>
+   <stop offset="0.7" stop-color="#2e2e2e"/>
+   <stop offset="0.8" stop-color="#1b1b1b"/>
+   <stop offset="0.9" stop-color="#0c0c0c"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(13.501 32.251) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(19.515 32.251) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(25.544 32.251) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(31.543 32.251) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(11.265 28.5)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(11.265 22.47)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(11.265 16.436)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(13.52 12.716) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(19.534 12.716) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(25.501 12.751) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(31.5 12.751) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(33.751 28.489)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(33.751 22.5)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <rect x="-0.75" y="-1.5" width="1.5" height="3" transform="translate(33.751 16.5)" stroke="none" fill="#231f20" stroke-width="1.492" stroke-linejoin="miter"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient)" stroke="none"/>
+  </mask>
+  <path d="M 17.267,25.909 C 22.078,25.909 25.984,22.003 25.984,17.192 C 25.984,12.381 22.078,8.475 17.267,8.475 C 12.456,8.475 8.55,12.381 8.55,17.192 C 8.55,22.003 12.456,25.909 17.267,25.909 Z" stroke-linejoin="miter" stroke="none" fill="#ffffff" stroke-width="1.445" marker-start="none" marker-end="none" mask="url(#TranspMask)"/>
+  <ellipse rx="9.048" ry="9.048" transform="translate(17.295 17.295) rotate(90)" stroke-linejoin="miter" stroke-width="1.492"/>
+  <path d="M 11.066,10.992 L 4.096,4.021" fill="none" stroke-linejoin="miter" stroke-width="2.888"/>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_1)" stroke="none"/>
+  </mask>
+  <ellipse rx="2.822" ry="4.536" transform="translate(13.658 20.489) rotate(140.896)" stroke-linejoin="miter" stroke="none" fill="#ffffff" stroke-width="1.204" mask="url(#TranspMask_1)"/>
+ </g>
+</svg>

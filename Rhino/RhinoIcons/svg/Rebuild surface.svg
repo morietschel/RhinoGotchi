@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="14.314" y2="0" gradientTransform="matrix(0.677078 0.735901 -0.498215 0.93541 -5.091 -6.067)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke="none">
+   <rect x="-5.265" y="-7.521" width="10.53" height="15.042" transform="translate(26.265 7.511) rotate(90)" stroke-linejoin="miter" fill="url(#LinearGradient)"/>
+   <path d="M 17.998,1.5 L 17.998,13.522 L 34.532,13.522 L 34.532,1.5 L 17.998,1.5 Z M 33.04,2.992 L 33.04,12.03 L 19.49,12.03 L 19.49,2.992 L 33.04,2.992 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 18.724,26.249 C 18.09,26.249 17.447,26.411 16.861,26.751 C 15.067,27.786 14.451,30.082 15.486,31.875 C 16.521,33.667 18.817,34.284 20.61,33.247 C 22.403,32.213 23.018,29.917 21.982,28.125 C 21.337,27.003 20.196,26.343 18.996,26.259 C 18.905,26.252 18.815,26.249 18.724,26.249 Z M 4.485,18.75 L 9.252,25.046 L 8.262,25.533 L 4.485,22.499 L 4.485,18.75 Z M 16.498,17.991 L 16.499,17.992 L 16.827,18.501 L 14.236,21.75 L 10.486,18 L 16.484,18 L 16.498,17.991 Z M 4.485,1.5 L 4.5,17.334 L 3.437,17.334 L 3.378,17.299 C 3.287,17.254 3.192,17.219 3.093,17.191 C 2.292,16.978 1.466,17.451 1.252,18.247 C 1.036,19.044 1.513,19.864 2.314,20.078 L 2.937,20.106 L 2.986,25.498 L 5.985,28.499 L 13.485,28.499 L 17.984,23.998 L 18.012,19.05 L 18.027,19.053 C 18.481,19.048 18.89,18.845 19.185,18.523 L 19.508,18 L 25.484,18 L 25.484,20.999 L 29.984,20.999 L 29.984,13.499 L 25.484,13.499 L 25.484,16.5 L 19.464,16.5 L 19.162,16.029 C 18.86,15.714 18.447,15.521 17.992,15.525 C 17.538,15.53 17.129,15.732 16.833,16.055 L 16.56,16.5 L 10.486,16.5 L 15.736,10.5 L 15.736,5.25 L 14.985,4.5 L 17.984,1.5 L 11.985,1.5 L 11.985,10.5 L 8.986,13.499 L 7.485,1.5 L 4.485,1.5 Z" stroke-linejoin="miter" stroke-width="1.488" stroke-opacity="0.996078" fill="#231f20" stroke="none" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+ </g>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 7.289,9.6 C 16.001,19.398 20.578,4.773 26.589,22.536" fill="none" stroke="#e1e1e1" stroke-width="1.921"/>
+  <path d="M 31.5,33.751 L 20.282,22.242 L 31.48,17.679 L 31.5,33.751 Z" fill="#e1e1e1" stroke="none" stroke-width="0" stroke-linecap="round" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 2.999,4.499 L 2.999,10.487 L 8.987,10.487 L 8.987,4.499 L 2.999,4.499 Z M 7.5,5.986 L 7.5,9 L 4.486,9 L 4.486,5.986 L 7.5,5.986 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

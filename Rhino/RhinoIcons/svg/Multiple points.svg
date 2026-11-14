@@ -1,0 +1,60 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <g id="Group" stroke="none">
+   <ellipse rx="2.25" ry="2.25" transform="translate(28.573 30.039) rotate(115.472)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 25.875,28.753 C 25.166,30.243 25.799,32.027 27.287,32.736 C 28.777,33.445 30.561,32.812 31.27,31.324 C 31.979,29.834 31.346,28.05 29.858,27.341 C 28.368,26.632 26.584,27.265 25.875,28.753 Z M 29.223,28.672 C 29.977,29.031 30.298,29.935 29.939,30.689 C 29.58,31.443 28.676,31.764 27.922,31.405 C 27.168,31.046 26.847,30.142 27.206,29.388 C 27.565,28.634 28.469,28.313 29.223,28.672 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <rect x="27.074" y="28.54" width="2.999" height="2.999" stroke="none" fill="#ffffff" stroke-width="1.559" stroke-linejoin="miter"/>
+  <g id="Group_1" stroke="none">
+   <ellipse rx="1.493" ry="1.493" transform="translate(24.823 24.789) rotate(115.45)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 22.803,23.827 C 22.271,24.942 22.746,26.278 23.861,26.808 C 24.976,27.34 26.312,26.865 26.842,25.75 C 27.374,24.635 26.899,23.299 25.784,22.769 C 24.669,22.237 23.333,22.712 22.803,23.827 Z M 25.145,24.11 C 25.52,24.288 25.679,24.738 25.501,25.111 C 25.323,25.486 24.873,25.645 24.5,25.467 C 24.125,25.289 23.966,24.839 24.144,24.466 C 24.322,24.091 24.772,23.932 25.145,24.11 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(24.822 24.788) rotate(90)" stroke="none" fill="#ffffff" stroke-width="0.78" stroke-linejoin="miter"/>
+  <g id="Group_2" stroke="none">
+   <ellipse rx="2.96" ry="2.96" transform="translate(29.315 17.25) rotate(115.466)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 25.929,15.638 C 25.04,17.506 25.833,19.745 27.703,20.635 C 29.571,21.524 31.81,20.731 32.7,18.861 C 33.589,16.993 32.796,14.754 30.926,13.864 C 29.058,12.975 26.819,13.768 25.929,15.638 Z M 30.249,15.289 C 31.329,15.803 31.79,17.1 31.275,18.184 C 30.761,19.264 29.464,19.725 28.38,19.21 C 27.3,18.696 26.839,17.399 27.354,16.315 C 27.868,15.235 29.165,14.774 30.249,15.289 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_3" stroke="none">
+   <ellipse rx="2.96" ry="2.96" transform="translate(15.732 18.725) rotate(115.466)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 12.346,17.113 C 11.457,18.981 12.25,21.22 14.12,22.11 C 15.988,22.999 18.227,22.206 19.117,20.336 C 20.006,18.468 19.213,16.229 17.343,15.339 C 15.475,14.45 13.236,15.243 12.346,17.113 Z M 16.666,16.764 C 17.746,17.278 18.207,18.575 17.692,19.659 C 17.178,20.739 15.881,21.2 14.797,20.685 C 13.717,20.171 13.256,18.874 13.771,17.79 C 14.285,16.71 15.582,16.249 16.666,16.764 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_4" stroke="none">
+   <ellipse rx="1.493" ry="1.493" transform="translate(24.823 11.353) rotate(115.45)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 22.803,10.391 C 22.271,11.506 22.746,12.842 23.861,13.372 C 24.976,13.904 26.312,13.429 26.842,12.314 C 27.374,11.199 26.899,9.863 25.784,9.333 C 24.669,8.801 23.333,9.276 22.803,10.391 Z M 25.145,10.674 C 25.52,10.852 25.679,11.302 25.501,11.675 C 25.323,12.05 24.873,12.209 24.5,12.031 C 24.125,11.853 23.966,11.403 24.144,11.03 C 24.322,10.655 24.772,10.496 25.145,10.674 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(24.822 11.352) rotate(90)" stroke="none" fill="#ffffff" stroke-width="0.78" stroke-linejoin="miter"/>
+  <g id="Group_5" stroke="none">
+   <ellipse rx="2.96" ry="2.96" transform="translate(27.822 7.706) rotate(115.466)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 24.436,6.094 C 23.547,7.962 24.34,10.201 26.21,11.091 C 28.078,11.98 30.317,11.187 31.207,9.317 C 32.096,7.449 31.303,5.21 29.433,4.32 C 27.565,3.431 25.326,4.224 24.436,6.094 Z M 28.756,5.745 C 29.836,6.259 30.297,7.556 29.782,8.64 C 29.268,9.72 27.971,10.181 26.887,9.666 C 25.807,9.152 25.346,7.855 25.861,6.771 C 26.375,5.691 27.672,5.23 28.756,5.745 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_6" stroke="none">
+   <ellipse rx="2.25" ry="2.25" transform="translate(13.565 9.043) rotate(115.472)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 10.867,7.757 C 10.158,9.247 10.791,11.031 12.279,11.74 C 13.769,12.449 15.553,11.816 16.262,10.328 C 16.971,8.838 16.338,7.054 14.85,6.345 C 13.36,5.636 11.576,6.269 10.867,7.757 Z M 14.215,7.676 C 14.969,8.035 15.29,8.939 14.931,9.693 C 14.572,10.447 13.668,10.768 12.914,10.409 C 12.16,10.05 11.839,9.146 12.198,8.392 C 12.557,7.638 13.461,7.317 14.215,7.676 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <g id="Group_7" stroke="none">
+   <ellipse rx="1.493" ry="1.493" transform="translate(5.349 12.792) rotate(115.45)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 3.329,11.83 C 2.797,12.945 3.272,14.281 4.387,14.811 C 5.502,15.343 6.838,14.868 7.368,13.753 C 7.9,12.638 7.425,11.302 6.31,10.772 C 5.195,10.24 3.859,10.715 3.329,11.83 Z M 5.671,12.113 C 6.046,12.291 6.205,12.741 6.027,13.114 C 5.849,13.489 5.399,13.648 5.026,13.47 C 4.651,13.292 4.492,12.842 4.67,12.469 C 4.848,12.094 5.298,11.935 5.671,12.113 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <rect x="-0.75" y="-0.75" width="1.5" height="1.5" transform="translate(5.348 12.791) rotate(90)" stroke="none" fill="#ffffff" stroke-width="0.78" stroke-linejoin="miter"/>
+  <g id="Group_8" stroke="none">
+   <ellipse rx="2.25" ry="2.25" transform="translate(4.599 4.543) rotate(115.472)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 1.901,3.257 C 1.192,4.747 1.825,6.531 3.313,7.24 C 4.803,7.949 6.587,7.316 7.296,5.828 C 8.005,4.338 7.372,2.554 5.884,1.845 C 4.394,1.136 2.61,1.769 1.901,3.257 Z M 5.249,3.176 C 6.003,3.535 6.324,4.439 5.965,5.193 C 5.606,5.947 4.702,6.268 3.948,5.909 C 3.194,5.55 2.873,4.646 3.232,3.892 C 3.591,3.138 4.495,2.817 5.249,3.176 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <rect x="3.1" y="3.044" width="2.999" height="2.999" stroke="none" fill="#ffffff" stroke-width="1.559" stroke-linejoin="miter"/>
+  <g id="Group_9" stroke="none">
+   <ellipse rx="2.25" ry="2.25" transform="translate(10.599 30.208) rotate(115.472)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 7.901,28.922 C 7.192,30.412 7.825,32.196 9.313,32.905 C 10.803,33.614 12.587,32.981 13.296,31.493 C 14.005,30.003 13.372,28.219 11.884,27.51 C 10.394,26.801 8.61,27.434 7.901,28.922 Z M 11.249,28.841 C 12.003,29.2 12.324,30.104 11.965,30.858 C 11.606,31.612 10.702,31.933 9.948,31.574 C 9.194,31.215 8.873,30.311 9.232,29.557 C 9.591,28.803 10.495,28.482 11.249,28.841 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <rect x="9.1" y="28.709" width="2.999" height="2.999" stroke="none" fill="#ffffff" stroke-width="1.559" stroke-linejoin="miter"/>
+  <g id="Group_10" stroke="none">
+   <ellipse rx="3.714" ry="3.714" transform="translate(6.098 26.974) rotate(115.461)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 2.035,25.039 C 0.967,27.281 1.92,29.969 4.163,31.036 C 6.405,32.104 9.093,31.151 10.16,28.908 C 11.228,26.666 10.275,23.978 8.032,22.911 C 5.79,21.843 3.102,22.796 2.035,25.039 Z M 7.357,24.328 C 8.818,25.023 9.439,26.773 8.743,28.233 C 8.048,29.694 6.298,30.315 4.838,29.619 C 3.377,28.924 2.756,27.174 3.452,25.714 C 4.147,24.253 5.897,23.632 7.357,24.328 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

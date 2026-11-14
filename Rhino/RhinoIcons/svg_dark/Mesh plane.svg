@@ -1,0 +1,23 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m8.317 10.796 18.008-7.052v21.461l-18.008 7.051z" style="fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#6582fc" stroke-width="4.489" x_rma_id="1" stroke="#666" stroke-linejoin="round" />
+    <g fill-opacity=".298039">
+      <path d="m13.575 8.996v21.009h1.489v-21.009z" fill="" stroke-width="3.5px" x_rma_id="2" stroke="#666" stroke-linejoin="round" />
+      <path d="m19.577 6.746v21.008h1.489v-21.008z" fill="" stroke-width="3.5px" x_rma_id="3" stroke="#666" stroke-linejoin="round" />
+      <path d="m26.053 17.269-18.079 7.051.541 1.387 18.079-7.051z" fill="" stroke-width="3.5px" x_rma_id="4" stroke="#666" stroke-linejoin="round" />
+      <path d="m26.053 9.777-18.079 7.051.541 1.387 18.079-7.051z" fill="" stroke-width="3.5px" x_rma_id="5" stroke="#666" stroke-linejoin="round" />
+    </g>
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m8.317 10.796 18.008-7.052v21.461l-18.008 7.051z" style="fill-rule:evenodd;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" fill="#6582fc" stroke-width="1.489" x_rma_id="1" />
+    <g fill-opacity=".298039">
+      <path d="m13.575 8.996v21.009h1.489v-21.009z" fill="" stroke-width="" x_rma_id="2" />
+      <path d="m19.577 6.746v21.008h1.489v-21.008z" fill="" stroke-width="" x_rma_id="3" />
+      <path d="m26.053 17.269-18.079 7.051.541 1.387 18.079-7.051z" fill="" stroke-width="" x_rma_id="4" />
+      <path d="m26.053 9.777-18.079 7.051.541 1.387 18.079-7.051z" fill="" stroke-width="" x_rma_id="5" />
+    </g>
+  </g>
+</svg>

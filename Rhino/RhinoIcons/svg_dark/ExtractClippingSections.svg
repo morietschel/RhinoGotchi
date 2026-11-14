@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="9.734" y="6.766" width="13.495" height="19.489" stroke-width="4.5" stroke="#666666" stroke-linejoin="miter"/>
+  <rect x="17.231" y="14.217" width="13.495" height="16.52" stroke-width="4.5" stroke="#666666" stroke-linejoin="miter"/>
+  <path d="M 17.991,29.645 L 14.98,32.988 L 18.3,35.978 L 24.872,36 L 17.991,29.645 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none"/>
+  <path d="M 33.09,11.966 L 29.765,14.999 L 34.117,19.769 L 36,19.785 L 36.007,15.163 L 33.09,11.966 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none"/>
+  <path d="M 30.584,30.945 L 17.577,31.041 L 21.872,34.881 L 34.232,34.785 L 30.584,30.945 Z" fill="#e5e5e5" stroke="none" stroke-width="1.5" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 30.725,14.217 L 30.945,30.738 L 35.048,34.713 L 35.25,18.729 L 30.725,14.217 Z" stroke="none" fill="#b2b2b2" stroke-width="1.5" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <rect x="-8.26" y="-6.747" width="16.52" height="13.495" transform="translate(23.978 22.477) rotate(-90)" stroke="#000000" fill="#ffffff" stroke-width="1.5" stroke-linejoin="miter"/>
+  <path d="M 16.955,30.926 L 21.755,35.25 L 35.25,35.25 L 35.25,18.729 L 30.898,13.959" fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M 35.25,35.25 L 30.725,30.738" fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+  <rect x="-9.758" y="-6.764" width="19.516" height="13.528" transform="translate(16.464 16.51) rotate(-90)" stroke-width="1.5" fill="#ffffff" stroke="#000000" stroke-linejoin="miter"/>
+  <rect x="-9.758" y="-6.764" width="19.516" height="13.528" transform="translate(10.486 11.968) rotate(-90)" stroke="#ce0000" stroke-width="1.5" stroke-linejoin="miter"/>
+ </g>
+</svg>

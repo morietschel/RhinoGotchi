@@ -1,0 +1,19 @@
+<svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m4.074 16.272-.567 1.377 25.171 10.364-.567 1.378 5.67-.081-3.969-4.05-.567 1.376z" fill="#20b000" stroke-width="3.5px" x_rma_id="1" stroke="#666" stroke-linejoin="round" />
+    <path d="m14.288 19.949h7.504v6.004h3.002l-6.754 6.754-6.754-6.754h3.002z" style="fill-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;" fill="#3354ff" stroke-width="4.489" x_rma_id="2" stroke="#666" stroke-linejoin="round" />
+    <path d="m14.288 16.947h7.504v-6.003h3.002l-6.754-6.754-6.754 6.754h3.002z" style="fill-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;" fill="#3354ff" stroke-width="4.489" x_rma_id="3" stroke="#666" stroke-linejoin="round" />
+    <path d="m28.103 4.531.566 1.376-25.17 10.365.567 1.377 25.17-10.365.568 1.378 3.969-4.05z" fill="#ea0101" stroke-width="3.5px" x_rma_id="4" stroke="#666" stroke-linejoin="round" />
+    <path d="m1.532 16.96c0 1.243 1.008 2.251 2.251 2.251s2.251-1.008 2.251-2.251-1.008-2.251-2.251-2.251-2.251 1.008-2.251 2.251z" fill-rule="evenodd" fill="" stroke-width="3.5px" x_rma_id="5" stroke="#666" stroke-linejoin="round" />
+  </g>
+  <clipPath id="a">
+    <path clip-rule="evenodd" d="m0 0h36v36h-36z" fill="" stroke-width="" x_rma_id="0" />
+  </clipPath>
+  <g clip-path="url(#a)" transform="matrix(1.3333333 0 0 -1.3333333 0 48)">
+    <path d="m4.074 16.272-.567 1.377 25.171 10.364-.567 1.378 5.67-.081-3.969-4.05-.567 1.376z" fill="#20b000" stroke-width="" x_rma_id="1" />
+    <path d="m14.288 19.949h7.504v6.004h3.002l-6.754 6.754-6.754-6.754h3.002z" style="fill-rule:evenodd;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;" fill="#3354ff" stroke-width="1.489" x_rma_id="2" />
+    <path d="m14.288 16.947h7.504v-6.003h3.002l-6.754-6.754-6.754 6.754h3.002z" style="fill-rule:evenodd;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;" fill="#3354ff" stroke-width="1.489" x_rma_id="3" />
+    <path d="m28.103 4.531.566 1.376-25.17 10.365.567 1.377 25.17-10.365.568 1.378 3.969-4.05z" fill="#ea0101" stroke-width="" x_rma_id="4" />
+    <path d="m1.532 16.96c0 1.243 1.008 2.251 2.251 2.251s2.251-1.008 2.251-2.251-1.008-2.251-2.251-2.251-2.251 1.008-2.251 2.251z" fill-rule="evenodd" fill="" stroke-width="" x_rma_id="5" />
+  </g>
+</svg>

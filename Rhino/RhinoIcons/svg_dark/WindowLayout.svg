@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="17.179" y2="0" gradientTransform="translate(7.11 31.074) rotate(-47.3353) skewX(-0.301161)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#cccccc"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="17.179" y2="0" gradientTransform="translate(13.18 25.082) rotate(-47.3353) skewX(-0.301161)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#cccccc"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="2.251" y="12.742" width="25.495" height="21.009" rx="0.518283984512536" ry="0.518283984512536" stroke-width="4.5" stroke="#666666" stroke-linecap="round" stroke-linejoin="miter"/>
+  <path d="M 18.168,6.831 C 17.47,5.667 16.101,4.143 14.416,2.453 L 27.501,2.453 L 27.364,2.719 C 25.663,4.105 24.352,5.494 23.905,6.88 L 18.168,6.831 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <rect x="8.321" y="6.75" width="25.495" height="21.009" rx="0.518283984512536" ry="0.518283984512536" stroke-width="4.5" stroke="#666666" stroke-linecap="round" stroke-linejoin="miter"/>
+  <rect x="2.242" y="12.774" width="25.495" height="21.009" rx="0.518283984512536" ry="0.518283984512536" stroke-width="1.5" stroke="#191919" stroke-linecap="round" stroke-linejoin="miter" fill="url(#LinearGradient)"/>
+  <path d="M 18.159,6.863 C 17.461,5.699 16.092,4.175 14.407,2.485 L 27.492,2.485 L 27.355,2.751 C 25.654,4.137 24.343,5.526 23.896,6.912 L 18.159,6.863 Z" stroke-width="1.5" stroke="#191919" fill="#e5e5e5" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <rect x="8.312" y="6.782" width="25.495" height="21.009" rx="0.518283984512536" ry="0.518283984512536" stroke-width="1.5" stroke="#191919" stroke-linecap="round" stroke-linejoin="miter" fill="url(#LinearGradient_1)"/>
+  <path d="M 27.093,15.89 L 24.81,17.776 L 22.528,19.658 L 24.807,21.54 L 27.09,23.426" fill="none" stroke="#191919" stroke-linejoin="miter" stroke-width="2.345"/>
+  <path d="M 14.279,18.682 L 16.562,16.797 L 18.844,14.915 L 16.565,13.032 L 14.283,11.147" fill="none" stroke="#191919" stroke-linejoin="miter" stroke-width="2.345"/>
+ </g>
+</svg>

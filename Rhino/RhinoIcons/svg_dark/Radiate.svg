@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-9.421" y2="19.781" gradientTransform="translate(23.199 8.893)">
+   <stop offset="0" stop-color="#6582fc"/>
+   <stop offset="1" stop-color="#becafc"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 18.045,9.052 C 21.738,5.151 26.544,1.402 27.641,2.416 C 28.635,3.336 27.114,8.63 24.832,13.459 C 29.658,15.813 34.335,19.616 33.7,20.969 C 33.123,22.196 26.652,21.92 21.368,21.192 C 20.473,26.458 19.353,32.307 18.012,32.49 C 16.533,32.689 15.188,26.556 14.396,21.239 C 9.113,21.967 2.882,22.249 2.305,21.023 C 1.67,19.669 6.622,16 11.447,13.646 C 9.165,8.817 7.35,3.336 8.345,2.416 C 9.442,1.402 14.353,5.151 18.045,9.052 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <path d="M 18.043,9.071 C 21.741,5.17 26.555,1.421 27.654,2.435 C 28.649,3.355 27.126,8.649 24.84,13.478 C 29.674,15.832 34.358,19.635 33.722,20.988 C 33.144,22.215 26.663,21.939 21.371,21.211 C 20.474,26.477 19.353,32.326 18.01,32.509 C 16.528,32.708 15.181,26.575 14.388,21.258 C 9.096,21.986 2.856,22.268 2.278,21.042 C 1.642,19.688 6.601,16.019 11.434,13.665 C 9.149,8.836 7.331,3.355 8.327,2.435 C 9.426,1.421 14.345,5.17 18.043,9.071 Z" stroke-linejoin="round" stroke-width="1.5" stroke="#231f20" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 18.043,9.071 L 17.978,15.819 L 20.867,19.822" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 15.088,19.768 L 17.978,15.819 C 15.977,15.461 13.805,14.763 11.434,13.665" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 17.838,15.819 C 20.118,15.246 22.451,14.468 24.84,13.478" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 17.978,16.569 L 17.978,31.524" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 17.838,15.819 C 22.972,17.743 28.517,19.477 33.277,20.648" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 17.838,15.819 C 12.879,18.015 7.731,19.837 2.278,21.042" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75"/>
+  <path d="M 8.716,2.883 C 11.546,7.323 14.652,11.626 17.978,15.819 C 21.378,11.702 24.493,7.414 27.277,2.93" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#000000" stroke-width="0.75"/>
+  <path d="M 17.903,15.539 L 14.388,21.258 C 15.204,26.734 16.483,32.716 18.01,32.509 C 19.393,32.321 20.448,26.636 21.371,21.211 L 17.903,15.539 Z" stroke-linejoin="round" stroke-width="1.5" stroke="#ffffff" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

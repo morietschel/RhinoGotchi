@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="27.743" y2="0" gradientTransform="translate(9.263 37.329) rotate(-67.7614) skewX(10.2456)">
+   <stop offset="0" stop-color="#a7a9ac"/>
+   <stop offset="1" stop-color="#e1e1e1"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 1.889,25.579 L 1.889,11.021 C 1.889,9.603 3.489,8.449 5.459,8.449 L 30.541,8.449 C 32.511,8.449 34.111,9.603 34.111,11.021 L 34.111,25.579 C 34.111,27.001 32.511,28.151 30.541,28.151 L 20.391,28.151 L 20.389,31.259 L 15.233,28.151 L 5.459,28.151 C 3.489,28.151 1.889,27.001 1.889,25.579 Z M 7.057,10.185 L 29.275,10.185 C 31.227,10.185 32.815,11.329 32.815,12.737 L 32.815,24.301 C 32.815,25.709 31.227,26.851 29.275,26.851 L 20.483,26.851 L 20.341,23.851 L 15.627,26.813 L 7.057,26.851 C 5.105,26.851 3.519,25.709 3.519,24.301 L 3.519,12.737 C 3.519,11.329 5.105,10.185 7.057,10.185 Z" stroke="#e1e1e1" stroke-linejoin="miter" stroke-width="0.828" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 20.373,31.251 L 17.477,29.405 L 14.581,27.559 L 17.477,25.711 L 20.373,23.865 L 20.373,27.557 L 20.373,31.251 Z" stroke="#e1e1e1" stroke-width="0.826" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 14.485,5.827 L 17.381,7.673 L 20.277,9.519 L 17.381,11.367 L 14.485,13.213 L 14.485,9.521 L 14.485,5.827 Z" fill="#e1e1e1" stroke="#e1e1e1" stroke-width="0.826" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+ </g>
+</svg>

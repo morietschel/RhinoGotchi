@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="12.194" y2="0" gradientTransform="translate(15.017 15.643) rotate(128.665) skewX(-0.763666)">
+   <stop offset="0" stop-color="#99bbfa"/>
+   <stop offset="1" stop-color="#122877"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="29.692" y2="0" gradientTransform="translate(16.921 20.711) rotate(-49.7949) skewX(-0.768535) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#304ab6"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="7.626" y2="0" gradientTransform="translate(18.155 30.592) rotate(-41.4757) skewX(15.5578) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#304ab6"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="6.769" y2="0" gradientTransform="translate(11.97 14.832) rotate(-47.2629) skewX(-0.800819) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_4" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="6.769" y2="0" gradientTransform="translate(11.97 14.832) rotate(-47.2629) skewX(-0.800819) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 16.85,33.37 C 12.089,31.496 10.94,30.75 6.613,28.565 C 5.186,27.844 2.465,26.414 2.283,22.319 C 2.138,19.099 2.443,15.81 2.712,12.998 C 2.925,10.726 3.044,7.473 7.328,5.795 C 10.686,4.477 13.645,3.716 17.229,2.669 C 20.803,1.564 24.278,2.765 25.611,5.215 C 25.735,5.336 33.126,16.681 33.132,16.697 C 33.679,17.903 33.742,20.11 33.752,21.645 C 33.799,28.324 33.606,29.721 32.18,31.11 C 31.083,32.18 29.827,32.515 28.324,32.839 C 26.073,33.329 19.284,34.326 16.85,33.37 Z" stroke-width="4.5" stroke="#666666" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 15.825,25.509 C 15.805,24.131 15.695,21.953 16.039,20.677 C 16.685,18.283 19.883,16.981 22.165,16.579 C 22.529,16.515 25.193,16.203 25.333,15.967 C 26.474,14.009 25.948,5.824 24.293,4.262 C 22.403,2.478 9.412,6.43 7.74,7.6 C 3.122,10.835 2.466,18.297 3.176,23.753 C 3.798,28.54 13.537,27.156 15.825,25.509 Z" stroke-width="1.5" stroke-linejoin="miter" stroke="#304ab6" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 5.344,28.088 C 7.078,28.652 12.211,27.54 13.647,27.208 C 19.347,25.889 26.72,25.511 25.99,16.629 C 25.705,13.135 26.198,8.784 25.665,5.792 C 27.748,8.686 32.04,14.569 33.202,17.317 C 33.628,18.325 33.58,24.093 33.586,25.019 C 33.638,31.398 32.048,31.278 31.53,31.864 C 30.838,32.652 18.865,34.392 17.105,33.928 C 14.305,33.188 5.098,28.088 5.344,28.088 Z" stroke-width="0.75" stroke-linejoin="miter" stroke="#231f20" marker-start="none" marker-end="none" fill="url(#LinearGradient_1)"/>
+  <path d="M 3.094,22.383 C 3.104,21.219 2.858,16.979 3.372,13.739 C 3.982,8.758 6.812,7.556 8.148,7.018 C 8.964,6.69 15.155,4.586 19.665,4.058 C 21.905,3.798 24.017,4.668 24.251,7.864 C 24.541,11.863 24.313,16.729 24.345,17.591 C 24.485,21.583 22.097,23.651 17.979,24.497 C 14.289,25.253 11.799,25.631 8.286,26.378 C 5.198,27.034 3.044,26.656 3.094,22.383 Z" stroke-linejoin="miter" stroke-width="3.006" stroke="#d1e1fe" marker-start="none" marker-end="none"/>
+  <path d="M 16.551,33.804 C 11.711,31.89 10.543,31.128 6.144,28.896 C 4.692,28.16 1.926,26.7 1.742,22.517 C 1.594,19.229 1.904,15.869 2.178,12.997 C 2.394,10.677 2.516,7.354 6.87,5.64 C 10.285,4.294 13.293,3.518 16.937,2.448 C 20.569,1.32 24.103,2.546 25.457,5.048 C 25.583,5.172 33.098,16.759 33.104,16.775 C 33.66,18.007 33.724,20.261 33.734,21.829 C 33.782,28.65 33.586,30.076 32.136,31.496 C 31.02,32.588 29.744,32.93 28.216,33.262 C 25.927,33.762 19.025,34.78 16.551,33.804 Z" stroke-width="1.5" stroke-linejoin="miter" stroke="#13002a" marker-start="none" marker-end="none"/>
+  <path d="M 23.807,33.552 C 23.515,33.24 16.869,28.59 15.629,27.334" fill="none" stroke-linejoin="miter" stroke-opacity="0.525490" stroke-width="0.784" stroke-linecap="round" stroke="#231f20" fill-opacity="0.525490"/>
+  <path d="M 33.658,23.879 L 26.41,15.339" fill="none" stroke-linejoin="miter" stroke-opacity="0.572549" stroke-linecap="round" stroke="#231f20" stroke-width="0.784" fill-opacity="0.572549"/>
+  <path d="M 12.161,31.792 C 14.825,31.478 20.999,30.284 22.321,30.098 C 27.214,29.406 29.198,27.02 29.568,23.943 C 29.754,22.403 30.498,16.845 30.064,12.449" fill="none" stroke-linejoin="miter" stroke-opacity="0.580392" stroke-linecap="round" stroke="#231f20" stroke-width="0.784" fill-opacity="0.580392"/>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_4)" stroke="none"/>
+  </mask>
+  <path d="M 15.236,21.368 C 15.843,18.471 17.416,17.585 18.635,17.199 C 17.142,16.33 16.186,14.592 14.919,13.437 C 13.806,12.417 10.977,8.889 9.751,8.38 C 8.01,7.657 5.12,10.791 5.25,12.204 C 5.317,12.919 8.347,16.328 9.143,16.58 C 10.326,17.279 14.576,20.235 15.236,21.368 Z" stroke-linejoin="miter" stroke="none" fill="#ffffff" stroke-width="2.313" marker-start="none" marker-end="none" mask="url(#TranspMask_1)"/>
+ </g>
+</svg>

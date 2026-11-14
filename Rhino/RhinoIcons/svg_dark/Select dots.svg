@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="11.228" cy="26.199" r="16.521556857633">
+   <stop offset="0" stop-color="#424242"/>
+   <stop offset="0.1" stop-color="#3e3e3e"/>
+   <stop offset="0.2" stop-color="#393939"/>
+   <stop offset="0.3" stop-color="#333333"/>
+   <stop offset="0.4" stop-color="#2b2b2b"/>
+   <stop offset="0.5" stop-color="#212121"/>
+   <stop offset="0.6" stop-color="#171717"/>
+   <stop offset="0.7" stop-color="#0f0f0f"/>
+   <stop offset="0.8" stop-color="#090909"/>
+   <stop offset="0.9" stop-color="#040404"/>
+   <stop offset="1" stop-color="#000000"/>
+  </radialGradient>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="4.234" y2="-3.556" gradientTransform="matrix(-0.775879 -0.630676 0.630875 -0.776047 2.786 0.185)">
+   <stop offset="0" stop-color="#a5a5a5"/>
+   <stop offset="0.1" stop-color="#9d9d9d"/>
+   <stop offset="0.2" stop-color="#929292"/>
+   <stop offset="0.3" stop-color="#848484"/>
+   <stop offset="0.4" stop-color="#707070"/>
+   <stop offset="0.5" stop-color="#535353"/>
+   <stop offset="0.6" stop-color="#353535"/>
+   <stop offset="0.7" stop-color="#212121"/>
+   <stop offset="0.8" stop-color="#131313"/>
+   <stop offset="0.9" stop-color="#080808"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 33.011,28.503 L 33.011,33.011 L 28.504,33.011 L 28.504,34.5 L 34.5,34.5 L 34.5,28.503 L 33.011,28.503 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.499,1.499 L 1.499,7.496 L 2.988,7.496 L 2.988,2.988 L 7.496,2.988 L 7.496,1.499 L 1.499,1.499 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 16.472,29.908 C 23.049,30.756 29.063,26.109 29.909,19.533 C 30.755,12.956 26.115,6.931 19.537,6.08 C 12.954,5.227 6.933,9.88 6.091,16.463 C 5.25,23.04 9.894,29.06 16.472,29.908 Z" stroke="none" stroke-linejoin="miter" stroke-width="1.2" marker-start="none" marker-end="none" fill="url(#RadialGradient)"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient)" stroke="none"/>
+  </mask>
+  <ellipse rx="2.827" ry="4.544" transform="translate(11.697 22.91) rotate(140.9)" fill="#ffffff" stroke="none" stroke-linejoin="miter" stroke-width="1.2" mask="url(#TranspMask)"/>
+ </g>
+</svg>

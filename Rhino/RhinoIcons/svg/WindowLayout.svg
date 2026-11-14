@@ -1,0 +1,19 @@
+﻿<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="17.172" y2="0" gradientTransform="translate(7.157 31.104) rotate(-47.308) skewX(-0.24958)">
+   <stop offset="0" stop-color="#ffffff" />
+   <stop offset="1" stop-color="#cccccc" />
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="16.807" y2="0" gradientTransform="translate(11.792 26.241) rotate(-51.6559) skewX(-0.297585)">
+   <stop offset="0" stop-color="#ffffff" />
+   <stop offset="1" stop-color="#cccccc" />
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="2.29" y="12.818" width="25.495" height="20.994" rx="0.512219143503529" ry="0.512219143503529" stroke-width="1.5" stroke="#191919" stroke-linecap="round" stroke-linejoin="miter" fill="url(#LinearGradient)" />
+  <rect x="6.78" y="8.247" width="25.495" height="21.015" rx="0.512219143503529" ry="0.512219143503529" stroke-width="1.5" stroke="#191919" stroke-linecap="round" stroke-linejoin="miter" fill="url(#LinearGradient_1)" />
+  <path d="M 16.768,7.977 C 16.08,6.855 14.727,5.388 13.061,3.76 L 25.993,3.76 L 25.857,4.015 C 24.176,5.35 22.882,6.688 22.44,8.023 L 16.768,7.977 Z" stroke-width="1.5" stroke="#191919" fill="#e5e5e5" stroke-linejoin="round" marker-start="none" marker-end="none" />
+  <path d="M 25.859,17.332 L 23.603,19.195 L 21.348,21.055 L 23.599,22.916 L 25.855,24.778" fill="none" stroke-width="1.5" stroke="#191919" stroke-linejoin="miter" />
+  <path d="M 13.195,20.091 L 15.451,18.228 L 17.708,16.368 L 15.454,14.507 L 13.199,12.644" fill="none" stroke-width="1.5" stroke="#191919" stroke-linejoin="miter" />
+ </g>
+</svg>

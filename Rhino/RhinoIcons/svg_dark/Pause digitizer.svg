@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+	</defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 15.747,30.006 L 15.747,31.494 L 27.749,31.494 L 27.749,30.006 L 15.747,30.006 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 31.723,12.219 L 15.22,28.723 L 16.273,29.776 L 32.776,13.272 L 31.723,12.219 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <path d="M 27.006,20.248 L 27.006,29.25 L 28.494,29.25 L 28.494,20.248 L 27.006,20.248 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <rect x="-1.5" y="-8.251" width="3" height="16.503" transform="translate(24.749 5.994) rotate(90)" stroke-opacity="0.996078" stroke="none" fill="#970044" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <rect x="-6.752" y="-2.25" width="13.504" height="4.501" transform="translate(21.748 12.746) rotate(90)" stroke-opacity="0.996078" stroke="none" fill="#970044" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <ellipse rx="4.5" ry="4.5" transform="translate(23.998 19.498) rotate(-170.536)" stroke-opacity="0.996078" stroke="none" fill="#970044" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <ellipse rx="2.25" ry="2.25" transform="translate(27.748 30.75) rotate(180)" stroke-opacity="0.996078" stroke="none" fill="#970044" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <path d="M 17.169,24.67 L 12.668,29.171 C 11.266,30.573 12.264,32.982 14.247,32.982 L 20.998,32.982 C 22.23,32.982 23.23,31.982 23.23,30.75 C 23.23,29.517 22.23,28.517 20.998,28.517 L 19.636,28.517 L 20.326,27.827 C 21.197,26.956 21.197,25.541 20.326,24.67 C 19.455,23.799 18.04,23.799 17.169,24.67 Z" stroke-width="0.5" stroke="none" fill="#970145" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.996078"/>
+  <ellipse rx="2.25" ry="2.25" transform="translate(32.25 12.746) rotate(180)" fill="#e1e1e1" stroke-opacity="0.996078" stroke="none" stroke-width="1.488" stroke-linejoin="miter" fill-opacity="0.996078"/>
+  <g id="Group" stroke="none">
+   <g id="Group_1">
+    <rect x="-7.501" y="-7.502" width="15.003" height="15.004" transform="translate(9.746 9.745) rotate(90)" stroke-linejoin="miter" fill="#c5c5c5"/>
+    <path d="M 1.5,1.499 L 1.5,17.99 L 17.991,17.99 L 17.991,1.499 L 1.5,1.499 Z M 16.503,2.987 L 16.503,16.502 L 2.988,16.502 L 2.988,2.987 L 16.503,2.987 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+   </g>
+   <path d="M 3,4.493 L 3,16.49 L 14.997,16.49 L 14.997,15.002 L 4.488,15.002 L 4.488,4.493 L 3,4.493 Z" stroke-width="0.5" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.537255"/>
+   <path d="M 4.494,2.999 L 4.494,4.487 L 15.003,4.487 L 15.003,14.995 L 16.491,14.995 L 16.491,2.999 L 4.494,2.999 Z" stroke-width="0.5" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.290196"/>
+  </g>
+  <rect x="-3.751" y="-1.501" width="7.502" height="3.002" transform="translate(7.494 9.744) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.488" stroke-linejoin="miter"/>
+  <rect x="-3.751" y="-1.501" width="7.502" height="3.002" transform="translate(11.995 9.745) rotate(90)" stroke="none" fill="#231f20" stroke-width="1.488" stroke-linejoin="miter"/>
+ </g>
+</svg>

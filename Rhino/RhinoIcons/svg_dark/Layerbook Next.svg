@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-6.562" y2="10.139" gradientTransform="translate(27.559 16.195)">
+   <stop offset="0" stop-color="#122877"/>
+   <stop offset="1" stop-color="#6582fc"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="15.514" y2="0" gradientTransform="translate(13.312 11.399) rotate(106.114) skewX(-13.5461)">
+   <stop offset="0" stop-color="#ce0000"/>
+   <stop offset="1" stop-color="#ff4b00"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 3.707,28.658 L 3.761,8.797 C 3.765,6.909 5.005,6.285 6.525,7.404 L 19.256,16.776 C 20.776,17.895 20.77,19.704 19.242,20.811 L 6.467,30.072 C 4.939,31.179 3.703,30.546 3.707,28.658 Z" stroke-width="4.5" stroke="#666666" stroke-linecap="round" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <path d="M 15.698,28.688 L 15.752,8.827 C 15.756,6.939 16.996,6.315 18.516,7.434 L 31.247,16.806 C 32.767,17.925 32.761,19.734 31.233,20.841 L 18.458,30.102 C 16.93,31.209 15.694,30.576 15.698,28.688 Z" stroke-width="4.5" stroke="#666666" stroke-linecap="round" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <path d="M 15.741,28.808 L 15.795,8.947 C 15.799,7.059 17.039,6.435 18.559,7.554 L 31.29,16.926 C 32.81,18.045 32.804,19.854 31.276,20.961 L 18.501,30.222 C 16.973,31.329 15.737,30.696 15.741,28.808 Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 16.739,8.307 C 16.654,8.523 16.584,9.481 16.584,9.71 L 16.534,27.866 C 16.533,28.097 16.491,29.182 16.577,29.4 C 16.818,30.012 17.123,29.889 17.761,29.728 C 17.984,29.671 18.554,29.139 18.74,29.005 L 30.9,20.203 C 31.88,19.495 31.884,18.209 30.91,17.493 L 18.795,8.585 C 18.611,8.45 18.054,7.922 17.83,7.864 C 17.192,7.695 16.982,7.69 16.739,8.307 Z M 18.069,9.902 L 30.033,18.699 C 30.186,18.812 30.191,18.876 30.031,18.992 L 18.019,27.686 L 18.069,9.902 Z" stroke-width="0.5" stroke="none" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <path d="M 3.75,28.778 L 3.804,8.917 C 3.808,7.029 5.048,6.405 6.568,7.524 L 19.299,16.896 C 20.819,18.015 20.813,19.824 19.285,20.931 L 6.51,30.192 C 4.982,31.299 3.746,30.666 3.75,28.778 Z" stroke-width="1.5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" marker-start="none" marker-end="none" fill="url(#LinearGradient_1)"/>
+  <path d="M 4.628,8.309 C 4.542,8.526 4.472,9.489 4.472,9.719 L 4.421,27.954 C 4.42,28.186 4.378,29.276 4.464,29.495 C 4.708,30.11 5.016,29.986 5.659,29.824 C 5.885,29.767 6.46,29.233 6.648,29.098 L 18.92,20.258 C 19.909,19.546 19.913,18.255 18.93,17.536 L 6.703,8.589 C 6.517,8.453 5.955,7.923 5.729,7.864 C 5.085,7.695 4.873,7.69 4.628,8.309 Z M 5.97,9.911 L 18.045,18.747 C 18.2,18.86 18.205,18.925 18.043,19.041 L 5.92,27.773 L 5.97,9.911 Z" stroke-width="0.5" stroke="none" fill="#ffffff" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+ </g>
+</svg>

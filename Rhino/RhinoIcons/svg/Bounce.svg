@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="23.136" y2="0" gradientTransform="translate(16.693 4.006) rotate(74.6747) skewX(1.68037) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#c5c5c5"/>
+   <stop offset="0.1" stop-color="#c8c8c8"/>
+   <stop offset="0.2" stop-color="#cdcdcd"/>
+   <stop offset="0.3" stop-color="#d2d2d2"/>
+   <stop offset="0.4" stop-color="#d9d9d9"/>
+   <stop offset="0.5" stop-color="#e2e2e2"/>
+   <stop offset="0.6" stop-color="#ebebeb"/>
+   <stop offset="0.7" stop-color="#f2f2f2"/>
+   <stop offset="0.8" stop-color="#f7f7f7"/>
+   <stop offset="0.9" stop-color="#fcfcfc"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 2.244,8.826 C 3.211,11.967 5.112,16.814 7.854,19.04 C 10.597,21.268 12.497,26.115 13.465,29.255 C 19.729,27.061 25.993,24.866 32.256,22.672 C 31.289,19.531 29.388,14.685 26.646,12.458 C 23.903,10.231 22.003,5.384 21.036,2.244 C 14.772,4.438 8.507,6.632 2.244,8.826 Z" stroke-width="1.488" stroke="#231f20" stroke-linejoin="round" stroke-linecap="round" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 24.003,31.506 L 24.003,16.499 L 4.495,31.506" fill="none" stroke-width="2.864" stroke-opacity="0.996078" stroke="#231f20" stroke-linejoin="round" fill-opacity="0.996078"/>
+  <path d="M 10.497,31.506 L 4.495,31.506 L 4.495,25.503" fill="none" stroke-width="2.864" stroke-linejoin="miter" stroke="#231f20" stroke-opacity="0.996078" fill-opacity="0.996078"/>
+ </g>
+</svg>

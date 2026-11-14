@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="4.121" y2="2.356" gradientTransform="translate(6.162 14.27)">
+   <stop offset="0" stop-color="#304ab6"/>
+   <stop offset="1" stop-color="#6582fc"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-16.312" y2="-8.243" gradientTransform="translate(30.043 31.762)">
+   <stop offset="0" stop-color="#ffb200"/>
+   <stop offset="1" stop-color="#ffea00"/>
+  </linearGradient>
+  <image id="Bitmap" preserveAspectRatio="none" width="1" height="1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA+CAYAAABk4ziNAAAACXBIWXMAAC4jAAAuIwF4pT92AAADI0lEQVRogWJMafzdwsjIlMIwDMD////XAAAAAP//YmFgZOBlYPgvPhw8xMDIwA8AAAD//2IaBM6gHmBgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//yLooQ/vX9HHJdQADAwMAAAAAP//IughAUGxIeERMGBgYAAAAAD//xpeSY6BgQEAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//xpeHmJgYAAAAAD//2Jh+M/wmYGR8eUgcAvl4P//jwAAAAD//wMADWEQ9QgYBZYAAAAASUVORK5CYII=">
+   <title>1</title>
+  </image>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 9.728,0.077 L 0.129,19.592 L 0.123,20.481 L 6.267,31.599 L 19.816,35.971 L 20.65,35.873 L 27.268,28.661 L 36,14.98 L 36,13.48 L 32.453,11.05 L 27.593,15.46 L 18.233,12.37 L 10.266,0.155 L 9.728,0.077 Z M 10.396,10.612 L 14.498,17.482 L 25.808,21.101 L 23.075,25.466 L 18.799,30.125 L 9.856,27.24 L 5.815,19.926 L 10.396,10.612 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none"/>
+  <path d="M 10.173,5.119 L 16.244,15.285 L 28.646,19.254 L 33.481,13.798 L 25.172,27.064 L 19.595,33.141 L 8.062,29.42 L 2.855,19.997 L 10.173,5.119 Z" stroke="#000000" stroke-width="2.404" stroke-linejoin="miter" marker-start="none" marker-end="none"/>
+  <path d="M 3.472,18.98 L 8.601,28.65 L 15.412,16.121 L 10.114,5.945 L 3.472,18.98 Z" stroke-linecap="round" stroke-linejoin="round" stroke="none" stroke-width="2.31" marker-start="none" marker-end="none" fill="url(#LinearGradient)"/>
+  <path d="M 8.516,28.65 L 15.412,15.868 L 29.456,20.409 L 19.533,31.844 L 8.516,28.65 Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.31" stroke="none" marker-start="none" marker-end="none" fill="url(#LinearGradient_1)"/>
+  <clipPath id="clip-path">
+   <use xlink:href="#Shape"/>
+  </clipPath>
+  <g clip-path="url(#clip-path)">
+   <use xlink:href="#Bitmap" transform="translate(19.533 32.098) scale(12.283 -14.845)"/>
+  </g>
+  <path d="M 31.816,17.253 L 28.845,20.299 L 19.533,32.098 L 25.906,25.576 L 31.816,17.253 Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.66" stroke="none" marker-start="none" marker-end="none" fill="none" id="Shape"/>
+  <path d="M 5.344,14.771 L 4.805,15.074 L 10.434,25.096 L 10.973,24.793 L 5.344,14.771 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 8.187,10.252 L 7.65,10.559 L 13.016,19.937 L 13.553,19.63 L 8.187,10.252 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 9.934,5.316 L 2.628,19.356 L 3.177,19.641 L 10.483,5.601 L 9.934,5.316 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 15.414,15.349 L 8.267,28.645 L 8.732,28.894 L 15.879,15.598 L 15.414,15.349 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 29.103,19.464 L 19.224,32.128 L 19.639,32.453 L 29.518,19.789 L 29.103,19.464 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 13.323,19.24 L 13.12,19.841 L 25.717,24.095 L 25.92,23.494 L 13.323,19.24 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 10.622,24.295 L 10.435,24.902 L 22.718,28.683 L 22.905,28.076 L 10.622,24.295 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 33.002,28.467 L 33.002,33.001 L 28.468,33.001 L 28.468,34.498 L 34.499,34.498 L 34.499,28.467 L 33.002,28.467 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.5,1.501 L 1.5,7.529 L 2.997,7.529 L 2.997,2.998 L 7.528,2.998 L 7.528,1.501 L 1.5,1.501 Z" stroke-width="0.5" stroke="none" fill="#e1e1e1" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+ </g>
+</svg>

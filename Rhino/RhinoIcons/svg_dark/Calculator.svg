@@ -1,0 +1,342 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="31.206" y2="0" gradientTransform="translate(-1.975 17.988)">
+   <stop offset="0" stop-color="#d4d4d4"/>
+   <stop offset="1" stop-color="#9ad2df"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="19.856" y2="0" gradientTransform="translate(6.435 24.468) rotate(2.89828) skewX(0.794849)">
+   <stop offset="0" stop-color="#edf3f3"/>
+   <stop offset="1" stop-color="#bad6dd"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="10.642" y2="0" gradientTransform="translate(14.155 23.26) rotate(88.3846) skewX(0.153442)">
+   <stop offset="0" stop-color="#7d7d7d"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="6.888" y2="0" gradientTransform="translate(19.888 9.836) rotate(-0.956504)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#400000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_4" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(3.648 11.336) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_5" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(7.578 17.971) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_6" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.629" y2="0" gradientTransform="translate(25.584 13.492) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_7" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(8.148 11.336) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_8" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(12.078 17.971) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_9" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(12.652 11.336) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_10" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(16.582 17.971) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_11" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(17.148 11.336) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_12" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(21.04 17.971) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_13" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(21.626 11.328) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_14" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(25.556 17.963) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_15" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(3.648 6.836) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_16" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(7.578 13.471) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_17" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(8.148 6.836) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_18" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(12.078 13.471) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_19" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(12.652 6.836) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_20" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(16.582 13.471) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_21" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(17.148 6.836) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_22" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(21.078 13.471) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_23" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(3.648 2.336) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_24" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(7.578 8.971) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_25" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(8.148 2.336) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_26" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(12.078 8.971) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_27" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(12.652 2.336) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_28" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(16.582 8.971) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_29" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="5.342" y2="0" gradientTransform="translate(17.148 2.336) rotate(-2.24217) skewX(-0.368952)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#41646c"/>
+  </linearGradient>
+  <linearGradient id="LinearGradient_30" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1.715" y2="0" gradientTransform="translate(21.078 8.971) rotate(-90)">
+   <stop offset="0" stop-color="#d3d3d3"/>
+   <stop offset="0.1" stop-color="#acacac"/>
+   <stop offset="0.2" stop-color="#8c8c8c"/>
+   <stop offset="0.3" stop-color="#717171"/>
+   <stop offset="0.4" stop-color="#5a5a5a"/>
+   <stop offset="0.5" stop-color="#464646"/>
+   <stop offset="0.6" stop-color="#343434"/>
+   <stop offset="0.7" stop-color="#252525"/>
+   <stop offset="0.8" stop-color="#171717"/>
+   <stop offset="0.9" stop-color="#0b0b0b"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <rect x="3.74" y="2.292" width="25.494" height="31.428" rx="2.35688970518979" ry="2.35688970518979" stroke-width="4.5" stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="3.74" y="2.259" width="25.494" height="31.495" rx="2.35688970518979" ry="2.35688970518979" stroke-width="1.5" stroke="#202e31" stroke-linecap="round" stroke-linejoin="round" fill="url(#LinearGradient)"/>
+  <rect x="6.751" y="20.225" width="19.517" height="10.493" rx="1.4208" ry="1.4208" stroke-width="1.5" stroke="#27373a" stroke-linecap="round" stroke-linejoin="round" fill="url(#LinearGradient_1)"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_2)" stroke="none"/>
+  </mask>
+  <path d="M 7.51,22.276 L 7.808,28.625 C 7.657,29.892 8.679,30.042 10.002,29.902 C 13.579,30.082 20.29,29.978 20.831,30.029 L 22.915,29.896 L 19.477,28.034 C 18.77,27.736 18.086,27.375 17.433,26.919 C 14.243,24.693 12.214,22.794 9.328,21.865 L 8.042,21.533 C 7.837,21.672 7.661,21.93 7.51,22.276 Z" stroke="none" fill="#e9edf9" stroke-width="1.163" stroke-linejoin="miter" marker-start="none" marker-end="none" mask="url(#TranspMask)"/>
+  <rect x="24.241" y="6.185" width="2.538" height="7.073" rx="0.760600890075657" ry="0.760600890075657" stroke="#200000" stroke-width="0.393" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_3)"/>
+  <rect x="6.178" y="15.178" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_4)"/>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_5)" stroke="none"/>
+  </mask>
+  <rect x="6.002" y="15.29" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_1)"/>
+  <mask id="TranspMask_2">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_6)" stroke="none"/>
+  </mask>
+  <rect x="24.007" y="10.944" width="2.999" height="2.542" rx="0.989904702970297" ry="0.989904702970297" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_2)"/>
+  <g id="Group" stroke-width="0.375" fill-rule="nonzero" stroke-linejoin="round" stroke-linecap="round" stroke="#3a4967" fill="#62798d">
+   <g id="Group_1">
+    <path d="M 23.791,23.109 C 23.791,22.991 23.745,22.895 23.658,22.82 C 23.568,22.745 23.455,22.707 23.319,22.707 L 21.587,22.707 C 21.452,22.707 21.341,22.745 21.254,22.82 C 21.169,22.895 21.125,22.991 21.125,23.109 L 21.125,27.959 C 21.125,28.077 21.169,28.173 21.254,28.249 C 21.341,28.324 21.452,28.361 21.587,28.361 L 23.319,28.361 C 23.455,28.361 23.568,28.324 23.658,28.249 C 23.745,28.173 23.791,28.077 23.791,27.959 L 23.791,23.109 Z M 23.21,23.153 L 23.21,27.915 L 21.704,27.915 L 21.704,23.153 L 23.21,23.153 Z" marker-start="none" marker-end="none"/>
+   </g>
+  </g>
+  <rect x="10.678" y="15.178" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_7)"/>
+  <mask id="TranspMask_3">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_8)" stroke="none"/>
+  </mask>
+  <rect x="10.502" y="15.29" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_3)"/>
+  <rect x="15.182" y="15.178" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_9)"/>
+  <mask id="TranspMask_4">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_10)" stroke="none"/>
+  </mask>
+  <rect x="15.006" y="15.29" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_4)"/>
+  <rect x="19.678" y="15.178" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_11)"/>
+  <mask id="TranspMask_5">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_12)" stroke="none"/>
+  </mask>
+  <rect x="19.464" y="15.29" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_5)"/>
+  <rect x="24.156" y="15.17" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_13)"/>
+  <mask id="TranspMask_6">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_14)" stroke="none"/>
+  </mask>
+  <rect x="23.98" y="15.282" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_6)"/>
+  <rect x="6.178" y="10.678" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_15)"/>
+  <mask id="TranspMask_7">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_16)" stroke="none"/>
+  </mask>
+  <rect x="6.002" y="10.79" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_7)"/>
+  <rect x="10.678" y="10.678" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_17)"/>
+  <mask id="TranspMask_8">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_18)" stroke="none"/>
+  </mask>
+  <rect x="10.502" y="10.79" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_8)"/>
+  <rect x="15.182" y="10.678" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_19)"/>
+  <mask id="TranspMask_9">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_20)" stroke="none"/>
+  </mask>
+  <rect x="15.006" y="10.79" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_9)"/>
+  <rect x="19.678" y="10.678" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_21)"/>
+  <mask id="TranspMask_10">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_22)" stroke="none"/>
+  </mask>
+  <rect x="19.502" y="10.79" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_10)"/>
+  <rect x="6.178" y="6.178" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_23)"/>
+  <mask id="TranspMask_11">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_24)" stroke="none"/>
+  </mask>
+  <rect x="6.002" y="6.29" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_11)"/>
+  <rect x="10.678" y="6.178" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_25)"/>
+  <mask id="TranspMask_12">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_26)" stroke="none"/>
+  </mask>
+  <rect x="10.502" y="6.29" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_12)"/>
+  <rect x="15.182" y="6.178" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_27)"/>
+  <mask id="TranspMask_13">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_28)" stroke="none"/>
+  </mask>
+  <rect x="15.006" y="6.29" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_13)"/>
+  <rect x="19.678" y="6.178" width="2.63" height="2.602" rx="0.446830769230769" ry="0.446830769230769" stroke="#111a2a" stroke-width="0.355" stroke-linejoin="round" stroke-linecap="round" fill="url(#LinearGradient_29)"/>
+  <mask id="TranspMask_14">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_30)" stroke="none"/>
+  </mask>
+  <rect x="19.502" y="6.29" width="2.995" height="2.677" rx="0.615289603960396" ry="0.615289603960396" stroke-linecap="round" fill="#ffffff" stroke="none" stroke-width="0.085" stroke-linejoin="miter" mask="url(#TranspMask_14)"/>
+ </g>
+</svg>

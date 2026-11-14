@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 2.988,1.498 L 2.988,4.477 C 10.445,4.477 16.505,10.54 16.517,17.995 C 16.517,27.104 23.907,34.502 33.013,34.502 L 33.013,31.523 C 25.554,31.523 19.496,25.461 19.496,17.992 C 19.482,8.895 12.092,1.498 2.988,1.498 Z" stroke-width="0.5" stroke="none" fill="#231f20" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="0.498039"/>
+  <g id="Group" stroke="none">
+   <rect x="-2.257" y="-2.257" width="4.515" height="4.515" transform="translate(18.007 18.006) rotate(90)" fill="#ffffff" stroke-linejoin="miter"/>
+   <path d="M 15.004,15.003 L 15.004,21.007 L 21.008,21.007 L 21.008,15.003 L 15.004,15.003 Z M 19.519,16.492 L 19.519,19.518 L 16.493,19.518 L 16.493,16.492 L 19.519,16.492 Z" stroke-width="0.5" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+ </g>
+</svg>

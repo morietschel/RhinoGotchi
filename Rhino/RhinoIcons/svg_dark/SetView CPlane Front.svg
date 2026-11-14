@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.7.0.0-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 -36 36 36">
+ <defs>
+  <image id="Bitmap" preserveAspectRatio="none" width="1" height="1" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAC4jAAAuIwF4pT92AAAE9klEQVRIiUSMwQ0AMAgC0f1H6gDdqQqNMbaPCwECtvaRu4HUI4skMltjiM5Kv59eYG1mO38ULgAAAP//NI0BCsBACMPScf9/shn1tkItYqino+qjXyo+2RxDJiTXcPll6F0UbGH5r3j3euQFAAD//4JbgmzR//9MIO0M//4xMoCEYBjmDJDhEHUQDDYMagHMB3Cf/PvPAAAAAP//AluCsAbJIgZGBmaob0BiCN9ALYK5HjmYQUEGC26Yj/79ZwAAAAD//1SRMQ4AMAgCEfr/L9OgLk7qcGDg5WATEWTDUkHZBdBA0ccgX02Ut8Mx2j522sYHAAD//1SSQQoAIBACF7f/vzh00YLoJHgRR5dN8ze1FtPAYLoRlXwKFKHaN8XNX8AZP4eI/qOTqgEAAP//VJIxDgAwCAKR/39ZbaBl6ERkwVNMou1JqQgK64BxUM7SXSBhouvhEfwNzJw/7SwOAAAA//88kjEOADAIArHx/x/WYoOaTmzAEYbE1FazTHNNJJWZ+wTJMPLA7DZLE+jKScTqDyH3bQBZeAAAAP//YgFHFiMkzJlAEkwgF4O8yQR3DRsrM5j/mwVkCSRPgfSBDP/1+y/DbxCG5iGQBfBkDHLs//8MAAAAAP//NJNBCgAgCAS1BP//24rEGCtkLx4c0V2DzqmVwqo4SVWipfS4A9nK3SpwOI7eXCFj7lIB0P9DZedBMuUAAAD//wIHFwiAUw+UBjGYQD5jYgAH0W9mRrAF3FysDN++/wa7/uu3Xwxfv0HY4JwPDiJEqgNZAE4k//8zAAAAAP//AgcXPF1CASypQnL4X7DvmH78AVsgKszFcO7yc4bXb7+BgwmWTOEuhxcbUIrhPwMAAAD//2IBuQI5FyNTMO+CMDjif/8FW7DzwF2wZaC4AjsAmoEhjkI4EgwYGBgAAAAA//8CxwnMW7CcDA9TcDKFpBxIEP0G+wBkAYgGBR8bGwsDCzPIIiZw8IKCGRTc8OBnZGQAAAAA//+CWAJ3MZacDE2ioAgGxQPIMlZWZrAFIEtBccXKwgRO6qBEAUs4EJqBgZGBkQEAAAD//4LkEyRL4OUQOCdDkikomECWgFIUSA5kGCio/rD/Z/j58w/D/3+gJP4fUhyBfcQIznPgQpWRkQEAAAD//wJHPNj10MwDzt1QC2B1BjgvQPMBSB1YIwsT2Aeg/AOSB/meBZS3mEEFKsRXoDzHyPifAQAAAP//AvsEZjg8mJDKIlhuhuQDUPyBLAHlJ0gQ/f3HDA4BkBpIiDAyMDFDaFDJzcTEwAAAAAD//4LkeKTKBrlUhRd44JwMSQgggyBhDsm4oEj//w9a9IATEROkoAUHHSPD//+MDAAAAAD//2KBFAOQOEEuopELO3hRAa4NEXkIEiSQIAIZBopmiEWM4NIcVHUwMTEwAAAAAP//AldaEFfiqRuQigqYLeCUA0qm4BTFBA4iZnBwQRwHCbp/DAz/GRkAAAAA///CCC549QmNZOQ6G1ZUwC2AJlWQa8FVBBMjAzO0koZX6wwMDAAAAAD//wL7BGf9DBWH1eXIJQPIKET9z8jwD1q4/mcAxQ8kg4MtYmBgAAAAAP//YsHVwoBVOPASAARhNsEKVBgG+QYcnJA2AchHMPDv338GAAAAAP//gvgEDUOKFGi+gcYDkvkIAA42aGpD8Q20HQDiMzEwAAAAAP//AwDDAGxNOk5angAAAABJRU5ErkJggg==">
+   <title>1</title>
+  </image>
+  <image id="Bitmap_1" preserveAspectRatio="none" width="1" height="1" xlink:href="data:image/png;base64,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">
+   <title>2</title>
+  </image>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="17.408" cy="17.253" r="3.757" gradientTransform="matrix(-1 0 0 -1 17.408 17.254)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="0.1" stop-color="#fefefe"/>
+   <stop offset="0.2" stop-color="#fdfdfd"/>
+   <stop offset="0.3" stop-color="#fbfbfb"/>
+   <stop offset="0.4" stop-color="#f9f9f9"/>
+   <stop offset="0.5" stop-color="#f6f6f6"/>
+   <stop offset="0.6" stop-color="#f2f2f2"/>
+   <stop offset="0.7" stop-color="#ececec"/>
+   <stop offset="0.8" stop-color="#e0e0e0"/>
+   <stop offset="0.9" stop-color="#c6c6c6"/>
+   <stop offset="1" stop-color="#4d4d4d"/>
+  </radialGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 10.213,8.564 L 7.963,10.064 C 7.442,10.412 7.129,10.997 7.129,11.623 L 7.128,13.123 C 7.127,14.159 7.967,15 9.003,15 L 13.503,15 C 14.537,15 15.377,14.16 15.377,13.126 L 15.378,11.626 C 15.379,10.998 15.066,10.412 14.544,10.064 L 12.294,8.564 C 11.664,8.145 10.843,8.145 10.213,8.564 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 22.204,8.911 L 19.954,10.411 C 19.433,10.759 19.12,11.344 19.12,11.97 L 19.119,13.47 C 19.118,14.506 19.958,15.347 20.994,15.347 L 25.494,15.347 C 26.528,15.347 27.368,14.507 27.368,13.473 L 27.369,11.973 C 27.37,11.345 27.057,10.759 26.535,10.411 L 24.285,8.911 C 23.655,8.492 22.834,8.492 22.204,8.911 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 15.001,21.783 L 15.001,27.033 L 19.501,27.033 L 19.501,21.783 L 15.001,21.783 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 1.5,19.533 L 1.5,24.033 L 33.002,24.033 L 33.002,19.533 L 1.5,19.533 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group" stroke="none" fill="#666666">
+   <ellipse rx="3" ry="3" transform="translate(17.251 17.287) rotate(180)" stroke-linejoin="miter"/>
+   <path d="M 12.001,17.287 C 12.001,20.185 14.352,22.537 17.251,22.537 C 20.149,22.537 22.501,20.185 22.501,17.287 C 22.501,14.388 20.149,12.037 17.251,12.037 C 14.352,12.037 12.001,14.388 12.001,17.287 Z M 18.001,17.287 C 18.001,17.7 17.664,18.037 17.251,18.037 C 16.837,18.037 16.501,17.7 16.501,17.287 C 16.501,16.873 16.837,16.537 17.251,16.537 C 17.664,16.537 18.001,16.873 18.001,17.287 Z" stroke-width="0.5" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 7.506,16.533 L 7.506,21.033 L 26.982,21.033 L 26.982,16.533 L 7.506,16.533 Z" stroke-width="0.5" stroke="none" fill="#666666" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 13.65,19.506 L 13.65,20.994 L 21.15,20.994 L 21.15,19.506 L 13.65,19.506 Z" stroke-width="0.5" stroke="none" fill="#304ab6" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 9.15,18.006 L 9.15,19.494 L 25.65,19.494 L 25.65,18.006 L 9.15,18.006 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <g id="Group_1" stroke="none">
+   <clipPath id="clip-path">
+    <use xlink:href="#Shape"/>
+   </clipPath>
+   <g clip-path="url(#clip-path)">
+    <use xlink:href="#Bitmap" transform="translate(14.4 20.25) scale(6 -6)"/>
+   </g>
+   <ellipse rx="3" ry="3" transform="translate(17.4 17.25) rotate(180)" stroke-linejoin="miter" fill="none" id="Shape"/>
+   <path d="M 13.656,17.25 C 13.656,19.316 15.333,20.994 17.4,20.994 C 19.466,20.994 21.144,19.316 21.144,17.25 C 21.144,15.183 19.466,13.506 17.4,13.506 C 15.333,13.506 13.656,15.183 13.656,17.25 Z M 19.656,17.25 C 19.656,18.495 18.645,19.506 17.4,19.506 C 16.154,19.506 15.144,18.495 15.144,17.25 C 15.144,16.004 16.154,14.994 17.4,14.994 C 18.645,14.994 19.656,16.004 19.656,17.25 Z" stroke-width="0.5" fill="#122877" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  </g>
+  <path d="M 11.925,12.223 L 10.874,13.276 L 13.875,16.276 L 14.926,15.223 L 11.925,12.223 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 22.875,12.223 L 19.874,15.223 L 20.925,16.276 L 23.926,13.276 L 22.875,12.223 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <clipPath id="clip-path_1">
+   <use xlink:href="#Shape_1"/>
+  </clipPath>
+  <g clip-path="url(#clip-path_1)">
+   <use xlink:href="#Bitmap_1" transform="translate(13.651 21.011) scale(7.514 -7.514)"/>
+  </g>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#RadialGradient)" stroke="none"/>
+  </mask>
+  <ellipse rx="3.757" ry="3.757" transform="translate(17.408 17.254) rotate(180)" stroke="none" stroke-width="1.488" stroke-linejoin="miter" fill="none" id="Shape_1" mask="url(#TranspMask)"/>
+  <path d="M 3.151,21.006 L 3.151,22.494 L 31.65,22.494 L 31.65,21.006 L 3.151,21.006 Z" stroke-width="0.5" stroke="none" fill="#000000" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 16.657,22.5 L 16.657,25.5 L 18.145,25.5 L 18.145,22.5 L 16.657,22.5 Z" stroke-width="0.5" stroke="none" fill="#304ab6" fill-rule="evenodd" marker-start="none" marker-end="none" fill-opacity="1.000000"/>
+  <path d="M 21.15,13.5 L 25.65,13.5 L 25.65,12 L 23.402,10.5 L 21.15,12 L 21.15,13.5 Z" stroke="none" fill="#231f20" stroke-width="1.488" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <path d="M 9.15,13.5 L 13.65,13.5 L 13.65,12 L 11.402,10.5 L 9.151,12 L 9.15,13.5 Z" stroke="none" fill="#231f20" stroke-width="1.488" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+ </g>
+</svg>
