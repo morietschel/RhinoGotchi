@@ -134,14 +134,21 @@ green for right answers, orange for selection and streaks, and Duolingo-style ch
 buttons and cards. It follows Rhino's dark mode (the ink inverts) and reflows when the
 panel is resized; on a wide panel the lessons keep a centered column.
 
-- **Home:** Gotchi's card (it breathes, wears its hat, and naps when you haven't played
-  today; tap it to make it hop), with chips for your streak, hats and questions solved.
-  Below it, two tabs: **Learning** (Learning Campaign, Command Library, Recipes, tip of
-  the day) and **Games** (the daily puzzles).
+- **Gotchi** is the 1-bit pixel rhino from the RhinoGotchi canvas (`Resources/Pet`): idle,
+  celebrate, sleeping and fainted poses, pixel hats, clothes, and a "feeding time" animation
+  (grass, leaves, apple, banana...) when you tap it or finish a lesson.
+- **Home:** Gotchi's card (it breathes and naps when you haven't played today), with chips
+  for your streak, unlocks and questions solved. Below it, two tabs: **Learning** (Learning
+  Campaign, Command Library, Recipes, tip of the day) and **Games** (the daily puzzles).
+- **Coming soon:** modes from the canvas that aren't built yet have a row with a **SOON** tag
+  and a page explaining how they'll play: Every Single Command, Quiz, Missing Command,
+  One More Line, Skyline, Office Tower and Level Builder (`Content/UpcomingGames.cs`).
 - **Bottom bar:** Home · Trophies · Stats.
-- **Trophies:** 9 achievements, each unlocking a hat (hard hat, beret, grad cap, flame,
-  cowboy, propeller, tree, wizard, crown). Tap an unlocked hat in the wardrobe to wear it.
-  New unlocks appear on the lesson-complete screen with a **Wear it** button.
+- **Trophies:** the canvas's 9 achievements unlock the 9 hats (Hot Streak and Par Excellence
+  work today; the other 7 come with their games). Four Learning Campaign achievements unlock
+  clothes: gold chain (placement test), tracksuit (flawless lesson), bomber (5 levels) and
+  jeans (1,000 XP). Tap a hat or garment in the wardrobe to wear it; new unlocks also appear
+  on the lesson-complete screen with a **Wear it** button.
 
 ## The Learning Campaign
 

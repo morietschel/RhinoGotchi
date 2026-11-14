@@ -51,6 +51,12 @@ namespace RhinoGotchi.UI
         private Palette _t = Palette.Light;
 
         private bool _subscribed;
+        private DateTime _eatStart = DateTime.MinValue;
+        private Food _food;
+
+        private double EatSeconds => (DateTime.Now - _eatStart).TotalSeconds;
+
+        private bool Eating => EatSeconds < Mascot.EatFrames * 0.12;
         private float _ox;
 
         public LessonCanvas(GotchiGame game)
@@ -62,7 +68,7 @@ namespace RhinoGotchi.UI
             SizeChanged += (s, e) => Invalidate();
             _timer.Elapsed += (s, e) =>
             {
-                if (AnimProgress >= 1)
+                if (AnimProgress >= 1 && !Eating)
                     _timer.Stop();
                 Invalidate();
             };
@@ -122,6 +128,12 @@ namespace RhinoGotchi.UI
                 return;
             }
 
+            if (_session.Screen == SessionScreen.Complete && _wasScreen != SessionScreen.Complete)
+            {
+                // Feeding time: a snack for finishing the lesson.
+                _eatStart = DateTime.Now;
+                _food = (Food)new Random().Next(7);
+            }
             if (_session.Screen != _wasScreen || !ReferenceEquals(_session.Step, _wasStep))
             {
                 _bubble = Thinking[_bubbleSeed++ % Thinking.Length];
@@ -441,7 +453,11 @@ namespace RhinoGotchi.UI
         {
             float y = Pad + 8;
             Confetti(g, w, y);
-            Mascot.Draw(g, new RectangleF(w / 2 - 60, y + 6, 120, 120), Mood.Celebrate, (float)Math.Sin(AnimProgress * Math.PI) * -12);
+            var petRect = new RectangleF(w / 2 - 60, y + 6, 120, 120);
+            if (Eating)
+                Mascot.DrawEating(g, petRect, _food, (int)(EatSeconds / 0.12));
+            else
+                Mascot.Draw(g, petRect, Mood.Celebrate);
             y += 136;
             y += Centered(g, "Lesson complete!", Bold(24), _t.Text, w, y) + 18;
 
@@ -833,14 +849,14 @@ namespace RhinoGotchi.UI
             {
                 var rect = new RectangleF(Pad, y, w - 2 * Pad, 84);
                 Card(g, rect, _t.AccentSoft, _t.Accent);
-                Mascot.Draw(g, new RectangleF(rect.X + 8, rect.Y + 6, 66, 66), Mood.Happy, hat: a.Hat);
+                Mascot.Draw(g, new RectangleF(rect.X + 8, rect.Y + 6, 66, 66), Mood.Happy, hat: a.Hat, clothes: a.Clothes == Clothes.None ? (Clothes?)null : a.Clothes);
                 float tx = rect.X + 82;
                 float btnW = 84;
                 float tw = rect.Right - tx - btnW - 20;
                 g.DrawText(Bold(10), _t.AccentText, tx, rect.Y + 12, "ACHIEVEMENT UNLOCKED");
                 g.DrawText(Bold(14), _t.Text, tx, rect.Y + 28, Ellipsize(Bold(14), $"{a.Name} · {a.HatName}", tw));
                 g.DrawText(Regular(11), _t.SubtleText, tx, rect.Y + 50, Ellipsize(Regular(11), a.Condition, tw));
-                bool wearing = _game.Progress.EquippedHat == a.Hat;
+                bool wearing = a.Clothes != Clothes.None ? _game.Progress.EquippedClothes.HasFlag(a.Clothes) : _game.Progress.EquippedHat == a.Hat;
                 var btn = new RectangleF(rect.Right - btnW - 12, rect.Y + 22, btnW, 34);
                 if (wearing)
                 {
@@ -850,7 +866,9 @@ namespace RhinoGotchi.UI
                 else
                 {
                     var hat = a.Hat;
-                    ChunkyButton(g, btn, "WEAR IT", _t.Accent, _t.AccentShadow, Colors.White, "wear" + a.Id, () => _game.Wear(hat), fontSize: 12);
+                    var piece = a.Clothes;
+                    ChunkyButton(g, btn, "WEAR IT", _t.Accent, _t.AccentShadow, Colors.White, "wear" + a.Id,
+                        () => { if (piece != Clothes.None) _game.ToggleClothes(piece); else _game.Wear(hat); }, fontSize: 12);
                 }
                 y = rect.Bottom + 4 + Gap;
             }

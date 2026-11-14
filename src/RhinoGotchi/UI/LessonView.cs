@@ -19,6 +19,7 @@ namespace RhinoGotchi.UI
                     var game = new GotchiGame(Lessons.Progress.Load());
                     game.StatsProvider = () => StatsFor(game.Progress);
                     Mascot.WornHat = () => game.Progress.EquippedHat;
+                    Mascot.WornClothes = () => game.Progress.EquippedClothes;
                     _game = game;
                 }
                 return _game;

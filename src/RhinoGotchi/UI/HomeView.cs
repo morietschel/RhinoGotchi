@@ -80,7 +80,7 @@ namespace RhinoGotchi.UI
             string status = left == 0 ? "all dailies done" : $"{left} {(left == 1 ? "daily" : "dailies")} left today";
             _pet.Set(mood, status, message, 0,
                 $"{streak}-day streak",
-                $"{hats}/{Achievements.All.Count} hats",
+                $"{hats}/{Achievements.All.Count} unlocked",
                 $"{stats.CorrectAnswers} solved");
         }
 
@@ -121,6 +121,8 @@ namespace RhinoGotchi.UI
                 () => _host.Navigate(new LibraryView(_host, 0))));
             _tabContent.Items.Add(new ListRow("Recipes", $"{Recipes.All.Length} chains of commands", Glyph.Chain, 5,
                 () => _host.Navigate(new LibraryView(_host, 3))));
+            _tabContent.Items.Add(Upcoming(UpcomingGames.Codex, Glyph.Blocks, 2));
+            _tabContent.Items.Add(Upcoming(UpcomingGames.Quiz, Glyph.Bulb, 3));
 
             var tip = new TipCard("TIP OF THE DAY · TAP FOR ANOTHER", Tips.All[_tip]);
             tip.MouseUp += (s, e) =>
@@ -147,6 +149,16 @@ namespace RhinoGotchi.UI
             _tabContent.Items.Add(GameRow(Games.Blocked, "Build it without the obvious command", Glyph.Ban, 2,
                 () => _host.Navigate(new BlockedView(_host, practice: false))));
 
+            _tabContent.Items.Add(Upcoming(UpcomingGames.Missing, Glyph.Chain, 5));
+            _tabContent.Items.Add(Upcoming(UpcomingGames.OneMoreLine, Glyph.Flame, 0));
+
+            _tabContent.Items.Add(new SectionLabel("CAMPAIGNS", "difficulty 1–10"));
+            _tabContent.Items.Add(Upcoming(UpcomingGames.Skyline, Glyph.Cube, 3));
+            _tabContent.Items.Add(Upcoming(UpcomingGames.Office, Glyph.Blocks, 1));
+
+            _tabContent.Items.Add(new SectionLabel("CREATE"));
+            _tabContent.Items.Add(Upcoming(UpcomingGames.Builder, Glyph.Arrows, 2));
+
             _tabContent.Items.Add(new SectionLabel("LEADERBOARD"));
             _tabContent.Items.Add(new ListRow(
                 Leaderboard.HasProfile ? "See the rankings" : "Join the leaderboard",
@@ -169,6 +181,14 @@ namespace RhinoGotchi.UI
                 Theme.Button("Settings", () => _host.Navigate(new SettingsView(_host))),
                 Theme.Button("Reset", () => ConfirmReset(_host))));
         }
+
+        /// <summary>A canvas mode that isn't built yet: a muted row with a SOON tag that opens its placeholder page.</summary>
+        private ListRow Upcoming(UpcomingGame game, Glyph glyph, int tint) =>
+            new ListRow(game.Title, game.Blurb, glyph, tint, () => _host.Navigate(new ComingSoonView(_host, game)))
+            {
+                TagText = "SOON",
+                TagMuted = true,
+            };
 
         private static ListRow GameRow(string game, string blurb, Glyph glyph, int tint, Action play)
         {

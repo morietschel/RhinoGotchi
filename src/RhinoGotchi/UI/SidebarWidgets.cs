@@ -167,6 +167,8 @@ namespace RhinoGotchi.UI
         private readonly UITimer _timer = new UITimer { Interval = 1 / 24.0 };
         private readonly DateTime _born = DateTime.Now;
         private DateTime _hopStart = DateTime.MinValue;
+        private static readonly Random Rng = new Random();
+        private Food _food;
         private string _status = "";
         private string _message = "";
         private Mood _mood = Mood.Happy;
@@ -185,6 +187,7 @@ namespace RhinoGotchi.UI
                 if (e.Location.X < PetSize + 12)
                 {
                     _hopStart = DateTime.Now;
+                    _food = (Food)Rng.Next(7);
                     e.Handled = true;
                 }
             };
@@ -271,11 +274,14 @@ namespace RhinoGotchi.UI
 
             double t = (DateTime.Now - _born).TotalSeconds;
             float breathe = (float)(0.5 + 0.5 * Math.Sin(t * 2 * Math.PI / 2.4));
-            double hopT = (DateTime.Now - _hopStart).TotalSeconds;
-            float hop = hopT < 0.5 ? (float)Math.Sin(hopT / 0.5 * Math.PI) * -10 : 0;
-            var mood = hopT < 0.8 ? Mood.Celebrate : _mood;
+            // Tap Gotchi: it catches and eats a snack (12 frames, 120 ms each).
+            double eatT = (DateTime.Now - _hopStart).TotalSeconds;
             float petY = Math.Max(6, (h - 4 - PetSize) / 2);
-            Mascot.Draw(g, new RectangleF(6, petY, PetSize, PetSize), mood, hop, breathe: breathe);
+            var petRect = new RectangleF(6, petY, PetSize, PetSize);
+            if (eatT < Mascot.EatFrames * 0.12)
+                Mascot.DrawEating(g, petRect, _food, (int)(eatT / 0.12));
+            else
+                Mascot.Draw(g, petRect, _mood, breathe: breathe);
 
             Layout(w, g);
         }
@@ -325,6 +331,9 @@ namespace RhinoGotchi.UI
         public string TagText { get; set; } = "";
         public bool TagDone { get; set; }
 
+        /// <summary>A quiet gray tag, e.g. "SOON" for a game that isn't built yet.</summary>
+        public bool TagMuted { get; set; }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             var g = e.Graphics;
@@ -355,8 +364,8 @@ namespace RhinoGotchi.UI
                 Font tf = Ui.Bold(8);
                 rightW = tf.MeasureString(TagText).Width + 16;
                 var r = new RectangleF(w - 12 - rightW, top.Y + (top.Height - 22) / 2, rightW, 22);
-                Color face = TagDone ? p.GreenBanner : p.Ink;
-                Color ink = TagDone ? p.GreenText : p.OnInk;
+                Color face = TagDone ? p.GreenBanner : TagMuted ? p.Track : p.Ink;
+                Color ink = TagDone ? p.GreenText : TagMuted ? p.SubtleText : p.OnInk;
                 g.FillPath(face, GraphicsPath.GetRoundRect(r, 11));
                 if (TagDone)
                     g.DrawPath(new Pen(p.Green, 1.2f), GraphicsPath.GetRoundRect(r, 11));

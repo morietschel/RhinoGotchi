@@ -30,6 +30,7 @@ namespace RhinoGotchi.Lessons
         private const string BestStreakKey = "progress.bestStreak";
         private const string LastDayKey = "progress.lastActiveDay";
         private const string HatKey = "pet.hat";
+        private const string ClothesKey = "pet.clothes";
 
         private readonly HashSet<string> _completed = new HashSet<string>();
         private int _streak;
@@ -62,6 +63,9 @@ namespace RhinoGotchi.Lessons
 
         /// <summary>The hat Gotchi is wearing.</summary>
         public Hat EquippedHat { get; private set; }
+
+        /// <summary>The clothes Gotchi is wearing.</summary>
+        public Clothes EquippedClothes { get; private set; }
 
         /// <summary>True for a brand-new player: show the welcome screen instead of the map.</summary>
         public bool IsNew => !PlacementDone && _completed.Count == 0;
@@ -142,6 +146,26 @@ namespace RhinoGotchi.Lessons
             return true;
         }
 
+        /// <summary>
+        /// Puts a garment on, or takes it off if it's already on. Tracksuit and bomber swap with each
+        /// other. Returns false (and changes nothing) if the garment is still locked.
+        /// </summary>
+        public bool ToggleClothes(Clothes piece, AchievementStats stats)
+        {
+            if (!Achievements.AreClothesUnlocked(piece, stats))
+                return false;
+            if (EquippedClothes.HasFlag(piece))
+                EquippedClothes &= ~piece;
+            else
+            {
+                if (piece == Clothes.Tracksuit) EquippedClothes &= ~Clothes.Bomber;
+                if (piece == Clothes.Bomber) EquippedClothes &= ~Clothes.Tracksuit;
+                EquippedClothes |= piece;
+            }
+            Save();
+            return true;
+        }
+
         private void MarkActive()
         {
             string today = DayKey(Clock());
@@ -169,6 +193,7 @@ namespace RhinoGotchi.Lessons
             p.BestStreak = s.GetInteger(BestStreakKey, 0);
             p._lastDay = s.GetString(LastDayKey, "");
             p.EquippedHat = Enum.TryParse(s.GetString(HatKey, nameof(Hat.None)), out Hat hat) ? hat : Hat.None;
+            p.EquippedClothes = (Clothes)(s.GetInteger(ClothesKey, 0) & 15);
             foreach (string id in s.GetStringList(CompletedKey, Array.Empty<string>()) ?? Array.Empty<string>())
                 p._completed.Add(id);
             return p;
@@ -188,6 +213,7 @@ namespace RhinoGotchi.Lessons
             s.SetInteger(BestStreakKey, BestStreak);
             s.SetString(LastDayKey, _lastDay);
             s.SetString(HatKey, EquippedHat.ToString());
+            s.SetInteger(ClothesKey, (int)EquippedClothes);
             s.SetStringList(CompletedKey, _completed.ToArray());
             try
             {

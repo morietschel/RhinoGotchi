@@ -42,6 +42,15 @@ namespace RhinoGotchi.Lessons
 
         public AchievementStats Stats => StatsProvider();
 
+        /// <summary>Puts on or takes off a garment if it is unlocked. Returns false for a locked one.</summary>
+        public bool ToggleClothes(Clothes piece)
+        {
+            bool ok = Progress.ToggleClothes(piece, Stats);
+            if (ok)
+                Raise();
+            return ok;
+        }
+
         /// <summary>Puts on a hat if it is unlocked. Returns false for a locked hat.</summary>
         public bool Wear(Hat hat)
         {

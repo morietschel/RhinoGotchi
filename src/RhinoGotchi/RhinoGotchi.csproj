@@ -25,6 +25,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Pixel pet art from the RhinoGotchi canvas: pose layers, LCD shadows, clothes, eating strips. -->
+    <EmbeddedResource Include="Resources\Pet\*.png" LogicalName="RhinoGotchi.Pet.%(Filename).png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <!-- Compile against the oldest Rhino 8 SDK so the plugin loads in every Rhino 8 service release. -->
     <PackageReference Include="RhinoCommon" Version="8.0.23304.9001" ExcludeAssets="runtime" />
     <!-- System.Drawing.Bitmap (for SVG icons) on .NET 7. Compile-only: Rhino 8 provides it at runtime. -->
