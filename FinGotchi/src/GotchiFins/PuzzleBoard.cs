@@ -33,7 +33,7 @@ namespace GotchiFins
         public PuzzleBoard()
         {
             BackgroundColor = Palette.Paper;
-            MinimumSize = new Size(240, 480);
+            MinimumSize = new Size(200, 200); // pages fit themselves to any height (see FitFor)
             _page = _lastCurrentPage = FinSession.CurrentPageIndex;
             FinSession.Changed += OnSessionChanged;
             SizeChanged += (s, e) => Invalidate();
@@ -141,10 +141,92 @@ namespace GotchiFins
             double t = time ?? _clock.Elapsed.TotalSeconds;
             g.AntiAlias = true;
             g.FillRectangle(Palette.Paper, 0, 0, width, height);
+            var (fit, artShare) = FitFor(width, height, t, time);
             _hits.Clear();
+            Layout(g, width, height, t, time, fit, artShare);
+        }
 
+        // ---------------------------------------------------------------- fitting
+
+        /// <summary>The demo's height as a share of the column width: normal, and squeezed.</summary>
+        private const float ArtTall = 0.56f, ArtShort = 0.34f;
+
+        /// <summary>Smallest text scale used to make a page fit; below this the panel is simply too short.</summary>
+        private const float MinFit = 0.55f;
+
+        private string? _fitKey;
+        private (float Fit, float Art) _fitted = (1, ArtTall);
+
+        /// <summary>Short panel: "ways to do it" goes on one line.</summary>
+        private bool _compact, _fittedCompact;
+
+        /// <summary>
+        /// The panel can't scroll, so every page must fit its height. Measure the page; if it is too
+        /// tall, first squeeze the demo picture, then scale everything down just enough. The answer
+        /// is kept until something that changes the page's height changes.
+        /// </summary>
+        private (float Fit, float Art) FitFor(float width, float height, double t, double? time)
+        {
+            PetMood mood = FinSession.Mood;
+            string key = string.Join("|", width, height, _page, FinSession.Started, FinSession.Completed,
+                FinSession.Hint ?? "", mood == PetMood.Awake || mood == PetMood.Standby, FinSession.ChosenFinish?.ToString() ?? "");
+            if (key == _fitKey)
+            {
+                _compact = _fittedCompact;
+                return _fitted;
+            }
+
+            float Need(float fit, float art, bool compact)
+            {
+                _compact = compact;
+                using var bmp = new Bitmap(Math.Max(1, (int)width), Math.Max(1, (int)height), PixelFormat.Format32bppRgba);
+                using var g = new Graphics(bmp);
+                return Layout(g, width, height, t, time, fit, art);
+            }
+
+            // In order, until it fits: as designed; a shorter demo; "ways to do it" on one line;
+            // then everything scaled down (heights shrink about in step, so two passes settle it).
+            (float, float) result = (1, ArtTall);
+            bool compact = false;
+            float tallNeed = Need(1, ArtTall, false);
+            if (tallNeed > height)
+            {
+                float shortNeed = Need(1, ArtShort, false);
+                if (shortNeed <= height)
+                {
+                    float share = (tallNeed - height) / Math.Max(1, tallNeed - shortNeed);
+                    result = (1, ArtTall - (ArtTall - ArtShort) * Math.Min(1, share + 0.02f));
+                }
+                else
+                {
+                    compact = true;
+                    float compactNeed = Need(1, ArtShort, true);
+                    float fit = compactNeed <= height ? 1 : Math.Max(MinFit, height / compactNeed);
+                    for (int i = 0; i < 2 && fit < 1; i++)
+                    {
+                        float need = Need(fit, ArtShort, true);
+                        if (need <= height)
+                            break;
+                        fit = Math.Max(MinFit, fit * height / need * 0.99f);
+                    }
+                    result = (fit, ArtShort);
+                }
+            }
+            _hits.Clear();
+            _fitKey = key;
+            _fitted = result;
+            _compact = _fittedCompact = compact;
+            return result;
+        }
+
+        /// <summary>
+        /// Lays out (and draws) the page at text scale <paramref name="fit"/> with the demo
+        /// <paramref name="artShare"/> of the column tall. Returns the height the page needs.
+        /// </summary>
+        private float Layout(Graphics g, float width, float height, double t, double? time, float fit, float artShare)
+        {
             float col = Math.Max(200, Math.Min(width - 28, 360));
-            float s = col / 300f;
+            float s = col / 300f * fit;
             float x = (width - col) / 2;
             GamePage page = Page;
             Demo demo = Demo.For(page, t);
@@ -155,7 +237,7 @@ namespace GotchiFins
             // The key axon, or the pet when it has something to say about this level
             PetMood mood = FinSession.Mood;
             bool petMoment = mood == PetMood.Win || mood == PetMood.Lose || mood == PetMood.Final || (mood == PetMood.Dance && page.Kind == PageKind.Done);
-            var art = new RectangleF(x, y, col, col * 0.56f);
+            var art = new RectangleF(x, y, col, col * artShare);
             if (petMoment && page.Kind != PageKind.Welcome)
                 DrawPetMoment(g, art, s, mood, time ?? FinSession.MoodTime);
             else
@@ -180,6 +262,7 @@ namespace GotchiFins
             // Back / Next at the bottom when there's room
             float bh = 30 * s;
             DrawFooter(g, x, Math.Max(y + 12 * s, height - 14 * s - bh), col, bh, s, page);
+            return y + 12 * s + bh + 14 * s;
         }
 
         /// <summary>"Fin Facade" with the orange bar, and its subtitle.</summary>
@@ -400,8 +483,15 @@ namespace GotchiFins
             }
             y += 6 * s;
 
-            // Three ways to run the command
-            if (page.Command != null)
+            // Three ways to run the command: on a short panel, one line instead of three rows
+            if (page.Command != null && _compact)
+            {
+                y = Section(g, x, y, s, "WAYS TO DO IT");
+                using Font plain = Typeface.Sans(8.6f * s, true);
+                using Font cmd = Typeface.Mono(8.6f * s);
+                y += Cards.Rich(g, $"Type *{page.Command}* · its toolbar icon · Run", x, y, col, plain, cmd, Palette.Ink) + 6 * s;
+            }
+            else if (page.Command != null)
             {
                 y = Section(g, x, y, s, "WAYS TO DO IT");
                 string[] ways =
