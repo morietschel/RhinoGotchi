@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEEPCUT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--b:#0a22c9;--w:#fff;--d:rgba(255,255,255,.55);--f:"VT323",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--b);color:var(--w);font:22px/1.2 var(--f);overflow:hidden;-webkit-font-smoothing:none;font-smooth:never;text-transform:uppercase}
+button,input,textarea{font:inherit;color:inherit;text-transform:inherit}
+button{background:none;border:0;padding:0 .3em;cursor:pointer}
+button:hover:not(:disabled),button:focus-visible{background:var(--w);color:var(--b);outline:0}
+button:disabled{color:var(--d);cursor:wait}
+a{color:inherit}
+::selection{background:var(--w);color:var(--b)}
+.hidden{display:none!important}
+.dim{color:var(--d)}
+.cur::after{content:"█";animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.bar{position:fixed;inset:0 0 auto 0;height:44px;display:flex;align-items:center;gap:1.4em;padding:0 20px;white-space:nowrap}
+.bar .sp{flex:1}
+.screen{position:fixed;inset:44px 0 0 0;display:grid;padding:0 20px 20px}
+
+/* intro */
+#intro{place-items:center}
+.hero{width:100%;max-width:640px}
+.hero h1{font-size:clamp(90px,19vw,190px);line-height:.8;margin:0 0 .18em;font-weight:400;letter-spacing:.02em}
+.hero p{margin:0 0 1.4em}
+.hero pre{font:inherit;margin:0 0 1.6em;color:var(--d);white-space:pre-wrap}
+.big{font-size:32px}
+
+/* play */
+#play{grid-template-rows:minmax(0,1fr) auto auto;gap:10px}
+.viewport{position:relative;border:2px solid var(--w);min-height:0;overflow:hidden;background:var(--b)}
+.viewport canvas.gl{position:absolute;inset:0;width:100%!important;height:100%!important;image-rendering:pixelated;cursor:grab;touch-action:none}
+.viewport canvas.gl:active{cursor:grabbing}
+.vlabel{position:absolute;left:10px;top:6px;right:10px;display:flex;justify-content:space-between;gap:1em;pointer-events:none;white-space:nowrap;overflow:hidden}
+.vload{position:absolute;inset:0;display:grid;place-items:center;background:var(--b);z-index:2}
+#tbar{white-space:pre;overflow:hidden}
+.cmd{position:relative;border:2px solid var(--w);padding:6px 12px;display:flex;gap:.5em;align-items:center;font-size:32px}
+.cmd input{flex:1;min-width:0;background:none;border:0;outline:0;caret-color:var(--w);caret-shape:block}
+.ac{position:absolute;left:-2px;bottom:calc(100% + 2px);background:var(--b);border:2px solid var(--w);min-width:320px;font-size:26px;z-index:4}
+.ac div{padding:0 12px;cursor:pointer;color:var(--d)}
+.ac div b{font-weight:400;color:var(--w)}
+.ac div.sel,.ac div.sel b{background:var(--w);color:var(--b)}
+
+.verdict{position:absolute;inset:0;z-index:3;display:grid;place-items:center;background:var(--b);text-align:center;padding:16px}
+.verdict .pts{font-size:clamp(110px,22vw,220px);line-height:.8;margin:.08em 0 .1em}
+.verdict pre{font:inherit;margin:.7em auto;text-align:left;display:inline-block}
+
+/* results */
+#results{overflow:auto;grid-template-columns:minmax(0,720px);justify-content:center;align-content:start;padding-top:20px}
+.res{min-width:0}
+.row>*{flex-shrink:0}.row .dots,.row a{flex-shrink:1;min-width:0}
+.res h2{font-size:clamp(110px,22vw,220px);line-height:.8;margin:.1em 0 .12em;font-weight:400}
+.row{display:flex;gap:.5em;align-items:baseline;white-space:nowrap}
+.row .dots{flex:1;overflow:hidden;color:var(--d)}
+.row .dots::before{content:"........................................................................................................................"}
+.row a{color:var(--d);text-decoration:none;overflow:hidden;text-overflow:ellipsis;max-width:38%}
+.row a:hover{color:var(--w);text-decoration:underline}
+
+/* dialogs */
+.scrim{position:fixed;inset:0;z-index:20;background:var(--b);display:grid;place-items:center;padding:18px}
+.dlg{border:2px solid var(--w);width:100%;max-width:520px;padding:16px 20px;max-height:calc(100vh - 36px);overflow:auto}
+.dlg.wide{max-width:760px}
+.dlg h4{margin:0 0 .4em;font-weight:400;font-size:32px}
+.dlg p{color:var(--d);margin:0 0 .8em}
+.dlg label{display:block;margin:.7em 0 .2em}
+.dlg input,.dlg textarea{width:100%;background:var(--b);border:2px solid var(--w);padding:6px 10px;outline:0;text-transform:none;resize:vertical;border-radius:0}
+.dlg textarea{font-size:20px}
+.dlg .acts{display:flex;gap:1.2em;justify-content:flex-end;margin-top:.8em;align-items:center}
+.dlg .acts .sp{flex:1}
+.err{min-height:1.2em}
+.toast{position:fixed;left:20px;bottom:20px;background:var(--w);color:var(--b);padding:0 .4em;z-index:30;max-width:90vw}
+
+@media (max-width:640px){body{font-size:18px}.cmd{font-size:24px}}
+@media (prefers-reduced-motion:reduce){.cur::after{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <span>DEEPCUT</span>
+  <span class="hidden" id="hud"><span id="roundNo">1/7</span>&nbsp; <span id="pips"></span>&nbsp; <span id="score">0</span> PTS</span>
+  <span class="sp"></span>
+  <button id="tuneBtn">[TUNE]</button>
+  <button id="keyBtn">[<span id="keyLbl">KEY</span>]</button>
+</header>
+
+<!-- INTRO -->
+<section class="screen" id="intro">
+  <div class="hero">
+    <h1>DEEP<br>CUT</h1>
+    <p>Name the rarest Rhino command.</p>
+<pre>
++ 7 real rhino models, drag to orbit
++ 30 seconds, 1 guess each
++ the rarer the command, the more points
++ only counts if it was really used</pre>
+    <div class="big"><button id="startBtn" disabled>LOADING</button><span class="cur"></span></div>
+    <div class="dim" id="loadHint">&nbsp;</div>
+  </div>
+</section>
+
+<!-- PLAY -->
+<section class="screen hidden" id="play">
+  <div class="viewport">
+    <div class="vlabel"><span></span><span class="dim">DRAG TO ORBIT</span></div>
+    <div class="vload hidden" id="vLoad"></div>
+    <div class="verdict hidden" id="verdict"></div>
+  </div>
+  <div id="tbar"></div>
+  <form class="cmd" id="cmdForm" autocomplete="off">
+    <div class="ac hidden" id="ac"></div>
+    <label for="cmdIn">COMMAND:</label>
+    <input id="cmdIn" spellcheck="false" autocapitalize="off" maxlength="60">
+  </form>
+</section>
+
+<!-- RESULTS -->
+<section class="screen hidden" id="results"><div class="res" id="resBody"></div></section>
+
+<!-- KEY DIALOG -->
+<div class="scrim hidden" id="keyDlg">
+  <form class="dlg" id="keyForm">
+    <h4>OPENAI API KEY</h4>
+    <p>Sent only to this local server. Kept in memory, never written to disk.</p>
+    <input id="keyIn" type="password" placeholder="sk-..." autocomplete="off">
+    <div class="err" id="keyErr"></div>
+    <div class="acts"><button type="button" id="keyCancel">[CANCEL]</button><button>[SAVE]</button></div>
+  </form>
+</div>
+
+<!-- PROMPT TUNING -->
+<div class="scrim hidden" id="tuneDlg">
+  <form class="dlg wide" id="tuneForm">
+    <h4>TUNE THE JUDGE</h4>
+    <p>Sent to gpt-6-luna with a snapshot of your 3D view on every guess. {command} = the guess. {commands} = the full list.</p>
+    <label for="p_input">INPUT TEXT</label>
+    <textarea id="p_input" rows="1" spellcheck="false"></textarea>
+    <label for="p_decision1">DECISION 1 <span class="dim">yes / no · real command? display only</span></label>
+    <textarea id="p_decision1" rows="2" spellcheck="false"></textarea>
+    <label for="p_decision2">DECISION 2 <span class="dim">probability × 1000 = points</span></label>
+    <textarea id="p_decision2" rows="3" spellcheck="false"></textarea>
+    <label for="p_decision3">DECISION 3 <span class="dim">used / not used · not used = 0</span></label>
+    <textarea id="p_decision3" rows="3" spellcheck="false"></textarea>
+    <div class="err" id="tuneErr"></div>
+    <div class="acts"><span id="tuneOk"></span><span class="sp"></span><button type="button" id="tuneReset">[DEFAULTS]</button><button type="button" id="tuneClose">[CLOSE]</button><button>[SAVE]</button></div>
+  </form>
+</div>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}</script>
+<script type="module">
+import { createViewer, loadModel } from './viewer.js';
+const $ = (id) => document.getElementById(id);
+const ROUNDS = 7, SECONDS = 30;
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const meter = (p, n = 20) => { const k = Math.max(0, Math.min(n, Math.round(p * n))); return '█'.repeat(k) + '░'.repeat(n - k); };
+const api = async (url, body) => {
+  const r = await fetch(url, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : undefined);
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(j.error || 'Request failed'), { code: j.code });
+  return j;
+};
+
+let models = [], commands = [], hasKey = false, mock = false;
+let game = null; // { picks, i, total, rounds: [] }
+let timer = { raf: 0, end: 0, left: SECONDS * 1000, running: false };
+let phase = 'idle'; // typing | judging | reveal
+let pendingAfterKey = null;
+const viewer = createViewer(document.querySelector('.viewport'));
+
+function show(id) { for (const s of ['intro', 'play', 'results']) $(s).classList.toggle('hidden', s !== id); $('hud').classList.toggle('hidden', id !== 'play'); }
+function toast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; document.body.append(t); setTimeout(() => t.remove(), 5000); }
+function setKeyState(k, m) { hasKey = k; mock = m; $('keyLbl').textContent = m ? 'MOCK JUDGE' : k ? 'KEY OK' : 'NO KEY'; }
+
+// ---------- boot ----------
+async function boot() {
+  commands = await api('/api/commands');
+  for (;;) {
+    const s = await api('/api/status');
+    setKeyState(s.hasKey, s.mock);
+    if (s.models.done) {
+      models = (await api('/api/models')).models;
+      if (!models.length) { $('startBtn').textContent = 'NO MODELS LOADED'; $('loadHint').textContent = s.models.error || ''; return; }
+      $('startBtn').disabled = false; $('startBtn').textContent = '> PRESS ENTER';
+      $('loadHint').innerHTML = '&nbsp;';
+      return;
+    }
+    $('loadHint').textContent = `loading models ${s.models.loaded}/50`;
+    await new Promise((r) => setTimeout(r, 700));
+  }
+}
+
+// ---------- game ----------
+function startGame() {
+  const pool = [...models];
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  game = { picks: pool.slice(0, Math.min(ROUNDS, pool.length)), i: 0, total: 0, rounds: [] };
+  $('score').textContent = '0';
+  show('play'); startRound();
+}
+
+function drawPips() {
+  $('pips').textContent = game.picks.map((_, k) => { const r = game.rounds[k]; return r ? (r.points ? '■' : 'x') : k === game.i ? '▣' : '□'; }).join('');
+}
+function drawClock() {
+  const s = Math.ceil(timer.left / 1000);
+  $('tbar').textContent = `${String(s).padStart(2, '0')} ${'█'.repeat(s * 2)}`;
+}
+
+function startRound() {
+  const m = game.picks[game.i];
+  phase = 'loading';
+  $('roundNo').textContent = `${game.i + 1}/${game.picks.length}`;
+  $('verdict').classList.add('hidden');
+  $('cmdIn').value = ''; $('cmdIn').disabled = false;
+  timer.left = SECONDS * 1000; drawClock();
+  drawPips(); hideAc();
+  const L = $('vLoad'); L.classList.remove('hidden');
+  const bar = (p) => { L.textContent = `LOADING MODEL ${meter(p, 16)}`; };
+  bar(0); $('cmdIn').disabled = true;
+  const i = game.i;
+  fetchModel(m, bar).then((model) => {
+    if (!game || game.i !== i || phase !== 'loading') return;
+    viewer.show(model); cache.delete(m.id);
+    L.classList.add('hidden'); $('cmdIn').disabled = false;
+    phase = 'typing'; timer.left = SECONDS * 1000; runTimer(); $('cmdIn').focus();
+    const nx = game.picks[i + 1]; if (nx) fetchModel(nx); // warm up the next one
+  }).catch(() => {
+    // unreadable file: swap in another model and retry this round
+    const spare = models.find((x) => !game.picks.includes(x));
+    if (spare) { game.picks[i] = spare; startRound(); } else { L.textContent = 'MODEL FAILED TO LOAD'; }
+  });
+}
+const cache = new Map();
+function fetchModel(m, onProgress) {
+  if (!cache.has(m.id)) { const p = loadModel(m.url, onProgress); p.catch(() => cache.delete(m.id)); cache.set(m.id, p); }
+  return cache.get(m.id);
+}
+
+function runTimer() {
+  timer.end = performance.now() + timer.left; timer.running = true;
+  const tick = (now) => {
+    if (!timer.running) return;
+    timer.left = Math.max(0, timer.end - now);
+    drawClock();
+    if (timer.left <= 0) { timer.running = false; return timeUp(); }
+    timer.raf = requestAnimationFrame(tick);
+  };
+  timer.raf = requestAnimationFrame(tick);
+}
+function stopTimer() { timer.running = false; cancelAnimationFrame(timer.raf); }
+
+function timeUp() {
+  if (phase !== 'typing') return;
+  hideAc(); $('cmdIn').disabled = true;
+  finishRound({ command: $('cmdIn').value.trim() || '-', verdict: 'timeout', points: 0, rarity: 0, pUsed: 0, tier: '' });
+}
+
+let snap = null; // judged view, kept so a retry after a key error sends the same picture
+async function submit(cmd) {
+  if (phase !== 'typing' || !cmd) return;
+  stopTimer(); hideAc(); phase = 'judging';
+  $('cmdIn').disabled = true;
+  const v = $('verdict'); v.classList.remove('hidden');
+  v.innerHTML = `<div>ANALYSING ${esc(cmd)}<span class="cur"></span></div>`;
+  try {
+    snap = snap || viewer.capture();
+    finishRound(await api('/api/judge', { modelId: game.picks[game.i].id, command: cmd, image: snap }));
+    snap = null;
+  } catch (e) {
+    v.classList.add('hidden');
+    if (e.code === 'no_key' || e.code === 'bad_key') { pendingAfterKey = () => { phase = 'typing'; submit(cmd); }; openKey(e.code === 'bad_key' ? 'That key was rejected by OpenAI.' : ''); }
+    else { toast(e.message); }
+    // clock stays paused; the guess can be re-sent
+    phase = 'typing'; $('cmdIn').disabled = false; $('cmdIn').focus();
+  }
+}
+
+const WHY = { timeout: 'OUT OF TIME', not_a_command: 'UNKNOWN COMMAND', not_used: 'NOT USED HERE', refused: 'NO VERDICT' };
+const pct = (x) => `${String(Math.round(x * 100)).padStart(3)}%`;
+
+function finishRound(r) {
+  phase = 'reveal';
+  const m = game.picks[game.i];
+  game.rounds[game.i] = { ...r, model: m };
+  game.total += r.points;
+  drawPips();
+  const last = game.i === game.picks.length - 1;
+  const d = r.decisions;
+  const bars = d ? `<pre>RARITY ${meter(r.rarity)} ${d.rare.probability == null ? '  -' : pct(r.rarity)}\nUSED   ${meter(r.pUsed)} ${d.used.choice == null ? '  -' : pct(r.pUsed)}</pre>` : '';
+  const v = $('verdict'); v.classList.remove('hidden');
+  v.innerHTML = `<div>
+    <div>${esc(r.command)}${r.mock ? ' <span class="dim">(MOCK JUDGE)</span>' : ''}</div>
+    <div class="pts" id="vPts">0</div>
+    <div>${r.points ? esc(r.tier) : WHY[r.verdict]}</div>
+    ${bars}
+    <div class="big"><button id="nextBtn">&gt; ${last ? 'RESULTS' : 'NEXT'}</button></div></div>`;
+  $('nextBtn').onclick = next; $('nextBtn').focus();
+  countUp($('vPts'), 0, r.points, r.points ? '+' : '');
+  countUp($('score'), game.total - r.points, game.total, '');
+}
+
+function countUp(el, from, to, prefix) {
+  const t0 = performance.now(), dur = to === from ? 0 : 600;
+  const step = (now) => {
+    const k = dur ? Math.min(1, (now - t0) / dur) : 1;
+    el.textContent = prefix + Math.round(from + (to - from) * k);
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function next() {
+  if (phase !== 'reveal') return;
+  snap = null;
+  if (game.i < game.picks.length - 1) { game.i++; startRound(); } else showResults();
+}
+
+function showResults() {
+  phase = 'idle';
+  const max = game.picks.length * 1000, t = game.total, f = t / max;
+  const rank = f >= .8 ? 'COMMAND-LINE ARCHAEOLOGIST' : f >= .6 ? 'DEEP MENU DIVER' : f >= .4 ? 'ALIAS COLLECTOR' : f >= .2 ? 'TOOLBAR CLICKER' : 'JUST INSTALLED RHINO';
+  $('resBody').innerHTML = `
+    <div class="dim">FINAL SCORE</div><h2 id="finalPts">0</h2>
+    <div>${rank} <span class="dim">/ ${max}</span></div><br>
+    ${game.rounds.map((r, k) => `<div class="row"><span class="dim">${k + 1}</span><span>${esc(r.command)}</span>
+      <a href="${esc(r.model.source)}" target="_blank" rel="noopener">${esc(r.model.title)}</a><span class="dots"></span>
+      <span>${r.points ? String(r.points).padStart(4) : esc(WHY[r.verdict])}</span></div>`).join('')}
+    <br><div class="big"><button id="againBtn">&gt; AGAIN</button><span class="cur"></span></div>`;
+  show('results'); countUp($('finalPts'), 0, t, '');
+  $('againBtn').onclick = startGame;
+}
+
+// ---------- autocomplete ----------
+let acItems = [], acSel = -1;
+function hideAc() { $('ac').classList.add('hidden'); acItems = []; acSel = -1; }
+function updateAc() {
+  const q = $('cmdIn').value.trim().toLowerCase();
+  if (q.length < 2) return hideAc();
+  const starts = commands.filter((c) => c.toLowerCase().startsWith(q));
+  const has = commands.filter((c) => !c.toLowerCase().startsWith(q) && c.toLowerCase().includes(q));
+  acItems = [...starts, ...has].slice(0, 6); acSel = -1;
+  if (!acItems.length || (acItems.length === 1 && acItems[0].toLowerCase() === q)) return hideAc();
+  drawAc();
+}
+function drawAc() {
+  const q = $('cmdIn').value.trim().toLowerCase();
+  $('ac').innerHTML = acItems.map((c, k) => { const at = c.toLowerCase().indexOf(q);
+    return `<div class="${k === acSel ? 'sel' : ''}" data-c="${c}">${esc(c.slice(0, at))}<b>${esc(c.slice(at, at + q.length))}</b>${esc(c.slice(at + q.length))}</div>`; }).join('');
+  $('ac').classList.remove('hidden');
+}
+$('cmdIn').addEventListener('input', updateAc);
+$('cmdIn').addEventListener('keydown', (e) => {
+  if (!acItems.length) return;
+  if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); acSel = e.key === 'ArrowUp' ? (acSel <= 0 ? acItems.length - 1 : acSel - 1) : (acSel + 1) % acItems.length; drawAc(); }
+  else if (e.key === 'Tab') { e.preventDefault(); $('cmdIn').value = acItems[Math.max(0, acSel)]; hideAc(); }
+  else if (e.key === 'Escape') hideAc();
+});
+$('ac').addEventListener('mousedown', (e) => { const d = e.target.closest('[data-c]'); if (d) { e.preventDefault(); $('cmdIn').value = d.dataset.c; hideAc(); $('cmdIn').focus(); } });
+
+// Whatever is typed always resolves to a real command: exact → prefix → contains → closest spelling.
+function lev(a, b) {
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[b.length];
+}
+function resolveCommand(raw) {
+  const q = raw.trim().replace(/^_+/, '').toLowerCase();
+  if (!q) return null;
+  const low = commands.map((c) => c.toLowerCase());
+  let k = low.indexOf(q);
+  if (k < 0) k = low.findIndex((c) => c.startsWith(q));
+  if (k < 0) k = low.findIndex((c) => c.includes(q));
+  if (k < 0) {
+    let best = Infinity;
+    low.forEach((c, n) => { const d = Math.min(lev(q, c), lev(q, c.slice(0, q.length)) + 0.5); if (d < best) { best = d; k = n; } });
+  }
+  return commands[k];
+}
+$('cmdForm').addEventListener('submit', (e) => { e.preventDefault(); const pick = acSel >= 0 ? acItems[acSel] : resolveCommand($('cmdIn').value); if (pick) { $('cmdIn').value = pick; submit(pick); } });
+
+// ---------- key dialog ----------
+let resumeTimer = false;
+function openKey(msg) {
+  resumeTimer = timer.running; if (resumeTimer) stopTimer();
+  $('keyErr').textContent = msg || ''; $('keyIn').value = ''; $('keyDlg').classList.remove('hidden'); $('keyIn').focus();
+}
+function closeKey() {
+  $('keyDlg').classList.add('hidden');
+  if (resumeTimer && phase === 'typing') { runTimer(); $('cmdIn').focus(); }
+  resumeTimer = false;
+}
+$('keyBtn').onclick = () => { pendingAfterKey = null; openKey(''); };
+$('keyCancel').onclick = () => { pendingAfterKey = null; closeKey(); };
+$('keyForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const key = $('keyIn').value.trim(); if (!key) { $('keyErr').textContent = 'Paste a key first.'; return; }
+  try { const s = await api('/api/key', { key }); setKeyState(s.hasKey, mock); $('keyIn').value = ''; const go = pendingAfterKey; pendingAfterKey = null; resumeTimer = go ? false : resumeTimer; closeKey(); if (go) go(); }
+  catch (err) { $('keyErr').textContent = err.message; }
+});
+
+// ---------- prompt tuning ----------
+const PKEYS = ['input', 'decision1', 'decision2', 'decision3'];
+let tuneResume = false;
+const fillTune = (p) => PKEYS.forEach((k) => { $('p_' + k).value = p[k]; });
+async function openTune() {
+  tuneResume = timer.running; if (tuneResume) stopTimer();
+  $('tuneErr').textContent = ''; $('tuneOk').textContent = '';
+  $('tuneDlg').classList.remove('hidden');
+  try { fillTune((await api('/api/prompts')).prompts); } catch (e) { $('tuneErr').textContent = e.message; }
+  $('p_decision2').focus();
+}
+function closeTune() {
+  $('tuneDlg').classList.add('hidden');
+  if (tuneResume && phase === 'typing') { runTimer(); $('cmdIn').focus(); }
+  tuneResume = false;
+}
+$('tuneBtn').onclick = openTune;
+$('tuneClose').onclick = closeTune;
+$('tuneReset').onclick = async () => { try { fillTune((await api('/api/prompts', { reset: true })).prompts); $('tuneOk').textContent = 'DEFAULTS RESTORED'; } catch (e) { $('tuneErr').textContent = e.message; } };
+$('tuneForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); $('tuneErr').textContent = '';
+  try { fillTune((await api('/api/prompts', Object.fromEntries(PKEYS.map((k) => [k, $('p_' + k).value])))).prompts); $('tuneOk').textContent = 'SAVED'; }
+  catch (err) { $('tuneErr').textContent = err.message; }
+});
+
+$('startBtn').onclick = startGame;
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !$('tuneDlg').classList.contains('hidden')) return closeTune();
+  if (e.key !== 'Enter' || !$('keyDlg').classList.contains('hidden') || !$('tuneDlg').classList.contains('hidden')) return;
+  if (!$('intro').classList.contains('hidden') && !$('startBtn').disabled) { e.preventDefault(); startGame(); }
+  else if (!$('results').classList.contains('hidden')) { e.preventDefault(); startGame(); }
+});
+boot().catch((e) => { $('startBtn').textContent = 'SERVER UNREACHABLE'; $('loadHint').textContent = e.message; });
+</script>
+</body>
+</html>
