@@ -1,19 +1,19 @@
 # RhinoGotchi
 
-A RhinoCommon plugin for **Rhino 8 on Windows and Mac**, based on McNeel's
+A RhinoCommon plugin for **Rhino 8 (Windows and Mac) and Rhino 9 (Mac)**, based on McNeel's
 [Your First Plugin](https://developer.rhino3d.com/guides/rhinocommon/your-first-plugin-windows/) guide.
 
 One project builds two targets:
 
 | Target | Runs in |
 | --- | --- |
-| `net7.0` | Rhino 8 Mac, Rhino 8 Windows (default .NET Core runtime) |
+| `net7.0` | Rhino 9 Mac (.NET 10), Rhino 8 Mac, Rhino 8 Windows (default .NET Core runtime) |
 | `net48` | Rhino 8 Windows started with `SetDotNetRuntime` = .NET Framework |
 
 ## Requirements
 
 - .NET SDK 7 or newer (`dotnet --list-sdks`)
-- Rhino 8
+- Rhino 8 or Rhino 9
 
 ## Build
 
@@ -39,6 +39,9 @@ Then type `RhinoGotchi`, pick two points, and a line is added.
 
 1. Install the recommended extensions (VS Code prompts you): **C#** and **C# Dev Kit**.
 2. Open the `RhinoGotchi` folder, go to Run and Debug, pick a configuration, press F5:
+   - **Rhino 9 - Mac**: builds `net7.0` and starts `/Applications/Rhino 9.app`.
+     Rhino 9 runs on .NET 10 and loads the `net7.0` build as is. Quit any
+     running Rhino 9 first, or the new one won't pick up `RHINO_PACKAGE_DIRS`.
    - **Rhino 8 (.NET 7+) - Mac / Windows**: builds `net7.0` and starts Rhino 8
      (`/Applications/Rhino 8.app` on Mac, `C:\Program Files\Rhino 8` on Windows).
    - **Rhino 8 (.NET Framework) - Windows**: builds `net48` and starts Rhino 8 with `/netfx`.
