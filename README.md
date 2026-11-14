@@ -27,11 +27,19 @@ building a simple pitched-roof house from two shapes:
   (Joining them with `BooleanUnion` still counts as finished.)
 - **BACK** and **NEXT** let you review earlier steps.
 
+## Download and install (no building needed)
+
+1. Go to the **Releases** page of this repository and download the latest `.rhp`:
+   - `GotchiHouse-Rhino8.rhp` works for Rhino 8 on Mac and Windows.
+   - `GotchiHouse-Rhino8-NETFramework.rhp` is only for Windows users who switched
+     Rhino 8 to .NET Framework with `SetDotNetRuntime`.
+2. Drag the `.rhp` file onto the Rhino 8 window (or run `PluginManager` → Install).
+   On Windows, if Rhino won't load it, right-click the file → Properties → **Unblock** first.
+
 ## Use it
 
-1. Install the plugin (see below).
-2. In Rhino, type `GotchiHouse`. The panel opens and docks like any Rhino panel.
-3. Press **START**. (Or type `GotchiHouseStart` to start without the panel.)
+1. In Rhino, type `GotchiHouse`. The panel opens and docks like any Rhino panel.
+2. Press **START**. (Or type `GotchiHouseStart` to start without the panel.)
 
 ## Font
 
@@ -84,3 +92,7 @@ src/GotchiHouse/
   Palette.cs             colours and font
   Resources/GotchiHouse.ico  panel tab icon
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE). Anyone may use, change and share it.
