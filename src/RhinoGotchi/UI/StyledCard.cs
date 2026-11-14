@@ -33,7 +33,6 @@ namespace RhinoGotchi.UI
             var g = e.Graphics;
             var p = Palette.Current;
             g.AntiAlias = true;
-            g.Clear(p.Background);
 
             float w = Width - 1, h = Height - 1 - Depth;
             if (w <= 4 || h <= 4)

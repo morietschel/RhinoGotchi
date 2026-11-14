@@ -103,7 +103,6 @@ namespace RhinoGotchi.UI
             var g = e.Graphics;
             var p = Palette.Current;
             g.AntiAlias = true;
-            g.Clear(p.Background);
 
             Colors(p, out var face, out var shadow, out var ink);
             if (!Enabled && _kind != ButtonKind.Tile)
