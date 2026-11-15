@@ -18,6 +18,8 @@ namespace RhinoGotchi
     /// changes the model, so every step can be undone.
     /// </summary>
     [Guid("b3d9a6f2-41c7-4e0b-9a58-7c2e6f1d8b04")]
+    // A game command: Enter on an empty command line must not start it again.
+    [CommandStyle(Style.DoNotRepeat)]
     public class GotchiWaterCommand : Command
     {
         public const string Name = "GotchiWater";

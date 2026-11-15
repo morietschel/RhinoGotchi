@@ -11,6 +11,8 @@ namespace RhinoGotchi
     /// offers SkipIntro, RestartLesson, ReplayFinale and Quit.
     /// </summary>
     [Guid("3f7b2c94-5e1a-4d8b-9c06-7a2e41b8d5f3")]
+    // A game command: Enter on an empty command line must not start it again.
+    [CommandStyle(Style.DoNotRepeat)]
     public class RhinoOnTheStreetCommand : Command
     {
         public const string Name = "RhinoOnTheStreet";

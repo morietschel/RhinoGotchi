@@ -43,7 +43,7 @@ namespace RhinoGotchi.UI
 
             float col = w - 2 * Pad;
             float y = 14;
-            y = TitleBar(g, Pad, y, col, "Klosterneuburg", $"{chapter.Count} commands, one building") + 12;
+            y = TitleBar(g, Pad, y, col, "Build a building", $"{chapter.Count} commands, one building") + 12;
             y = TileRow(g, w, y, "LEVELS", $"{_game.Progress.ChapterDone(lesson.Chapter)} of {chapter.Count} done", chapter, -1) + 14;
 
             // The demo, or the pet when it has something to say about this level

@@ -59,6 +59,9 @@ namespace RhinoGotchi.UI
         private bool Eating => EatSeconds < Mascot.EatFrames * 0.12;
         private float _ox;
 
+        /// <summary>Shows only a project's levels and Done page (Build a building), never the campaign.</summary>
+        public bool ProjectOnly { get; set; }
+
         public LessonCanvas(GotchiGame game)
         {
             _game = game;
@@ -264,6 +267,11 @@ namespace RhinoGotchi.UI
             float w = Math.Min(Width, MaxColumn);
             _ox = (float)Math.Floor((Width - w) / 2);
             g.TranslateTransform(_ox, 0);
+
+            // In a project (Build a building) only its levels and its Done page are ever shown, never the
+            // campaign's map or welcome page (for a moment, the panel is on its way back to Learn Projects).
+            if (ProjectOnly && _game.Mode != GameMode.Playing && _game.Mode != GameMode.ChapterDone)
+                return;
 
             float needed = _game.Mode switch
             {

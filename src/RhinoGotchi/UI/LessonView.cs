@@ -114,6 +114,7 @@ namespace RhinoGotchi.UI
             {
                 ExitHome = host.ShowProjects,
                 OpenTrophies = host.ShowTrophies,
+                ProjectOnly = true,
             };
             Content = _canvas;
         }
@@ -133,6 +134,8 @@ namespace RhinoGotchi.UI
                 return;
             }
             game.StartProject(Chapter);
+            if (game.Mode != GameMode.Playing)
+                Application.Instance.AsyncInvoke(_host.ShowProjects); // nothing to play: never leave a blank page
         }
 
         public void Leave()

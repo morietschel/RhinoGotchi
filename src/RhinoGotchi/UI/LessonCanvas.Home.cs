@@ -96,7 +96,7 @@ namespace RhinoGotchi.UI
             y = TitleBar(g, titleX, y, home.X - titleX - 6, "Learning Campaign", "one command at a time") + 12;
 
             // The pet says where you are
-            string say = current < 0 ? "Every level done! Replay any, or build Klosterneuburg."
+            string say = current < 0 ? "Every level done! Replay any of them."
                 : progress.DoneCount == 0 ? "Press a tile to start. Level 1 is waiting!"
                 : $"Next up: Level {current + 1}, {levels[current].Title}.";
             y = MascotRow(g, w, y, Mood.Happy, say, 0) + 12;
@@ -245,7 +245,7 @@ namespace RhinoGotchi.UI
             bool perfect = firstTry == levels.Count;
 
             float y = 14;
-            y = TitleBar(g, Pad, y, w - 2 * Pad, chapter == "KLOSTERNEUBURG" ? "Klosterneuburg" : chapter, $"{levels.Count} commands, one building") + 12;
+            y = TitleBar(g, Pad, y, w - 2 * Pad, chapter == "KLOSTERNEUBURG" ? "Build a building" : chapter, $"{levels.Count} commands, one building") + 12;
 
             // The pet dances under confetti
             var art = new RectangleF(Pad, y, w - 2 * Pad, (w - 2 * Pad) * 0.56f);
@@ -264,7 +264,7 @@ namespace RhinoGotchi.UI
                 $"{firstTry} of {levels.Count} levels first try. {commands}: one building.") + 14;
 
             return Footer(g, w, h, y + Gap, () =>
-                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), _game.Project != null ? "Back to Learn Projects" : "Back to the campaign", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _game.BackToMap));
+                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "Back to Learn Projects", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _game.BackToMap));
         }
 
         private static string TutorialIdOf(Lesson lesson) =>

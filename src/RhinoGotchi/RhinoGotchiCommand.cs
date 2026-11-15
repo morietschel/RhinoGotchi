@@ -8,6 +8,8 @@ namespace RhinoGotchi
 {
     /// <summary>Opens the RhinoGotchi games panel.</summary>
     [Guid("bfcfbeee-5952-4fa0-9479-c1ea59b220c7")]
+    // A game command: Enter on an empty command line must not start it again.
+    [CommandStyle(Style.DoNotRepeat)]
     public class RhinoGotchiCommand : Command
     {
         public RhinoGotchiCommand()

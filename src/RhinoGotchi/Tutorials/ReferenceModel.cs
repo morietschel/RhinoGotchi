@@ -89,7 +89,7 @@ namespace RhinoGotchi.Tutorials
             var roofObjects = FindObjects(doc, ReferenceLayers.Roof).ToList();
             if (roofObjects.Count == 0)
             {
-                reason = "The Klosterneuburg model isn't open: there is no layer ending in \"" + ReferenceLayers.Roof + "\".";
+                reason = "The building model isn't open: there is no layer ending in \"" + ReferenceLayers.Roof + "\".";
                 return null;
             }
             if (roofObjects.Count != 1)

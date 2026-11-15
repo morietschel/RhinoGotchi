@@ -96,7 +96,7 @@ namespace RhinoGotchi.Tutorials
             // Lesson card, top left
             int w = (int)(250 * s);
             var steps = tutorial.Steps.Select(st => st.Text).ToList();
-            string kicker = $"KLOSTERNEUBURG · LEVEL {tutorial.Number} OF {TutorialCatalog.Count}";
+            string kicker = $"BUILD A BUILDING · LEVEL {tutorial.Number} OF {TutorialCatalog.Count}";
             string key = $"tlesson:{tutorial.Id}:{misses}:{solved}:{s}";
             var lesson = Hud.Get(key, w + (int)(8 * s), (int)(500 * s), g =>
                 new EtoSize(w + 8 * s, Cards.Lesson(g, 1, 1, w, s, kicker, tutorial.Title, tutorial.MainCommand, steps, -1, misses, MissesToLose, solved) + 8 * s));

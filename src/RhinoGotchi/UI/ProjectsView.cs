@@ -32,7 +32,7 @@ namespace RhinoGotchi.UI
             string chapter = BuildingView.Chapter;
             int levels = LessonCatalog.All.Count(l => l.Chapter == chapter);
             int built = GotchiState.Game.Progress.ChapterDone(chapter);
-            Items.Add(new ListRow("Build a building", "12 levels · Klosterneuburg", Glyph.Blocks, 3, host.ShowBuilding)
+            Items.Add(new ListRow("Build a building", "12 levels, one building", Glyph.Blocks, 3, host.ShowBuilding)
             {
                 TagText = built >= levels && levels > 0 ? "DONE" : built == 0 ? "" : $"{built}/{levels}",
                 TagDone = built >= levels && levels > 0,

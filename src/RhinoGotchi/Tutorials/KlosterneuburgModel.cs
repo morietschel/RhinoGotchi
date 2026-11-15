@@ -53,7 +53,7 @@ namespace RhinoGotchi.Tutorials
             string? path = WriteToTemp();
             if (path == null)
             {
-                RhinoApp.WriteLine("[RhinoGotchi] The built-in Klosterneuburg model is missing; levels use simple stand-ins.");
+                RhinoApp.WriteLine("[RhinoGotchi] The built-in building model is missing; levels use simple stand-ins.");
                 return true;
             }
 
@@ -70,7 +70,7 @@ namespace RhinoGotchi.Tutorials
             }
             if (!ok)
             {
-                RhinoApp.WriteLine("[RhinoGotchi] Couldn't add the Klosterneuburg model; levels use simple stand-ins.");
+                RhinoApp.WriteLine("[RhinoGotchi] Couldn't add the building model; levels use simple stand-ins.");
                 return true;
             }
 
@@ -82,7 +82,7 @@ namespace RhinoGotchi.Tutorials
             doc.Objects.UnselectAll();
             doc.Views.ActiveView?.ActiveViewport.ZoomExtents();
             doc.Views.Redraw();
-            RhinoApp.WriteLine("[RhinoGotchi] Added the Klosterneuburg model ({0} objects). It is removed when you leave Build a building.", AddedObjects.Count);
+            RhinoApp.WriteLine("[RhinoGotchi] Added the building model ({0} objects). It is removed when you leave Build a building.", AddedObjects.Count);
             return true;
         }
 
@@ -98,7 +98,7 @@ namespace RhinoGotchi.Tutorials
                         doc.Objects.Delete(obj, true, true);
                 RemoveLayers(doc, AddedLayers);
                 doc.Views.Redraw();
-                RhinoApp.WriteLine("[RhinoGotchi] Removed the Klosterneuburg model.");
+                RhinoApp.WriteLine("[RhinoGotchi] Removed the building model.");
             }
             AddedObjects.Clear();
             AddedLayers.Clear();

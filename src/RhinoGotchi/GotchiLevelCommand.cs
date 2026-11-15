@@ -15,6 +15,8 @@ namespace RhinoGotchi
     /// Scriptable: <c>-GotchiLevel Level=Tut01Loft _Enter</c>.
     /// </summary>
     [Guid("6a0f3c1e-8d4b-4e2a-b7f5-1c9d2e3f4a5b")]
+    // A game command: Enter on an empty command line must not start it again.
+    [CommandStyle(Style.DoNotRepeat)]
     public class GotchiLevelCommand : Command
     {
         public const string Name = "GotchiLevel";
