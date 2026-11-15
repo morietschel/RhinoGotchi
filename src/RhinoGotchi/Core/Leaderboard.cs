@@ -97,7 +97,7 @@ namespace RhinoGotchi.Core
         public static int Best(string game) => Settings?.GetInteger("lb.best." + game, 0) ?? 0;
 
         /// <summary>The sum of the bests: the player's row on the Global board.</summary>
-        public static int Total => Games.All.Sum(Best);
+        public static int Total => Games.Boards.Sum(Best);
 
         /// <summary>
         /// Call when a round ends, daily or practice. If the score beats the player's best for that
@@ -132,7 +132,7 @@ namespace RhinoGotchi.Core
             string id = PlayerId, name = Name, icon = Icon, version = IconVersion;
             bool sendIcon = s.GetBool("lb.iconDirty", false);
             var scores = new List<KeyValuePair<string, int>>();
-            foreach (var game in Games.All)
+            foreach (var game in Games.Boards)
                 scores.Add(new KeyValuePair<string, int>(game, Best(game)));
             scores.Add(new KeyValuePair<string, int>(LeaderboardClient.GlobalBoard, Total));
 

@@ -11,7 +11,14 @@ namespace RhinoGotchi.Core
         public const string Order = "order";
         public const string Deep = "deep";
         public const string Blocked = "blocked";
+        /// <summary>Water Run: a level game, not a daily one, but it has its own leaderboard.</summary>
+        public const string Water = "water";
+
+        /// <summary>The daily games.</summary>
         public static readonly string[] All = { Shape, Order, Deep, Blocked };
+
+        /// <summary>Every game with a leaderboard: the daily games plus Water Run.</summary>
+        public static readonly string[] Boards = { Shape, Order, Deep, Blocked, Water };
 
         public static string Title(string game) => game switch
         {
@@ -19,6 +26,7 @@ namespace RhinoGotchi.Core
             Order => "Build Order",
             Deep => "Deep Cut",
             Blocked => "Blocked!",
+            Water => "Water Run",
             _ => game,
         };
 
@@ -29,6 +37,7 @@ namespace RhinoGotchi.Core
             Order => "Build",
             Deep => "Deep",
             Blocked => "Blocked",
+            Water => "Water",
             _ => game,
         };
     }

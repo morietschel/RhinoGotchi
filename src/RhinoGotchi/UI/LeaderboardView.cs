@@ -19,7 +19,7 @@ namespace RhinoGotchi.UI
         private static int _lastTab;
 
         private readonly RhinoGotchiPanel _host;
-        private readonly string[] _boards = new[] { LeaderboardClient.GlobalBoard }.Concat(Games.All).ToArray();
+        private readonly string[] _boards = new[] { LeaderboardClient.GlobalBoard }.Concat(Games.Boards).ToArray();
         private readonly Panel _list = new Panel();
         private int _loadId;
 
@@ -45,6 +45,7 @@ namespace RhinoGotchi.UI
                 [Games.Order] = (Glyph.Blocks, p.Orange),
                 [Games.Shape] = (Glyph.Eye, p.Blue),
                 [Games.Deep] = (Glyph.Cube, p.Purple),
+                [Games.Water] = (Glyph.Arrows, p.Blue),
             };
             if (_lastTab >= _boards.Length)
                 _lastTab = 0;

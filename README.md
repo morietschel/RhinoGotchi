@@ -49,6 +49,7 @@ player's bests together. Players pick a public name and a small icon to appear.
 | What Made This? | 20 per right answer (max 100) |
 | Build Order | 100 for a first-try solve, 20 fewer per extra try, 10 fewer with the hint |
 | Deep Cut | the round's points (up to 5,000) |
+| Water Run | each level: 100 for the clear + up to 100 time bonus; the board shows the sum of your level bests (up to 2,600) |
 
 When a round, daily or practice, beats the player's best for that game, the new best is
 saved and pushed straight away. Bests and the profile are kept in the plugin settings and
@@ -144,6 +145,10 @@ the only tool is the Gumball. Open it from **Games → Water Run**, or type `Got
   `levels/water/level-NN.3dm` (the scene) and `level-NN.txt` (title, lesson, instruction, target,
   rate, dropsize, flat as `key=value` lines) and replaces the built-in one. They are copied
   next to the `.rhp` as `WaterLevels/` on build. **Revert to built-in** deletes the saved pair.
+- **Clock and points:** each level has a clock (60 s + 20 s × level number). A clear scores 100
+  plus a time bonus of up to 100 that runs down with the clock; after it runs out a clear still
+  scores 100. Each level keeps its best, and their sum is the Water Run leaderboard score (it also
+  counts toward Global). Switching to edit mode during a run makes that clear score nothing.
 - **Red is forgiving of splashes:** a stray drop on red only sizzles; twelve drops lose the level.
 - **Buckets:** moving or turning a piece takes the water in it along, so a bucket can be filled at
   the tap, carried anywhere (also up) and tipped out.

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Eto.Forms;
 using RhinoGotchi.Core;
 using RhinoGotchi.Water;
@@ -17,6 +18,7 @@ namespace RhinoGotchi.UI
         private double _time;
         private GumballHint? _hint;
         private WaterGauge? _gauge;
+        private GameHud? _hud;
         private ResultBanner? _banner;
         private Words _rate = Theme.Body("");
         private Words _target = Theme.Body("");
@@ -32,6 +34,7 @@ namespace RhinoGotchi.UI
                 _time += _timer.Interval;
                 _hint?.Tick(_time);
                 _gauge?.Tick(_time);
+                UpdateHud();
                 _banner?.Tick(_time);
             };
             UnLoad += (s, e) => _timer.Stop();
@@ -95,6 +98,22 @@ namespace RhinoGotchi.UI
             _rate.Text = $"Flow · {WaterLab.Rate}/s";
             _target.Text = $"Goal · {WaterLab.Target}";
             _size.Text = WaterLab.DropSize > 0 ? $"Drop · {WaterLab.DropSize:0.###}" : $"Drop · auto ({WaterLab.Radius:0.###})";
+            UpdateHud();
+        }
+
+        /// <summary>The level's clock: the time bonus runs down, then the clear is still worth the base points.</summary>
+        private void UpdateHud()
+        {
+            if (_hud == null || !(WaterGame.Current is WaterLevel level))
+                return;
+            double left = WaterGame.TimeLeft;
+            string caption = WaterGame.Won ? "CLEARED" : WaterGame.Failed ? "FAILED" : left > 0 ? "TIME BONUS" : "NO TIME BONUS LEFT";
+            int points = WaterGame.Won ? WaterGame.LastPoints : WaterGame.Failed ? 0 : WaterGame.PointsNow;
+            var pips = WaterLevelCatalog.All.Select(l =>
+                l.Number == level.Number ? (WaterGame.Won ? Pip.Good : WaterGame.Failed ? Pip.Bad : Pip.Now)
+                : WaterGame.IsDone(l.Number) ? Pip.Good : Pip.Todo);
+            _hud.Set(caption, $"{points} pts", pips);
+            _hud.SetTime(left, WaterGame.TimeLimit(level));
         }
 
         private void Rebuild()
@@ -102,6 +121,7 @@ namespace RhinoGotchi.UI
             _shown = Signature();
             _hint = null;
             _gauge = null;
+            _hud = null;
             _banner = null;
             Items.Clear();
             if (WaterGame.Active)
@@ -122,6 +142,9 @@ namespace RhinoGotchi.UI
             for (int i = 0; i < all.Count; i++)
                 done[i] = WaterGame.IsDone(all[i].Number);
             Items.Add(new LevelDots(done));
+            Items.Add(Theme.Row(
+                new Pill($"{WaterGame.TotalPoints:N0} points", Theme.P.Gold, Glyph.Trophy),
+                Theme.Button(Leaderboard.HasProfile ? "Leaderboard" : "Join the leaderboard", () => _host.Navigate(new LeaderboardView(_host)))));
 
             foreach (WaterLevel level in all)
             {
@@ -129,7 +152,7 @@ namespace RhinoGotchi.UI
                 bool finished = WaterGame.IsDone(number);
                 Items.Add(new ListRow($"{number} · {level.Title}", level.Lesson, Glyph.Arrows, number % 6, () => Run("_Level " + number))
                 {
-                    TagText = finished ? "DONE" : WaterGame.HasSavedVersion(number) ? "EDITED" : level.Flat ? "2D" : "3D",
+                    TagText = finished ? (WaterGame.LevelBest(number) > 0 ? $"{WaterGame.LevelBest(number)} PTS" : "DONE") : WaterGame.HasSavedVersion(number) ? "EDITED" : level.Flat ? "2D" : "3D",
                     TagDone = finished,
                 });
             }
@@ -159,6 +182,12 @@ namespace RhinoGotchi.UI
                 }));
             }
 
+            if (level != null && !editing)
+            {
+                _hud = new GameHud(clock: true);
+                Items.Add(_hud);
+            }
+
             _gauge = new WaterGauge();
             Items.Add(_gauge);
 
@@ -171,8 +200,11 @@ namespace RhinoGotchi.UI
             }
             else if (WaterGame.Won && level != null)
             {
-                _banner = new ResultBanner(true, "Level complete!", $"{WaterGame.FormatTime(WaterGame.Elapsed)} · {Moves()}");
+                string points = WaterGame.EditedThisRun ? "no points (edited)" : $"+{WaterGame.LastPoints} pts";
+                _banner = new ResultBanner(true, "Level complete!", $"{points} · {WaterGame.FormatTime(WaterGame.Elapsed)} · {Moves()}");
                 Items.Add(_banner);
+                if (WaterGame.LastWasBest)
+                    Items.Add(LeaderboardView.NewBestRow(_host, WaterGame.TotalPoints));
                 Items.Add(Theme.Primary(level.Number < WaterLevelCatalog.All.Count ? "Next level" : "Back to level 1", () => Run("_Next")));
             }
 

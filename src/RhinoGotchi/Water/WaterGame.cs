@@ -68,6 +68,50 @@ namespace RhinoGotchi.Water
 
         public static TimeSpan Elapsed => Won || Failed ? _finished : Active ? DateTime.Now - _started : TimeSpan.Zero;
 
+        // ---------------- points and the clock ----------------
+
+        /// <summary>Points for clearing a level, however long it took.</summary>
+        public const int ClearPoints = 100;
+
+        /// <summary>The most a fast clear adds on top; it runs down with the clock.</summary>
+        public const int MaxTimeBonus = 100;
+
+        /// <summary>The level's clock in seconds: later levels get longer.</summary>
+        public static int TimeLimit(WaterLevel level) => 60 + 20 * level.Number;
+
+        /// <summary>Seconds left on the current level's clock (0 once it has run out, or with no level).</summary>
+        public static double TimeLeft => Current == null ? 0 : Math.Max(0, TimeLimit(Current) - Elapsed.TotalSeconds);
+
+        /// <summary>What clearing the current level right now would score.</summary>
+        public static int PointsNow => Current == null ? 0 : ClearPoints + (int)Math.Round(MaxTimeBonus * TimeLeft / TimeLimit(Current));
+
+        /// <summary>The points of the last clear (0 if it scored nothing, e.g. after editing the level).</summary>
+        public static int LastPoints { get; private set; }
+
+        /// <summary>The last clear beat that level's best, so the Water Run total went up.</summary>
+        public static bool LastWasBest { get; private set; }
+
+        /// <summary>The level was switched to edit mode during this run, so a clear scores nothing.</summary>
+        public static bool EditedThisRun { get; private set; }
+
+        /// <summary>The best score on one level.</summary>
+        public static int LevelBest(int number) => RhinoGotchiPlugin.Instance?.Settings.GetInteger("WaterBest." + number, 0) ?? 0;
+
+        /// <summary>The bests on every level added up: the player's row on the Water Run leaderboard.</summary>
+        public static int TotalPoints => WaterLevelCatalog.All.Sum(l => LevelBest(l.Number));
+
+        /// <summary>Scores a clear, keeps it if it beats the level's best and sends the new total to the leaderboard.</summary>
+        private static void Score(WaterLevel level)
+        {
+            LastPoints = EditedThisRun ? 0 : ClearPoints + (int)Math.Round(MaxTimeBonus * TimeLeft / TimeLimit(level));
+            LastWasBest = LastPoints > LevelBest(level.Number);
+            if (!LastWasBest)
+                return;
+            RhinoGotchiPlugin.Instance?.Settings.SetInteger("WaterBest." + level.Number, LastPoints);
+            RhinoGotchiPlugin.Instance?.SaveSettings();
+            Core.Leaderboard.Report(Core.Games.Water, TotalPoints);
+        }
+
         public static bool IsDone(int number) => (DoneMask & (1 << number)) != 0;
 
         public static bool HasSavedVersion(int number) => File.Exists(ScenePath(number, false));
@@ -113,6 +157,8 @@ namespace RhinoGotchi.Water
             Won = Failed = false;
             FailReason = "";
             Moves = 0;
+            LastPoints = 0;
+            LastWasBest = EditedThisRun = false;
             _started = DateTime.Now;
             if (level != null)
             {
@@ -165,6 +211,8 @@ namespace RhinoGotchi.Water
         public static void SetMode(RhinoDoc doc, bool editing)
         {
             Editing = editing;
+            if (editing && Current != null)
+                EditedThisRun = true; // a level rebuilt mid-run could be made easy, so it scores nothing
             if (editing && Failed)
             {
                 // Editing a lost level: clear the failure and let the water run again.
@@ -518,7 +566,8 @@ namespace RhinoGotchi.Water
             Won = true;
             _finished = DateTime.Now - _started;
             DoneMask |= 1 << Current.Number;
-            RhinoApp.WriteLine($"RhinoGotchi: level {Current.Number} complete in {FormatTime(_finished)} with {Moves} {(Moves == 1 ? "move" : "moves")}!");
+            Score(Current);
+            RhinoApp.WriteLine($"RhinoGotchi: level {Current.Number} complete in {FormatTime(_finished)} with {Moves} {(Moves == 1 ? "move" : "moves")}, {LastPoints} points!");
             Changed?.Invoke();
         }
 
