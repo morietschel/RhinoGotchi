@@ -284,6 +284,19 @@ A chapter on the campaign map, after the ten main levels: **twelve commands, one
 the Klosterneuburg pavilion (`V18 P020 - Klosterneuburg_Final.3dm`, metres). It is open from
 the start, played in order, and left out of the placement test; finished levels earn XP.
 
+**The model is in the repo:** open `Rhino/Models/Klosterneuburg_light.3dm` (2.1 MB) before
+playing the chapter. It is a light copy of the 64 MB original made for uploading:
+
+- The geometry the tutorials build from stays exact NURBS: the roof surface, the ramp, the
+  east glass panel and the stair handrail.
+- Everything else (mainly the 1,375 timber beams, plates and dowels) is a coarse mesh,
+  merged into one object per layer. The layer names and tree are unchanged, so every
+  tutorial still finds its reference layers.
+- Left out: the layout sheets, the work layer and clipping plane, and render meshes.
+
+All twelve levels were checked to start from this copy using the real model, not the
+stand-in. Use the full original if you need to edit the building itself.
+
 | Part | Levels, easiest first |
 | --- | --- |
 | Details | 1 BooleanDifference (steel plate) · 2 Pipe (handrail) · 3 OffsetSrf (glass) · 4 ArrayPolar (beam setting-out) |
