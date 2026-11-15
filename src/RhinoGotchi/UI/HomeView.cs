@@ -9,9 +9,9 @@ using RhinoGotchi.Lessons;
 namespace RhinoGotchi.UI
 {
     /// <summary>
-    /// The panel's start page: title and date, Gotchi's card (streak, hats, solved), then two tabs.
-    /// Learning has the Learning Campaign, the Command Library, recipes and the tip of the day;
-    /// Games has today's daily puzzles. Everything stretches with the panel.
+    /// The panel's start page: Gotchi's card (streak, solved), then two tabs. Learning has the Learning
+    /// Campaign, the Command Library and the tip of the day; Games has the games. Words are kept to a
+    /// minimum: titles and tags, no blurbs. Everything stretches with the panel.
     /// </summary>
     internal sealed class HomeView : StackLayout, INavPage
     {
@@ -31,13 +31,8 @@ namespace RhinoGotchi.UI
             HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
             var p = Palette.Current;
-            var title = new Label { Text = "RhinoGotchi", Font = new Font(SystemFont.Bold, 20), TextColor = p.Text };
-            var date = new Label { Text = DateTime.Today.ToString("ddd, MMM d"), Font = new Font(SystemFont.Default, 9.5f), TextColor = p.SubtleText };
-            Items.Add(new TableLayout
-            {
-                Rows = { new TableRow(new TableCell(title, true), new TableCell(date)) { } },
-            });
             UpdatePet();
+            Avatars.KeepOwnIconCurrent(); // the leaderboard icon is this Gotchi
             Items.Add(_pet);
 
             var tabs = new TabBar(_lastTab, ("Learning", Glyph.Book, p.Ink), ("Games", Glyph.Gamepad, p.Ink));
@@ -55,32 +50,11 @@ namespace RhinoGotchi.UI
             var stats = game.Stats;
             int left = Games.All.Count(g => !Core.Progress.Get(g).PlayedToday);
             int streak = GotchiState.Streak;
-            int hats = Achievements.UnlockedCount(stats);
 
-            Mood mood;
-            string message;
-            if (left == 0 && GotchiState.ActiveToday)
-            {
-                mood = Mood.Celebrate;
-                message = "All of today's dailies done! You're on fire.";
-            }
-            else if (GotchiState.ActiveToday)
-            {
-                mood = Mood.Happy;
-                message = left == 1 ? "Nice work! One daily puzzle left today." : "Great to see you! Keep the streak going.";
-            }
-            else
-            {
-                mood = Mood.Sleepy;
-                message = streak > 0
-                    ? "Zzz... finish a lesson or a daily to keep your streak!"
-                    : "Zzz... finish a lesson or a daily to wake me up!";
-            }
-
-            string status = left == 0 ? "all dailies done" : $"{left} {(left == 1 ? "daily" : "dailies")} left today";
-            _pet.Set(mood, status, message, 0,
+            // Gotchi's face says how the day is going; no sentence needed.
+            Mood mood = !GotchiState.ActiveToday ? Mood.Sleepy : left == 0 ? Mood.Celebrate : Mood.Happy;
+            _pet.Set(mood, "", "", 0,
                 $"{streak}-day streak",
-                $"{hats}/{Achievements.All.Count} unlocked",
                 $"{stats.CorrectAnswers} solved");
         }
 
@@ -101,12 +75,11 @@ namespace RhinoGotchi.UI
             var progress = GotchiState.Game.Progress;
             int total = LessonCatalog.All.Count;
             int current = progress.CurrentLevel;
-            string detail = progress.IsNew
-                ? "New? Start at Level 1 or take a placement test"
-                : current < 0 ? "All levels done · replay any time"
+            string detail = progress.IsNew ? ""
+                : current < 0 ? "All levels done"
                 : $"Level {current + 1} · {LessonCatalog.All[current].Title}";
 
-            _tabContent.Items.Add(new SectionLabel("LEARN RHINO", "from your first Line to a final exam"));
+            _tabContent.Items.Add(new SectionLabel("LEARN RHINO"));
             _tabContent.Items.Add(new ListRow("Learning Campaign", detail, Glyph.Star, 0, _host.ShowLessons)
             {
                 Emphasis = current >= 0,
@@ -120,7 +93,7 @@ namespace RhinoGotchi.UI
             _tabContent.Items.Add(new ListRow("Command Library", $"{commands} commands · {demos} demos", Glyph.Book, 1,
                 () => _host.Navigate(new LibraryView(_host, 0))));
 
-            var tip = new TipCard("TIP OF THE DAY · TAP FOR ANOTHER", Tips.All[_tip]);
+            var tip = new TipCard("TIP OF THE DAY", Tips.All[_tip]);
             tip.MouseUp += (s, e) =>
             {
                 _tip = (_tip + 1) % Tips.All.Length;
@@ -133,50 +106,45 @@ namespace RhinoGotchi.UI
 
         private void GamesTab()
         {
-            int done = Games.All.Count(g => Core.Progress.Get(g).PlayedToday);
-            _tabContent.Items.Add(new SectionLabel($"DAILIES · {DateTime.Today:MMM d}".ToUpperInvariant(), $"{done} of {Games.All.Length} done"));
-
-            _tabContent.Items.Add(GameRow(Games.Order, "Put the commands in order", Glyph.Blocks, 0,
+            _tabContent.Items.Add(GameRow(Games.Order, Glyph.Blocks, 0,
                 () => _host.Navigate(new BuildOrderView(_host, practice: false))));
-            _tabContent.Items.Add(GameRow(Games.Shape, "Name the command that made it", Glyph.Eye, 3,
+            _tabContent.Items.Add(GameRow(Games.Shape, Glyph.Eye, 3,
                 () => _host.Navigate(new ShapeQuizView(_host, practice: false))));
-            _tabContent.Items.Add(GameRow(Games.Deep, "Name the rarest command that built it", Glyph.Cube, 4,
+            _tabContent.Items.Add(GameRow(Games.Deep, Glyph.Cube, 4,
                 () => _host.Navigate(new DeepCutView(_host, practice: false))));
-            _tabContent.Items.Add(GameRow(Games.Blocked, "Build it without the obvious command", Glyph.Ban, 2,
+            _tabContent.Items.Add(GameRow(Games.Blocked, Glyph.Ban, 2,
                 () => _host.Navigate(new BlockedView(_host, practice: false))));
 
-            _tabContent.Items.Add(new SectionLabel("GUMBALL", "learn it by playing"));
-            _tabContent.Items.Add(new ListRow("Water Run", "12 levels · deliver the water with the Gumball", Glyph.Arrows, 1,
-                () => _host.Navigate(new WaterLabView(_host))));
-
-            _tabContent.Items.Add(new SectionLabel("SKILLS", "learn the mouse"));
-            _tabContent.Items.Add(new ListRow("Drone School",
-                $"Learn to zoom, pan, orbit and fly · {Drone.DroneProgress.DoneCount} of {Drone.SchoolLevels.All.Length} lessons",
-                Glyph.Mouse, 5, () => _host.Navigate(new DroneSchoolView(_host)))
+            // Water Run is played level by level, not once a day, so its tag counts levels.
+            int levels = Water.WaterLevelCatalog.All.Count;
+            int cleared = Water.WaterLevelCatalog.All.Count(l => Water.WaterGame.IsDone(l.Number));
+            _tabContent.Items.Add(new ListRow("Water Run", "", Glyph.Arrows, 1,
+                () => _host.Navigate(new WaterLabView(_host)))
             {
-                Right = "›",
+                TagText = cleared == levels ? "DONE" : cleared == 0 ? "PLAY" : $"{cleared}/{levels}",
+                TagDone = cleared == levels,
             });
-            _tabContent.Items.Add(new SectionLabel("YOUR PROGRESS"));
-            var achievements = new ListRow("Trophies, leaderboard & stats",
-                $"{Achievements.UnlockedCount(GotchiState.Game.Stats)} of {Achievements.All.Count} unlocked", Glyph.Star, 2, _host.ShowTrophies)
+
+            // Drone School (mouse lessons) is counted the same way.
+            int lessons = Drone.SchoolLevels.All.Length, learned = Drone.DroneProgress.DoneCount;
+            _tabContent.Items.Add(new ListRow("Drone School", "", Glyph.Mouse, 5, () => _host.Navigate(new DroneSchoolView(_host)))
             {
-                Right = "›",
-            };
-            _tabContent.Items.Add(achievements);
+                TagText = learned >= lessons ? "DONE" : learned == 0 ? "PLAY" : $"{learned}/{lessons}",
+                TagDone = learned >= lessons,
+            });
+
+            // Trophies, the leaderboard and stats have their own tab at the bottom.
             _tabContent.Items.Add(Theme.Grid(2,
                 Theme.Button("Settings", () => _host.Navigate(new SettingsView(_host))),
                 Theme.Button("Reset", () => ConfirmReset(_host))));
         }
 
-        private static ListRow GameRow(string game, string blurb, Glyph glyph, int tint, Action play)
+        private static ListRow GameRow(string game, Glyph glyph, int tint, Action play)
         {
             var stats = Core.Progress.Get(game);
-            string detail = stats.PlayedToday ? $"Today: {stats.LastResult}" : blurb;
-            if (stats.CurrentStreak > 0)
-                detail += $" · {stats.CurrentStreak}-day streak";
-            return new ListRow(Games.Title(game), detail, glyph, tint, play)
+            return new ListRow(Games.Title(game), "", glyph, tint, play)
             {
-                TagText = stats.PlayedToday ? "DONE TODAY" : "PLAY",
+                TagText = stats.PlayedToday ? "DONE" : "PLAY",
                 TagDone = stats.PlayedToday,
             };
         }

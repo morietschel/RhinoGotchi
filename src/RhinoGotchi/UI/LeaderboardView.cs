@@ -26,6 +26,7 @@ namespace RhinoGotchi.UI
         public LeaderboardView(RhinoGotchiPanel host)
         {
             _host = host;
+            Avatars.KeepOwnIconCurrent();
             Theme.SetUpPage(this, host, "Leaderboard",
                 "Your best score in each game. Global adds them up.");
 

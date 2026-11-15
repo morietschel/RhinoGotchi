@@ -6,7 +6,7 @@ using RhinoGotchi.Core;
 
 namespace RhinoGotchi.UI
 {
-    /// <summary>Turns a picture into a small leaderboard icon and back, and caches other players' icons.</summary>
+    /// <summary>Draws the player's Gotchi as their small leaderboard icon, decodes icons, and caches other players' icons.</summary>
     internal static class Avatars
     {
         /// <summary>Icons are stored as square images this many pixels wide.</summary>
@@ -15,37 +15,43 @@ namespace RhinoGotchi.UI
         private static readonly Dictionary<string, Image?> Cache = new Dictionary<string, Image?>();
 
         /// <summary>
-        /// Loads an image file, crops it to a centered square, shrinks it and returns it as base64.
-        /// Returns null if the file can't be read as an image or won't fit the size limit.
+        /// The player's Gotchi as it looks right now (hat and clothes included), as base64 PNG. This is
+        /// the player's leaderboard icon. Returns "" if it can't be drawn.
         /// </summary>
-        public static string? Encode(string path)
+        public static string Snapshot()
         {
             try
             {
-                using var source = new Bitmap(path);
-                int side = Math.Min(source.Width, source.Height);
-                var crop = new RectangleF((source.Width - side) / 2f, (source.Height - side) / 2f, side, side);
-
                 using var small = new Bitmap(Pixels, Pixels, PixelFormat.Format32bppRgba);
                 using (var g = new Graphics(small))
                 {
-                    g.ImageInterpolation = ImageInterpolation.High;
-                    g.DrawImage(source, crop, new RectangleF(0, 0, Pixels, Pixels));
+                    g.Clear(Color.FromArgb(0xF8, 0xF3, 0xEA));
+                    Mascot.Draw(g, new RectangleF(3, 3, Pixels - 6, Pixels - 6), Mood.Happy);
                 }
-
-                // PNG keeps transparency; a noisy photo can come out too big, so fall back to JPEG.
-                foreach (var format in new[] { ImageFormat.Png, ImageFormat.Jpeg })
-                {
-                    string data = Convert.ToBase64String(small.ToByteArray(format));
-                    if (data.Length <= LeaderboardClient.MaxIconChars)
-                        return data;
-                }
-                return null;
+                string data = Convert.ToBase64String(small.ToByteArray(ImageFormat.Png));
+                return data.Length <= LeaderboardClient.MaxIconChars ? data : "";
             }
             catch (Exception)
             {
-                return null;
+                return "";
             }
+        }
+
+        /// <summary>
+        /// Makes the leaderboard icon follow the Gotchi: if it looks different from the icon that was
+        /// last saved (a new hat, say), the new look is saved and sent. Does nothing before the player
+        /// has joined the leaderboard.
+        /// </summary>
+        public static void KeepOwnIconCurrent()
+        {
+            if (!Leaderboard.HasProfile)
+                return;
+            string now = Snapshot();
+            if (now.Length == 0 || now == Leaderboard.Icon)
+                return;
+            Leaderboard.SetProfile(Leaderboard.Name, now);
+            if (Leaderboard.IsConfigured)
+                _ = Leaderboard.SyncAsync();
         }
 
         /// <summary>Base64 image data as an image, or null if it is empty or not an image.</summary>

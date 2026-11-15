@@ -226,7 +226,7 @@ namespace RhinoGotchi.UI
             y += Ui.Bold(13).LineHeight + 2;
 
             // Message
-            var lines = Ui.Wrap(Ui.Regular(10), _message, w);
+            var lines = _message.Length > 0 ? Ui.Wrap(Ui.Regular(10), _message, w) : new System.Collections.Generic.List<string>();
             foreach (string line in lines)
             {
                 g?.DrawText(Ui.Regular(10), p.SubtleText, x, y, line);
@@ -381,7 +381,7 @@ namespace RhinoGotchi.UI
             // Title + detail
             float tx = tile.Right + 12, tw = w - tx - 14 - (rightW > 0 ? rightW + 10 : 0);
             Font title = Ui.Bold(11.5f), detail = Ui.Regular(9.5f);
-            float blockH = title.LineHeight + 2 + detail.LineHeight;
+            float blockH = Detail.Length > 0 ? title.LineHeight + 2 + detail.LineHeight : title.LineHeight;
             float ty = top.Y + (top.Height - blockH) / 2;
             g.DrawText(title, p.Text, tx, ty, Ui.Ellipsize(title, Title, tw));
             g.DrawText(detail, p.SubtleText, tx, ty + title.LineHeight + 2, Ui.Ellipsize(detail, Detail, tw));

@@ -6,7 +6,7 @@ using RhinoGotchi.Water;
 namespace RhinoGotchi.UI
 {
     /// <summary>
-    /// The Water Run page. With no level open it lists the ten levels; with one open it shows what to
+    /// The Water Run page. With no level open it lists the levels; with one open it shows what to
     /// do, the goal's progress, and (in edit mode) the tools to rebuild and save the level. Buttons that
     /// change the model run the GotchiWater command, so they can be undone like any other command.
     /// </summary>

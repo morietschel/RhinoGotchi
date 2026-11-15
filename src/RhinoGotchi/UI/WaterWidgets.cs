@@ -469,7 +469,7 @@ namespace RhinoGotchi.UI
         }
     }
 
-    /// <summary>The ten levels as a row of dots: green when done, ringed for the next one to play.</summary>
+    /// <summary>The levels as a row of dots: green when done, ringed for the next one to play.</summary>
     internal sealed class LevelDots : Drawable
     {
         private readonly bool[] _done;

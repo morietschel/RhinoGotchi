@@ -96,7 +96,7 @@ was used.
 
 ## Water Run (Gumball levels)
 
-Twelve levels that teach the Gumball: water pours from a fountain and has to reach the goal, and
+Thirteen levels that teach the Gumball: water pours from a fountain and has to reach the goal, and
 the only tool is the Gumball. Open it from **Games → Water Run**, or type `GotchiWater`.
 
 | # | Level | | Gumball part |
@@ -113,6 +113,7 @@ the only tool is the Gumball. Open it from **Games → Water Run**, or type `Got
 | 10 | Along the slope | 3D | Align to Object · red block |
 | 11 | Around the pillar | 3D | Alt-drag to copy, turn the copy · red pillar |
 | 12 | Bucket relay | 3D | Chute under a red roof, bucket over a red wall |
+| 13 | The long way up | 3D | Hard: copy and turn a chute to a tower under a red roof, feed it by bucket, two trips |
 
 - **Playing:** starting a level adds its pieces to the open model (use an empty file), turns the
   Gumball on and locks the gray and stone pieces. Orange pieces move. Any other command that

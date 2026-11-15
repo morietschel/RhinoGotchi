@@ -5,7 +5,7 @@ using RhinoGotchi.Core;
 
 namespace RhinoGotchi.UI
 {
-    /// <summary>Where the player picks the name and icon shown on the leaderboard.</summary>
+    /// <summary>Where the player picks the name shown on the leaderboard. The icon is their Gotchi, as it looks now.</summary>
     internal sealed class ProfileView : StackLayout
     {
         private readonly RhinoGotchiPanel _host;
@@ -13,13 +13,13 @@ namespace RhinoGotchi.UI
         private readonly AvatarView _preview;
         private readonly Words _message = Theme.Muted("");
         private readonly ChunkyButton _save;
-        private string _icon = Leaderboard.Icon;
+        private readonly string _icon = Avatars.Snapshot();
 
         public ProfileView(RhinoGotchiPanel host)
         {
             _host = host;
             Theme.SetUpPage(this, host, "My profile",
-                "Your name and icon are public: everyone sees them on the leaderboard.",
+                "Your name and your Gotchi are public.",
                 "← Leaderboard", BackToBoards);
 
             _name = new TextBox
@@ -31,62 +31,16 @@ namespace RhinoGotchi.UI
             _preview = new AvatarView(Leaderboard.Name, Leaderboard.PlayerId, 64, Avatars.Decode(_icon));
             _name.TextChanged += (s, e) => _preview.PlayerName = _name.Text;
 
-            var remove = Theme.Button("Remove", () => SetIcon(""));
             _save = Theme.Primary("Save", Save);
 
+            Items.Add(new StackLayoutItem(_preview, HorizontalAlignment.Center));
             Items.Add(Theme.Heading("Name"));
             Items.Add(_name);
-            Items.Add(Theme.Heading("Icon"));
-            Items.Add(new TableLayout
-            {
-                Spacing = new Size(12, 0),
-                Rows =
-                {
-                    new TableRow(
-                        new TableCell(_preview),
-                        new TableCell(new StackLayout
-                        {
-                            Spacing = 6,
-                            HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                            Items =
-                            {
-                                Theme.Muted($"Any picture works. It is cropped to a square and shrunk to {Avatars.Pixels}×{Avatars.Pixels} pixels."),
-                                Theme.Row(Theme.Secondary("Choose image…", ChooseImage), remove),
-                            },
-                        }, true)),
-                },
-            });
             Items.Add(_message);
             Items.Add(new StackLayoutItem(_save, HorizontalAlignment.Left));
         }
 
         private void BackToBoards() => _host.Navigate(new LeaderboardView(_host));
-
-        private void ChooseImage()
-        {
-            var dialog = new OpenFileDialog
-            {
-                Title = "Choose an icon",
-                Filters = { new FileFilter("Images", ".png", ".jpg", ".jpeg", ".gif", ".bmp") },
-            };
-            if (dialog.ShowDialog(this) != DialogResult.Ok)
-                return;
-
-            string? data = Avatars.Encode(dialog.FileName);
-            if (data == null)
-            {
-                _message.Text = "That file couldn't be read as a picture. Try a PNG or JPG.";
-                return;
-            }
-            SetIcon(data);
-        }
-
-        private void SetIcon(string data)
-        {
-            _icon = data;
-            _preview.Image = Avatars.Decode(data);
-            _message.Text = "";
-        }
 
         private async void Save()
         {

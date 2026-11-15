@@ -299,7 +299,7 @@ namespace RhinoGotchi.Water
     }
 
     /// <summary>
-    /// The twelve built-in levels. Three flat warm-ups in the Front view (slide, zigzag, bucket), then
+    /// The thirteen built-in levels. Three flat warm-ups in the Front view (slide, zigzag, bucket), then
     /// real 3D: chutes that have to be moved along all three arrows and turned around corners, buckets
     /// that are filled at the tap, carried and poured out, and red pieces that must not be touched.
     /// Orange pieces can be moved, gray and stone ones are locked. In every level doing nothing is safe.
@@ -562,6 +562,46 @@ namespace RhinoGotchi.Water
                     s.Wait(6);
                     s.Place("Bucket", -1.9, -0.9, 6.6);
                     s.Turn("Bucket", 'y', 115);
+                },
+            },
+            new WaterLevel
+            {
+                Number = 13,
+                Title = "The long way up",
+                Lesson = "Hard: everything, twice",
+                Hint = "copy",
+                Red = true,
+                Target = 900,
+                Instruction = "Copy and turn the chute. Feed it by bucket. Two trips.",
+                Build = b =>
+                {
+                    // The tap is low and walled off; the goal is high on a tower under a red roof. The only
+                    // way in is a chute from the side, fed by a second chute that only a bucket can reach.
+                    b.Tap(-8, -4, 3);
+                    b.Hazard(-5, -4.5, -8, 4, 0, 6);
+                    b.Stone("Tower", 4.5, 8.5, 4, 8, 0, 5);
+                    b.Basin(6.5, 6, 5.3);
+                    b.Hazard(4.6, 8.4, 4.1, 7.9, 8.8, 9.1);
+                    b.Stone("Post", 8.1, 8.4, 4.1, 4.4, 5, 8.8);
+                    b.Stone("Post", 8.1, 8.4, 7.6, 7.9, 5, 8.8);
+                    b.Trough("Chute", new V3(-1, -7, 2.0), new V3(5.9, -7, 0.6), true, 2.0);
+                    b.Bucket("Bucket", -6, -7, 0);
+                },
+                Solve = s =>
+                {
+                    s.Place("Chute", 1.8, -1.4, 10.83);
+                    s.Copy("Chute", "Chute 2", 0, -5, 0);
+                    s.Turn("Chute 2", 'z', 90);
+                    s.Place("Chute 2", 6.5, 1.15, 8.53);
+                    for (int trip = 0; trip < 2; trip++)
+                    {
+                        s.Place("Bucket", -8, -4, 1.3);
+                        s.Wait(6);
+                        s.Place("Bucket", -2.4, -1.4, 13.7);
+                        s.Turn("Bucket", 'y', 115);
+                        s.Wait(5);
+                        s.Turn("Bucket", 'y', -115);
+                    }
                 },
             },
         };
