@@ -145,6 +145,10 @@ namespace RhinoGotchi.UI
             _tabContent.Items.Add(GameRow(Games.Deep, "Name the rarest command that built it", Glyph.Cube, 4,
                 () => _host.Navigate(new DeepCutView(_host, practice: false))));
 
+            _tabContent.Items.Add(new SectionLabel("GUMBALL", "learn it by playing"));
+            _tabContent.Items.Add(new ListRow("Water Run", "10 levels · deliver the water with the Gumball", Glyph.Arrows, 1,
+                () => _host.Navigate(new WaterLabView(_host))));
+
             _tabContent.Items.Add(new SectionLabel("LEADERBOARD"));
             _tabContent.Items.Add(new ListRow(
                 Leaderboard.HasProfile ? "See the rankings" : "Join the leaderboard",

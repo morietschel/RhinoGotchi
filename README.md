@@ -89,10 +89,48 @@ was used.
 - The 50 models are bundled as `DeepCut/Models/*.dcm` next to the `.rhp` (5 MB in total):
   gzipped, quantized render meshes and curves. The format is documented in
   `Content/DeepCutModels.cs`; `DeepCut/models.tsv` lists each model's forum topic.
-- The judge needs an OpenAI key. A build can carry one: put it in
-  `src/RhinoGotchi/Core/BundledKey.local.cs` (git-ignored, see `Core/ApiKey.cs`). If that key
-  is rejected, the game asks the player for their own, which is also editable under
+- The judge needs an OpenAI key. A short-lived one is hard-coded in `Core/ApiKey.cs` and
+  ships with the repository. Once it expires or is rejected, the game asks the player for
+  their own, which is also editable under
   **Settings** on the home page and stored in the plugin settings.
+
+## Water Run (Gumball levels)
+
+Ten levels that teach the Gumball: water pours from a fountain and has to reach the goal, and
+the only tool is the Gumball. Open it from **Games → Water Run**, or type `GotchiWater`.
+
+| # | Level | | Gumball part |
+| --- | --- | --- | --- |
+| 1 | Slide the lid | 2D | Move arrows |
+| 2 | Up and over | 2D | Plane handle |
+| 3 | Tip it | 2D | Rotate arc |
+| 4 | Stretch | 2D | Scale handles |
+| 5 | By the numbers | 2D | Click a handle and type a value |
+| 6 | Out of thin air | 3D | Extrude a curve |
+| 7 | Swing | 3D | Moving the Gumball itself (new pivot) |
+| 8 | Along the slope | 3D | Align to Object · first red obstacle |
+| 9 | Two steps | 3D | Alt-drag to copy · red floor |
+| 10 | Staircase | 3D | Four Alt-copies · red floor |
+
+- **Playing:** starting a level adds its pieces to the open model (use an empty file), turns the
+  Gumball on and locks the gray and stone pieces. Orange pieces move. Any other command that
+  changes the model is undone. Every drop that reaches the goal sparkles, the goal and the
+  progress bar fill up, and the level is won when the goal amount is reached. The water never
+  runs out.
+- **2D levels** fill the Front view; the water stays in one plane and a move that takes a piece
+  out of that plane is undone. From level 6 the game is in the perspective view.
+- **Red is deadly:** if water, or a piece the player can move, touches a red hazard, the level
+  is lost at once and has to be restarted.
+- **Editing:** **Edit level** unlocks everything and lets every Rhino command through. Add
+  sources (a point drips, an arrow is a jet), goals and hazards, mark pieces fixed or movable,
+  change the flow, goal amount and drop size, then **Save level**.
+- **Where levels live:** the built-in scenes are code in `Water/WaterLevels.cs`. A saved level is
+  `levels/water/level-NN.3dm` (the scene) and `level-NN.txt` (title, lesson, instruction, target,
+  rate, dropsize, depth, flat as `key=value` lines) and replaces the built-in one. They are copied
+  next to the `.rhp` as `WaterLevels/` on build. **Revert to built-in** deletes the saved pair.
+- **Code:** `Water/WaterSim.cs` is the physics (drops push each other apart and bounce off the
+  meshes of every visible surface, solid, mesh or SubD), `Water/WaterLab.cs` reads the model and
+  draws the water, `Water/WaterGame.cs` runs the levels and their rules.
 
 One project builds two targets:
 
