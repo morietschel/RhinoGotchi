@@ -330,6 +330,29 @@ If Rhino 8 is installed somewhere else, edit `program` in `.vscode/launch.json`.
 `src/RhinoGotchi/Properties/launchSettings.json` has the same three profiles.
 Pick one and press F5.
 
+## RhinoOnTheStreet tutorial
+
+Type `RhinoOnTheStreet` in Rhino. A floating Perspective view pops out over the
+viewports, the camera flies down onto a ghosted street that ends at an archway,
+and two lessons follow, played with Rhino's real commands:
+
+1. **Curve**: type `Curve`, click the five coloured rings, press Enter.
+2. **Arch**: `Line` for the left pillar, Enter to repeat Line for the right one,
+   then `Arc`, `S` (Start option), and click start, end and crown.
+
+Targets are colour-coded red → green → blue (the order of Rhino's X, Y, Z axes).
+The rhino dances when a lesson is complete, dozes after 5 s without a click,
+falls over when a lesson is incomplete (a missed ring, Enter too early, Esc),
+and does its final dance if the whole run had zero misses. A finale walks it
+through the arch into a blue horizon.
+
+While it runs, Osnap is on with Point snap, and locked target points sit on a
+`RhinoOnTheStreet` layer. Run `RhinoOnTheStreet` again for SkipIntro,
+RestartLesson, ReplayFinale, RestartTutorial or Quit. Quit restores your Osnap
+settings, removes the targets and closes the view; the street and arch stay.
+
+A browser preview of the same tutorial is in `tutorial/RhinoOnTheStreet.html`.
+
 ## Layout
 
 ```

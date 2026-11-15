@@ -61,4 +61,9 @@
     <None Include="..\..\levels\water\*.*" LinkBase="WaterLevels" CopyToOutputDirectory="PreserveNewest" Visible="false" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- Rhino sprites for the RhinoOnTheStreet tutorial, loaded from next to the .rhp. -->
+    <None Include="Assets\RhinoOnTheStreet\*.png" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
