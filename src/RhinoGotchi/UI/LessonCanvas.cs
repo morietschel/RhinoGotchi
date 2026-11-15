@@ -882,7 +882,7 @@ namespace RhinoGotchi.UI
                 g.DrawText(Bold(10), _t.AccentText, tx, rect.Y + 12, "ACHIEVEMENT UNLOCKED");
                 g.DrawText(Bold(14), _t.Text, tx, rect.Y + 28, Ellipsize(Bold(14), $"{a.Name} · {a.HatName}", tw));
                 g.DrawText(Regular(11), _t.SubtleText, tx, rect.Y + 50, Ellipsize(Regular(11), a.Condition, tw));
-                bool wearing = a.Clothes != Clothes.None ? _game.Progress.EquippedClothes.HasFlag(a.Clothes) : _game.Progress.EquippedHat == a.Hat;
+                bool wearing = a.Clothes != Clothes.None ? _game.Progress.EquippedClothes == a.Clothes : _game.Progress.EquippedHat == a.Hat;
                 var btn = new RectangleF(rect.Right - btnW - 12, rect.Y + 22, btnW, 34);
                 if (wearing)
                 {
@@ -894,7 +894,7 @@ namespace RhinoGotchi.UI
                     var hat = a.Hat;
                     var piece = a.Clothes;
                     ChunkyButton(g, btn, "WEAR IT", _t.Accent, _t.AccentShadow, Colors.White, "wear" + a.Id,
-                        () => { if (piece != Clothes.None) _game.ToggleClothes(piece); else _game.Wear(hat); }, fontSize: 12);
+                        () => { if (piece != Clothes.None) _game.WearClothes(piece); else _game.Wear(hat); }, fontSize: 12);
                 }
                 y = rect.Bottom + 4 + Gap;
             }

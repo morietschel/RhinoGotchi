@@ -21,6 +21,7 @@ namespace RhinoGotchi.UI
                     game.StatsProvider = () => StatsFor(game.Progress);
                     Mascot.WornHat = () => game.Progress.EquippedHat;
                     Mascot.WornClothes = () => game.Progress.EquippedClothes;
+                    Mascot.WornFace = () => game.Progress.EquippedFace;
                     _game = game;
                 }
                 return _game;
