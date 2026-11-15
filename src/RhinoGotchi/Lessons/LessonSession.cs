@@ -49,7 +49,7 @@ namespace RhinoGotchi.Lessons
         public bool IsPlacement { get; }
 
         /// <summary>Placement only: the level the player lands on (all levels count when nothing was missed).</summary>
-        public int PlacedLevel => _firstMissTier ?? LessonCatalog.All.Count;
+        public int PlacedLevel => _firstMissTier ?? LessonCatalog.MainCount;
 
         private int? _firstMissTier;
 

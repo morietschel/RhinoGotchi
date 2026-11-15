@@ -99,7 +99,7 @@ namespace RhinoGotchi.UI
         private void LearningTab()
         {
             var progress = GotchiState.Game.Progress;
-            int total = LessonCatalog.All.Count;
+            int total = LessonCatalog.MainCount;
             int current = progress.CurrentLevel;
             string detail = progress.IsNew
                 ? "New? Start at Level 1 or take a placement test"
@@ -111,14 +111,6 @@ namespace RhinoGotchi.UI
             {
                 Emphasis = current >= 0,
                 Right = $"{progress.DoneCount}/{total}",
-                RightAccent = true,
-            });
-
-            int tutorialsDone = Tutorials.TutorialCatalog.Cores.Count(t => Tutorials.TutorialProgress.Get(t.Id).Completed);
-            _tabContent.Items.Add(new ListRow("Klosterneuburg Tutorials", "12 commands on a real building · RUN, click, check",
-                Glyph.Cube, 3, () => _host.Navigate(new KlosterneuburgView(_host)))
-            {
-                Right = $"{tutorialsDone}/{Tutorials.TutorialCatalog.Count}",
                 RightAccent = true,
             });
 

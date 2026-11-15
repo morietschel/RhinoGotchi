@@ -71,19 +71,35 @@ namespace RhinoGotchi.Lessons
         {
             get
             {
+                // The main path only: chapter levels don't block it.
                 for (int i = 0; i < LessonCatalog.All.Count; i++)
-                    if (!_completed.Contains(LessonCatalog.All[i].Id))
+                    if (!LessonCatalog.All[i].IsProject && !_completed.Contains(LessonCatalog.All[i].Id))
                         return i;
                 return -1;
             }
         }
 
-        public int DoneCount => LessonCatalog.All.Count(l => _completed.Contains(l.Id));
+        /// <summary>Main levels done (the "n/10" on the map and the home page).</summary>
+        public int DoneCount => LessonCatalog.All.Count(l => !l.IsProject && _completed.Contains(l.Id));
+
+        /// <summary>Levels done in a chapter, e.g. "KLOSTERNEUBURG".</summary>
+        public int ChapterDone(string chapter) => LessonCatalog.All.Count(l => l.Chapter == chapter && _completed.Contains(l.Id));
+
+        public bool IsDone(string lessonId) => _completed.Contains(lessonId);
 
         public LevelState StateOf(int levelIndex)
         {
             if (_completed.Contains(LessonCatalog.All[levelIndex].Id))
                 return LevelState.Done;
+            Lesson lesson = LessonCatalog.All[levelIndex];
+            if (lesson.IsProject)
+            {
+                // A chapter is open from the start and played in order, like FinGotchi's levels.
+                bool earlierOpen = LessonCatalog.All.Take(levelIndex)
+                    .Where(l => l.Chapter == lesson.Chapter)
+                    .All(l => _completed.Contains(l.Id));
+                return earlierOpen ? LevelState.Current : LevelState.Locked;
+            }
             return levelIndex == CurrentLevel ? LevelState.Current : LevelState.Locked;
         }
 
@@ -117,7 +133,7 @@ namespace RhinoGotchi.Lessons
         /// </summary>
         public void ApplyPlacement(int placedLevel, int correctAnswers = 0)
         {
-            for (int i = 0; i < Math.Min(placedLevel, LessonCatalog.All.Count); i++)
+            for (int i = 0; i < Math.Min(placedLevel, LessonCatalog.MainCount); i++)
                 _completed.Add(LessonCatalog.All[i].Id);
             PlacementDone = true;
             PlacementTaken = true;

@@ -16,8 +16,17 @@ namespace RhinoGotchi.Lessons
 
         public List<LessonStep> Steps { get; } = new List<LessonStep>();
 
-        /// <summary>A project lesson (e.g. the Klosterneuburg tutorials): left out of the placement test.</summary>
+        /// <summary>
+        /// A chapter level (e.g. Klosterneuburg): after the main path on the map, open from the
+        /// start, played in order within its chapter, left out of the placement test.
+        /// </summary>
         public bool IsProject { get; set; }
+
+        /// <summary>The chapter heading on the map for project levels, e.g. "KLOSTERNEUBURG".</summary>
+        public string Chapter { get; set; } = "";
+
+        /// <summary>One word for the level's tile on the map, e.g. "PLATE". Empty: the title is used.</summary>
+        public string ShortName { get; set; } = "";
     }
 
     /// <summary>One card in a lesson.</summary>

@@ -11,7 +11,7 @@ namespace RhinoGotchi.Lessons
     /// </summary>
     public static class LessonCatalog
     {
-        // Look-alike commands for the quiz card before each tutorial (commands with a quiz icon only).
+        // (kept for quiz cards that may come back) Look-alike commands for the tutorials' commands.
         private static readonly Dictionary<string, string[]> LookAlikes = new Dictionary<string, string[]>
         {
             ["BooleanDifference"] = new[] { "BooleanUnion", "BooleanIntersection", "Trim" },
@@ -25,7 +25,22 @@ namespace RhinoGotchi.Lessons
             ["NetworkSrf"] = new[] { "Loft", "Patch", "Sweep2" },
         };
 
-        public static readonly IReadOnlyList<Lesson> All = new[]
+        // (Declared before All: static fields initialise in order.) One word per Klosterneuburg level for its tile, like FinGotchi's MASS / PROFILE / FIN.
+        private static readonly string[] ShortNames =
+        {
+            "PLATE", "RAIL", "GLASS", "BEAMS", "BARS", "SLICES", "RIB", "EDGE", "RAMP", "JOISTS", "LOFT", "NET",
+        };
+
+        /// <summary>
+        /// Every level on the campaign map: the ten main levels (the path and the placement test),
+        /// then the Klosterneuburg chapter (12 build levels, open from the start, played in order).
+        /// </summary>
+        public static readonly IReadOnlyList<Lesson> All = MainLevels().Concat(Klosterneuburg()).ToList();
+
+        /// <summary>How many main levels there are (the Klosterneuburg chapter follows them).</summary>
+        public static int MainCount => All.Count(l => !l.IsProject);
+
+        private static IEnumerable<Lesson> MainLevels() => new[]
         {
             Curves(),
             Solids(),
@@ -156,40 +171,25 @@ namespace RhinoGotchi.Lessons
         }
 
         /// <summary>
-        /// One Klosterneuburg tutorial as a short lesson, played from the Klosterneuburg Tutorials page
-        /// (not on the campaign map): a quiz card on its command (when the command has a quiz icon),
-        /// the core card, then the challenge card unless <paramref name="coreOnly"/>.
+        /// The Klosterneuburg chapter: one level per tutorial, easiest first, each a single build
+        /// card played like FinGotchi (no quiz cards). Solving one opens the next.
         /// </summary>
-        public static Lesson TutorialLesson(Tutorials.Tutorial core, bool coreOnly = false)
-        {
-            var lesson = new Lesson
+        private static IEnumerable<Lesson> Klosterneuburg() =>
+            Tutorials.TutorialCatalog.Cores.Select(core =>
             {
-                Id = $"klosterneuburg-{core.Number:00}",
-                Title = $"Klosterneuburg {core.Number}: {core.Title}",
-                Subtitle = core.MainCommand,
-                IsProject = true,
-            };
-            if (LookAlikes.TryGetValue(core.MainCommand, out string[]? alike))
-                lesson.Steps.Add(Quiz(core.MainCommand, alike));
-            lesson.Steps.Add(new TutorialBuildStep(core));
-            if (!coreOnly && Tutorials.TutorialCatalog.ChallengeOf(core) is Tutorials.Tutorial challenge)
-                lesson.Steps.Add(new TutorialBuildStep(challenge));
-            return lesson;
-        }
+                var lesson = new Lesson
+                {
+                    Id = $"klosterneuburg-{core.Number:00}",
+                    Title = core.Title.TrimEnd('.'),
+                    Subtitle = core.MainCommand,
+                    IsProject = true,
+                    Chapter = "KLOSTERNEUBURG",
+                    ShortName = ShortNames[core.Number - 1],
+                };
+                lesson.Steps.Add(new TutorialBuildStep(core));
+                return lesson;
+            }).ToList();
 
-        /// <summary>Just one card (e.g. a challenge replayed on its own) as a lesson.</summary>
-        public static Lesson CardLesson(Tutorials.Tutorial card)
-        {
-            var lesson = new Lesson
-            {
-                Id = card.Id,
-                Title = $"Klosterneuburg {card.Number}: {card.Title}",
-                Subtitle = card.MainCommand,
-                IsProject = true,
-            };
-            lesson.Steps.Add(new TutorialBuildStep(card));
-            return lesson;
-        }
 
         /// <summary>
         /// The placement test: the first two quiz questions of every level, easiest

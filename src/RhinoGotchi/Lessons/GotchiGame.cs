@@ -14,6 +14,9 @@ namespace RhinoGotchi.Lessons
         /// <summary>A lesson or the placement test is being played.</summary>
         Playing,
 
+        /// <summary>A chapter is finished: its Done page ("Splendid."), then back to the map.</summary>
+        ChapterDone,
+
         /// <summary>"You placed into Level 3: Surfaces."</summary>
         PlacementResult,
     }
@@ -80,34 +83,11 @@ namespace RhinoGotchi.Lessons
             Play(new LessonSession(LessonCatalog.PlacementTest(), isPlacement: true), -1);
         }
 
-        /// <summary>PlayingLevel while a Klosterneuburg tutorial (not a campaign level) is being played.</summary>
-        public const int ProjectLevel = -2;
+        /// <summary>Plays the same level again (after running out of hearts).</summary>
+        public void RetryLesson() => StartLesson(PlayingLevel);
 
-        private Lesson? _projectLesson;
-
-        /// <summary>True while a Klosterneuburg tutorial lesson is being played.</summary>
-        public bool PlayingProject => Session != null && PlayingLevel == ProjectLevel;
-
-        /// <summary>
-        /// Plays a lesson from outside the campaign map (the Klosterneuburg tutorials). It earns XP and
-        /// keeps the streak like any lesson, but doesn't count as a campaign level. Leaving it (BACK,
-        /// the close button or CONTINUE at the end) ends the session; the page that started it then
-        /// shows itself again.
-        /// </summary>
-        public void PlayProject(Lesson lesson)
-        {
-            _projectLesson = lesson;
-            Play(new LessonSession(lesson), ProjectLevel);
-        }
-
-        /// <summary>Plays the same lesson again (after running out of hearts).</summary>
-        public void RetryLesson()
-        {
-            if (PlayingLevel == ProjectLevel && _projectLesson != null)
-                PlayProject(_projectLesson);
-            else
-                StartLesson(PlayingLevel);
-        }
+        /// <summary>The chapter whose Done page is showing (GameMode.ChapterDone), e.g. "KLOSTERNEUBURG".</summary>
+        public string DoneChapter { get; private set; } = "";
 
         public void StartLesson(int levelIndex)
         {
@@ -164,6 +144,9 @@ namespace RhinoGotchi.Lessons
             Session.Changed += OnSessionChanged;
             Mode = GameMode.Playing;
             Session.Begin();
+            // Chapter levels are live as soon as they open, like FinGotchi: the level is set up straight away.
+            if (session.Lesson.IsProject)
+                Session.StartBuild();
             Raise();
         }
 
@@ -171,7 +154,7 @@ namespace RhinoGotchi.Lessons
         {
             if (Session != null && Session.IsPlacement && Session.Screen == SessionScreen.Complete)
             {
-                PlacedLevel = Math.Min(Session.PlacedLevel, LessonCatalog.All.Count);
+                PlacedLevel = Math.Min(Session.PlacedLevel, LessonCatalog.MainCount);
                 var before = Stats;
                 Progress.ApplyPlacement(PlacedLevel, Session.FirstTryCorrect);
                 NewUnlocks = Achievements.NewlyUnlocked(before, Stats);
@@ -179,6 +162,22 @@ namespace RhinoGotchi.Lessons
                 Mode = GameMode.PlacementResult;
             }
             SaveIfComplete();
+
+            // Chapter levels flow like FinGotchi: once a level is finished, the next one starts; after the
+            // last one the chapter's Done page shows, and from there it's back to the campaign map.
+            if (Session != null && Session.Lesson.IsProject && Session.Screen == SessionScreen.Complete)
+            {
+                string chapter = Session.Lesson.Chapter;
+                int next = PlayingLevel + 1;
+                if (next < LessonCatalog.All.Count && LessonCatalog.All[next].Chapter == chapter && !Progress.IsDone(LessonCatalog.All[next].Id))
+                {
+                    StartLesson(next);
+                    return;
+                }
+                EndSession();
+                DoneChapter = chapter;
+                Mode = GameMode.ChapterDone;
+            }
             Raise();
         }
 

@@ -14,6 +14,9 @@ namespace RhinoGotchi.Tutorials
 
         /// <summary>Day key (see Daily) of the first completion, or empty.</summary>
         public string CompletedDay = "";
+
+        /// <summary>Solved at least once without a miss (for the chapter's "first try" count).</summary>
+        public bool FirstTry;
     }
 
     /// <summary>Tutorial progress, stored in the plugin's persistent settings next to the daily-game stats.</summary>
@@ -34,6 +37,7 @@ namespace RhinoGotchi.Tutorials
             status.Completed = s.GetBool(Key(tutorialId, "completed"), false);
             status.BestScore = s.GetDouble(Key(tutorialId, "best"), 0.0);
             status.CompletedDay = s.GetString(Key(tutorialId, "completedDay"), "");
+            status.FirstTry = s.GetBool(Key(tutorialId, "firstTry"), false);
             return status;
         }
 
@@ -47,7 +51,7 @@ namespace RhinoGotchi.Tutorials
         }
 
         /// <summary>Records a checked result. Keeps the best score; completion is never undone.</summary>
-        public static void Record(string tutorialId, bool solved, double score)
+        public static void Record(string tutorialId, bool solved, double score, bool firstTry = false)
         {
             var s = Settings;
             if (s == null)
@@ -62,6 +66,8 @@ namespace RhinoGotchi.Tutorials
                 s.SetBool(Key(tutorialId, "completed"), true);
                 s.SetString(Key(tutorialId, "completedDay"), Core.Daily.TodayKey);
             }
+            if (solved && firstTry)
+                s.SetBool(Key(tutorialId, "firstTry"), true);
             RhinoGotchiPlugin.Instance?.SaveSettings();
         }
 
@@ -80,7 +86,7 @@ namespace RhinoGotchi.Tutorials
             if (s == null)
                 return;
             foreach (Tutorial t in TutorialCatalog.All)
-                foreach (var field in new[] { "started", "completed", "best", "completedDay" })
+                foreach (var field in new[] { "started", "completed", "best", "completedDay", "firstTry" })
                     s.DeleteItem(Key(t.Id, field));
             RhinoGotchiPlugin.Instance?.SaveSettings();
         }
