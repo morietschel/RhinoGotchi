@@ -8,7 +8,7 @@ namespace RhinoGotchi.UI
     /// <summary>
     /// Learn Projects: three projects, each one a small building job taught command by command, in this
     /// order: Build a road, Build a facade, Build a building. Each one cleans up the geometry it made.
-    /// A row shows progress once a project is started; there are no PLAY tags.
+    /// Each project is a painted card; a finished one gets a check. There are no PLAY tags.
     /// </summary>
     internal sealed class ProjectsView : StackLayout, INavPage
     {
@@ -16,27 +16,26 @@ namespace RhinoGotchi.UI
         {
             Theme.SetUpPage(this, host, "Learn Projects", "");
 
-            // Build a road (Rhino on the Street): the street, then the archway, in one viewport.
-            Items.Add(new ListRow("Build a road", "Street, then archway", Glyph.Curve, 0,
-                () => RhinoActions.Run(RhinoOnTheStreetCommand.Name)));
-
-            // Build a facade (Fin Facade): six levels, one box wrapped in fins.
-            Items.Add(new ListRow("Build a facade", "6 levels, one facade", Glyph.Chart, 4,
-                () => host.Navigate(new FinFacadeView(host)))
-            {
-                TagText = GotchiFins.FinSession.EverCompleted ? "DONE" : "",
-                TagDone = GotchiFins.FinSession.EverCompleted,
-            });
-
-            // Build a building (Klosterneuburg): twelve commands, one real building.
+            // Painted cards in the Games tab's two-column grid, in this order. A finished project gets a check.
             string chapter = BuildingView.Chapter;
             int levels = LessonCatalog.All.Count(l => l.Chapter == chapter);
             int built = GotchiState.Game.Progress.ChapterDone(chapter);
-            Items.Add(new ListRow("Build a building", "12 levels, one building", Glyph.Blocks, 3, host.ShowBuilding)
+            var tiles = new[]
             {
-                TagText = built >= levels && levels > 0 ? "DONE" : built == 0 ? "" : $"{built}/{levels}",
-                TagDone = built >= levels && levels > 0,
-            });
+                // Build a road (Rhino on the Street): the street, then the archway, in one viewport.
+                new GameTile("card-build-a-road", "Build a road", () => host.Navigate(new RoadView(host))),
+                // Build a facade (Fin Facade): six levels, one box wrapped in fins.
+                new GameTile("card-build-a-facade", "Build a facade", () => host.Navigate(new FinFacadeView(host)))
+                {
+                    Done = GotchiFins.FinSession.EverCompleted,
+                },
+                // Build a building: twelve commands, one real building.
+                new GameTile("card-build-a-building", "Build a building", host.ShowBuilding)
+                {
+                    Done = levels > 0 && built >= levels,
+                },
+            };
+            Items.Add(new GameGrid(tiles));
         }
 
         public NavTab Tab => NavTab.Home;

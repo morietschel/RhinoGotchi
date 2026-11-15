@@ -29,13 +29,11 @@ namespace RhinoGotchi.UI
         /// <summary>Pastel tiles behind list icons (peach, butter, lilac, sky, rose, mint).</summary>
         public Color[] Tints = new Color[0];
 
-        public static Palette Current => IsDark() ? Dark : Light;
-
-        private static bool IsDark()
-        {
-            try { return Rhino.Runtime.HostUtils.RunningInDarkMode; }
-            catch { return false; }
-        }
+        /// <summary>
+        /// The panel is always light, whatever Rhino's theme: the painted art (cards, pet, wardrobe) is drawn
+        /// for a light page. <see cref="Dark"/> stays for now but isn't used.
+        /// </summary>
+        public static Palette Current => Light;
 
         private static Color C(int rgb) => Color.FromArgb((rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF);
 

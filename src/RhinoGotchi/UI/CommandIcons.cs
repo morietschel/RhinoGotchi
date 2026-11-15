@@ -34,7 +34,7 @@ namespace RhinoGotchi.UI
                 string path = Path.Combine(Folder, iconFile + ".svg");
                 if (File.Exists(path))
                 {
-                    var bitmap = DrawingUtilities.BitmapFromSvg(File.ReadAllText(path), size, size, HostUtils.RunningInDarkMode);
+                    var bitmap = DrawingUtilities.BitmapFromSvg(File.ReadAllText(path), size, size, false); // the panel is always light
                     image = bitmap?.ToEto();
                 }
             }

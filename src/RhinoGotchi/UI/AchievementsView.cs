@@ -240,14 +240,11 @@ namespace RhinoGotchi.UI
                 g.DrawText(Ui.Bold(11), p.Text, tx, ty + 13, Ui.Ellipsize(Ui.Bold(11), value, tw));
                 ty += 34;
             }
-            float bw = Math.Max(0, (tw - 6) / 2);
-            if (bw > 40)
-            {
-                float by = Math.Max(ty + 2, card.Bottom - 4 - 12 - 32);
-                SmallButton(g, p, new RectangleF(tx, by, bw, 32), "Surprise me", "surprise", Surprise, primary: true);
-                SmallButton(g, p, new RectangleF(tx + bw + 6, by, bw, 32), "Undress", "undress", Undress, primary: false);
-            }
-            y = card.Bottom + 12;
+            y = card.Bottom + 10;
+            float bw = (inner - 8) / 2;
+            SmallButton(g, p, new RectangleF(Pad, y, bw, 36), "Surprise me", "surprise", Surprise, primary: true);
+            SmallButton(g, p, new RectangleF(Pad + bw + 8, y, bw, 36), "Undress", "undress", Undress, primary: false);
+            y += 36 + 12;
 
             // Face · Hat · Clothes
             var segs = new[] { (Slot.Face, "Face"), (Slot.Hat, "Hat"), (Slot.Clothes, "Clothes") };
@@ -359,21 +356,38 @@ namespace RhinoGotchi.UI
         private float LeaderboardRow(Graphics g, Palette p, float w, float y)
         {
             const string id = "leaderboard";
-            var rect = new RectangleF(Pad, y, w - 2 * Pad, 64);
+            float width = w - 2 * Pad;
+            string right = $"{Leaderboard.Total:N0} pts";
+            Font rf = Ui.Bold(10), tf = Ui.Bold(11.5f), sf = Ui.Regular(9.5f);
+            float rw = rf.MeasureString(right).Width;
+            float tx = Pad + 12 + 40 + 12, tw = Pad + width - 14 - rw - 10 - tx;
+            var title = Ui.Wrap(tf, Leaderboard.HasProfile ? "Leaderboard" : "Join the leaderboard", Math.Max(40, tw));
+            var sub = Ui.Wrap(sf, "Global and per-game boards", Math.Max(40, tw));
+            float th = Math.Max(tf.LineHeight, tf.MeasureString("Agj").Height), sh = Math.Max(sf.LineHeight, sf.MeasureString("Agj").Height);
+            float textH = title.Count * th + 2 + sub.Count * sh;
+            float height = Math.Max(64, textH + 28);
+
+            var rect = new RectangleF(Pad, y, width, height);
             bool hover = _hover == id, pressed = _pressed == id;
             Ui.Chunky(g, rect, 14, hover ? p.TileHover : p.TileFace, p.Ink, lip: 4, lift: pressed ? 3 : 0);
             float lift = pressed ? 3 : 0;
-            var tile = new RectangleF(rect.X + 12, rect.Y + 10 + lift, 40, 40);
+            float top = rect.Y + (height - 4 - textH) / 2 + lift;
+            var tile = new RectangleF(rect.X + 12, rect.Y + (height - 4 - 40) / 2 + lift, 40, 40);
             g.FillPath(p.Ink, GraphicsPath.GetRoundRect(tile, 12));
             Ui.Trophy(g, new PointF(tile.X + 20, tile.Y + 20), 1f, p.OnInk);
 
-            string right = $"{Leaderboard.Total:N0} pts";
-            Font rf = Ui.Bold(10);
-            float rw = rf.MeasureString(right).Width;
-            g.DrawText(rf, p.AccentText, rect.Right - 14 - rw, rect.Y + 22 + lift, right);
-            float tx = tile.Right + 12, tw = rect.Right - 14 - rw - 10 - tx;
-            g.DrawText(Ui.Bold(11.5f), p.Text, tx, rect.Y + 14 + lift, Ui.Ellipsize(Ui.Bold(11.5f), Leaderboard.HasProfile ? "Leaderboard" : "Join the leaderboard", tw));
-            g.DrawText(Ui.Regular(9.5f), p.SubtleText, tx, rect.Y + 32 + lift, Ui.Ellipsize(Ui.Regular(9.5f), "Global and per-game boards", tw));
+            g.DrawText(rf, p.AccentText, rect.Right - 14 - rw, rect.Y + (height - 4 - rf.LineHeight) / 2 + lift, right);
+            foreach (string line in title)
+            {
+                g.DrawText(tf, p.Text, tx, top, line);
+                top += th;
+            }
+            top += 2;
+            foreach (string line in sub)
+            {
+                g.DrawText(sf, p.SubtleText, tx, top, line);
+                top += sh;
+            }
             _hits.Add((rect, id, () => _host.Navigate(new LeaderboardView(_host))));
             return rect.Bottom;
         }

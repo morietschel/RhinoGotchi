@@ -61,8 +61,12 @@ namespace RhinoGotchi.UI
         private List<string> Lines(float width) =>
             _text.Split('\n').SelectMany(part => Ui.Wrap(_font, part, Math.Max(20, width))).ToList();
 
+        // Font.LineHeight leaves out the part of g, j, p and y that hangs below the line, so measure a full
+        // line instead and keep a little air: otherwise the last line is clipped at the bottom.
+        private float LineStep => Math.Max(_font.LineHeight, _font.MeasureString("Agjpy").Height);
+
         private int HeightFor(float width) =>
-            (int)Math.Ceiling(Math.Max(1, Lines(width).Count) * _font.LineHeight) + 2;
+            (int)Math.Ceiling(Math.Max(1, Lines(width).Count) * LineStep) + 4;
 
         private void Relayout()
         {
@@ -82,7 +86,7 @@ namespace RhinoGotchi.UI
             {
                 float x = _centered ? (Width - _font.MeasureString(line).Width) / 2 : 0;
                 g.DrawText(_font, _color, x, y, line);
-                y += _font.LineHeight;
+                y += LineStep;
             }
         }
     }
