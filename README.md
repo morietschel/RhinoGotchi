@@ -1,6 +1,6 @@
 # RhinoGotchi
 
-A RhinoCommon plugin for **Rhino 8 (Windows and Mac) and Rhino 9 (Mac)**, based on McNeel's
+A RhinoCommon plugin for **Rhino 8 and Rhino 9 (Windows and Mac)**, based on McNeel's
 [Your First Plugin](https://developer.rhino3d.com/guides/rhinocommon/your-first-plugin-windows/) guide.
 
 ## RhinoGotchi panel: What Made This?
@@ -96,21 +96,23 @@ was used.
 
 ## Water Run (Gumball levels)
 
-Ten levels that teach the Gumball: water pours from a fountain and has to reach the goal, and
+Twelve levels that teach the Gumball: water pours from a fountain and has to reach the goal, and
 the only tool is the Gumball. Open it from **Games → Water Run**, or type `GotchiWater`.
 
 | # | Level | | Gumball part |
 | --- | --- | --- | --- |
 | 1 | Slide the lid | 2D | Move arrows |
-| 2 | Up and over | 2D | Plane handle |
-| 3 | Tip it | 2D | Rotate arc |
-| 4 | Stretch | 2D | Scale handles |
-| 5 | By the numbers | 2D | Click a handle and type a value |
-| 6 | Out of thin air | 3D | Extrude a curve |
-| 7 | Swing | 3D | Moving the Gumball itself (new pivot) |
-| 8 | Along the slope | 3D | Align to Object · first red obstacle |
-| 9 | Two steps | 3D | Alt-drag to copy · red floor |
-| 10 | Staircase | 3D | Four Alt-copies · red floor |
+| 2 | Zigzag | 2D | Move and rotate two boards, over and under a roof |
+| 3 | Fill, carry, pour | 2D | The bucket: fill it, carry it up, tip it |
+| 4 | The third arrow | 3D | Moving along all three arrows |
+| 5 | Turn the corner | 3D | The flat rotate arc, then a 3D move |
+| 6 | High water | 3D | Bucket: the goal is above the tap |
+| 7 | Out of thin air | 3D | Extrude a curve |
+| 8 | Swing the boom | 3D | Moving the Gumball itself (new pivot) |
+| 9 | Stretch first | 3D | Scale handles · red plate |
+| 10 | Along the slope | 3D | Align to Object · red block |
+| 11 | Around the pillar | 3D | Alt-drag to copy, turn the copy · red pillar |
+| 12 | Bucket relay | 3D | Chute under a red roof, bucket over a red wall |
 
 - **Playing:** starting a level adds its pieces to the open model (use an empty file), turns the
   Gumball on and locks the gray and stone pieces. Orange pieces move. Any other command that
@@ -118,7 +120,7 @@ the only tool is the Gumball. Open it from **Games → Water Run**, or type `Got
   progress bar fill up, and the level is won when the goal amount is reached. The water never
   runs out.
 - **2D levels** fill the Front view; the water stays in one plane and a move that takes a piece
-  out of that plane is undone. From level 6 the game is in the perspective view.
+  out of that plane is undone. From level 4 the game is real 3D in the perspective view, with no invisible panes.
 - **Red is deadly:** if water, or a piece the player can move, touches a red hazard, the level
   is lost at once and has to be restarted.
 - **Editing:** **Edit level** unlocks everything and lets every Rhino command through. Add
@@ -126,11 +128,18 @@ the only tool is the Gumball. Open it from **Games → Water Run**, or type `Got
   change the flow, goal amount and drop size, then **Save level**.
 - **Where levels live:** the built-in scenes are code in `Water/WaterLevels.cs`. A saved level is
   `levels/water/level-NN.3dm` (the scene) and `level-NN.txt` (title, lesson, instruction, target,
-  rate, dropsize, depth, flat as `key=value` lines) and replaces the built-in one. They are copied
+  rate, dropsize, flat as `key=value` lines) and replaces the built-in one. They are copied
   next to the `.rhp` as `WaterLevels/` on build. **Revert to built-in** deletes the saved pair.
-- **Code:** `Water/WaterSim.cs` is the physics (drops push each other apart and bounce off the
-  meshes of every visible surface, solid, mesh or SubD), `Water/WaterLab.cs` reads the model and
-  draws the water, `Water/WaterGame.cs` runs the levels and their rules.
+- **Red is forgiving of splashes:** a stray drop on red only sizzles; twelve drops lose the level.
+- **Buckets:** moving or turning a piece takes the water in it along, so a bucket can be filled at
+  the tap, carried anywhere (also up) and tipped out.
+- **Code:** `Water/WaterCore.cs` is the physics and `Water/WaterLevels.cs` the levels; neither uses
+  Rhino. `Water/WaterLab.cs` reads the model and draws the water, `Water/WaterGame.cs` runs the
+  levels and their rules.
+- **Testing levels:** `dotnet run -c Release --project tools/WaterTest -- -jitter 20` plays every
+  level without Rhino: left alone it must neither win nor lose, its built-in solution must win, and
+  it must still win most of the time when the pieces are placed sloppily. Add a level number to run
+  one, and `-render <folder>` for pictures.
 
 One project builds two targets:
 
@@ -154,6 +163,32 @@ Output:
 
 - `src/RhinoGotchi/bin/Release/net7.0/RhinoGotchi.rhp`
 - `src/RhinoGotchi/bin/Release/net48/RhinoGotchi.rhp`
+
+## Package Manager (Yak)
+
+```bash
+./tools/build-yak.sh
+```
+
+builds the two packages for Rhino's Package Manager into `dist/`, under the name **Rhinogotchi**:
+
+| Package | Installs in | Contains |
+| --- | --- | --- |
+| `rhinogotchi-<version>-rh8_0-any.yak` | Rhino 8, Windows and Mac | `net7.0/` and `net48/` |
+| `rhinogotchi-<version>-rh9_0-any.yak` | Rhino 9, Windows and Mac | the `net7.0` build |
+
+The version comes from `<Version>` in `RhinoGotchi.csproj`; the name, description and icon from
+`yak/`.
+
+To publish, raise the version (a published version can't be replaced), then:
+
+```bash
+./tools/yak-login.sh        # once: sign in with your Rhino account
+./tools/deploy.sh --test    # optional rehearsal on test.yak.rhino3d.com
+./tools/deploy.sh           # build, confirm, push both packages
+```
+
+On Windows, run the scripts from Git Bash.
 
 ## Load and run
 

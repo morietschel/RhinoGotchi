@@ -1,0 +1,19 @@
+# Package manifest for Rhino's Package Manager (Yak). tools/build-yak.sh fills in the version
+# from RhinoGotchi.csproj and builds one package per Rhino version from this file.
+name: Rhinogotchi
+version: 0.0.0
+authors:
+  - Rhinodo
+description: >
+  A pet in your Rhino: it teaches you how to use Rhino, the Gumball, viewports and components
+  in fun games. Play daily rounds, keep your streak and climb the global leaderboard.
+  Type RhinoGotchi to open it.
+icon: icon.png
+keywords:
+  - learning
+  - tutorial
+  - game
+  - pet
+  - gumball
+  - leaderboard
+  - education

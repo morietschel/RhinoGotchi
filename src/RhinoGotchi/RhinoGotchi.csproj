@@ -14,7 +14,9 @@
     <Version>0.1.0</Version>
     <Title>RhinoGotchi</Title>
     <Company>Raven</Company>
-    <Description>RhinoGotchi plugin for Rhino 8 (Windows and Mac).</Description>
+    <Description>Learn Rhino by playing: lessons, a command library and daily games in a side panel.</Description>
+    <!-- Keep the git hash out of the assembly version, so it matches the package version Yak is given. -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <RootNamespace>RhinoGotchi</RootNamespace>
   </PropertyGroup>
 
