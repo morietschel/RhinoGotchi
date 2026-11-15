@@ -20,6 +20,7 @@ namespace RhinoGotchi.Tutorials
         public static LevelRunner? Start(RhinoDoc doc, Tutorial tutorial)
         {
             LevelRunner.Current?.Stop();
+            TutorialHud.Enable();
 
             ReferenceModel? reference = ReferenceModel.TryOpen(doc, out string reason);
             if (reference == null)
@@ -42,7 +43,7 @@ namespace RhinoGotchi.Tutorials
                 if (r != runner || recorded || r.LastResult?.Solved != true)
                     return;
                 recorded = true;
-                TutorialProgress.Record(tutorial.Id, true, r.LastResult.Score);
+                TutorialProgress.Record(tutorial.Id, true, r.LastResult.Score, r.Misses == 0);
             }
             LevelRunner.StateChanged += OnState;
             runner.Stopped += (s, e) =>
