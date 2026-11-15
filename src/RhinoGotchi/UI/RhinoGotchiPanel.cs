@@ -70,13 +70,13 @@ namespace RhinoGotchi.UI
             if (_openLessonsNext)
             {
                 _openLessonsNext = false;
-                ShowLessons();
+                ShowProjects();
             }
             else
                 ShowHome();
         }
 
-        /// <summary>Shows the Learning Campaign in every open panel, and in the next one Rhino creates.</summary>
+        /// <summary>Shows Learn Projects in every open panel, and in the next one Rhino creates (the Gotchi command).</summary>
         internal static void OpenLessonsEverywhere()
         {
             bool any = false;
@@ -85,7 +85,7 @@ namespace RhinoGotchi.UI
                 foreach (var w in Instances.ToList())
                     if (w.TryGetTarget(out var panel))
                     {
-                        panel.ShowLessons();
+                        panel.ShowProjects();
                         any = true;
                     }
             }
@@ -95,6 +95,12 @@ namespace RhinoGotchi.UI
         internal void ShowHome() => Navigate(new HomeView(this));
 
         internal void ShowLessons() => Navigate(new LessonView(this));
+
+        /// <summary>Learn Projects: Build a road, Build a facade, Build a building.</summary>
+        internal void ShowProjects() => Navigate(new ProjectsView(this));
+
+        /// <summary>Build a building: the Klosterneuburg levels, opened at the next level to play.</summary>
+        internal void ShowBuilding() => Navigate(new BuildingView(this));
 
         internal void ShowTrophies() => Navigate(new AchievementsView(this));
 

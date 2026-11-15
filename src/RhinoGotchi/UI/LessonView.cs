@@ -94,4 +94,61 @@ namespace RhinoGotchi.UI
 
         public void Leave() => _canvas.Unsubscribe();
     }
+
+    /// <summary>
+    /// Build a building (Learn Projects): the twelve Klosterneuburg levels without the campaign around them.
+    /// Opening it adds the built-in Klosterneuburg model to the document (unless it is already there) and
+    /// starts the next level; leaving it ends the level (its geometry is deleted) and removes the model again.
+    /// </summary>
+    internal sealed class BuildingView : Panel, IGameView, IFillView
+    {
+        public const string Chapter = "KLOSTERNEUBURG";
+
+        private readonly RhinoGotchiPanel _host;
+        private readonly LessonCanvas _canvas;
+
+        public BuildingView(RhinoGotchiPanel host)
+        {
+            _host = host;
+            _canvas = new LessonCanvas(GotchiState.Game)
+            {
+                ExitHome = host.ShowProjects,
+                OpenTrophies = host.ShowTrophies,
+            };
+            Content = _canvas;
+        }
+
+        public void Enter()
+        {
+            var game = GotchiState.Game;
+            game.ProjectExited -= OnExited;
+            game.ProjectExited += OnExited;
+            _canvas.Subscribe();
+            if (game.Project == Chapter && game.Session != null)
+                return;
+            Rhino.RhinoDoc? doc = Rhino.RhinoDoc.ActiveDoc;
+            if (doc == null || !Tutorials.KlosterneuburgModel.Add(doc))
+            {
+                Application.Instance.AsyncInvoke(_host.ShowProjects);
+                return;
+            }
+            game.StartProject(Chapter);
+        }
+
+        public void Leave()
+        {
+            var game = GotchiState.Game;
+            game.ProjectExited -= OnExited;
+            _canvas.Unsubscribe();
+            if (game.Project != null)
+                game.ExitProject(); // stops the level: its geometry is deleted
+            if (Rhino.RhinoDoc.ActiveDoc is Rhino.RhinoDoc doc)
+            {
+                Tutorials.TutorialWorkspace.RemoveRoot(doc);
+                Tutorials.KlosterneuburgModel.Remove(doc);
+            }
+        }
+
+        private void OnExited() => Application.Instance.AsyncInvoke(_host.ShowProjects);
+    }
 }

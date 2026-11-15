@@ -180,7 +180,7 @@ namespace RhinoGotchi.UI
             // ‹ Map / Next ›
             float bh = 38, gap = 10, half = (col - gap) / 2;
             float top = Math.Max(y, h - 14 - bh);
-            OutlineButton(g, new RectangleF(Pad, top, half, bh), "‹ Map", "map", _game.BackToMap);
+            OutlineButton(g, new RectangleF(Pad, top, half, bh), _game.Project != null ? "‹ Projects" : "‹ Map", "map", _game.BackToMap);
             var next = new RectangleF(Pad + half + gap, top, half, bh);
             if (solved || doneBefore)
                 OutlineButton(g, next, number == chapter.Count ? "Finish ›" : "Next ›", "next", _session.Continue);

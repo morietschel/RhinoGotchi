@@ -233,13 +233,66 @@ namespace GotchiFins
 
         // ------------------------------------------------------------ lifetime
 
+        // ------------------------------------------------------------ clean-up (Learn Projects)
+
+        /// <summary>Objects added to the document while the game was running.</summary>
+        private static readonly HashSet<Guid> Made = new HashSet<Guid>();
+
+        private const string CompletedKey = "fin.completedOnce";
+
+        /// <summary>
+        /// True once the facade was finished. Saved in the plugin settings, because the game reads its
+        /// progress from the model and the model is cleared when the game ends.
+        /// </summary>
+        public static bool EverCompleted
+        {
+            get => RhinoGotchi.RhinoGotchiPlugin.Instance?.Settings.GetBool(CompletedKey, false) ?? false;
+            private set
+            {
+                var plugin = RhinoGotchi.RhinoGotchiPlugin.Instance;
+                if (plugin == null || !value)
+                    return;
+                plugin.Settings.SetBool(CompletedKey, true);
+                plugin.SaveSettings();
+            }
+        }
+
+        /// <summary>
+        /// Ends the game (the player left Build a facade): the facade, the guides and anything else made
+        /// while it ran are deleted, and the view, ground and snaps are put back. Objects that were in the
+        /// document before the game started are kept.
+        /// </summary>
+        public static void EndGame(RhinoDoc? doc)
+        {
+            if (doc != null)
+            {
+                RemoveGuides(doc);
+                foreach (Guid id in Made)
+                    if (doc.Objects.FindId(id) is RhinoObject obj)
+                        doc.Objects.Delete(obj, true, true);
+                int layerIndex = doc.Layers.FindName(GuideLayerName)?.Index ?? -1;
+                if (layerIndex >= 0 && layerIndex != doc.Layers.CurrentLayerIndex)
+                    doc.Layers.Purge(layerIndex, true);
+            }
+            Made.Clear();
+            _guidesFor = null;
+            Stop();
+            doc?.Views.Redraw();
+        }
+
         public static void Initialize()
         {
             if (_ghost != null)
                 return;
             _ghost = new FinGhostConduit();
 
-            RhinoDoc.AddRhinoObject += (s, e) => OnModelChanged();
+            RhinoDoc.AddRhinoObject += (s, e) =>
+            {
+                // Everything made while the game runs is deleted when it ends (EndGame).
+                if (Started)
+                    Made.Add(e.ObjectId);
+                OnModelChanged();
+            };
             RhinoDoc.DeleteRhinoObject += (s, e) => OnModelChanged();
             RhinoDoc.UndeleteRhinoObject += (s, e) => OnModelChanged();
             RhinoDoc.ReplaceRhinoObject += (s, e) => OnModelChanged();
@@ -556,6 +609,7 @@ namespace GotchiFins
                 ZoomForLevel(doc, Current.Value);
             if (Started && !wasComplete && Complete)
             {
+                EverCompleted = true;
                 RhinoApp.WriteLine($"[GotchiFins] Splendid! The facade is finished, {FirstTryCount} of {GamePage.LevelCount} first try.");
                 ZoomToAll(doc);
             }

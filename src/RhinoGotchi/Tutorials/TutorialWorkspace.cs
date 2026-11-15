@@ -276,6 +276,25 @@ namespace RhinoGotchi.Tutorials
         /// Clears a tutorial's layers without opening its workspace (the open one, if any, stays open).
         /// Same result as <see cref="Clear"/>: the count deleted, 0 if there was nothing, -1 if the learner said no.
         /// </summary>
+        /// <summary>Deletes a layer, its sublayers and everything on them (e.g. one level's layers).</summary>
+        public static void RemoveLayerTree(RhinoDoc doc, string fullPath)
+        {
+            var ids = doc.Layers
+                .Where(l => !l.IsDeleted && (l.FullPath == fullPath || l.FullPath.StartsWith(fullPath + "::", StringComparison.Ordinal)))
+                .Select(l => l.Id)
+                .ToList();
+            KlosterneuburgModel.RemoveLayers(doc, ids);
+        }
+
+        /// <summary>Deletes the "RhinoGotchi Tutorials" layer and everything under it (leaving Build a building).</summary>
+        public static void RemoveRoot(RhinoDoc doc)
+        {
+            if (Current != null && Current.Doc == doc)
+                Current.Close();
+            RemoveLayerTree(doc, TutorialCatalog.RootLayer);
+            doc.Views.Redraw();
+        }
+
         public static int ClearTutorial(RhinoDoc doc, Tutorial tutorial, bool askFirst = true) =>
             new TutorialWorkspace(doc, tutorial).Clear(askFirst);
 

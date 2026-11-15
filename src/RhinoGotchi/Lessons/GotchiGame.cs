@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace RhinoGotchi.Lessons
@@ -104,6 +105,36 @@ namespace RhinoGotchi.Lessons
         /// <summary>The chapter whose Done page is showing (GameMode.ChapterDone), e.g. "KLOSTERNEUBURG".</summary>
         public string DoneChapter { get; private set; } = "";
 
+        /// <summary>
+        /// The chapter being played as a Learn Projects project (e.g. "KLOSTERNEUBURG" for Build a building),
+        /// or null. In a project there is no campaign map: leaving a level or the Done page raises
+        /// <see cref="ProjectExited"/> and the panel goes back to Learn Projects.
+        /// </summary>
+        public string? Project { get; private set; }
+
+        /// <summary>Raised when the player leaves the project (‹ Projects, or the Done page's button).</summary>
+        public event Action? ProjectExited;
+
+        /// <summary>Opens a project straight at the next level to play (the first one once all are done).</summary>
+        public void StartProject(string chapter)
+        {
+            var levels = Enumerable.Range(0, LessonCatalog.All.Count).Where(i => LessonCatalog.All[i].Chapter == chapter).ToList();
+            if (levels.Count == 0)
+                return;
+            Project = chapter;
+            int next = levels.Where(i => !Progress.IsDone(LessonCatalog.All[i].Id)).DefaultIfEmpty(levels[0]).First();
+            StartLesson(next);
+        }
+
+        /// <summary>Ends the project quietly (the panel is leaving it); no <see cref="ProjectExited"/>.</summary>
+        public void ExitProject()
+        {
+            EndSession();
+            Project = null;
+            Mode = GameMode.Map;
+            Raise();
+        }
+
         public void StartLesson(int levelIndex)
         {
             if (levelIndex < 0 || levelIndex >= LessonCatalog.All.Count || Progress.StateOf(levelIndex) == LevelState.Locked)
@@ -127,6 +158,15 @@ namespace RhinoGotchi.Lessons
         {
             EndSession();
             Mode = Progress.IsNew ? GameMode.Welcome : GameMode.Map;
+            if (Project != null)
+            {
+                // A project has no map: back to Learn Projects.
+                Project = null;
+                Mode = GameMode.Map;
+                Raise();
+                ProjectExited?.Invoke();
+                return;
+            }
             Raise();
         }
 
@@ -184,7 +224,8 @@ namespace RhinoGotchi.Lessons
             {
                 string chapter = Session.Lesson.Chapter;
                 int next = PlayingLevel + 1;
-                if (next < LessonCatalog.All.Count && LessonCatalog.All[next].Chapter == chapter && !Progress.IsDone(LessonCatalog.All[next].Id))
+                // In a project the levels simply run in order (replays included); in the campaign, to the next undone one.
+                if (next < LessonCatalog.All.Count && LessonCatalog.All[next].Chapter == chapter && (Project != null || !Progress.IsDone(LessonCatalog.All[next].Id)))
                 {
                     StartLesson(next);
                     return;

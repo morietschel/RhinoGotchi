@@ -264,7 +264,7 @@ namespace RhinoGotchi.UI
                 $"{firstTry} of {levels.Count} levels first try. {commands}: one building.") + 14;
 
             return Footer(g, w, h, y + Gap, () =>
-                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "Back to the campaign", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _game.BackToMap));
+                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), _game.Project != null ? "Back to Learn Projects" : "Back to the campaign", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _game.BackToMap));
         }
 
         private static string TutorialIdOf(Lesson lesson) =>

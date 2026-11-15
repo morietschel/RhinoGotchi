@@ -94,6 +94,7 @@ namespace RhinoGotchi.UI
         public void Leave()
         {
             LevelRunner.StateChanged -= OnStateChanged;
+            ClearAttempt(); // leaving ends the challenge: its points and geometry are deleted
             StopChallenge();
         }
 
@@ -179,6 +180,17 @@ namespace RhinoGotchi.UI
             bool isNew = Progress.AddWay(_challenge.Id, wayId);
             if (!_practice)
                 Progress.Record(Games.Blocked, true, $"{_challenge.Id} via {routeText}");
+
+            // The challenge is over: clear its geometry after a short look at the result.
+            var solved = _runner;
+            var clearLater = new UITimer { Interval = 3 };
+            clearLater.Elapsed += (s, e) =>
+            {
+                clearLater.Stop();
+                if (_runner == solved) // not if the player already started another try
+                    ClearAttempt();
+            };
+            clearLater.Start();
 
             string headline = way == null
                 ? (isNew ? "A brand-new way! 🌟" : "Your own way again!")

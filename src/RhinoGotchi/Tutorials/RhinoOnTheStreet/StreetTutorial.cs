@@ -72,6 +72,15 @@ namespace RhinoGotchi.Tutorials.RhinoOnTheStreet
         private System.Drawing.Size _fullSize;
         private double _popStart = -1;
 
+        // The player's own view, put back when the game ends (it plays in one maximized viewport).
+        private ViewportInfo? _savedCamera;
+        private bool _savedMaximized;
+        private RhinoView? _savedActive;
+
+        /// <summary>Everything added to the document while the game runs; deleted when it ends.</summary>
+        private readonly HashSet<Guid> _made = new HashSet<Guid>();
+        private bool _closing;
+
         private StreetTutorial(RhinoDoc doc)
         {
             _doc = doc;
@@ -177,15 +186,15 @@ namespace RhinoGotchi.Tutorials.RhinoOnTheStreet
             ModelAidSettings.Osnap = _savedOsnap;
             ModelAidSettings.OsnapModes = _savedModes;
 
-            RhinoView? view = FindView();
-            if (view != null)
+            if (!_closing)
             {
-                try { view.Close(); } catch { /* the user may have closed it already */ }
+                ClearModel();
+                RestoreView();
             }
             if (Current == this)
                 Current = null;
             _doc.Views.Redraw();
-            RhinoApp.WriteLine("[RhinoOnTheStreet] Tutorial closed. The street and arch you built stay in the model.");
+            RhinoApp.WriteLine("[RhinoOnTheStreet] Game over: the street and arch are cleared and your view is back.");
         }
 
         public void SkipIntro()
@@ -344,10 +353,12 @@ namespace RhinoGotchi.Tutorials.RhinoOnTheStreet
             _endedAt = Now;
             RhinoWalk = null;
             Overlay = Flawless
-                ? new Overlay { Title = "Perfect run!", Sub = "Street, pillars, arch - zero misses from start to finish. RhinoGotchi made it to the blue horizon.", Stats = $"0 misses  |  time {ElapsedText}", Footer = "Run RhinoOnTheStreet again to replay the finale, restart or quit.", Mood = Mood.Final, Dance = true, Confetti = true, Since = Now }
-                : new Overlay { Title = "Tutorial complete!", Sub = "RhinoGotchi made it through the arch. Finish with zero misses to unlock the perfect ending.", Stats = $"{Misses} miss{(Misses == 1 ? "" : "es")}  |  time {ElapsedText}", Footer = "Run RhinoOnTheStreet again to replay the finale, restart or quit.", Mood = Mood.Win, Dance = true, Confetti = true, Since = Now };
+                ? new Overlay { Title = "Perfect run!", Sub = "Street, pillars, arch - zero misses from start to finish. RhinoGotchi made it to the blue horizon.", Stats = $"0 misses  |  time {ElapsedText}", Footer = "The street clears in a few seconds.", Mood = Mood.Final, Dance = true, Confetti = true, Since = Now }
+                : new Overlay { Title = "Tutorial complete!", Sub = "RhinoGotchi made it through the arch. Finish with zero misses to unlock the perfect ending.", Stats = $"{Misses} miss{(Misses == 1 ? "" : "es")}  |  time {ElapsedText}", Footer = "The street clears in a few seconds.", Mood = Mood.Win, Dance = true, Confetti = true, Since = Now };
             Mood = Overlay.Mood;
             Log(Flawless ? "Perfect run!" : "Tutorial complete.");
+            // Build a road clears once the whole game is over: show the end card, then clean up.
+            At(9, () => { if (Current == this && Phase == Phase.End) Stop(); });
         }
 
         // ================= Rhino events =================
@@ -491,6 +502,7 @@ namespace RhinoGotchi.Tutorials.RhinoOnTheStreet
 
         private void OnAddObject(object? sender, RhinoObjectEventArgs e)
         {
+            if (e.TheObject.Document == _doc) _made.Add(e.ObjectId);
             if (_adding || _inCommand == null || e.TheObject.Document != _doc) return;
             _commandAdds.Add(e.ObjectId);
         }
@@ -534,7 +546,9 @@ namespace RhinoGotchi.Tutorials.RhinoOnTheStreet
 
         private void OnCloseDocument(object? sender, DocumentEventArgs e)
         {
-            if (e.Document == _doc) Stop();
+            if (e.Document != _doc) return;
+            _closing = true; // the document is going away: nothing to clear or restore
+            Stop();
         }
 
         private static bool IsOwnCommand(string name) => string.Equals(name, RhinoOnTheStreetCommand.Name, StringComparison.OrdinalIgnoreCase);
@@ -634,36 +648,57 @@ namespace RhinoGotchi.Tutorials.RhinoOnTheStreet
 
         // ================= view + camera =================
 
+        /// <summary>
+        /// Plays in one viewport: the Perspective view (or the active one), maximized, with the game's camera.
+        /// Its camera and layout are saved first and put back by <see cref="RestoreView"/>.
+        /// </summary>
         private void CreateView()
         {
-            var rect = new System.Drawing.Rectangle(120, 120, 1200, 760);
-            try
-            {
-                Eto.Forms.Window? main = RhinoEtoApp.MainWindow;
-                if (main != null)
-                {
-                    Eto.Drawing.Rectangle b = main.Bounds;
-                    float scale = Rhino.Runtime.HostUtils.RunningOnWindows ? (main.Screen?.LogicalPixelSize ?? 1f) : 1f;
-                    rect = new System.Drawing.Rectangle(
-                        (int)((b.X + b.Width * 0.1) * scale), (int)((b.Y + b.Height * 0.14) * scale),
-                        (int)(b.Width * 0.72 * scale), (int)(b.Height * 0.74 * scale));
-                }
-            }
-            catch { /* fall back to the default rectangle */ }
-
-            _view = _doc.Views.Add(ViewTitle, DefinedViewportProjection.Perspective, rect, true);
-            if (_view == null)
-            {
-                _view = _doc.Views.ActiveView;
-                RhinoApp.WriteLine("[RhinoOnTheStreet] Couldn't open a floating view; using the active view.");
-            }
+            _savedActive = _doc.Views.ActiveView;
+            _view = _doc.Views.GetViewList(true, false)
+                        .FirstOrDefault(v => v.ActiveViewport.Name.Equals("Perspective", StringComparison.OrdinalIgnoreCase))
+                    ?? _doc.Views.ActiveView;
             if (_view == null) return;
+            _savedCamera = new ViewportInfo(_view.ActiveViewport);
+            _savedMaximized = _view.Maximized;
+            _doc.Views.ActiveView = _view;
+            _view.Maximized = true;
             _viewportId = _view.ActiveViewportID;
-            _view.ActiveViewport.Name = ViewTitle;
             _view.ActiveViewport.Camera35mmLensLength = 28;
             _fullSize = _view.Size;
-            if (_view.Floating && _fullSize.Width > 0)
-                _popStart = Now;
+        }
+
+        /// <summary>Puts the player's viewport layout and camera back.</summary>
+        private void RestoreView()
+        {
+            RhinoView? view = FindView();
+            if (view != null)
+            {
+                try
+                {
+                    if (_savedCamera != null)
+                        view.ActiveViewport.SetViewProjection(_savedCamera, true);
+                    view.Maximized = _savedMaximized;
+                }
+                catch { /* the view may be closing */ }
+            }
+            if (_savedActive != null && _savedActive != view)
+            {
+                try { _doc.Views.ActiveView = _savedActive; } catch { /* closed */ }
+            }
+            _savedCamera = null;
+        }
+
+        /// <summary>Deletes everything the game added (street, arch, the player's curves) and its layer.</summary>
+        private void ClearModel()
+        {
+            foreach (Guid id in _made)
+                if (_doc.Objects.FindId(id) is RhinoObject obj)
+                    _doc.Objects.Delete(obj, true, true);
+            _made.Clear();
+            Layer? layer = _doc.Layers.FindName(ViewTitle);
+            if (layer != null && layer.Index != _doc.Layers.CurrentLayerIndex)
+                _doc.Layers.Purge(layer.Index, true);
         }
 
         private RhinoView? FindView()

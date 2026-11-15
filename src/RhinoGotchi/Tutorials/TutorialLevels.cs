@@ -51,6 +51,13 @@ namespace RhinoGotchi.Tutorials
                 LevelRunner.StateChanged -= OnState;
                 if (TutorialWorkspace.Current == workspace)
                     workspace.Close();
+
+                // A level leaves nothing behind: what the player made and the level's layers are deleted.
+                foreach (Guid id in runner.Attempt.AddedObjectIds.ToList())
+                    if (doc.Objects.FindId(id) is Rhino.DocObjects.RhinoObject made)
+                        doc.Objects.Delete(made, true, true);
+                TutorialWorkspace.RemoveLayerTree(doc, tutorial.LayerPath);
+                doc.Views.Redraw();
             };
             return runner;
         }

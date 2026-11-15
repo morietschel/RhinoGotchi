@@ -227,8 +227,9 @@ panel is resized; on a wide panel the lessons keep a centered column.
   The outfit stays on through hops and the "feeding time" animation (grass, leaf, branch,
   twig, apple, banana, watermelon) when you tap Gotchi or finish a lesson.
 - **Home:** Gotchi's card (it breathes and naps when you haven't played today), with chips
-  for your streak, unlocks and questions solved. Below it, two tabs: **Learning** (Learning
-  Campaign, Command Library, tip of the day) and **Games** (the four daily puzzles).
+  for your streak, unlocks and questions solved. Below it, two tabs: **Learning** (Learn
+  Projects, Learn Commands, tip of the day) and **Games** (the other games). Rows show progress
+  (3/12, DONE) once something is started; there are no PLAY tags.
 - **Bottom bar:** Home · Trophies.
 - **Trophies:** the leaderboard at the top, then the **wardrobe room**: Gotchi eats on a
   loop in its outfit, with **Surprise me** and **Undress**, and Face · Hat · Clothes tabs.
@@ -244,9 +245,28 @@ panel is resized; on a wide panel the lessons keep a centered column.
   - New unlocks also appear on the lesson-complete screen with a **Wear it** button.
 - **Leaderboard icon:** My profile → **Use my Gotchi** draws your dressed Gotchi as your icon.
 
-## The Learning Campaign
+## Learn Projects
 
-Type `Gotchi` to jump straight to it (or pick it on the Learning tab).
+The first row on the Learning tab (or type `Gotchi`). Three projects, in this order:
+
+| Project | What it is | Clean-up |
+| --- | --- | --- |
+| **Build a road** | Rhino on the Street: draw the street (Curve), then the archway (Line, Arc). Plays in one maximized Perspective viewport; your layout and camera come back afterwards. | Everything it made is deleted when the whole game ends (a few seconds after the end card, or when you quit). |
+| **Build a facade** | Fin Facade: six levels, one box wrapped in fins. | The levels build on each other, so it clears when you leave it. A finished facade is remembered (DONE). |
+| **Build a building** | The twelve Klosterneuburg levels (below), opened straight at your next level. The Klosterneuburg model is built into the plugin and added to the document when you start. | Each level's geometry (inputs, guides and what you made) is deleted when you move on; leaving removes the model again. |
+
+Only what a game made is deleted: anything already in the document stays. The other games
+clear the same way: Blocked! a few seconds after a challenge is solved or when you leave, Water
+Run when a level ends or you leave (not while editing a level), Drone School removes its drone,
+and the puzzle games only ever draw previews.
+
+Build a building needs a document in metres: an empty document is switched to metres; one in
+other units with work in it asks you to start a new metre file.
+
+## The Learning Campaign (hidden)
+
+The ten-level campaign and the placement test are no longer on the Learning tab. The code stays:
+it runs Build a building.
 
 - **First run:** pick *Start from scratch* (Level 1) or *Find my level*, a
   placement test with 2 questions per level (up to 20), easiest first. It stops at the

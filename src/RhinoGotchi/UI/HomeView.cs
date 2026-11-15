@@ -9,8 +9,8 @@ using RhinoGotchi.Lessons;
 namespace RhinoGotchi.UI
 {
     /// <summary>
-    /// The panel's start page: Gotchi's card (streak, solved), then two tabs. Learning has the Learning
-    /// Campaign, the Command Library and the tip of the day; Games has the games. Words are kept to a
+    /// The panel's start page: Gotchi's card (streak, solved), then two tabs. Learning has Learn Projects,
+    /// Learn Commands and the tip of the day; Games has the games. Words are kept to a
     /// minimum: titles and tags, no blurbs. Everything stretches with the panel.
     /// </summary>
     internal sealed class HomeView : StackLayout, INavPage
@@ -72,25 +72,13 @@ namespace RhinoGotchi.UI
 
         private void LearningTab()
         {
-            var progress = GotchiState.Game.Progress;
-            int total = LessonCatalog.MainCount;
-            int current = progress.CurrentLevel;
-            string detail = progress.IsNew ? ""
-                : current < 0 ? "All levels done"
-                : $"Level {current + 1} · {LessonCatalog.All[current].Title}";
-
             _tabContent.Items.Add(new SectionLabel("LEARN RHINO"));
-            _tabContent.Items.Add(new ListRow("Learning Campaign", detail, Glyph.Star, 0, _host.ShowLessons)
-            {
-                Emphasis = current >= 0,
-                Right = $"{progress.DoneCount}/{total}",
-                RightAccent = true,
-            });
+            _tabContent.Items.Add(new ListRow("Learn Projects", "Road · facade · building", Glyph.Star, 0, _host.ShowProjects));
 
             var cats = CommandCatalog.Categories;
             int commands = cats.Sum(c => c.Commands.Count);
             int demos = cats.Sum(c => c.Commands.Count(e => e.HasDemo));
-            _tabContent.Items.Add(new ListRow("Command Library", $"{commands} commands · {demos} demos", Glyph.Book, 1,
+            _tabContent.Items.Add(new ListRow("Learn Commands", $"{commands} commands · {demos} demos", Glyph.Book, 1,
                 () => _host.Navigate(new LibraryView(_host, 0))));
 
             var tip = new TipCard("TIP OF THE DAY", Tips.All[_tip]);
@@ -121,7 +109,7 @@ namespace RhinoGotchi.UI
             _tabContent.Items.Add(new ListRow("Water Run", "", Glyph.Arrows, 1,
                 () => _host.Navigate(new WaterLabView(_host)))
             {
-                TagText = cleared == levels ? "DONE" : cleared == 0 ? "PLAY" : $"{cleared}/{levels}",
+                TagText = cleared == levels ? "DONE" : cleared == 0 ? "" : $"{cleared}/{levels}",
                 TagDone = cleared == levels,
             });
 
@@ -129,29 +117,8 @@ namespace RhinoGotchi.UI
             int lessons = Drone.SchoolLevels.All.Length, learned = Drone.DroneProgress.DoneCount;
             _tabContent.Items.Add(new ListRow("Drone School", "", Glyph.Mouse, 5, () => _host.Navigate(new DroneSchoolView(_host)))
             {
-                TagText = learned >= lessons ? "DONE" : learned == 0 ? "PLAY" : $"{learned}/{lessons}",
+                TagText = learned >= lessons ? "DONE" : learned == 0 ? "" : $"{learned}/{lessons}",
                 TagDone = learned >= lessons,
-            });
-
-            // Klosterneuburg: twelve command tutorials that add up to one building (a chapter of the campaign).
-            const string chapter = "KLOSTERNEUBURG";
-            int cards = LessonCatalog.All.Count(l => l.Chapter == chapter), built = GotchiState.Game.Progress.ChapterDone(chapter);
-            _tabContent.Items.Add(new ListRow("Klosterneuburg", "", Glyph.Blocks, 3, _host.ShowLessons)
-            {
-                TagText = built >= cards ? "DONE" : built == 0 ? "PLAY" : $"{built}/{cards}",
-                TagDone = built >= cards && cards > 0,
-            });
-
-            // Fin Facade: six levels, a box wrapped in fins.
-            _tabContent.Items.Add(new ListRow("Fin Facade", "", Glyph.Chart, 4, () => _host.Navigate(new FinFacadeView(_host)))
-            {
-                TagText = "PLAY",
-            });
-
-            // Rhino on the Street plays in its own floating viewport, so it is started as a command.
-            _tabContent.Items.Add(new ListRow("Rhino on the Street", "", Glyph.Curve, 0, () => RhinoActions.Run(RhinoOnTheStreetCommand.Name))
-            {
-                TagText = "PLAY",
             });
 
             // Trophies, the leaderboard and stats have their own tab at the bottom.
@@ -165,7 +132,7 @@ namespace RhinoGotchi.UI
             var stats = Core.Progress.Get(game);
             return new ListRow(Games.Title(game), "", glyph, tint, play)
             {
-                TagText = stats.PlayedToday ? "DONE" : "PLAY",
+                TagText = stats.PlayedToday ? "DONE" : "",
                 TagDone = stats.PlayedToday,
             };
         }

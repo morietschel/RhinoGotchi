@@ -50,10 +50,13 @@ namespace RhinoGotchi.UI
             Refresh();
         }
 
-        // The water keeps running when you leave the page; only the page stops updating.
+        // Leaving the page ends the level being played (see Leave).
         public void Leave()
         {
             _timer.Stop();
+            // Leaving ends the level: its objects and the water go (not while editing a level).
+            if (WaterGame.Active && !WaterGame.Editing && Rhino.RhinoDoc.ActiveDoc is Rhino.RhinoDoc doc)
+                WaterGame.Quit(doc);
             if (_listening)
             {
                 _listening = false;
