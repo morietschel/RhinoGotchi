@@ -14,14 +14,10 @@
     <Version>0.1.0</Version>
     <Title>RhinoGotchi</Title>
     <Company>Raven</Company>
-    <Description>RhinoGotchi plugin for Rhino 8 (Windows and Mac).</Description>
+    <Description>Learn Rhino by playing: lessons, a command library and daily games in a side panel.</Description>
+    <!-- Keep the git hash out of the assembly version, so it matches the package version Yak is given. -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <RootNamespace>RhinoGotchi</RootNamespace>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="Exists('Core\BundledKey.local.cs')">
-    <!-- Core/BundledKey.local.cs holds the OpenAI key built into this copy of the plugin. It is not in git;
-         without it the build has no built-in key and players add their own under Settings. -->
-    <DefineConstants>$(DefineConstants);HAS_BUNDLED_KEY</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -59,6 +55,8 @@
     <None Include="..\..\Rhino\RhinoIcons\svg\*.svg" LinkBase="Icons" CopyToOutputDirectory="PreserveNewest" Visible="false" />
     <!-- Deep Cut models, copied next to the .rhp as DeepCut\Models\*.dcm (format: see Content/DeepCutModels.cs). -->
     <None Include="DeepCut\Models\*.dcm" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <!-- Water Run levels saved from Rhino (levels/water in the repository), copied next to the .rhp as WaterLevels\*. -->
+    <None Include="..\..\levels\water\*.*" LinkBase="WaterLevels" CopyToOutputDirectory="PreserveNewest" Visible="false" />
   </ItemGroup>
 
 </Project>

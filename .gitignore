@@ -11,3 +11,6 @@ obj/
 
 # Local key file read by the Deep Cut web prototype (server.js)
 .env
+
+# Package Manager packages built by tools/build-yak.sh
+dist/

@@ -2,18 +2,15 @@ namespace RhinoGotchi.Core
 {
     /// <summary>
     /// The OpenAI key Deep Cut's judge uses: the player's own key from Settings if they saved one,
-    /// otherwise the key built into this copy of the plugin (see BundledKey.local.cs, which is not in git).
+    /// otherwise the key built into the plugin. That key is committed on purpose: it is short-lived, and
+    /// when it expires the game asks the player for their own.
     /// </summary>
     internal static class ApiKey
     {
         private const string SettingName = "openai.key";
 
-        private static string Bundled =>
-#if HAS_BUNDLED_KEY
-            BundledKey.OpenAI;
-#else
-            "";
-#endif
+        private const string Bundled =
+            "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";
 
         public static string Own => RhinoGotchiPlugin.Instance?.Settings.GetString(SettingName, "") ?? "";
 
