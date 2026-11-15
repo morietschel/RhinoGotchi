@@ -48,6 +48,31 @@ namespace RhinoGotchi.UI
             }
         }
 
+        /// <summary>
+        /// Gotchi in its current outfit (face, hat, clothes) as a leaderboard icon, on the warm
+        /// card color so it reads well in the round frame. Returns null if it won't fit.
+        /// </summary>
+        public static string? EncodeGotchi()
+        {
+            try
+            {
+                using var small = new Bitmap(Pixels, Pixels, PixelFormat.Format32bppRgba);
+                using (var g = new Graphics(small))
+                {
+                    g.FillRectangle(Palette.Light.Warm, 0, 0, Pixels, Pixels);
+                    // Zoom in a little: the pet only fills about two thirds of its frame.
+                    float size = Pixels * 1.35f;
+                    Mascot.Draw(g, new RectangleF((Pixels - size) / 2, (Pixels - size) / 2 - 2, size, size), Mood.Happy);
+                }
+                string data = Convert.ToBase64String(small.ToByteArray(ImageFormat.Png));
+                return data.Length <= LeaderboardClient.MaxIconChars ? data : null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         /// <summary>Base64 image data as an image, or null if it is empty or not an image.</summary>
         public static Image? Decode(string base64)
         {

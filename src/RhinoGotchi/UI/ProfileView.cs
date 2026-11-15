@@ -50,8 +50,8 @@ namespace RhinoGotchi.UI
                             HorizontalContentAlignment = HorizontalAlignment.Stretch,
                             Items =
                             {
-                                Theme.Muted($"Any picture works. It is cropped to a square and shrunk to {Avatars.Pixels}×{Avatars.Pixels} pixels."),
-                                Theme.Row(Theme.Secondary("Choose image…", ChooseImage), remove),
+                                Theme.Muted($"Use Gotchi in today's outfit, or any picture (cropped to a square and shrunk to {Avatars.Pixels}×{Avatars.Pixels} pixels)."),
+                                Theme.Row(Theme.Secondary("Use my Gotchi", UseGotchi), Theme.Button("Choose image…", ChooseImage), remove),
                             },
                         }, true)),
                 },
@@ -79,6 +79,19 @@ namespace RhinoGotchi.UI
                 return;
             }
             SetIcon(data);
+        }
+
+        /// <summary>Draws Gotchi, dressed as it is in the wardrobe, into the icon. Save to upload it.</summary>
+        private void UseGotchi()
+        {
+            string? data = Avatars.EncodeGotchi();
+            if (data == null)
+            {
+                _message.Text = "Couldn't draw Gotchi as an icon. Try a picture instead.";
+                return;
+            }
+            SetIcon(data);
+            _message.Text = "Gotchi is your icon (press Save). Change the outfit in Trophies, then come back to update it.";
         }
 
         private void SetIcon(string data)

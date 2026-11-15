@@ -19,15 +19,62 @@ namespace RhinoGotchi.Lessons
         Crown,
     }
 
-    /// <summary>Body clothes. Tracksuit and bomber both cover the torso, so only one at a time.</summary>
-    [Flags]
+    /// <summary>The clothing slot: one item at a time (from the Wardrobe Lab).</summary>
     public enum Clothes
     {
-        None = 0,
-        Chain = 1,
-        Tracksuit = 2,
-        Bomber = 4,
-        Jeans = 8,
+        None,
+        Jacket,
+        JeansA,
+        JeansB,
+        BigChain,
+        Bow,
+    }
+
+    /// <summary>The face slot: one item at a time. Face items are free to wear.</summary>
+    public enum Face
+    {
+        None,
+        Snorkel,
+        Visor,
+        Ninja,
+        Shades,
+    }
+
+    /// <summary>Names shown in the wardrobe.</summary>
+    public static class Outfit
+    {
+        public static string Name(Hat h) => h switch
+        {
+            Hat.None => "No hat",
+            Hat.HardHat => "Hard hat",
+            Hat.Beret => "Beret",
+            Hat.Grad => "Grad cap",
+            Hat.Flame => "Flame crown",
+            Hat.Cowboy => "Cowboy hat",
+            Hat.Propeller => "Propeller",
+            Hat.Tree => "Topping-out tree",
+            Hat.Wizard => "Wizard hat",
+            _ => "Gold crown",
+        };
+
+        public static string Name(Clothes c) => c switch
+        {
+            Clothes.None => "Nothing",
+            Clothes.Jacket => "Leather jacket",
+            Clothes.JeansA => "Jeans",
+            Clothes.JeansB => "Back jeans",
+            Clothes.BigChain => "Big gold chain",
+            _ => "Bow + pearls",
+        };
+
+        public static string Name(Face f) => f switch
+        {
+            Face.None => "Nothing",
+            Face.Snorkel => "Snorkel mask",
+            Face.Visor => "Visor",
+            Face.Ninja => "Ninja mask",
+            _ => "Shutter shades",
+        };
     }
 
     /// <summary>Everything the achievements look at, gathered from lessons and the daily games.</summary>
@@ -114,28 +161,27 @@ namespace RhinoGotchi.Lessons
         /// <summary>Learning Campaign achievements; each unlocks a piece of clothing.</summary>
         public static readonly IReadOnlyList<Achievement> Wardrobe = new[]
         {
-            new Achievement("placement", "Know Thyself", "Take the placement test", 1, s => s.PlacementDone ? 1 : 0, clothes: Clothes.Chain, rewardName: "Gold chain"),
-            new Achievement("perfect", "Flawless", "Finish a lesson with no mistakes", 1, s => s.PerfectLessons, clothes: Clothes.Tracksuit, rewardName: "Tracksuit"),
-            new Achievement("halfway", "Halfway There", "Finish 5 levels", 5, s => s.LevelsDone, clothes: Clothes.Bomber, rewardName: "Bomber jacket"),
-            new Achievement("xp", "XP Collector", "Earn 1,000 XP", 1000, s => s.TotalXp, clothes: Clothes.Jeans, rewardName: "Jeans"),
+            new Achievement("placement", "Know Thyself", "Take the placement test", 1, s => s.PlacementDone ? 1 : 0, clothes: Clothes.BigChain, rewardName: "Big gold chain"),
+            new Achievement("perfect", "Flawless", "Finish a lesson with no mistakes", 1, s => s.PerfectLessons, clothes: Clothes.Jacket, rewardName: "Leather jacket"),
+            new Achievement("halfway", "Halfway There", "Finish 5 levels", 5, s => s.LevelsDone, clothes: Clothes.JeansA, rewardName: "Jeans (both styles)"),
+            new Achievement("xp", "XP Collector", "Earn 1,000 XP", 1000, s => s.TotalXp, clothes: Clothes.Bow, rewardName: "Bow + pearls"),
         };
 
         public static readonly IReadOnlyList<Achievement> All = Hats.Concat(Wardrobe).ToList();
 
         public static Achievement? ForHat(Hat hat) => Hats.FirstOrDefault(a => a.Hat == hat);
 
-        public static Achievement? ForClothes(Clothes piece) => Wardrobe.FirstOrDefault(a => a.Clothes == piece);
+        /// <summary>The achievement that unlocks a clothing item (both jeans styles share one).</summary>
+        public static Achievement? ForClothes(Clothes piece) =>
+            Wardrobe.FirstOrDefault(a => a.Clothes == (piece == Clothes.JeansB ? Clothes.JeansA : piece));
 
         public static int UnlockedCount(AchievementStats stats) => All.Count(a => a.IsUnlocked(stats));
 
         public static bool IsHatUnlocked(Hat hat, AchievementStats stats) =>
             hat == Hat.None || (ForHat(hat)?.IsUnlocked(stats) ?? false);
 
-        /// <summary>True if every piece in <paramref name="clothes"/> is unlocked.</summary>
         public static bool AreClothesUnlocked(Clothes clothes, AchievementStats stats) =>
-            new[] { Clothes.Chain, Clothes.Tracksuit, Clothes.Bomber, Clothes.Jeans }
-                .Where(c => clothes.HasFlag(c))
-                .All(c => ForClothes(c)?.IsUnlocked(stats) ?? false);
+            clothes == Clothes.None || (ForClothes(clothes)?.IsUnlocked(stats) ?? false);
 
         /// <summary>Achievements unlocked in <paramref name="after"/> but not in <paramref name="before"/>.</summary>
         public static List<Achievement> NewlyUnlocked(AchievementStats before, AchievementStats after) =>

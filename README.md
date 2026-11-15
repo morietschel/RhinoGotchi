@@ -134,22 +134,28 @@ green for right answers, orange for selection and streaks, and Duolingo-style ch
 buttons and cards. It follows Rhino's dark mode (the ink inverts) and reflows when the
 panel is resized; on a wide panel the lessons keep a centered column.
 
-- **Gotchi** is the 1-bit pixel rhino from the RhinoGotchi canvas (`Resources/Pet`): idle,
-  celebrate, sleeping and fainted poses, pixel hats, clothes, and a "feeding time" animation
-  (grass, leaves, apple, banana...) when you tap it or finish a lesson.
+- **Gotchi** is the 1-bit pixel rhino, built the Wardrobe Lab way (`Resources/Pet`,
+  `UI/MascotWardrobe.g.cs`): idle, celebrate, sleeping and fainted poses, and an outfit of
+  **one face item, one hat and one clothing item** drawn at each pose's placement points.
+  The outfit stays on through hops and the "feeding time" animation (grass, leaf, branch,
+  twig, apple, banana, watermelon) when you tap Gotchi or finish a lesson.
 - **Home:** Gotchi's card (it breathes and naps when you haven't played today), with chips
   for your streak, unlocks and questions solved. Below it, two tabs: **Learning** (Learning
   Campaign, Command Library, tip of the day) and **Games** (the four daily puzzles).
 - **Bottom bar:** Home · Trophies.
-- **Trophies:** the leaderboard (global and per-game boards) at the top, then the hat and
-  clothes wardrobes, every achievement, and your daily-game stats at the bottom. Nine
-  achievements unlock the nine hats: First Steps (first lesson), Par Excellence (win a daily),
-  Hot Streak (3 days in a row), Scholar (all 10 levels), Order Up (5 Build Order wins),
-  Know-It-All (5 What Made This? wins), Deep Roots (win Deep Cut), Workaround (win Blocked!)
-  and Clean Sweep (all four dailies in one day). Four Learning Campaign achievements unlock
-  clothes: gold chain (placement test), tracksuit (flawless lesson), bomber (5 levels) and
-  jeans (1,000 XP). Tap a hat or garment to wear it; new unlocks also appear on the
-  lesson-complete screen with a **Wear it** button.
+- **Trophies:** the leaderboard at the top, then the **wardrobe room**: Gotchi eats on a
+  loop in its outfit, with **Surprise me** and **Undress**, and Face · Hat · Clothes tabs.
+  Each tile shows Gotchi with that item swapped in; locked ones show how to unlock them.
+  Below: every achievement and your daily-game stats.
+  - **Face** (free): snorkel mask, visor, ninja mask, shutter shades.
+  - **Hats:** First Steps (first lesson), Par Excellence (win a daily), Hot Streak (3 days in
+    a row), Scholar (all 10 levels), Order Up (5 Build Order wins), Know-It-All (5 What Made
+    This? wins), Deep Roots (win Deep Cut), Workaround (win Blocked!), Clean Sweep (all four
+    dailies in one day).
+  - **Clothes:** big gold chain (placement test), leather jacket (flawless lesson), jeans in
+    both styles (5 levels), bow + pearls (1,000 XP).
+  - New unlocks also appear on the lesson-complete screen with a **Wear it** button.
+- **Leaderboard icon:** My profile → **Use my Gotchi** draws your dressed Gotchi as your icon.
 
 ## The Learning Campaign
 
