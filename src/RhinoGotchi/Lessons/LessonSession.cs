@@ -49,7 +49,7 @@ namespace RhinoGotchi.Lessons
         public bool IsPlacement { get; }
 
         /// <summary>Placement only: the level the player lands on (all levels count when nothing was missed).</summary>
-        public int PlacedLevel => _firstMissTier ?? LessonCatalog.All.Count;
+        public int PlacedLevel => _firstMissTier ?? LessonCatalog.MainCount;
 
         private int? _firstMissTier;
 
@@ -91,6 +91,9 @@ namespace RhinoGotchi.Lessons
         public bool BuildRunning => _runner != null && LevelRunner.Current == _runner;
 
         public bool BuildSolved { get; private set; }
+
+        /// <summary>Commands on the current build card that changed the model but didn't solve it.</summary>
+        public int BuildMisses => _runner?.Misses ?? 0;
 
         public LevelResult? BuildResult { get; private set; }
 
@@ -196,9 +199,17 @@ namespace RhinoGotchi.Lessons
                 return;
 
             StopBuild();
-            BuildLevel = build.CreateLevel();
             BuildResult = null;
-            _runner = LevelRunner.Start(doc, BuildLevel);
+            if (build.Start != null)
+            {
+                _runner = build.Start(doc);
+                BuildLevel = _runner?.Level ?? build.CreateLevel();
+            }
+            else
+            {
+                BuildLevel = build.CreateLevel();
+                _runner = LevelRunner.Start(doc, BuildLevel);
+            }
             Raise();
         }
 

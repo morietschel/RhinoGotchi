@@ -233,9 +233,13 @@ Type `Gotchi` to jump straight to it (or pick it on the Learning tab).
   placement test with 2 questions per level (up to 20), easiest first. It stops at the
   first miss, and that question's level is where you start. Every level below it
   is marked done.
-- **Level map:** shows *Your level*, total XP, and a path of levels:
-  done (green), current (orange) and locked (gray). Done and current levels can be
-  played; you can retake the placement test or go back to the start screen any time.
+- **Level map:** FinGotchi's look. The pixel rhino says what's next, a cream *Your level*
+  card shows where you are, and each chapter is a row of numbered tiles: black when done,
+  orange-edged when you can play it, grey when locked. You can retake the placement test or
+  go back to the start screen any time.
+- **Look and feel:** the whole campaign follows FinGotchi: white paper, slab-serif headings,
+  pill buttons, cream cards, yellow "do this now" buttons with a hard black shadow, and the
+  animated pixel rhino (it dozes after 5 s without a click or key press).
 - **Progress** (finished levels, XP, placement taken, streak, hats) is saved in the
   plugin's settings, per user on this machine, so it survives a Rhino restart. A lesson
   is saved as soon as you reach its complete screen.
@@ -254,6 +258,54 @@ Three question types, from easy to hard:
 
 The placement test asks each level's first two questions, so it ramps from
 pick-the-icon to scenarios and shows an EASY / MEDIUM / HARD marker.
+
+### The Klosterneuburg chapter
+
+A chapter on the campaign map, after the ten main levels: **twelve commands, one building**,
+the Klosterneuburg pavilion (`V18 P020 - Klosterneuburg_Final.3dm`, metres). It is open from
+the start, played in order, and left out of the placement test; finished levels earn XP.
+
+| Part | Levels, easiest first |
+| --- | --- |
+| Details | 1 BooleanDifference (steel plate) · 2 Pipe (handrail) · 3 OffsetSrf (glass) · 4 ArrayPolar (beam setting-out) |
+| Structure | 5 ArrayCrv (balustrade) · 6 Contour (roof slices) · 7 Intersect (rib profile) · 8 Sweep1 (edge beam) |
+| Surfaces | 9 Sweep2 (ramp) · 10 FlowAlongSrf (joists) · 11 Loft (roof) · 12 NetworkSrf (roof) |
+
+Each level is one build, played like FinGotchi, with no quiz cards. Pressing a tile sets the
+level up straight away:
+
+- **Level page (panel):** the chapter's tiles, an animated key-axon demo that loops through
+  the steps (the step being shown lights up), the cream lesson card ("LEVEL n OF 12", the
+  command, one line, "★ first try possible" or "misses n / 3"), the yellow **Run** card that
+  starts the command with the right objects already picked (e.g. `_SelID {Plate}
+  _BooleanDifference`), a hint, the steps, the ways to run it, your commands, and
+  **‹ Map** / **Next ›**. When you solve it (or after three misses) the pet takes over the
+  demo area.
+- **Viewport HUD:** the lesson card top left, the dark live-check card top right, a yellow
+  "type it up here" callout, the pet with a speech bubble, and the commands you ran. Yellow
+  numbered marks show where to click, with locked snap points under them; Point and End
+  snaps are on while the level runs.
+- **Live check:** after every command, ✓/✗ per check with a hint on the first failing one,
+  a bonus star (e.g. "Cap it into a closed solid") and your misses (a command that changed
+  the model without solving the level; Undo, Redo and Delete don't count).
+- **Flow:** **Next ›** opens once the level is solved and goes straight to the next level.
+  After the last one the chapter's Done page ("Splendid.", how many were first try) leads
+  back to the campaign map.
+
+The original model is never changed: reference objects are found by layer path under
+`0_3DMODEL` and only copies are used, all tutorial geometry goes under
+`RhinoGotchi Tutorials::NN Command` (Input / Result / Checks), roof copies are lifted 4 m
+and detail work is built east of the building, and a fingerprint of the model is compared
+when a level ends. Without the model open, every level sets up a simplified stand-in.
+Numbers in tutorial text and feedback always use a decimal point (0.024, never 0,024).
+Each tutorial also has a challenge card (prepare the input yourself); they are kept in the
+code but not in the chapter for now.
+
+Code: `Lessons/LessonCatalog.cs` (the chapter), `Tutorials/Content/Cards.cs` (the cards),
+`Tutorials/Content/Shapes.cs` (geometry from the model), `Tutorials/Evaluators/CardChecks.cs`
+(the live checks), `Tutorials/TutorialLevels.cs` (set-up, Run), `Tutorials/TutorialHud.cs`
+(the viewport HUD), `UI/LessonCanvas.Tutorial.cs` (the level page), `UI/TutorialDemos.cs`
+(the demos), `Fin/` (FinGotchi's cards, fonts, palette and pixel pet).
 
 ## Debug in VS Code (Mac and Windows)
 

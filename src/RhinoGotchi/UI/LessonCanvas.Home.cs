@@ -27,7 +27,7 @@ namespace RhinoGotchi.UI
 
             float y = Pad + 8;
             float bob = (float)Math.Sin(AnimProgress * Math.PI) * -8;
-            Mascot.Draw(g, new RectangleF(w / 2 - 60, y, 120, 120), Mood.Happy, bob);
+            PetDraw(g, new RectangleF(w / 2 - 60, y, 120, 120), Mood.Happy);
             y += 128;
             y += Centered(g, "Hi, I'm Gotchi!", Bold(24), _t.Text, w, y) + 4;
             y += Wrapped(g, Pad + 8, y, w - 2 * Pad - 16, Regular(14), _t.SubtleText,
@@ -52,7 +52,7 @@ namespace RhinoGotchi.UI
         private float ChoiceCard(Graphics g, float w, float y, string id, string icon, string title, string body, Action action)
         {
             float textX = Pad + 84, textW = w - Pad - textX - 12;
-            float bodyH = Wrap(Regular(12), body, textW).Count * Regular(12).LineHeight;
+            float bodyH = Wrap(Regular(12), body, textW).Count * LineH(Regular(12));
             float cardH = Math.Max(86, 16 + 22 + bodyH + 14);
             bool pressed = _pressed == id;
             float lift = pressed ? 3 : 0;
@@ -77,7 +77,7 @@ namespace RhinoGotchi.UI
             int current = progress.CurrentLevel;
             float y = 14;
 
-            // Header: back to the sidebar home, title, start screen (house), XP
+            // Header: back, the title with FinGotchi's orange bar, start screen (house), XP
             float titleX = Pad;
             if (ExitHome != null)
             {
@@ -86,162 +86,189 @@ namespace RhinoGotchi.UI
                 titleX = back.Right + 4;
             }
             string xp = $"{progress.TotalXp} XP";
-            float xpW = Bold(14).MeasureString(xp).Width;
-            var home = new RectangleF(w - Pad - xpW - 22 - 34, y - 2, 30, 30);
+            var home = new RectangleF(w - Pad - Bold(13).MeasureString(xp).Width - 10 - 34, y - 2, 30, 30);
             if (_hover == "home")
                 g.FillPath(_t.TileHover, GraphicsPath.GetRoundRect(home, 8));
             House(g, new PointF(home.X + home.Width / 2, home.Y + home.Height / 2), _hover == "home" ? _t.Text : _t.SubtleText);
             _hits.Add((home, "home", _game.ShowWelcome));
-            g.DrawText(Bold(16), _t.Text, titleX, y + 2, Ellipsize(Bold(16), "Learning Campaign", home.X - titleX - 6));
-            SizeF xs = Bold(14).MeasureString(xp);
-            g.DrawText(Bold(14), _t.Gold, w - Pad - xs.Width, y + 4, xp);
-            Bolt(g, new PointF(w - Pad - xs.Width - 12, y + 12), _t.Gold);
-            y += 36;
+            SizeF xs = Bold(13).MeasureString(xp);
+            g.DrawText(Bold(13), _t.AccentText, w - Pad - xs.Width, y + 5, xp);
+            y = TitleBar(g, titleX, y, home.X - titleX - 6, "Learning Campaign", "one command at a time") + 12;
 
-            // "Your level" banner: the answer to "where am I?"
-            y = LevelBanner(g, w, y, current, progress.DoneCount, levels.Count) + 22;
+            // The pet says where you are
+            string say = current < 0 ? "Every level done! Replay any, or build Klosterneuburg."
+                : progress.DoneCount == 0 ? "Press a tile to start. Level 1 is waiting!"
+                : $"Next up: Level {current + 1}, {levels[current].Title}.";
+            y = MascotRow(g, w, y, Mood.Happy, say, 0) + 12;
 
-            // The path
-            float firstCy = y + NodeR + 46; // room for the START bubble above the first node
-            for (int i = 0; i < levels.Count; i++)
+            // "Your level": FinGotchi's cream lesson card
+            y = LevelBanner(g, w, y, current, progress.DoneCount, LessonCatalog.MainCount) + 16;
+
+            // The main path, then each chapter, as rows of numbered tiles
+            var main = Enumerable.Range(0, levels.Count).Where(i => !levels[i].IsProject).ToList();
+            y = TileRow(g, w, y, "LEARNING CAMPAIGN", $"{progress.DoneCount} of {main.Count} done", main, current) + 18;
+            foreach (string chapter in levels.Where(l => l.IsProject).Select(l => l.Chapter).Distinct())
             {
-                float cx = NodeX(w, i);
-                float cy = firstCy + i * NodeSpacing;
-                LevelNode(g, w, i, cx, cy, progress.StateOf(i), levels[i], current);
+                var indices = Enumerable.Range(0, levels.Count).Where(i => levels[i].Chapter == chapter).ToList();
+                int done = progress.ChapterDone(chapter);
+                string note = chapter == "KLOSTERNEUBURG" ? $"12 commands, one building · {done} of {indices.Count}" : $"{done} of {indices.Count}";
+                y = TileRow(g, w, y, chapter, note, indices, current) + 18;
             }
-            y = firstCy + (levels.Count - 1) * NodeSpacing + NodeR + 30;
 
             // Toast for locked levels
             if (_toast != null && DateTime.Now < _toastUntil)
             {
                 Font f = Regular(12);
                 List<string> lines = Wrap(f, _toast, w - 2 * Pad - 24);
-                var r = new RectangleF(Pad, y - 8, w - 2 * Pad, lines.Count * f.LineHeight + 16);
+                var r = new RectangleF(Pad, y - 8, w - 2 * Pad, lines.Count * LineH(f) + 16);
                 g.FillPath(_t.Text, GraphicsPath.GetRoundRect(r, 10));
                 for (int i = 0; i < lines.Count; i++)
-                    g.DrawText(f, _t.Background, r.X + 12, r.Y + 8 + i * f.LineHeight, lines[i]);
+                    g.DrawText(f, _t.Background, r.X + 12, r.Y + 8 + i * LineH(f), lines[i]);
                 y = r.Bottom + Gap;
             }
 
-            OutlineButton(g, new RectangleF(Pad, y, w - 2 * Pad, 42), "TAKE PLACEMENT TEST", "placement", _game.StartPlacement);
-            y += 42 + 3 + 10;
-            OutlineButton(g, new RectangleF(Pad, y, w - 2 * Pad, 42), "START SCREEN", "welcome", _game.ShowWelcome);
-            return y + 42 + 3 + Pad;
+            float half = (w - 2 * Pad - 8) / 2;
+            OutlineButton(g, new RectangleF(Pad, y, half, 34), "Placement test", "placement", _game.StartPlacement);
+            OutlineButton(g, new RectangleF(Pad + half + 8, y, half, 34), "Start screen", "welcome", _game.ShowWelcome);
+            return y + 34 + Pad;
+        }
+
+        /// <summary>FinGotchi's title: an orange bar beside a slab-serif title and a small subtitle. Returns the y below.</summary>
+        private float TitleBar(Graphics g, float x, float y, float width, string title, string subtitle)
+        {
+            Font tf = Bold(19), sf = Regular(11);
+            float th = LineH(tf), sh = LineH(sf);
+            g.FillPath(_t.Orange, GraphicsPath.GetRoundRect(new RectangleF(x, y + 2, 5, th + sh - 2), 2));
+            g.DrawText(tf, _t.Text, x + 13, y, Ellipsize(tf, title, width - 13));
+            g.DrawText(sf, _t.SubtleText, x + 13, y + th, subtitle);
+            return y + th + sh;
+        }
+
+        /// <summary>
+        /// A chapter's levels as FinGotchi tiles: black when done, orange-edged when you can play it next,
+        /// grey when locked; the level number inside and a short name below. Wraps to as many rows as needed.
+        /// </summary>
+        private float TileRow(Graphics g, float w, float y, string heading, string note, IList<int> indices, int current)
+        {
+            Font kicker = Bold(10), noteFont = Regular(11);
+            g.DrawText(kicker, _t.SubtleText, Pad, y, heading);
+            SizeF ns = noteFont.MeasureString(note);
+            g.DrawText(noteFont, _t.SubtleText, w - Pad - ns.Width, y, note);
+            y += LineH(kicker) + 8;
+
+            float size = 40, minGap = 8;
+            int cols = Math.Max(4, Math.Min(6, (int)((w - 2 * Pad + minGap) / (size + minGap))));
+            float gap = (w - 2 * Pad - cols * size) / Math.Max(1, cols - 1);
+            Font num = Bold(16), label = Bold(8);
+            float rowH = size + 4 + LineH(label) + 10;
+            for (int k = 0; k < indices.Count; k++)
+            {
+                int index = indices[k];
+                Lesson lesson = LessonCatalog.All[index];
+                LevelState state = _game.Progress.StateOf(index);
+                bool next = state == LevelState.Current && (lesson.IsProject || index == current);
+                float tx = Pad + (k % cols) * (size + gap), ty = y + (k / cols) * rowH;
+                string id = $"level{index}";
+                bool hover = _hover == id && state != LevelState.Locked;
+                var r = new RectangleF(tx, ty - (hover ? 1 : 0), size, size);
+                var path = GraphicsPath.GetRoundRect(r, 8);
+                bool done = state == LevelState.Done;
+                g.FillPath(done ? _t.Ink : hover ? _t.TileHover : _t.Background, path);
+                if (!done)
+                    g.DrawPath(new Pen(next ? _t.Orange : _t.Border, next ? 2.2f : 1.2f), path);
+                string n = lesson.IsProject ? (k + 1).ToString() : (index + 1).ToString();
+                SizeF nsz = num.MeasureString(n);
+                Color ink = done ? _t.OnInk : state == LevelState.Locked ? _t.DisabledText : _t.Text;
+                g.DrawText(num, ink, tx + (size - nsz.Width) / 2, r.Y + (size - nsz.Height) / 2, n);
+                string shortName = (lesson.ShortName.Length > 0 ? lesson.ShortName : lesson.Title.Split(' ', ':')[0]).ToUpperInvariant();
+                shortName = Ellipsize(label, shortName, size + gap - 2);
+                SizeF ls = label.MeasureString(shortName);
+                g.DrawText(label, next ? _t.Text : _t.SubtleText, tx + (size - ls.Width) / 2, ty + size + 4, shortName);
+
+                var hit = new RectangleF(tx - 2, ty - 2, size + 4, size + 4 + LineH(label));
+                if (state == LevelState.Locked)
+                {
+                    string msg = lesson.IsProject
+                        ? $"{lesson.Title} is locked: finish the {lesson.Chapter.ToLowerInvariant()} levels before it first."
+                        : current >= 0
+                            ? $"Level {index + 1} is locked. Finish Level {current + 1} first, or take the placement test to skip ahead."
+                            : "Locked.";
+                    _hits.Add((hit, id, () => ShowToast(msg)));
+                }
+                else
+                {
+                    int level = index;
+                    _hits.Add((hit, id, () => _game.StartLesson(level)));
+                }
+            }
+            int rows = (indices.Count + cols - 1) / cols;
+            return y + rows * rowH - 10;
         }
 
         private float LevelBanner(Graphics g, float w, float y, int current, int done, int total)
         {
             bool allDone = current < 0;
-            Color face = allDone ? _t.Gold : _t.Ink;
-            Color shadow = allDone ? _t.GoldShadow : _t.InkShadow;
-            Color ink = allDone ? Colors.White : _t.OnInk;
             string label = allDone ? "ALL LEVELS DONE" : "YOUR LEVEL";
             string title = allDone ? "RhinoGotchi master!" : $"Level {current + 1} · {LessonCatalog.All[current].Title}";
             string sub = allDone ? "Replay any level to keep your skills sharp." : LessonCatalog.All[current].Subtitle;
 
             string count = $"{done}/{total}";
-            float countW = Bold(18).MeasureString(count).Width;
+            Font countFont = Bold(17), titleFont = Bold(17), subFont = Regular(12), labelFont = Bold(10);
+            float countW = countFont.MeasureString(count).Width;
             float textW = w - 2 * Pad - 28 - countW - 12;
-            float titleH = Wrap(Bold(18), title, textW).Count * Bold(18).LineHeight;
-            float subH = Wrap(Regular(12), sub, textW).Count * Regular(12).LineHeight;
+            float titleH = Wrap(titleFont, title, textW).Count * LineH(titleFont);
+            float subH = Wrap(subFont, sub, textW).Count * LineH(subFont);
             float bh = 12 + 16 + titleH + 2 + subH + 14;
 
+            // FinGotchi's cream lesson card
             var rect = new RectangleF(Pad, y, w - 2 * Pad, bh);
-            g.FillPath(shadow, GraphicsPath.GetRoundRect(new RectangleF(rect.X, rect.Y + 4, rect.Width, rect.Height), 16));
-            g.FillPath(face, GraphicsPath.GetRoundRect(rect, 16));
-            Color soft = Color.FromArgb(ink.Rb, ink.Gb, ink.Bb, 200);
-            g.DrawText(Bold(11), allDone ? soft : _t.Accent, rect.X + 14, rect.Y + 12, label);
+            g.FillPath(_t.Warm, GraphicsPath.GetRoundRect(rect, 10));
+            g.DrawPath(new Pen(_t.WarmBorder, 1), GraphicsPath.GetRoundRect(rect, 10));
+            g.DrawText(labelFont, _t.AccentText, rect.X + 14, rect.Y + 12, label);
             float ty = rect.Y + 28;
-            ty += Wrapped(g, rect.X + 14, ty, textW, Bold(18), ink, title) + 2;
-            Wrapped(g, rect.X + 14, ty, textW, Regular(12), soft, sub);
+            ty += Wrapped(g, rect.X + 14, ty, textW, titleFont, _t.Text, title) + 2;
+            Wrapped(g, rect.X + 14, ty, textW, subFont, _t.SubtleText, sub);
 
-            g.DrawText(Bold(18), ink, rect.Right - 14 - countW, rect.Y + bh / 2 - 16, count);
+            g.DrawText(countFont, _t.Text, rect.Right - 14 - countW, rect.Y + bh / 2 - 16, count);
             SizeF ds = Regular(11).MeasureString("done");
-            g.DrawText(Regular(11), soft, rect.Right - 14 - countW / 2 - ds.Width / 2, rect.Y + bh / 2 + 6, "done");
+            g.DrawText(Regular(11), _t.SubtleText, rect.Right - 14 - countW / 2 - ds.Width / 2, rect.Y + bh / 2 + 4, "done");
             return y + bh + 4;
         }
 
-        private static float NodeX(float w, int i) => w / 2 + (float)Math.Sin(i * 1.15 + 0.4) * Math.Min(66, w * 0.19f);
+        // ------------------------------------------------------------------ chapter done (FinGotchi's end page)
 
-        private void LevelNode(Graphics g, float w, int index, float cx, float cy, LevelState state, Lesson lesson, int current)
+        private float PaintChapterDone(Graphics g, float w, float h)
         {
-            string id = $"level{index}";
-            bool pressed = _pressed == id && state != LevelState.Locked;
-            bool hover = _hover == id && state != LevelState.Locked;
+            string chapter = _game.DoneChapter;
+            var levels = LessonCatalog.All.Where(l => l.Chapter == chapter).ToList();
+            int firstTry = levels.Count(l => Tutorials.TutorialProgress.Get(TutorialIdOf(l)).FirstTry);
+            bool perfect = firstTry == levels.Count;
 
-            Color face = state switch { LevelState.Done => _t.Green, LevelState.Current => _t.Accent, _ => _t.Disabled };
-            Color shadow = state switch { LevelState.Done => _t.GreenShadow, LevelState.Current => _t.AccentShadow, _ => Darken(_t.Disabled, 0.1f) };
-            if (hover)
-                face = Brighten(face, 0.05f);
+            float y = 14;
+            y = TitleBar(g, Pad, y, w - 2 * Pad, chapter == "KLOSTERNEUBURG" ? "Klosterneuburg" : chapter, $"{levels.Count} commands, one building") + 12;
 
-            if (state == LevelState.Current)
-            {
-                float rr = NodeR + 10;
-                g.DrawEllipse(new Pen(_t.Track, 7), cx - rr, cy - rr + 3, rr * 2, rr * 2);
-            }
+            // The pet dances under confetti
+            var art = new RectangleF(Pad, y, w - 2 * Pad, (w - 2 * Pad) * 0.56f);
+            g.FillPath(_t.Warm, GraphicsPath.GetRoundRect(art, 12));
+            var inner = art;
+            inner.Inflate(-art.Width * 0.18f, -art.Height * 0.12f);
+            inner.Y += art.Height * 0.06f;
+            PetDraw(g, inner, Fin.PetMood.Dance);
+            y = art.Bottom + 12;
 
-            float lift = pressed ? 5 : 0;
-            g.FillEllipse(shadow, cx - NodeR, cy - NodeR + 6, NodeR * 2, NodeR * 2);
-            g.FillEllipse(face, cx - NodeR, cy - NodeR + lift, NodeR * 2, NodeR * 2);
-            g.FillEllipse(Color.FromArgb(255, 255, 255, 50), cx - NodeR * 0.55f, cy - NodeR * 0.75f + lift, NodeR * 0.7f, NodeR * 0.35f);
+            g.DrawText(Bold(10), _t.AccentText, Pad, y, perfect ? "PERFECT RUN" : "SOLVED");
+            y += LineH(Bold(10)) + 4;
+            y += Wrapped(g, Pad, y, w - 2 * Pad, Bold(24), _t.Text, "Splendid.") + 4;
+            string commands = string.Join(", ", levels.Select(l => l.Subtitle));
+            y += Wrapped(g, Pad, y, w - 2 * Pad, Regular(13), _t.SubtleText,
+                $"{firstTry} of {levels.Count} levels first try. {commands}: one building.") + 14;
 
-            var c = new PointF(cx, cy + lift);
-            switch (state)
-            {
-                case LevelState.Done: Check(g, c, Colors.White); break;
-                case LevelState.Current: Star(g, c, Colors.White); break;
-                default: Lock(g, c, _t.DisabledText); break;
-            }
-
-            // Label on the outer side of the zig-zag
-            bool right = cx <= w / 2;
-            float lx = right ? cx + NodeR + 14 : Pad;
-            float lw = right ? w - Pad - lx : cx - NodeR - 14 - Pad;
-            Color titleColor = state == LevelState.Locked ? _t.DisabledText : _t.Text;
-            Font tf = Bold(14);
-            List<string> titleLines = Wrap(tf, lesson.Title, lw);
-            float blockH = 16 + titleLines.Count * tf.LineHeight;
-            float ly = cy - blockH / 2;
-            string small = $"LEVEL {index + 1}";
-            float sx = right ? lx : lx + lw - Bold(10).MeasureString(small).Width;
-            g.DrawText(Bold(10), state == LevelState.Locked ? _t.DisabledText : _t.SubtleText, sx, ly, small);
-            for (int i = 0; i < titleLines.Count; i++)
-            {
-                float tx = right ? lx : lx + lw - tf.MeasureString(titleLines[i]).Width;
-                g.DrawText(tf, titleColor, tx, ly + 16 + i * tf.LineHeight, titleLines[i]);
-            }
-
-            // Bouncy START bubble over the current level
-            if (state == LevelState.Current)
-            {
-                float bob = (float)Math.Sin(AnimProgress * Math.PI) * -6;
-                string text = _game.Progress.DoneCount == 0 ? "START" : "CONTINUE";
-                Font bf = Bold(13);
-                SizeF bs = bf.MeasureString(text);
-                var b = new RectangleF(cx - bs.Width / 2 - 12, cy - NodeR - 50 + bob, bs.Width + 24, 30);
-                var path = GraphicsPath.GetRoundRect(b, 9);
-                g.FillPath(_t.Background, path);
-                g.DrawPath(new Pen(_t.Border, 2), path);
-                var tail = new[] { new PointF(cx - 7, b.Bottom - 1), new PointF(cx, b.Bottom + 7), new PointF(cx + 7, b.Bottom - 1) };
-                g.FillPolygon(_t.Background, tail);
-                g.DrawLines(new Pen(_t.Border, 2) { LineJoin = PenLineJoin.Round }, tail);
-                g.DrawText(bf, _t.AccentText, b.X + 12, b.Y + (b.Height - bs.Height) / 2, text);
-            }
-
-            var hit = new RectangleF(cx - NodeR - 4, cy - NodeR - 4, NodeR * 2 + 8, NodeR * 2 + 12);
-            if (state == LevelState.Locked)
-            {
-                string msg = current >= 0
-                    ? $"Level {index + 1} is locked. Finish Level {current + 1} first, or take the placement test to skip ahead."
-                    : "Locked.";
-                _hits.Add((hit, id, () => ShowToast(msg)));
-            }
-            else
-            {
-                int level = index;
-                _hits.Add((hit, id, () => _game.StartLesson(level)));
-            }
+            return Footer(g, w, h, y + Gap, () =>
+                ChunkyButton(g, FooterButtonRect(w, h, y + Gap), "Back to the campaign", _t.Ink, _t.InkShadow, _t.OnInk, "primary", _game.BackToMap));
         }
+
+        private static string TutorialIdOf(Lesson lesson) =>
+            lesson.Steps.OfType<TutorialBuildStep>().FirstOrDefault()?.Tutorial.Id ?? lesson.Id;
 
         private void ShowToast(string text)
         {
@@ -265,13 +292,13 @@ namespace RhinoGotchi.UI
 
         private float PaintPlacementResult(Graphics g, float w, float h)
         {
-            int count = LessonCatalog.All.Count;
+            int count = LessonCatalog.MainCount;
             int placed = _game.PlacedLevel;
             bool all = placed >= count;
 
             float y = Pad + 8;
             Confetti(g, w, y);
-            Mascot.Draw(g, new RectangleF(w / 2 - 55, y + 4, 110, 110), Mood.Celebrate, (float)Math.Sin(AnimProgress * Math.PI) * -12);
+            PetDraw(g, new RectangleF(w / 2 - 55, y + 4, 110, 110), Mood.Celebrate);
             y += 122;
 
             if (all)

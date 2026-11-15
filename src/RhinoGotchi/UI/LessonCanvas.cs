@@ -66,6 +66,7 @@ namespace RhinoGotchi.UI
             MinimumSize = new Size(260, 560);
             Subscribe();
             SizeChanged += (s, e) => Invalidate();
+            _petTimer.Elapsed += (s, e) => Invalidate();
             _timer.Elapsed += (s, e) =>
             {
                 if (AnimProgress >= 1 && !Eating)
@@ -90,8 +91,13 @@ namespace RhinoGotchi.UI
                 return;
             _subscribed = true;
             _game.Changed += OnGameChanged;
+            Fin.PetActivity.Start();
+            _petTimer.Start();
             Invalidate();
         }
+
+        // The pixel rhino is always moving a little (breathing, Z's, hops), so redraw it ~10 times a second.
+        private readonly UITimer _petTimer = new UITimer { Interval = 0.1 };
 
         public void Unsubscribe()
         {
@@ -100,6 +106,7 @@ namespace RhinoGotchi.UI
             _subscribed = false;
             _game.Changed -= OnGameChanged;
             _timer.Stop();
+            _petTimer.Stop();
         }
 
         private double AnimProgress => Math.Min(1, (DateTime.Now - _animStart).TotalSeconds / AnimSeconds);
@@ -192,6 +199,7 @@ namespace RhinoGotchi.UI
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
+            Fin.PetActivity.Touch();
             Focus();
             _pressed = HitAt(e.Location)?.id;
             Invalidate();
@@ -247,7 +255,7 @@ namespace RhinoGotchi.UI
             base.OnPaint(e);
             Graphics g = e.Graphics;
             g.AntiAlias = true;
-            _t = Palette.Current;
+            _t = Palette.Fin; // the campaign follows FinGotchi's look
             _hits.Clear();
 
             float h = Height;
@@ -262,6 +270,7 @@ namespace RhinoGotchi.UI
                 GameMode.Welcome => PaintWelcome(g, w, h),
                 GameMode.Map => PaintMap(g, w, h),
                 GameMode.PlacementResult => PaintPlacementResult(g, w, h),
+                GameMode.ChapterDone => PaintChapterDone(g, w, h),
                 _ => PaintPlaying(g, w, h),
             };
 
@@ -288,7 +297,7 @@ namespace RhinoGotchi.UI
         {
             float bob = (float)Math.Sin(AnimProgress * Math.PI) * -8;
             float y = Pad + 12;
-            Mascot.Draw(g, new RectangleF(w / 2 - 65, y, 130, 130), Mood.Happy, bob);
+            PetDraw(g, new RectangleF(w / 2 - 65, y, 130, 130), Mood.Happy);
             y += 140;
             y += Centered(g, "RhinoGotchi", Bold(26), _t.Text, w, y) + 4;
             y += Centered(g, _session.Lesson.Title, Bold(16), _t.Text, w, y) + 16;
@@ -383,6 +392,9 @@ namespace RhinoGotchi.UI
 
         private float PaintBuild(Graphics g, float w, float h)
         {
+            if (_session.Step is TutorialBuildStep tutorial)
+                return PaintTutorialBuild(g, w, h, tutorial);
+
             float y = TopBar(g, w);
             var level = _session.BuildLevel;
             string command = level?.Command ?? "";
@@ -457,7 +469,7 @@ namespace RhinoGotchi.UI
             if (Eating)
                 Mascot.DrawEating(g, petRect, _food, (int)(EatSeconds / 0.12));
             else
-                Mascot.Draw(g, petRect, Mood.Celebrate);
+                PetDraw(g, petRect, Mood.Celebrate);
             y += 136;
             y += Centered(g, "Lesson complete!", Bold(24), _t.Text, w, y) + 18;
 
@@ -491,7 +503,7 @@ namespace RhinoGotchi.UI
         private float PaintOutOfHearts(Graphics g, float w, float h)
         {
             float y = Pad + 12;
-            Mascot.Draw(g, new RectangleF(w / 2 - 60, y, 120, 120), Mood.Sad);
+            PetDraw(g, new RectangleF(w / 2 - 60, y, 120, 120), Mood.Sad);
             y += 130;
             Heart(g, new PointF(w / 2, y + 22), 44, _t.Disabled);
             y += 56;
@@ -502,9 +514,8 @@ namespace RhinoGotchi.UI
             float footerH = Pad + ButtonH + 4 + 10 + 40 + Pad;
             float top = Math.Max(footerTop, h - footerH);
             g.DrawLine(new Pen(_t.Border, 2), 0, top, w, top);
-            int level = _game.PlayingLevel;
             ChunkyButton(g, new RectangleF(Pad, top + Pad, w - 2 * Pad, ButtonH), "TRY AGAIN", _t.Ink, _t.InkShadow, _t.OnInk, "primary",
-                () => _game.StartLesson(level));
+                _game.RetryLesson);
             OutlineButton(g, new RectangleF(Pad, top + Pad + ButtonH + 14, w - 2 * Pad, 40), "BACK TO MAP", "map", _game.BackToMap);
             return footerTop + footerH;
         }
@@ -539,28 +550,35 @@ namespace RhinoGotchi.UI
             return y + 40;
         }
 
+        /// <summary>FinGotchi's pet for a campaign mood; it dozes after 5 s without a click or key press.</summary>
+        private static Fin.PetMood PetMoodFor(Mood mood)
+        {
+            if (mood == Mood.Celebrate)
+                return Fin.PetMood.Win;
+            if (mood == Mood.Sad)
+                return Fin.PetMood.Lose;
+            if (mood == Mood.Sleepy || Fin.PetActivity.Dozing)
+                return Fin.PetMood.Standby;
+            return Fin.PetMood.Awake;
+        }
+
+        /// <summary>The pixel rhino, fitted into <paramref name="area"/> and standing on its bottom edge.</summary>
+        private static void PetDraw(Graphics g, RectangleF area, Mood mood) =>
+            PetDraw(g, area, PetMoodFor(mood));
+
+        private static void PetDraw(Graphics g, RectangleF area, Fin.PetMood mood) =>
+            Fin.Pet.Draw(g, area, mood, Fin.PetActivity.Time);
+
+        /// <summary>The pet with FinGotchi's speech bubble beside it. Returns the y below the row.</summary>
         private float MascotRow(Graphics g, float w, float y, Mood mood, string text, float hop)
         {
-            const float m = 70;
-            Mascot.Draw(g, new RectangleF(Pad - 4, y, m, m), mood, hop);
-            float bx = Pad + m + 10, bw = w - bx - Pad;
-            Font f = Regular(13);
-            List<string> lines = Wrap(f, text, bw - 24);
-            float lh = f.LineHeight;
-            float bh = Math.Max(40, lines.Count * lh + 20);
-            float by = y + (m - bh) / 2;
-            var bubble = new RectangleF(bx, by, bw, bh);
-            var path = GraphicsPath.GetRoundRect(bubble, 12);
-            g.FillPath(_t.Background, path);
-            g.DrawPath(new Pen(_t.Border, 2), path);
-            // tail
-            float cy = by + bh / 2;
-            var tail = new[] { new PointF(bx + 1, cy - 7), new PointF(bx - 9, cy), new PointF(bx + 1, cy + 7) };
-            g.FillPolygon(_t.Background, tail);
-            g.DrawLines(new Pen(_t.Border, 2) { LineJoin = PenLineJoin.Round }, tail);
-            for (int i = 0; i < lines.Count; i++)
-                g.DrawText(f, _t.Text, bx + 12, by + 10 + i * lh, lines[i]);
-            return Math.Max(y + m, by + bh);
+            Fin.PetMood pm = PetMoodFor(mood);
+            float s = Math.Max(1f, Math.Min(1.25f, w / 320f));
+            float petW = 76, petH = petW / Fin.Pet.Aspect(pm);
+            SizeF bubble = Fin.Cards.Bubble(g, Pad + petW + 4, y + 2, s, text, w - 2 * Pad - petW - 6);
+            float rowH = Math.Max(petH + 10, bubble.Height + 4);
+            PetDraw(g, new RectangleF(Pad, y + rowH - petH, petW, petH), pm);
+            return y + rowH;
         }
 
         private void IconTile(Graphics g, RectangleF rect, int index, bool textOnly)
@@ -587,13 +605,12 @@ namespace RhinoGotchi.UI
                 rect = new RectangleF(rect.X - rect.Width * (s - 1) / 2, rect.Y - rect.Height * (s - 1) / 2, rect.Width * s, rect.Height * s);
             }
 
-            float lift = pressed ? 3 : 0;
-            var shadow = new RectangleF(rect.X, rect.Y + 4, rect.Width, rect.Height);
+            float lift = pressed ? 2 : 0;
             var top = new RectangleF(rect.X, rect.Y + lift, rect.Width, rect.Height);
-            g.FillPath(border, GraphicsPath.GetRoundRect(shadow, 14));
-            g.FillPath(border, GraphicsPath.GetRoundRect(top, 14));
             var inner = new RectangleF(top.X + 2, top.Y + 2, top.Width - 4, top.Height - 4);
-            g.FillPath(face, GraphicsPath.GetRoundRect(inner, 12));
+            bool strong = selected || (_session.Checked && (isCorrect || selected));
+            g.FillPath(face, GraphicsPath.GetRoundRect(top, 10));
+            g.DrawPath(new Pen(strong ? border : _t.Border, strong ? 2f : 1.2f), GraphicsPath.GetRoundRect(top, 10));
 
             // Key hint
             var badge = textOnly
@@ -744,15 +761,23 @@ namespace RhinoGotchi.UI
 
         private void ChunkyButton(Graphics g, RectangleF rect, string text, Color face, Color shadow, Color ink, string? id, Action action, float fontSize = 15)
         {
+            // FinGotchi pills: round ends, flat fill. Yellow (do this now) gets a hard black shadow and outline.
             bool pressed = id != null && _pressed == id;
             bool hover = id != null && _hover == id;
-            float lift = pressed ? 4 : 0;
-            g.FillPath(shadow, GraphicsPath.GetRoundRect(new RectangleF(rect.X, rect.Y + 4, rect.Width, rect.Height), 14));
+            bool yellow = face == _t.Gold;
+            float lift = pressed ? 2 : 0;
             var top = new RectangleF(rect.X, rect.Y + lift, rect.Width, rect.Height);
-            Color f = hover && !pressed ? Brighten(face, 0.06f) : face;
-            g.FillPath(f, GraphicsPath.GetRoundRect(top, 14));
-            // gloss stripe
-            g.FillPath(Color.FromArgb(255, 255, 255, 40), GraphicsPath.GetRoundRect(new RectangleF(top.X + 10, top.Y + 5, top.Width - 20, 6), 3));
+            float radius = Math.Min(top.Height / 2, 18);
+            if (yellow)
+            {
+                var sh = rect;
+                sh.Offset(3, 3);
+                g.FillPath(_t.Ink, GraphicsPath.GetRoundRect(sh, radius));
+            }
+            Color f = hover && !pressed ? (yellow ? Color.FromArgb(0xFF, 0xDD, 0x70) : Brighten(face, 0.12f)) : face;
+            g.FillPath(f, GraphicsPath.GetRoundRect(top, radius));
+            if (yellow)
+                g.DrawPath(new Pen(_t.Ink, 1.5f), GraphicsPath.GetRoundRect(top, radius));
             Font font = Bold(fontSize);
             SizeF s = font.MeasureString(text);
             g.DrawText(font, ink, top.X + (top.Width - s.Width) / 2, top.Y + (top.Height - s.Height) / 2, text);
@@ -762,15 +787,16 @@ namespace RhinoGotchi.UI
 
         private void OutlineButton(Graphics g, RectangleF rect, string text, string id, Action action)
         {
+            // FinGotchi's outlined pill: white, ink outline, ink text.
             bool pressed = _pressed == id;
-            float lift = pressed ? 3 : 0;
-            g.FillPath(_t.Border, GraphicsPath.GetRoundRect(new RectangleF(rect.X, rect.Y + 3, rect.Width, rect.Height), 12));
+            float lift = pressed ? 2 : 0;
             var top = new RectangleF(rect.X, rect.Y + lift, rect.Width, rect.Height);
-            g.FillPath(_t.Border, GraphicsPath.GetRoundRect(top, 12));
-            g.FillPath(_hover == id ? _t.TileHover : _t.Background, GraphicsPath.GetRoundRect(new RectangleF(top.X + 2, top.Y + 2, top.Width - 4, top.Height - 4), 10));
-            Font font = Bold(14);
+            float radius = Math.Min(top.Height / 2, 18);
+            g.FillPath(_hover == id ? _t.TileHover : _t.Background, GraphicsPath.GetRoundRect(top, radius));
+            g.DrawPath(new Pen(_t.Ink, 1.4f), GraphicsPath.GetRoundRect(top, radius));
+            Font font = Bold(13);
             SizeF s = font.MeasureString(text);
-            g.DrawText(font, _t.SubtleText, top.X + (top.Width - s.Width) / 2, top.Y + (top.Height - s.Height) / 2, text);
+            g.DrawText(font, _t.Ink, top.X + (top.Width - s.Width) / 2, top.Y + (top.Height - s.Height) / 2, text);
             _hits.Add((rect, id, action));
         }
 
@@ -788,9 +814,9 @@ namespace RhinoGotchi.UI
 
         private void Card(Graphics g, RectangleF rect, Color face, Color border)
         {
-            g.FillPath(border, GraphicsPath.GetRoundRect(new RectangleF(rect.X, rect.Y + 4, rect.Width, rect.Height), 14));
-            g.FillPath(border, GraphicsPath.GetRoundRect(rect, 14));
-            g.FillPath(face, GraphicsPath.GetRoundRect(new RectangleF(rect.X + 2, rect.Y + 2, rect.Width - 4, rect.Height - 4), 12));
+            bool neutral = face == _t.TileFace;
+            g.FillPath(neutral ? _t.Warm : face, GraphicsPath.GetRoundRect(rect, 10));
+            g.DrawPath(new Pen(neutral ? _t.WarmBorder : border, 1), GraphicsPath.GetRoundRect(rect, 10));
         }
 
         private void Pill(Graphics g, float x, float y, string text, Color color)
@@ -887,7 +913,7 @@ namespace RhinoGotchi.UI
         {
             if (!_fonts.TryGetValue((bold, size), out Font? f))
             {
-                f = new Font(bold ? SystemFont.Bold : SystemFont.Default, size);
+                f = bold && size >= 17 ? Fin.FinType.Serif(size) : Fin.FinType.Sans(size, bold);
                 _fonts[(bold, size)] = f;
             }
             return f;
@@ -915,6 +941,9 @@ namespace RhinoGotchi.UI
             return lines;
         }
 
+        /// <summary>Line spacing for wrapped text: the Fin fonts report a tight LineHeight, so measure and add air.</summary>
+        private static float LineH(Font font) => Math.Max(font.LineHeight, font.MeasureString("Ag").Height) * 1.1f;
+
         private static float Wrapped(Graphics g, float x, float y, float maxWidth, Font font, Color color, string text, int maxLines = int.MaxValue, bool center = false)
         {
             List<string> lines = Wrap(font, text, maxWidth);
@@ -923,7 +952,7 @@ namespace RhinoGotchi.UI
                 lines = lines.Take(maxLines).ToList();
                 lines[maxLines - 1] += "…";
             }
-            float lh = font.LineHeight;
+            float lh = LineH(font);
             for (int i = 0; i < lines.Count; i++)
             {
                 float lx = center ? x + (maxWidth - font.MeasureString(lines[i]).Width) / 2 : x;

@@ -73,7 +73,7 @@ namespace RhinoGotchi.UI
         private void LearningTab()
         {
             var progress = GotchiState.Game.Progress;
-            int total = LessonCatalog.All.Count;
+            int total = LessonCatalog.MainCount;
             int current = progress.CurrentLevel;
             string detail = progress.IsNew ? ""
                 : current < 0 ? "All levels done"

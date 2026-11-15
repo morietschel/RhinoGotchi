@@ -39,6 +39,51 @@ namespace RhinoGotchi.UI
 
         private static Color C(int rgb) => Color.FromArgb((rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF);
 
+        /// <summary>
+        /// FinGotchi's look, used by the Learning Campaign: white paper, near-black ink, a yellow
+        /// "do this now" accent, orange for levels, green for pass, cream cards. Light only, like FinGotchi.
+        /// </summary>
+        public static readonly Palette Fin = new Palette
+        {
+            Background = C(0xFFFFFF),
+            Text = C(0x121212),
+            SubtleText = C(0x6B6B6B),
+            Border = C(0xD6D6D6),
+            TileFace = C(0xFFFFFF),
+            TileHover = C(0xF6F6F6),
+            SelectedFace = C(0xFFD34D),
+            SelectedBorder = C(0x121212),
+            SelectedText = C(0x121212),
+            Green = C(0x1E7A3A),
+            GreenShadow = C(0x125226),
+            GreenBanner = C(0xEAF6EE),
+            GreenText = C(0x1E7A3A),
+            Red = C(0xE8812C),
+            RedShadow = C(0xA34808),
+            RedBanner = C(0xFFF1E4),
+            RedText = C(0xA34808),
+            Blue = C(0x2A5CB8),
+            BlueShadow = C(0x1D427F),
+            Disabled = C(0xE6E6E6),
+            DisabledText = C(0x9A9A9A),
+            Track = C(0xEDEDED),
+            Purple = C(0x7564C4),
+            Orange = C(0xE8812C),
+            Gold = C(0xFFD34D),
+            GoldShadow = C(0x121212),
+            Ink = C(0x121212),
+            InkShadow = C(0x121212),
+            OnInk = C(0xFFFFFF),
+            Accent = C(0xE8812C),
+            AccentShadow = C(0xA34808),
+            AccentSoft = C(0xFFF7EC),
+            AccentText = C(0xA34808),
+            Warm = C(0xFFF7EC),
+            WarmBorder = C(0xF3DCC0),
+            Quiet = C(0xF6F6F6),
+            Tints = new[] { C(0xF9D6A8), C(0xFDE68A), C(0xDCD3F7), C(0xCFE6F7), C(0xF6D1CC), C(0xCFEEDB) },
+        };
+
         public static readonly Palette Light = new Palette
         {
             Background = C(0xFFFFFF),

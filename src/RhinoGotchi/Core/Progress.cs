@@ -147,6 +147,7 @@ namespace RhinoGotchi.Core
                 s.DeleteItem(WaysKey(challenge.Id));
             Drone.DroneProgress.Reset();
             RhinoGotchiPlugin.Instance?.SaveSettings();
+            Tutorials.TutorialProgress.Reset();
         }
     }
 }

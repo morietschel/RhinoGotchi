@@ -14,6 +14,9 @@ namespace RhinoGotchi.Lessons
         /// <summary>A lesson or the placement test is being played.</summary>
         Playing,
 
+        /// <summary>A chapter is finished: its Done page ("Splendid."), then back to the map.</summary>
+        ChapterDone,
+
         /// <summary>"You placed into Level 3: Surfaces."</summary>
         PlacementResult,
     }
@@ -89,6 +92,12 @@ namespace RhinoGotchi.Lessons
             Play(new LessonSession(LessonCatalog.PlacementTest(), isPlacement: true), -1);
         }
 
+        /// <summary>Plays the same level again (after running out of hearts).</summary>
+        public void RetryLesson() => StartLesson(PlayingLevel);
+
+        /// <summary>The chapter whose Done page is showing (GameMode.ChapterDone), e.g. "KLOSTERNEUBURG".</summary>
+        public string DoneChapter { get; private set; } = "";
+
         public void StartLesson(int levelIndex)
         {
             if (levelIndex < 0 || levelIndex >= LessonCatalog.All.Count || Progress.StateOf(levelIndex) == LevelState.Locked)
@@ -144,6 +153,9 @@ namespace RhinoGotchi.Lessons
             Session.Changed += OnSessionChanged;
             Mode = GameMode.Playing;
             Session.Begin();
+            // Chapter levels are live as soon as they open, like FinGotchi: the level is set up straight away.
+            if (session.Lesson.IsProject)
+                Session.StartBuild();
             Raise();
         }
 
@@ -151,7 +163,7 @@ namespace RhinoGotchi.Lessons
         {
             if (Session != null && Session.IsPlacement && Session.Screen == SessionScreen.Complete)
             {
-                PlacedLevel = Math.Min(Session.PlacedLevel, LessonCatalog.All.Count);
+                PlacedLevel = Math.Min(Session.PlacedLevel, LessonCatalog.MainCount);
                 var before = Stats;
                 Progress.ApplyPlacement(PlacedLevel, Session.FirstTryCorrect);
                 NewUnlocks = Achievements.NewlyUnlocked(before, Stats);
@@ -159,6 +171,22 @@ namespace RhinoGotchi.Lessons
                 Mode = GameMode.PlacementResult;
             }
             SaveIfComplete();
+
+            // Chapter levels flow like FinGotchi: once a level is finished, the next one starts; after the
+            // last one the chapter's Done page shows, and from there it's back to the campaign map.
+            if (Session != null && Session.Lesson.IsProject && Session.Screen == SessionScreen.Complete)
+            {
+                string chapter = Session.Lesson.Chapter;
+                int next = PlayingLevel + 1;
+                if (next < LessonCatalog.All.Count && LessonCatalog.All[next].Chapter == chapter && !Progress.IsDone(LessonCatalog.All[next].Id))
+                {
+                    StartLesson(next);
+                    return;
+                }
+                EndSession();
+                DoneChapter = chapter;
+                Mode = GameMode.ChapterDone;
+            }
             Raise();
         }
 

@@ -43,6 +43,8 @@
   <ItemGroup>
     <!-- Side panel tab icon, loaded by Panels.RegisterPanel via this resource name. -->
     <EmbeddedResource Include="Resources\RhinoGotchi.svg" LogicalName="RhinoGotchi.Resources.RhinoGotchi.svg" />
+    <!-- FinGotchi's pixel rhino, cut into layers. Resource ids: RhinoGotchi.Fin.Pets.pet{picture}-{layer}.png -->
+    <EmbeddedResource Include="Fin\Pets\*.png" LogicalName="RhinoGotchi.Fin.Pets.%(Filename)%(Extension)" />
     <!-- The team's command dataset, read by the Command Library for descriptions. -->
     <EmbeddedResource Include="..\..\Rhino\rhino_commands_all.csv" LogicalName="RhinoGotchi.Data.rhino_commands_all.csv" Link="Data\rhino_commands_all.csv" />
     <!-- Deep Cut: the commands a guess can be, and the list of bundled models (id, forum topic, link). -->

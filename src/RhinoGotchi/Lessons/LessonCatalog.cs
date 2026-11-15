@@ -11,7 +11,36 @@ namespace RhinoGotchi.Lessons
     /// </summary>
     public static class LessonCatalog
     {
-        public static readonly IReadOnlyList<Lesson> All = new[]
+        // (kept for quiz cards that may come back) Look-alike commands for the tutorials' commands.
+        private static readonly Dictionary<string, string[]> LookAlikes = new Dictionary<string, string[]>
+        {
+            ["BooleanDifference"] = new[] { "BooleanUnion", "BooleanIntersection", "Trim" },
+            ["Pipe"] = new[] { "Sweep1", "Cylinder", "Revolve" },
+            ["OffsetSrf"] = new[] { "Offset", "ExtrudeSrf", "Shell" },
+            ["ArrayPolar"] = new[] { "Rotate", "Mirror", "Move" },
+            ["Contour"] = new[] { "Trim", "OffsetSrf", "Patch" },
+            ["Sweep1"] = new[] { "Sweep2", "Pipe", "ExtrudeCrv" },
+            ["Sweep2"] = new[] { "Sweep1", "Loft", "NetworkSrf" },
+            ["Loft"] = new[] { "Sweep2", "NetworkSrf", "ExtrudeCrv" },
+            ["NetworkSrf"] = new[] { "Loft", "Patch", "Sweep2" },
+        };
+
+        // (Declared before All: static fields initialise in order.) One word per Klosterneuburg level for its tile, like FinGotchi's MASS / PROFILE / FIN.
+        private static readonly string[] ShortNames =
+        {
+            "PLATE", "RAIL", "GLASS", "BEAMS", "BARS", "SLICES", "RIB", "EDGE", "RAMP", "JOISTS", "LOFT", "NET",
+        };
+
+        /// <summary>
+        /// Every level on the campaign map: the ten main levels (the path and the placement test),
+        /// then the Klosterneuburg chapter (12 build levels, open from the start, played in order).
+        /// </summary>
+        public static readonly IReadOnlyList<Lesson> All = MainLevels().Concat(Klosterneuburg()).ToList();
+
+        /// <summary>How many main levels there are (the Klosterneuburg chapter follows them).</summary>
+        public static int MainCount => All.Count(l => !l.IsProject);
+
+        private static IEnumerable<Lesson> MainLevels() => new[]
         {
             Curves(),
             Solids(),
@@ -142,6 +171,27 @@ namespace RhinoGotchi.Lessons
         }
 
         /// <summary>
+        /// The Klosterneuburg chapter: one level per tutorial, easiest first, each a single build
+        /// card played like FinGotchi (no quiz cards). Solving one opens the next.
+        /// </summary>
+        private static IEnumerable<Lesson> Klosterneuburg() =>
+            Tutorials.TutorialCatalog.Cores.Select(core =>
+            {
+                var lesson = new Lesson
+                {
+                    Id = $"klosterneuburg-{core.Number:00}",
+                    Title = core.Title.TrimEnd('.'),
+                    Subtitle = core.MainCommand,
+                    IsProject = true,
+                    Chapter = "KLOSTERNEUBURG",
+                    ShortName = ShortNames[core.Number - 1],
+                };
+                lesson.Steps.Add(new TutorialBuildStep(core));
+                return lesson;
+            }).ToList();
+
+
+        /// <summary>
         /// The placement test: the first two quiz questions of every level, easiest
         /// level first. Each question's <see cref="LessonStep.Tier"/> is its level.
         /// </summary>
@@ -150,6 +200,8 @@ namespace RhinoGotchi.Lessons
             var test = new Lesson { Id = "placement", Title = "Placement test" };
             for (int tier = 0; tier < All.Count; tier++)
             {
+                if (All[tier].IsProject)
+                    continue;
                 foreach (IconQuizStep q in All[tier].Steps.OfType<IconQuizStep>().Take(2))
                 {
                     var copy = new IconQuizStep { Command = q.Command, Kind = q.Kind, Prompt = q.Prompt, Tier = tier, Xp = 0 };
