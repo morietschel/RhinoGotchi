@@ -6,7 +6,7 @@ using RhinoGotchi.Content;
 
 namespace RhinoGotchi.UI
 {
-    /// <summary>Browse Curves, Solids and Transform commands. Click one to see how it works.</summary>
+    /// <summary>Learn Commands: browse Curves, Solids and Transform commands in a grid. Click one to see how it works.</summary>
     internal sealed class LibraryView : StackLayout
     {
         private readonly RhinoGotchiPanel _host;
@@ -23,7 +23,7 @@ namespace RhinoGotchi.UI
         {
             _host = host;
             _tab = startTab;
-            Theme.SetUpPage(this, host, "Command Library",
+            Theme.SetUpPage(this, host, "Learn Commands",
                 "Pick a command to see how it works, step by step in the viewport, then try it yourself. ▶ marks commands with a demo.");
 
             var names = CommandCatalog.Categories.Select(c => c.Name).Append(RecipesTab).ToArray();
@@ -74,8 +74,7 @@ namespace RhinoGotchi.UI
             _count.Text = $"{shown.Count} of {category.Commands.Count} commands · {demos} with a demo";
 
             _list.Items.Clear();
-            foreach (var entry in shown)
-                _list.Items.Add(Row(entry));
+            _list.Items.Add(new CommandGrid(shown, entry => _host.Navigate(new CommandView(_host, entry, this))));
         }
 
         private void ShowRecipes(string query)
@@ -107,28 +106,6 @@ namespace RhinoGotchi.UI
                     control.MouseDown += open;
                 _list.Items.Add(row);
             }
-        }
-
-        private Control Row(CommandEntry entry)
-        {
-            var icon = new ImageView { Image = CommandIcons.Get(entry, 24), Size = new Size(24, 24) };
-            var name = Theme.Heading(entry.Command);
-            var description = Theme.Muted(entry.Description);
-            var demo = new Label { Text = entry.HasDemo ? "▶ demo" : "", TextColor = Palette.Current.GreenText, Font = new Font(SystemFont.Bold, 9) };
-
-            var text = new StackLayout { Spacing = 1, HorizontalContentAlignment = HorizontalAlignment.Stretch, Items = { name, description } };
-            var layout = new TableLayout
-            {
-                Spacing = new Size(8, 0),
-                Padding = new Padding(4, 4),
-                Rows = { new TableRow(new TableCell(icon), new TableCell(text, true), new TableCell(demo)) },
-            };
-            var row = new StyledCard(layout, padding: 6) { Hoverable = true };
-
-            EventHandler<MouseEventArgs> open = (s, e) => _host.Navigate(new CommandView(_host, entry, this));
-            foreach (var control in new Control[] { row, layout, icon, name, description, demo, text })
-                control.MouseDown += open;
-            return row;
         }
     }
 }
