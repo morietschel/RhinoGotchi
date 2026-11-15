@@ -104,9 +104,26 @@ namespace RhinoGotchi.UI
 
         internal void ShowTrophies() => Navigate(new AchievementsView(this));
 
+        /// <summary>
+        /// Ends whatever game an open panel is showing (its Leave deletes what it made) and goes back to
+        /// Learn Projects. Called before Build a road starts, which runs in the viewport, not in the panel.
+        /// </summary>
+        internal static void EndPanelGames()
+        {
+            lock (Instances)
+            {
+                foreach (var w in Instances.ToList())
+                    if (w.TryGetTarget(out var panel) && panel._view is IGameView)
+                        panel.ShowProjects();
+            }
+        }
+
         internal void Navigate(Control view)
         {
             (_view as IGameView)?.Leave();
+            // Build a road runs on its own in the viewport, so opening any other game ends it (and clears it).
+            if (view is IGameView)
+                Tutorials.RhinoOnTheStreet.StreetTutorial.Current?.Stop();
             // Views can be revisited (e.g. back to the Library), so detach from the old scroller first.
             if (view.Parent is Scrollable oldScroller)
                 oldScroller.Content = null;

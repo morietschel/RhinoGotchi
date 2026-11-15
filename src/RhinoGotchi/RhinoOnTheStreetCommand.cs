@@ -24,6 +24,8 @@ namespace RhinoGotchi
             StreetTutorial? running = StreetTutorial.Current;
             if (running == null)
             {
+                // One game at a time: a game open in the panel ends (and clears) before the road starts.
+                UI.RhinoGotchiPanel.EndPanelGames();
                 StreetTutorial.Start(doc);
                 return Result.Success;
             }

@@ -480,13 +480,18 @@ namespace RhinoGotchi.UI
         }
     }
 
-    /// <summary>Bottom navigation: Home · Trophies.</summary>
+    /// <summary>
+    /// Bottom navigation: Home · My Gotchi (trophies, wardrobe, settings). Each tab has a pixel icon with
+    /// an active (colour) and inactive (gray) picture; drawn shapes stand in if the pictures are missing.
+    /// </summary>
     internal sealed class NavBar : Drawable
     {
-        private static readonly (NavTab Tab, string Label)[] Items =
+        private const float IconSize = 26;
+
+        private static readonly (NavTab Tab, string Label, string Icon)[] Items =
         {
-            (NavTab.Home, "Home"),
-            (NavTab.Trophies, "Trophies"),
+            (NavTab.Home, "Home", "nav-home"),
+            (NavTab.Trophies, "My Gotchi", "nav-my-gotchi"),
         };
 
         private int _hover = -1;
@@ -494,7 +499,7 @@ namespace RhinoGotchi.UI
 
         public NavBar()
         {
-            Height = 56;
+            Height = 58;
             MouseMove += (s, e) => { int i = IndexAt(e.Location.X); if (i != _hover) { _hover = i; Invalidate(); } };
             MouseLeave += (s, e) => { _hover = -1; Invalidate(); };
             MouseUp += (s, e) =>
@@ -527,22 +532,27 @@ namespace RhinoGotchi.UI
             float seg = Width / (float)Items.Length;
             for (int i = 0; i < Items.Length; i++)
             {
-                var (tab, label) = Items[i];
+                var (tab, label, icon) = Items[i];
                 bool on = tab == _current;
                 if (i == _hover && !on)
                     g.FillPath(p.TileHover, GraphicsPath.GetRoundRect(new RectangleF(i * seg + 6, 5, seg - 12, Height - 10), 10));
                 Color ink = on ? p.Text : p.SubtleText;
-                var c = new PointF(i * seg + seg / 2, 21);
-                switch (tab)
+                var c = new PointF(i * seg + seg / 2, 19);
+                Bitmap? art = Art.Get(icon + (on ? "-active" : "-inactive"));
+                if (art != null)
                 {
-                    case NavTab.Home: Ui.House(g, c, 0.95f, ink); break;
-                    default: Ui.Trophy(g, c, 0.95f, ink); break;
+                    // Pixel art: keep the pixels crisp.
+                    g.ImageInterpolation = ImageInterpolation.None;
+                    g.DrawImage(art, new RectangleF(c.X - IconSize / 2, c.Y - IconSize / 2, IconSize, IconSize));
+                    g.ImageInterpolation = ImageInterpolation.Default;
                 }
+                else if (tab == NavTab.Home)
+                    Ui.House(g, c, 0.95f, ink);
+                else
+                    Ui.Trophy(g, c, 0.95f, ink);
                 Font f = on ? Ui.Bold(9) : Ui.Regular(9);
                 SizeF s = f.MeasureString(label);
-                g.DrawText(f, ink, c.X - s.Width / 2, 34, label);
-                if (on)
-                    g.FillPath(p.Accent, GraphicsPath.GetRoundRect(new RectangleF(c.X - 10, Height - 5, 20, 3), 1.5f));
+                g.DrawText(f, ink, c.X - s.Width / 2, 35, label);
             }
         }
     }

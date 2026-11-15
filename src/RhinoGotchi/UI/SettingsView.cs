@@ -10,7 +10,9 @@ namespace RhinoGotchi.UI
 
         public SettingsView(RhinoGotchiPanel host)
         {
-            Theme.SetUpPage(this, host, "Settings", "Deep Cut asks an OpenAI model to judge each guess.");
+            // Settings opens from the My Gotchi tab, so its back button returns there.
+            Theme.SetUpPage(this, host, "Settings", "Deep Cut asks an OpenAI model to judge each guess.",
+                "← My Gotchi", host.ShowTrophies);
 
             var keyBox = new PasswordBox();
             Items.Add(Theme.Heading("OpenAI API key"));

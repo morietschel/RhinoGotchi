@@ -30,12 +30,11 @@ namespace RhinoGotchi.UI
             Spacing = 12;
             HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
-            var p = Palette.Current;
             UpdatePet();
             Avatars.KeepOwnIconCurrent(); // the leaderboard icon is this Gotchi
             Items.Add(_pet);
 
-            var tabs = new TabBar(_lastTab, ("Learning", Glyph.Book, p.Ink), ("Games", Glyph.Gamepad, p.Ink));
+            var tabs = new ArtTabSwitch(_lastTab);
             tabs.SelectedChanged += (s, e) => ShowTab(tabs.Selected);
             Items.Add(tabs);
             Items.Add(_tabContent);
@@ -92,52 +91,41 @@ namespace RhinoGotchi.UI
 
         // ---------------- Games ----------------
 
+        /// <summary>
+        /// A two-column grid of game cards: a click on a card opens the game (there are no Play buttons).
+        /// Settings and Reset live on the My Gotchi tab.
+        /// </summary>
         private void GamesTab()
         {
-            _tabContent.Items.Add(GameRow(Games.Order, Glyph.Blocks, 0,
-                () => _host.Navigate(new BuildOrderView(_host, practice: false))));
-            _tabContent.Items.Add(GameRow(Games.Shape, Glyph.Eye, 3,
-                () => _host.Navigate(new ShapeQuizView(_host, practice: false))));
-            _tabContent.Items.Add(GameRow(Games.Deep, Glyph.Cube, 4,
-                () => _host.Navigate(new DeepCutView(_host, practice: false))));
-            _tabContent.Items.Add(GameRow(Games.Blocked, Glyph.Ban, 2,
-                () => _host.Navigate(new BlockedView(_host, practice: false))));
-
-            // Water Run is played level by level, not once a day, so its tag counts levels.
+            // Water Run is played level by level and Drone School lesson by lesson, so they count progress.
             int levels = Water.WaterLevelCatalog.All.Count;
             int cleared = Water.WaterLevelCatalog.All.Count(l => Water.WaterGame.IsDone(l.Number));
-            _tabContent.Items.Add(new ListRow("Water Run", "", Glyph.Arrows, 1,
-                () => _host.Navigate(new WaterLabView(_host)))
-            {
-                TagText = cleared == levels ? "DONE" : cleared == 0 ? "" : $"{cleared}/{levels}",
-                TagDone = cleared == levels,
-            });
-
-            // Drone School (mouse lessons) is counted the same way.
             int lessons = Drone.SchoolLevels.All.Length, learned = Drone.DroneProgress.DoneCount;
-            _tabContent.Items.Add(new ListRow("Drone School", "", Glyph.Mouse, 5, () => _host.Navigate(new DroneSchoolView(_host)))
-            {
-                TagText = learned >= lessons ? "DONE" : learned == 0 ? "" : $"{learned}/{lessons}",
-                TagDone = learned >= lessons,
-            });
 
-            // Trophies, the leaderboard and stats have their own tab at the bottom.
-            _tabContent.Items.Add(Theme.Grid(2,
-                Theme.Button("Settings", () => _host.Navigate(new SettingsView(_host))),
-                Theme.Button("Reset", () => ConfirmReset(_host))));
-        }
-
-        private static ListRow GameRow(string game, Glyph glyph, int tint, Action play)
-        {
-            var stats = Core.Progress.Get(game);
-            return new ListRow(Games.Title(game), "", glyph, tint, play)
+            var tiles = new[]
             {
-                TagText = stats.PlayedToday ? "DONE" : "",
-                TagDone = stats.PlayedToday,
+                DailyTile(Games.Order, "card-build-order", () => _host.Navigate(new BuildOrderView(_host, practice: false))),
+                DailyTile(Games.Shape, "card-what-made-this", () => _host.Navigate(new ShapeQuizView(_host, practice: false))),
+                DailyTile(Games.Deep, "card-deep-cut", () => _host.Navigate(new DeepCutView(_host, practice: false)), timed: true),
+                DailyTile(Games.Blocked, "card-blocked", () => _host.Navigate(new BlockedView(_host, practice: false))),
+                new GameTile("card-water-run", "Water Run", cleared >= levels ? "All levels done" : $"{cleared} of {levels} levels",
+                    () => _host.Navigate(new WaterLabView(_host))) { StatusDone = cleared >= levels },
+                new GameTile("card-drone-school", "Drone School", learned >= lessons ? "All lessons done" : $"{learned} of {lessons} lessons",
+                    () => _host.Navigate(new DroneSchoolView(_host))) { StatusDone = learned >= lessons },
             };
+            _tabContent.Items.Add(new GameGrid(tiles));
         }
 
-        private static void ConfirmReset(RhinoGotchiPanel host)
+        /// <summary>A daily game's card: "Done today" once today's round is played; Deep Cut also says it is timed.</summary>
+        private static GameTile DailyTile(string game, string card, Action open, bool timed = false)
+        {
+            bool done = Core.Progress.Get(game).PlayedToday;
+            string status = done ? "Done today" : timed ? "Daily · 30 s timer" : "Daily";
+            return new GameTile(card, Games.Title(game), status, open) { StatusDone = done, StatusTimed = timed && !done };
+        }
+
+        /// <summary>Asks, then clears the daily-game stats and streaks; <paramref name="after"/> refreshes the page.</summary>
+        internal static void ConfirmReset(Action after)
         {
             var answer = MessageBox.Show(
                 "Clear the daily-game stats and streaks? Lesson progress and hats are kept.",
@@ -147,7 +135,7 @@ namespace RhinoGotchi.UI
             if (answer != DialogResult.Yes)
                 return;
             Core.Progress.Reset();
-            host.ShowHome();
+            after();
         }
     }
 }

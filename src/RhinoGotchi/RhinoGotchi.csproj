@@ -23,6 +23,8 @@
   <ItemGroup>
     <!-- Pixel pet art from the RhinoGotchi canvas: pose layers, LCD shadows, clothes, eating strips. -->
     <EmbeddedResource Include="Resources\Pet\*.png" LogicalName="RhinoGotchi.Pet.%(Filename).png" />
+    <!-- Panel art: game cards, the Learning/Games switch and the bottom-bar icons. Resource ids: RhinoGotchi.Art.{name}.png -->
+    <EmbeddedResource Include="Resources\Art\*.png" LogicalName="RhinoGotchi.Art.%(Filename).png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -14,6 +14,7 @@ namespace RhinoGotchi.UI
     /// <summary>
     /// Deep Cut: a real Rhino model appears in the viewport and the player has 30 seconds to name a command
     /// that was used to build it. An AI judge looks at the viewport; the rarer the command, the more points.
+    /// It opens on a ready screen: nothing is shown and the clock waits until the player presses Start.
     /// </summary>
     internal sealed class DeepCutView : StackLayout, IGameView
     {
@@ -45,6 +46,7 @@ namespace RhinoGotchi.UI
         private readonly ChunkyButton _guess;
         private readonly Panel _suggestions = new Panel();
         private readonly StackLayout _feedback = new StackLayout { Spacing = 8, HorizontalContentAlignment = HorizontalAlignment.Stretch };
+        private readonly StackLayout _ready = new StackLayout { Spacing = 10, HorizontalContentAlignment = HorizontalAlignment.Stretch };
 
         public DeepCutView(RhinoGotchiPanel host, bool practice)
         {
@@ -95,7 +97,21 @@ namespace RhinoGotchi.UI
             };
             _clock.Elapsed += (s, e) => Tick();
 
+            // The ready screen: the clock waits at full time and the model stays hidden until Start.
+            var start = Theme.Primary("Start", Begin);
+            start.Fill = true;
+            start.Height = 42;
+            _ready.Items.Add(Theme.Heading("Name a command that built each model. Rarer scores more."));
+            _ready.Items.Add(Theme.Body($"{_models.Count} models, {Seconds:0} seconds each. The model appears and the clock starts when you press Start."));
+            _ready.Items.Add(new StackLayoutItem(start, HorizontalAlignment.Stretch));
+            if (!practice)
+                _ready.Items.Add(PracticeButton());
+            _prompt.Visible = _inputRow.Visible = false;
+            _hud.Set($"{_models.Count} MODELS", "0 pts", Enumerable.Repeat(Pip.Todo, _models.Count));
+            _hud.SetTime(Seconds, Seconds);
+
             Items.Add(_hud);
+            Items.Add(_ready);
             Items.Add(_prompt);
             Items.Add(_inputRow);
             Items.Add(_suggestions);
@@ -104,17 +120,21 @@ namespace RhinoGotchi.UI
             _playing = true;
         }
 
-        /// <summary>Starts the first round, or brings the model and the clock back when the panel is shown again.</summary>
+        /// <summary>Start was pressed: the ready screen goes and the first model and its clock begin.</summary>
+        private void Begin()
+        {
+            if (_started || !_playing || _doc == null)
+                return;
+            _started = true;
+            _ready.Visible = false;
+            ShowRound();
+        }
+
+        /// <summary>Brings the model and the clock back when the panel is shown again (nothing before Start).</summary>
         public void Enter()
         {
-            if (!_playing || _doc == null)
+            if (!_playing || _doc == null || !_started)
                 return;
-            if (!_started)
-            {
-                _started = true;
-                ShowRound();
-                return;
-            }
             if (!ModelPreview.Active)
                 ModelPreview.Show(_doc, _models[_index], frame: true);
             if (_phase == Phase.Typing && !_clock.Started)

@@ -9,7 +9,7 @@ using RhinoGotchi.Lessons;
 namespace RhinoGotchi.UI
 {
     /// <summary>
-    /// Trophies: the leaderboard, the wardrobe room (Gotchi eating on a loop in its outfit, then
+    /// My Gotchi (the second bottom tab): the leaderboard, the wardrobe room (Gotchi eating on a loop in its outfit, then
     /// Face · Hat · Clothes with one item each), every achievement, and the daily-game stats.
     /// Drawn by hand; grids reflow with the panel width.
     /// </summary>
@@ -167,7 +167,7 @@ namespace RhinoGotchi.UI
             int unlocked = Achievements.UnlockedCount(stats);
             float y = 14;
 
-            g.DrawText(Ui.Bold(20), p.Text, Pad, y, "Trophies");
+            g.DrawText(Ui.Bold(20), p.Text, Pad, y, "My Gotchi");
             y += Ui.Bold(20).LineHeight + 2;
             g.DrawText(Ui.Regular(10), p.SubtleText, Pad, y, Ui.Ellipsize(Ui.Regular(10), $"{unlocked} of {Achievements.All.Count} unlocked · hats and clothes", w - 2 * Pad));
             y += Ui.Regular(10).LineHeight + 14;
@@ -187,6 +187,17 @@ namespace RhinoGotchi.UI
             y += 20;
             foreach (var daily in Games.All)
                 y = StatsRow(g, p, w, y, daily) + 8;
+
+            // Settings and Reset (moved here from the Games tab).
+            y += 10;
+            Ui.Eyebrow(g, "SETTINGS", Pad, y, p.SubtleText);
+            y += 20;
+            float half = (w - 2 * Pad - 8) / 2;
+            SmallButton(g, p, new RectangleF(Pad, y, half, 36), "Settings", "settings",
+                () => _host.Navigate(new SettingsView(_host)), primary: false);
+            SmallButton(g, p, new RectangleF(Pad + half + 8, y, half, 36), "Reset", "reset",
+                () => HomeView.ConfirmReset(_host.ShowTrophies), primary: false);
+            y += 36;
             return y + Pad;
         }
 
