@@ -11,7 +11,7 @@
     <NoWarn>NU1701;NETSDK1086</NoWarn>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
 
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Title>RhinoGotchi</Title>
     <Company>Raven</Company>
     <Description>Learn Rhino by playing: lessons, a command library and daily games in a side panel.</Description>
