@@ -98,9 +98,16 @@ namespace RhinoGotchi.UI
             {
                 ShapePreview.Show(_doc, _rounds[_index].Geometry);
             }
+            RhinoGotchi.Display.ViewportPet.Show(PetId, "Which command made this shape?");
         }
 
-        public void Leave() => ShapePreview.Stop();
+        private const string PetId = "shape";
+
+        public void Leave()
+        {
+            ShapePreview.Stop();
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
+        }
 
         private void BuildRounds(Random rng, double tolerance)
         {
@@ -129,6 +136,7 @@ namespace RhinoGotchi.UI
         {
             var round = _rounds[_index];
             UpdateHud();
+            RhinoGotchi.Display.ViewportPet.Say(PetId, $"Shape {_index + 1} of {_rounds.Count}: which command made it?");
             _feedback.Items.Clear();
 
             var tiles = new List<OptionTile>();
@@ -151,6 +159,10 @@ namespace RhinoGotchi.UI
             if (right)
                 _score++;
             _answers.Add(right);
+            if (right)
+                RhinoGotchi.Display.ViewportPet.Cheer(PetId, $"Yes! That's {round.Shape.Command}.");
+            else
+                RhinoGotchi.Display.ViewportPet.Groan(PetId, $"Not {option}. It was {round.Shape.Command}.");
 
             foreach (var tile in tiles)
             {
@@ -187,6 +199,7 @@ namespace RhinoGotchi.UI
             string result = $"{_score}/{_rounds.Count}";
             if (!_practice)
                 Progress.Record(Games.Shape, _score >= PassScore, result);
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
             // Practice rounds count for the leaderboard too: it shows your best round.
             int points = _score * PointsPerAnswer;
             bool newBest = Leaderboard.Report(Games.Shape, points);

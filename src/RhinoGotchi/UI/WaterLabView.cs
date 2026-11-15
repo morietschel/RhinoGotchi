@@ -60,6 +60,8 @@ namespace RhinoGotchi.UI
             // Leaving ends the level: its objects and the water go (not while editing a level).
             if (WaterGame.Active && !WaterGame.Editing && Rhino.RhinoDoc.ActiveDoc is Rhino.RhinoDoc doc)
                 WaterGame.Quit(doc);
+            _petState = "";
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
             if (_listening)
             {
                 _listening = false;
@@ -76,8 +78,35 @@ namespace RhinoGotchi.UI
 
         private static string Moves() => $"{WaterGame.Moves} {(WaterGame.Moves == 1 ? "move" : "moves")}";
 
+        private const string PetId = "water";
+        private static string _petState = "";
+
+        /// <summary>The Gotchi in the viewport cheers a full bucket and groans at a failed level.</summary>
+        private static void UpdatePet()
+        {
+            var level = WaterGame.Current;
+            if (!WaterGame.Active || WaterGame.Editing || level == null)
+            {
+                _petState = "";
+                RhinoGotchi.Display.ViewportPet.Hide(PetId);
+                return;
+            }
+            string state = $"{level.Number}|{WaterGame.Won}|{WaterGame.Failed}";
+            if (state == _petState)
+                return;
+            bool fresh = !RhinoGotchi.Display.ViewportPet.IsShownBy(PetId) || !_petState.StartsWith(level.Number + "|");
+            _petState = state;
+            if (fresh)
+                RhinoGotchi.Display.ViewportPet.Show(PetId, $"Level {level.Number}: {level.Title}. Move the pieces so the water reaches the goal!");
+            if (WaterGame.Won)
+                RhinoGotchi.Display.ViewportPet.Cheer(PetId, $"Bucket full! Level {level.Number} cleared.");
+            else if (WaterGame.Failed)
+                RhinoGotchi.Display.ViewportPet.Groan(PetId, string.IsNullOrEmpty(WaterGame.FailReason) ? "Oops! Try that level again." : WaterGame.FailReason);
+        }
+
         private void Refresh()
         {
+            UpdatePet();
             if (Signature() != _shown)
             {
                 // Lay the page out again once the click that caused this has finished.

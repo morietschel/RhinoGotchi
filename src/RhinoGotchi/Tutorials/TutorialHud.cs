@@ -133,16 +133,16 @@ namespace RhinoGotchi.Tutorials
             }
 
             // Pet and bubble, bottom left
-            int petW = (int)(120 * s);
-            var pet = PetFrame(mood, PetActivity.Time, petW);
-            int petBottom = view.Height - margin - (int)(34 * s);
-            if (pet.HasValue)
-                e.Display.DrawBitmap(pet.Value.Bitmap, margin, petBottom - pet.Value.Height);
+            // The same Gotchi as every other game (it wears the player's outfit).
+            int petW = (int)(110 * s), bw = (int)(240 * s);
             string speech = Speech(tutorial, recorded.Count > 0 ? result : null, solved, misses, mood);
-            int bw = (int)(230 * s);
-            var bubble = Hud.Get($"tbubble:{speech}:{s}", bw, (int)(160 * s), g => Cards.Bubble(g, 1, 1, s, speech, bw - 4 * s));
-            if (bubble.HasValue)
-                e.Display.DrawBitmap(bubble.Value.Bitmap, margin + petW + (int)(6 * s), petBottom - (int)(60 * s) - bubble.Value.Height / 2);
+            RhinoGotchi.Display.ViewportPet.DrawPet(e, mood switch
+            {
+                PetMood.Win => UI.Mood.Celebrate,
+                PetMood.Lose => UI.Mood.Sad,
+                PetMood.Standby => UI.Mood.Sleepy,
+                _ => UI.Mood.Happy,
+            }, speech);
 
             // Commands run so far, bottom centre
             if (recorded.Count > 6)

@@ -137,6 +137,7 @@ namespace RhinoGotchi.UI
                 return;
             if (!ModelPreview.Active)
                 ModelPreview.Show(_doc, _models[_index], frame: true);
+            RhinoGotchi.Display.ViewportPet.Show(PetId, "Name a command that was used to model this.");
             if (_phase == Phase.Typing && !_clock.Started)
                 StartClock();
         }
@@ -150,7 +151,10 @@ namespace RhinoGotchi.UI
                 _clock.Stop();
             }
             ModelPreview.Stop();
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
         }
+
+        private const string PetId = "deep";
 
         // ---------------- rounds ----------------
 
@@ -170,6 +174,10 @@ namespace RhinoGotchi.UI
             }
 
             UpdateHeader();
+            if (!RhinoGotchi.Display.ViewportPet.IsShownBy(PetId))
+                RhinoGotchi.Display.ViewportPet.Show(PetId, "Name a command that was used to model this.");
+            else
+                RhinoGotchi.Display.ViewportPet.Say(PetId, $"Model {_index + 1}: name a command used to make it.");
             _feedback.Items.Clear();
             _input.Text = "";
             _input.Enabled = _guess.Enabled = true;
@@ -321,6 +329,12 @@ namespace RhinoGotchi.UI
         private void Reveal(JudgeResult result)
         {
             _phase = Phase.Reveal;
+            if (result.Verdict == Verdict.Scored)
+                RhinoGotchi.Display.ViewportPet.Cheer(PetId, $"+{result.Points}! {result.Command} was used here.");
+            else if (result.Verdict == Verdict.NotUsed)
+                RhinoGotchi.Display.ViewportPet.Groan(PetId, $"{result.Command} wasn't used here.");
+            else if (result.Verdict == Verdict.TimedOut)
+                RhinoGotchi.Display.ViewportPet.Groan(PetId, "Out of time!");
             _clock.Stop();
             _input.Enabled = _guess.Enabled = false;
             _inputRow.Visible = _prompt.Visible = false;
@@ -378,6 +392,7 @@ namespace RhinoGotchi.UI
         {
             _playing = false;
             ModelPreview.Stop();
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
             int hits = _results.Count(r => r.Points > 0);
             string result = $"{_total} pts";
             if (!_practice)

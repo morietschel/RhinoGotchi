@@ -115,13 +115,22 @@ namespace RhinoGotchi.UI
             Redraw();
         }
 
+        private const string PetId = "order";
+
         public void Enter()
         {
             if (_demo != null && _doc != null && !_over)
+            {
                 ShapePreview.Show(_doc, _demo.Target(), _demo.Focus);
+                RhinoGotchi.Display.ViewportPet.Show(PetId, "Which commands built the blue object? Put them in order.");
+            }
         }
 
-        public void Leave() => ShapePreview.Stop();
+        public void Leave()
+        {
+            ShapePreview.Stop();
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
+        }
 
         private void Redraw()
         {
@@ -193,6 +202,7 @@ namespace RhinoGotchi.UI
             {
                 int used = attempt.Count(c => _recipe.Uses(c));
                 _message.Text = $"{right} in the right place · {used - right} in the wrong place";
+                RhinoGotchi.Display.ViewportPet.Groan(PetId, $"Not quite: {right} in the right place. {MaxTries - _history.Count} tries left.");
                 Redraw();
             }
         }
@@ -212,6 +222,10 @@ namespace RhinoGotchi.UI
         private void Finish(bool won)
         {
             _over = true;
+            if (won)
+                RhinoGotchi.Display.ViewportPet.Cheer(PetId, _history.Count == 1 ? "First try! You know your commands." : "You got the order!");
+            else
+                RhinoGotchi.Display.ViewportPet.Groan(PetId, "Out of tries. Watch it get built to see the order.");
             _controls.Visible = false;
             _hintButton.Enabled = false;
             Redraw();

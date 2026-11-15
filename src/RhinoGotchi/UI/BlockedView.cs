@@ -96,6 +96,7 @@ namespace RhinoGotchi.UI
             LevelRunner.StateChanged -= OnStateChanged;
             ClearAttempt(); // leaving ends the challenge: its points and geometry are deleted
             StopChallenge();
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
         }
 
         // ---------------- Playing ----------------
@@ -130,15 +131,19 @@ namespace RhinoGotchi.UI
             {
                 _blockedNote.TextColor = Palette.Current.RedText;
                 _blockedNote.Text = $"🚫 {command} is blocked! Rhino removed what it made. Try another way.";
+                RhinoGotchi.Display.ViewportPet.Groan(PetId, $"{command} is blocked! Try another way.");
             };
             _runner = LevelRunner.Start(_doc, level);
             _blockedNote.Text = "";
 
             _actions.Content = Theme.Grid(2,
                 Theme.Secondary("Check my model", () => _runner?.Evaluate()),
-                Theme.Button("Stop", () => { StopChallenge(); ShowStartButton(first: false); }));
+                Theme.Button("Stop", () => { StopChallenge(); RhinoGotchi.Display.ViewportPet.Hide(PetId); ShowStartButton(first: false); }));
             SetStatus(Palette.Current.Blue, "Challenge started!", "Build the shape in the viewport. I'll check your model after every command.");
+            RhinoGotchi.Display.ViewportPet.Show(PetId, $"No {string.Join(", ", _challenge.Blocked)} allowed. Build it another way!");
         }
+
+        private const string PetId = "blocked";
 
         private void OnStateChanged(LevelRunner runner)
         {
@@ -156,6 +161,7 @@ namespace RhinoGotchi.UI
             else
             {
                 SetStatus(Palette.Current.Gold, "Not yet", result.Feedback ?? "Keep going!");
+                RhinoGotchi.Display.ViewportPet.Say(PetId, result.Feedback ?? "Not yet. Keep going!");
             }
         }
 
@@ -195,6 +201,7 @@ namespace RhinoGotchi.UI
             string headline = way == null
                 ? (isNew ? "A brand-new way! 🌟" : "Your own way again!")
                 : (isNew ? "New way found! 🎉" : "You already found this way");
+            RhinoGotchi.Display.ViewportPet.Cheer(PetId, isNew ? "Solved! A new way for your collection." : "Solved! Try a different route next.");
             string detail = way == null
                 ? $"Your route: {routeText}. It isn't on the list, so it's saved under Your own ways."
                 : $"{way.Name}. " + (isNew ? "Added to your collection." : "Try a different route to find another one!");
@@ -216,6 +223,7 @@ namespace RhinoGotchi.UI
                 return;
             var ids = _runner.Attempt.StartObjectIds.Concat(_runner.Attempt.AddedObjectIds).ToList();
             StopChallenge();
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
             if (ids.Count > 0)
             {
                 _doc.Objects.Delete(ids, true);

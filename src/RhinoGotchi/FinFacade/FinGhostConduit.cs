@@ -156,19 +156,15 @@ namespace GotchiFins
             }
 
             // Pet and bubble, bottom left
-            int petW = (int)((FinSession.Complete ? 180 : 120) * s); // bigger for the finale dance
-            var pet = PetFrame(mood, FinSession.MoodTime, petW, s);
-            int petBottom = view.Height - margin - (int)(34 * s);
-            if (pet.HasValue)
-                e.Display.DrawBitmap(pet.Value.Bitmap, margin, petBottom - pet.Value.Height);
-            string speech = FinSession.Speech;
-            if (!string.IsNullOrEmpty(speech))
+            // The same Gotchi as every other game (it wears the player's outfit).
+            int petW = (int)(110 * s);
+            RhinoGotchi.Display.ViewportPet.DrawPet(e, mood switch
             {
-                int maxW = (int)(230 * s);
-                var bubble = Hud.Get($"bubble:{speech}:{s}", maxW, (int)(160 * s), g => Cards.Bubble(g, 1, 1, s, speech, maxW - 4 * s));
-                if (bubble.HasValue)
-                    e.Display.DrawBitmap(bubble.Value.Bitmap, margin + petW + (int)(6 * s), petBottom - (int)(60 * s) - bubble.Value.Height / 2);
-            }
+                PetMood.Win or PetMood.Final or PetMood.Dance => RhinoGotchi.UI.Mood.Celebrate,
+                PetMood.Lose => RhinoGotchi.UI.Mood.Sad,
+                PetMood.Standby => RhinoGotchi.UI.Mood.Sleepy,
+                _ => RhinoGotchi.UI.Mood.Happy,
+            }, FinSession.Speech);
 
             // Recorded steps, bottom centre
             if (FinSession.Started)

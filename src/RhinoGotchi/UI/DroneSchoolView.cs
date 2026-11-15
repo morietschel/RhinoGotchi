@@ -121,6 +121,7 @@ namespace RhinoGotchi.UI
             _result.Items.Clear();
             _game = new SchoolGame(_doc, Level);
             _game.Changed += Refresh;
+            RhinoGotchi.Display.ViewportPet.Show(PetId, $"Lesson {_index + 1}: {SchoolGame.Name(Level.Move)}. Let's fly!", _game.Viewport?.Id ?? System.Guid.Empty);
             _hud.Clock = Level.TimeLimit != null;
             _hud.Visible = true;
             if (Level.TimeLimit is double limit)
@@ -221,6 +222,7 @@ namespace RhinoGotchi.UI
             int slips = Level.Course != null ? g.Crashes : g.Shots - g.Drones.Count;
             int stars = DroneProgress.StarsFor(slips);
             DroneProgress.Cleared(Level.Id, stars);
+            RhinoGotchi.Display.ViewportPet.Cheer(PetId, stars >= 3 ? "Perfect flying! Three stars." : $"Lesson cleared! {stars} star{(stars == 1 ? "" : "s")}.");
 
             // Let the pop play before giving the view back.
             _game = null;
@@ -260,6 +262,7 @@ namespace RhinoGotchi.UI
             var g = _game;
             if (g == null)
                 return;
+            RhinoGotchi.Display.ViewportPet.Groan(PetId, "Time's up! Give it another go.");
             int popped = g.Drones.Count(d => !d.Alive);
             int total = g.Drones.Count;
             StopGame();
@@ -277,14 +280,22 @@ namespace RhinoGotchi.UI
             _actions.Content = again;
         }
 
+        private const string PetId = "drone";
+
         private void Say(Color color, string text)
         {
             _message.TextColor = color;
             _message.Text = text;
+            // The Gotchi in the viewport says it too: a bonk makes it faint, the rest is a hint.
+            if (color == Palette.Current.RedText)
+                RhinoGotchi.Display.ViewportPet.Groan(PetId, text);
+            else
+                RhinoGotchi.Display.ViewportPet.Say(PetId, text);
         }
 
         private void StopGame()
         {
+            RhinoGotchi.Display.ViewportPet.Hide(PetId);
             if (_game == null)
                 return;
             _game.Changed -= Refresh;
