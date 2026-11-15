@@ -18,6 +18,13 @@
       "problemMatcher": "$msCompile"
     },
     {
+      // Links Rhino's package folder to bin/Debug/net7.0 so Rhino 9 loads your build at every start.
+      "label": "dev install (Rhino 9 loads bin/Debug)",
+      "type": "process",
+      "command": "${workspaceFolder}/tools/dev-install.sh",
+      "problemMatcher": "$msCompile"
+    },
+    {
       "label": "build all",
       "type": "process",
       "command": "dotnet",

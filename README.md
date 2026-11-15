@@ -211,7 +211,12 @@ On Windows, run the scripts from Git Bash.
 
 ## Load and run
 
-- **Mac:** drag `bin/<Config>/net7.0/RhinoGotchi.rhp` onto the Rhino 8 window,
+- **Mac (recommended for development):** `./tools/dev-install.sh` links Rhino 9's package
+  folder to `bin/Debug/net7.0`, so Rhino loads your latest build at every start (no drag and
+  drop, no F5). Restart Rhino after running it. `./tools/dev-install.sh 8.0` does the same for
+  Rhino 8, and `--remove` undoes it. Uninstall any Package Manager copy first; after a full
+  clean, run it again to restore the package's `manifest.yml`.
+- **Mac (manual):** drag `bin/<Config>/net7.0/RhinoGotchi.rhp` onto the Rhino window,
   or run `PluginManager` → Install.
 - **Windows:** drag the `.rhp` that matches your runtime onto Rhino 8
   (`net7.0` by default, `net48` if you switched with `SetDotNetRuntime`).
