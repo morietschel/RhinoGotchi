@@ -28,10 +28,9 @@ namespace RhinoGotchi.Water
 
         private static readonly WaterSim Sim = new WaterSim();
         private static readonly WaterConduit Conduit = new WaterConduit();
-        private static readonly Dictionary<uint, Mesh?> MeshCache = new Dictionary<uint, Mesh?>();
-        private static readonly Dictionary<Guid, double> Owed = new Dictionary<Guid, double>(); // part-drops each source still owes
+        private static readonly Dictionary<uint, Cached> MeshCache = new Dictionary<uint, Cached>();
+        private static readonly Dictionary<Guid, WaterSource> SourceById = new Dictionary<Guid, WaterSource>();
         private static readonly Random Random = new Random(7);
-        private static readonly List<Source> Sources = new List<Source>();
 
         private static UITimer? _timer;
         private static RhinoDoc? _doc;
@@ -44,20 +43,13 @@ namespace RhinoGotchi.Water
         // ---------------- settings ----------------
 
         /// <summary>Drops per second from each source.</summary>
-        public static int Rate = 60;
+        public static int Rate = 160;
 
         /// <summary>How many drops the goal needs. The progress bar is full when it has them.</summary>
         public static int Target = 300;
 
         /// <summary>Drop radius in model units. 0 = pick one that suits the size of the scene.</summary>
         public static double DropSize;
-
-        /// <summary>Half the depth of the scene: water stays between two invisible panes this far from y = 0. 0 = no panes.</summary>
-        public static double Depth
-        {
-            get => Sim.Depth;
-            set => Sim.Depth = value;
-        }
 
         /// <summary>2D water: every drop stays in the plane y = 0.</summary>
         public static bool Flat
@@ -85,7 +77,7 @@ namespace RhinoGotchi.Water
 
         public static int Flowing => Sim.Count;
 
-        public static int SourceCount => Sources.Count;
+        public static int SourceCount => Sim.Sources.Count;
 
         public static int GoalCount => Sim.Goals.Count;
 
@@ -139,7 +131,6 @@ namespace RhinoGotchi.Water
             Unsubscribe();
             Conduit.Enabled = false;
             Sim.Clear();
-            Owed.Clear();
             Conduit.Clear();
             _doc?.Views.Redraw();
             _doc = null;
@@ -150,7 +141,6 @@ namespace RhinoGotchi.Water
         public static void Reset()
         {
             Sim.Clear();
-            Owed.Clear();
             Conduit.Clear();
             if (_doc != null)
             {
@@ -183,20 +173,14 @@ namespace RhinoGotchi.Water
                 if (_dirty)
                     Rebuild();
 
-                foreach (Source source in Sources)
-                {
-                    Owed.TryGetValue(source.Id, out double owed);
-                    owed += Rate * Frame;
-                    for (; owed >= 1; owed -= 1)
-                        Pour(source);
-                    Owed[source.Id] = owed;
-                }
-
                 bool reachedBefore = Reached;
+                Sim.Rate = Rate;
                 Sim.Step(Frame);
                 Conduit.Advance(Frame);
-                foreach (Point3d arrival in Sim.Arrivals)
-                    Conduit.Pop(arrival);
+                foreach (V3 arrival in Sim.Arrivals)
+                    Conduit.Pop(P(arrival), false);
+                foreach (V3 sizzle in Sim.Sizzles)
+                    Conduit.Pop(P(sizzle), true);
                 if (Sim.Arrivals.Count > 0)
                     Conduit.SetProgress(Progress, Reached);
                 if (Reached && !reachedBefore)
@@ -204,13 +188,13 @@ namespace RhinoGotchi.Water
                     Conduit.Celebrate(Random);
                     GoalReached?.Invoke();
                 }
-                Conduit.Drops = Sim.SnapshotBySpeed(WaterConduit.Shades);
+                Conduit.Drops = SnapshotBySpeed(WaterConduit.Shades);
                 Conduit.Hud = ScoreLine();
 
                 if (_pieceOnHazard is Point3d crossing)
                     HazardTouched?.Invoke("A piece touched a red block", crossing);
-                else if (Sim.HazardHit is Point3d splash)
-                    HazardTouched?.Invoke("Water touched a red block", splash);
+                else if (Sim.Scorched >= WaterSim.ScorchLimit && Sim.Sizzles.Count > 0)
+                    HazardTouched?.Invoke("Water touched a red block", P(Sim.Sizzles[0]));
 
                 doc.Views.Redraw();
                 if (++_tick % 6 == 0)
@@ -223,50 +207,60 @@ namespace RhinoGotchi.Water
             }
         }
 
-        /// <summary>
-        /// Adds one drop at a source. Drops leave with some speed, spread over a nozzle just wide enough
-        /// for the flow, so new drops don't land on top of each other and burst apart.
-        /// </summary>
-        private static void Pour(Source source)
-        {
-            double r = Sim.Radius;
-            Vector3d direction = source.Velocity;
-            double speed = direction.Length;
-            if (speed < 1e-9)
-            {
-                direction = -Vector3d.ZAxis; // a point source drips straight down
-                speed = r * 40;
-            }
-            else
-            {
-                direction /= speed;
-                speed = Math.Max(r * 10, Math.Min(Sim.MaxSpeed(Frame), speed));
-            }
+        private static Point3d P(V3 v) => new Point3d(v.X, v.Y, v.Z);
 
-            Point3d position;
-            if (Sim.Flat)
+        private static V3 V(Point3d p) => new V3(p.X, p.Y, p.Z);
+
+        /// <summary>The drops sorted into groups from slow to fast, for drawing calm water darker than spray.</summary>
+        private static Point3d[][] SnapshotBySpeed(int groups)
+        {
+            var lists = new List<Point3d>[groups];
+            for (int g = 0; g < groups; g++)
+                lists[g] = new List<Point3d>();
+            double fast = Sim.FastSpeed;
+            for (int i = 0; i < Sim.Count; i++)
             {
-                // In 2D the nozzle is a slot across the stream, in the plane of the level.
-                Vector3d across = Vector3d.CrossProduct(direction, Vector3d.YAxis);
-                if (!across.Unitize())
-                    across = Vector3d.XAxis;
-                double half = r * Math.Max(0.5, Math.Min(8, 2.4 * r * Rate / speed));
-                position = source.Position + across * ((Random.NextDouble() * 2 - 1) * half);
-                position.Y = 0;
-                direction.Y = 0;
+                int g = (int)(Sim.SpeedAt(i) / fast * groups);
+                lists[g >= groups ? groups - 1 : g].Add(P(Sim.PositionAt(i)));
             }
-            else
-            {
-                double nozzle = r * Math.Sqrt(Math.Max(0.25, Math.Min(16, 3 * r * Rate / speed)));
-                double angle = Random.NextDouble() * Math.PI * 2;
-                double offset = nozzle * Math.Sqrt(Random.NextDouble());
-                position = new Plane(source.Position, direction).PointAt(Math.Cos(angle) * offset, Math.Sin(angle) * offset);
-            }
-            position += direction * (Random.NextDouble() * speed * Frame);
-            Sim.Spawn(position, direction * speed);
+            return lists.Select(l => l.ToArray()).ToArray();
         }
 
         // ---------------- reading the model ----------------
+
+        /// <summary>An object's mesh, and the same triangles as plain points for the water.</summary>
+        private sealed class Cached
+        {
+            public Mesh? Mesh;
+            public V3[] Triangles = Array.Empty<V3>();
+            public bool Closed;
+        }
+
+        private sealed class Solid
+        {
+            public Mesh Mesh = null!;
+            public BoundingBox Box;
+            public bool Hazard, Movable;
+        }
+
+        private static Cached Cache(GeometryBase geometry)
+        {
+            var cached = new Cached { Mesh = ToMesh(geometry) };
+            if (cached.Mesh is Mesh mesh)
+            {
+                var triangles = new V3[mesh.Faces.Count * 3];
+                for (int f = 0; f < mesh.Faces.Count; f++)
+                {
+                    MeshFace face = mesh.Faces[f];
+                    triangles[f * 3] = V(mesh.Vertices.Point3dAt(face.A));
+                    triangles[f * 3 + 1] = V(mesh.Vertices.Point3dAt(face.B));
+                    triangles[f * 3 + 2] = V(mesh.Vertices.Point3dAt(face.C));
+                }
+                cached.Triangles = triangles;
+                cached.Closed = mesh.IsClosed;
+            }
+            return cached;
+        }
 
         /// <summary>Reads the model again: which objects are sources, goals, hazards and solids.</summary>
         private static void Rebuild()
@@ -277,10 +271,12 @@ namespace RhinoGotchi.Water
                 return;
 
             var colliders = new List<WaterCollider>();
+            var solids = new List<Solid>();
             var goals = new List<WaterGoal>();
+            var goalBoxes = new List<BoundingBox>();
+            var sources = new Dictionary<Guid, WaterSource>();
             var seen = new HashSet<uint>();
             BoundingBox scene = BoundingBox.Empty;
-            Sources.Clear();
 
             var settings = new ObjectEnumeratorSettings
             {
@@ -299,57 +295,78 @@ namespace RhinoGotchi.Water
 
                 if (tag == SourceTag)
                 {
-                    if (ReadSource(obj) is Source source)
+                    if (ReadSource(obj, out Point3d at, out Vector3d jet))
                     {
-                        Sources.Add(source);
-                        scene.Union(source.Position);
+                        // Keep the source it was, so the stream doesn't hiccup when the model changes.
+                        if (!SourceById.TryGetValue(obj.Id, out WaterSource? source))
+                            source = new WaterSource();
+                        source.At = V(at);
+                        source.Jet = new V3(jet.X, jet.Y, jet.Z);
+                        sources[obj.Id] = source;
+                        scene.Union(at);
                     }
                     continue;
                 }
 
                 uint serial = obj.RuntimeSerialNumber;
                 seen.Add(serial);
-                if (!MeshCache.TryGetValue(serial, out Mesh? mesh))
-                    MeshCache[serial] = mesh = ToMesh(obj.Geometry);
-                if (mesh == null)
+                if (!MeshCache.TryGetValue(serial, out Cached? cached))
+                    MeshCache[serial] = cached = Cache(obj.Geometry);
+                if (cached.Mesh == null)
                     continue;
 
-                scene.Union(mesh.GetBoundingBox(false));
+                BoundingBox box = cached.Mesh.GetBoundingBox(false);
+                scene.Union(box);
                 if (tag == GoalTag)
-                    goals.Add(new WaterGoal(mesh));
+                {
+                    goals.Add(new WaterGoal(cached.Triangles, cached.Closed));
+                    goalBoxes.Add(box);
+                }
                 else
-                    colliders.Add(new WaterCollider(mesh, tag == HazardTag,
-                        movable: !obj.IsLocked && obj.Attributes.GetUserString(WaterGame.FixedKey) != "1"));
+                {
+                    bool hazard = tag == HazardTag;
+                    bool movable = !obj.IsLocked && obj.Attributes.GetUserString(WaterGame.FixedKey) != "1";
+                    colliders.Add(new WaterCollider(cached.Triangles, hazard, movable, cached.Closed));
+                    solids.Add(new Solid { Mesh = cached.Mesh, Box = box, Hazard = hazard, Movable = movable });
+                }
             }
 
             foreach (uint serial in MeshCache.Keys.Where(k => !seen.Contains(k)).ToList())
                 MeshCache.Remove(serial);
 
-            Sim.Colliders = colliders;
-            Sim.Goals = goals;
-            _pieceOnHazard = FindPieceOnHazard(colliders);
+            SourceById.Clear();
+            Sim.Sources.Clear();
+            foreach (KeyValuePair<Guid, WaterSource> pair in sources)
+            {
+                SourceById[pair.Key] = pair.Value;
+                Sim.Sources.Add(pair.Value);
+            }
+            _pieceOnHazard = FindPieceOnHazard(solids);
 
-            // Water that falls well clear of the scene is gone.
+            // Water that falls clear of the scene is gone.
             _scene = scene;
-            BoundingBox bounds = scene.IsValid ? scene : new BoundingBox(new Point3d(-10, -10, -10), new Point3d(10, 10, 10));
-            bounds.Inflate(Math.Max(bounds.Diagonal.Length * 0.5, Sim.Radius * 40));
-            Sim.Bounds = bounds;
-            Conduit.Bounds = bounds;
-            Conduit.SourcePoints = Sources.Select(s => s.Position).ToArray();
-            Conduit.GoalBoxes = goals.Select(g => g.Box).ToArray();
-            Conduit.HazardBoxes = colliders.Where(c => c.Hazard).Select(c => c.Box).ToArray();
+            if (!scene.IsValid)
+                scene = new BoundingBox(new Point3d(-10, -10, -10), new Point3d(10, 10, 10));
+            double side = Math.Max(Sim.Radius * 60, scene.Diagonal.Length * 0.12);
+            var bounds = new Box3(V(scene.Min) - new V3(side, side, side * 0.4), V(scene.Max) + new V3(side, side, side));
+            Sim.SetScene(colliders, goals, bounds);
+
+            Conduit.Bounds = new BoundingBox(P(bounds.Min), P(bounds.Max));
+            Conduit.SourcePoints = Sim.Sources.Select(source => P(source.At)).ToArray();
+            Conduit.GoalBoxes = goalBoxes.ToArray();
+            Conduit.HazardBoxes = solids.Where(c => c.Hazard).Select(c => c.Box).ToArray();
             Conduit.Radius = Sim.Radius;
             Conduit.SetProgress(Progress, Reached);
         }
 
         /// <summary>Where a piece the player can move cuts into a hazard, if one does.</summary>
-        private static Point3d? FindPieceOnHazard(List<WaterCollider> colliders)
+        private static Point3d? FindPieceOnHazard(List<Solid> colliders)
         {
-            foreach (WaterCollider hazard in colliders)
+            foreach (Solid hazard in colliders)
             {
                 if (!hazard.Hazard)
                     continue;
-                foreach (WaterCollider piece in colliders)
+                foreach (Solid piece in colliders)
                 {
                     if (piece.Hazard || !piece.Movable)
                         continue;
@@ -380,23 +397,28 @@ namespace RhinoGotchi.Water
         {
             double size = DropSize;
             if (size <= 0)
-                size = _scene.IsValid && _scene.Diagonal.Length > 1e-6 ? _scene.Diagonal.Length / 120 : 0.25;
+                size = _scene.IsValid && _scene.Diagonal.Length > 1e-6 ? _scene.Diagonal.Length / 400 : 0.07;
             Sim.Radius = size;
             Conduit.Radius = size;
             _dirty = true; // the spill box depends on the drop size
         }
 
-        private static Source? ReadSource(RhinoObject obj)
+        private static bool ReadSource(RhinoObject obj, out Point3d at, out Vector3d jet)
         {
+            at = Point3d.Origin;
+            jet = Vector3d.Zero;
             switch (obj.Geometry)
             {
                 case Rhino.Geometry.Point point:
-                    return new Source(obj.Id, point.Location, Vector3d.Zero);
+                    at = point.Location;
+                    return true;
                 case Curve curve:
                     // An arrow: water leaves its start, toward its end. A longer arrow is a stronger jet.
-                    return new Source(obj.Id, curve.PointAtStart, (curve.PointAtEnd - curve.PointAtStart) * 3);
+                    at = curve.PointAtStart;
+                    jet = (curve.PointAtEnd - curve.PointAtStart) * 3;
+                    return true;
                 default:
-                    return null;
+                    return false;
             }
         }
 
@@ -514,7 +536,14 @@ namespace RhinoGotchi.Water
                 if (!box.IsValid || !TryFindMotion(before.Geometry, after.Geometry, out Transform motion) || motion.IsIdentity)
                     return;
                 box.Inflate(Sim.Radius * 2);
-                Sim.Carry(box, motion);
+                var xf = new Xf
+                {
+                    M00 = motion.M00, M01 = motion.M01, M02 = motion.M02,
+                    M10 = motion.M10, M11 = motion.M11, M12 = motion.M12,
+                    M20 = motion.M20, M21 = motion.M21, M22 = motion.M22,
+                    T = new V3(motion.M03, motion.M13, motion.M23),
+                };
+                Sim.Carry(new Box3(V(box.Min), V(box.Max)), xf);
             }
             catch (Exception)
             {
@@ -593,24 +622,6 @@ namespace RhinoGotchi.Water
             }
         }
 
-        // ---------------- pieces ----------------
-
-        private sealed class Source
-        {
-            public Source(Guid id, Point3d position, Vector3d velocity)
-            {
-                Id = id;
-                Position = position;
-                Velocity = velocity;
-            }
-
-            public Guid Id { get; }
-
-            public Point3d Position { get; }
-
-            public Vector3d Velocity { get; }
-        }
-
         /// <summary>
         /// Draws the water (calm drops dark, fast drops pale, each with a small highlight), the sources,
         /// the goals filling up, a sparkle for every drop that arrives, the hazards, and the progress bar.
@@ -675,12 +686,13 @@ namespace RhinoGotchi.Water
             }
 
             /// <summary>A drop arrived: a sparkle where it landed and a pulse on the goal and the bar.</summary>
-            public void Pop(Point3d where)
+            public void Pop(Point3d where, bool hot)
             {
-                _pulse = 1;
+                if (!hot)
+                    _pulse = 1;
                 if (_pops.Count >= MaxPops)
                     _pops.RemoveAt(0);
-                _pops.Add(new Sparkle { Where = where });
+                _pops.Add(new Sparkle { Where = where, Hot = hot });
             }
 
             /// <summary>The goal amount was reached: a shower of big sparkles all over the goals.</summary>
@@ -769,10 +781,11 @@ namespace RhinoGotchi.Water
                     double scale = pop.Big ? 2.2 : 1;
                     Point3d at = pop.Where + up * (Radius * scale * (1 + 5 * t)) + toCamera * Radius;
                     int size = (int)Math.Round(pixels * scale * 1.5 * (1 - t)) + 2;
-                    d.DrawPoint(at, PointStyle.RoundSimple, size, Gold);
+                    Color spark = pop.Hot ? HazardColor : Gold;
+                    d.DrawPoint(at, PointStyle.RoundSimple, size, spark);
                     d.DrawPoint(at + toCamera * (Radius * 0.5), PointStyle.RoundSimple, Math.Max(1, size / 2), Color.White);
                     var ring = new Circle(new Plane(pop.Where + toCamera * Radius, right, up), Radius * scale * (1.5 + 5 * t));
-                    d.DrawCircle(ring, Blend(Gold, Color.White, t), t < 0.5 ? 2 : 1);
+                    d.DrawCircle(ring, Blend(spark, Color.White, t), t < 0.5 ? 2 : 1);
                 }
 
                 // Where the level was lost.
@@ -816,6 +829,7 @@ namespace RhinoGotchi.Water
                 public Point3d Where;
                 public double Age;
                 public bool Big;
+                public bool Hot;
             }
         }
     }

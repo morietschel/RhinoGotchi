@@ -97,10 +97,10 @@ namespace RhinoGotchi.Water
                 RemoveLevelObjects(doc);
                 if (level != null && !LoadScene(doc, level.Number))
                 {
-                    var builder = new LevelBuilder(level.Depth);
+                    var builder = new LevelBuilder();
                     level.Build(builder);
                     foreach (LevelPiece piece in builder.Pieces)
-                        doc.Objects.Add(piece.Geometry, Attributes(doc, piece.Role, !piece.Movable, piece.Name, piece.Look));
+                        AddPiece(doc, piece);
                 }
             }
             finally
@@ -119,14 +119,10 @@ namespace RhinoGotchi.Water
                 WaterLab.Rate = level.Rate;
                 WaterLab.Target = level.Target;
                 WaterLab.DropSize = level.DropSize;
-                WaterLab.Depth = level.Depth;
                 WaterLab.Flat = level.Flat;
             }
             else
-            {
-                WaterLab.Depth = 0;
                 WaterLab.Flat = false;
-            }
 
             SetMode(doc, editing: level == null);
             ModelAidSettings.AutoGumballEnabled = true; // the Gumball is the whole game
@@ -215,6 +211,74 @@ namespace RhinoGotchi.Water
                 : PieceRole.Solid;
         }
 
+        // ---------------- pieces ----------------
+
+        private static Point3d P(V3 v) => new Point3d(v.X, v.Y, v.Z);
+
+        private static Vector3d D(V3 v) => new Vector3d(v.X, v.Y, v.Z);
+
+        /// <summary>Puts one piece of a built-in level in the model: a point or arrow, a curve, or its boxes joined into one solid.</summary>
+        private static void AddPiece(RhinoDoc doc, LevelPiece piece)
+        {
+            ObjectAttributes attributes = Attributes(doc, piece.Role, !piece.Movable, piece.Name, piece.Look);
+            if (piece.Role == PieceRole.Source)
+            {
+                if (piece.Jet.Length2 > 1e-12)
+                {
+                    attributes.ObjectDecoration = ObjectDecoration.EndArrowhead;
+                    doc.Objects.AddLine(P(piece.At), P(piece.At + piece.Jet / 3), attributes);
+                }
+                else
+                    doc.Objects.AddPoint(P(piece.At), attributes);
+                return;
+            }
+            if (piece.Curve.Count > 1)
+                doc.Objects.AddCurve(new PolylineCurve(piece.Curve.Select(P)), attributes);
+            if (piece.Slabs.Count == 0)
+                return;
+
+            var boxes = new List<Brep>();
+            foreach (Slab slab in piece.Slabs)
+            {
+                var plane = new Plane(P(slab.O), D(slab.U), D(slab.V));
+                double w = D(slab.W) * plane.ZAxis;
+                Brep? brep = new Box(plane, new Interval(0, slab.U.Length), new Interval(0, slab.V.Length),
+                    new Interval(Math.Min(0, w), Math.Max(0, w))).ToBrep();
+                if (brep != null)
+                    boxes.Add(brep);
+            }
+            if (boxes.Count == 0)
+                return;
+
+            Brep? solid = boxes[0];
+            if (boxes.Count > 1)
+            {
+                Brep[]? joined = null;
+                try
+                {
+                    joined = Brep.CreateBooleanUnion(boxes, doc.ModelAbsoluteTolerance);
+                }
+                catch (Exception)
+                {
+                    // fall through to the mesh
+                }
+                solid = joined != null && joined.Length == 1 ? joined[0] : null;
+                solid?.MergeCoplanarFaces(doc.ModelAbsoluteTolerance);
+            }
+            if (solid != null)
+            {
+                doc.Objects.AddBrep(solid, attributes);
+                return;
+            }
+
+            // The boxes would not join: one mesh moves as one piece just as well.
+            var mesh = new Mesh();
+            foreach (Brep box in boxes)
+                foreach (Mesh part in Mesh.CreateFromBrep(box, MeshingParameters.FastRenderMesh) ?? Array.Empty<Mesh>())
+                    mesh.Append(part);
+            doc.Objects.AddMesh(mesh, attributes);
+        }
+
         // ---------------- looks ----------------
 
         /// <summary>The attributes of a level piece: its tags, its colour (orange moves, gray is fixed, red is a hazard) and its name.</summary>
@@ -281,7 +345,7 @@ namespace RhinoGotchi.Water
             if (!flat && view.ActiveViewport.IsPerspectiveProjection)
             {
                 Point3d target = box.Center;
-                view.ActiveViewport.SetCameraLocations(target, target + new Vector3d(-0.22, -1, 0.22) * box.Diagonal.Length * 2);
+                view.ActiveViewport.SetCameraLocations(target, target + new Vector3d(-0.45, -1, 0.5) * box.Diagonal.Length * 2);
             }
             view.ActiveViewport.ZoomBoundingBox(box);
         }
@@ -569,7 +633,6 @@ namespace RhinoGotchi.Water
                 "target=" + level.Target.ToString(CultureInfo.InvariantCulture),
                 "rate=" + level.Rate.ToString(CultureInfo.InvariantCulture),
                 "dropsize=" + level.DropSize.ToString(CultureInfo.InvariantCulture),
-                "depth=" + level.Depth.ToString(CultureInfo.InvariantCulture),
                 "flat=" + (level.Flat ? "true" : "false"),
             });
             RhinoApp.WriteLine("RhinoGotchi: level {0} saved to {1} (edit the .txt next to it to change the title and text).", level.Number, path);
@@ -637,7 +700,6 @@ namespace RhinoGotchi.Water
                         case "target": if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out int target)) level.Target = target; break;
                         case "rate": if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out int rate)) level.Rate = rate; break;
                         case "dropsize": if (double.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out double size)) level.DropSize = size; break;
-                        case "depth": if (double.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out double depth)) level.Depth = depth; break;
                         case "flat": level.Flat = value.Equals("true", StringComparison.OrdinalIgnoreCase); break;
                     }
                 }
