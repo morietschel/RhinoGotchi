@@ -3,6 +3,7 @@ using Eto.Drawing;
 using Eto.Forms;
 using RhinoGotchi.Core;
 
+
 namespace RhinoGotchi.UI
 {
     /// <summary>
