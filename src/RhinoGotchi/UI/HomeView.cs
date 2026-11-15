@@ -149,6 +149,13 @@ namespace RhinoGotchi.UI
             _tabContent.Items.Add(new ListRow("Water Run", "12 levels · deliver the water with the Gumball", Glyph.Arrows, 1,
                 () => _host.Navigate(new WaterLabView(_host))));
 
+            _tabContent.Items.Add(new SectionLabel("SKILLS", "learn the mouse"));
+            _tabContent.Items.Add(new ListRow("Drone School",
+                $"Learn to zoom, pan, orbit and fly · {Drone.DroneProgress.DoneCount} of {Drone.SchoolLevels.All.Length} lessons",
+                Glyph.Mouse, 5, () => _host.Navigate(new DroneSchoolView(_host)))
+            {
+                Right = "›",
+            });
             _tabContent.Items.Add(new SectionLabel("YOUR PROGRESS"));
             var achievements = new ListRow("Trophies, leaderboard & stats",
                 $"{Achievements.UnlockedCount(GotchiState.Game.Stats)} of {Achievements.All.Count} unlocked", Glyph.Star, 2, _host.ShowTrophies)

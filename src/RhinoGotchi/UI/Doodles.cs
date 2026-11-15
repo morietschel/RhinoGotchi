@@ -5,7 +5,7 @@ namespace RhinoGotchi.UI
 {
     internal enum MascotMood { Happy, Excited, Thinking, Sleepy }
 
-    internal enum Glyph { Blocks, Eye, Curve, Cube, Arrows, Chain, Bulb, Flame, Star, Gamepad, Book, Chart, Trophy, Ban, Check, Lock }
+    internal enum Glyph { Blocks, Eye, Curve, Cube, Arrows, Chain, Bulb, Flame, Star, Gamepad, Book, Chart, Trophy, Ban, Check, Lock, Mouse }
 
     /// <summary>
     /// Little hand-drawn pictures for the panel: the mascot (drawn by Mascot) and simple white glyphs for badges. Everything is drawn in a 100x100 box.
@@ -144,6 +144,12 @@ namespace RhinoGotchi.UI
                     g.FillPath(ink, left);
                     g.FillPath(ink, right);
                     g.DrawLine(new Pen(Color.FromArgb(0, 0, 0, 60), 3), 50, 30, 50, 78);
+                    break;
+                case Glyph.Mouse: // a computer mouse with its buttons and wheel
+                    g.DrawPath(pen, GraphicsPath.GetRoundRect(new RectangleF(30, 16, 40, 66), 20));
+                    g.DrawLine(pen, 33, 44, 67, 44);
+                    g.DrawLine(pen, 50, 18, 50, 44);
+                    g.FillPath(ink, GraphicsPath.GetRoundRect(new RectangleF(46, 24, 8, 13), 4));
                     break;
                 case Glyph.Ban: // circle with a slash
                     g.DrawEllipse(pen, 22, 20, 56, 56);

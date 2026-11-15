@@ -145,6 +145,7 @@ namespace RhinoGotchi.Core
                     s.DeleteItem(game + "." + key);
             foreach (var challenge in Content.BlockedChallenges.All)
                 s.DeleteItem(WaysKey(challenge.Id));
+            Drone.DroneProgress.Reset();
             RhinoGotchiPlugin.Instance?.SaveSettings();
         }
     }
