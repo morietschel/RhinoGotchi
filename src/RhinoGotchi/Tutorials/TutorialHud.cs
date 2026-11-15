@@ -111,7 +111,7 @@ namespace RhinoGotchi.Tutorials
             if (checkShown)
             {
                 int cw = (int)(240 * s);
-                var rows = result.Checks.Select(c => new CheckRow(c.Label, c.Pass, "")).ToList();
+                var rows = result!.Checks.Select(c => new CheckRow(c.Label, c.Pass, "")).ToList();
                 double score = result.Score;
                 string ckey = "tcheck:" + string.Join("|", rows.Select(r => r.Label + r.Pass)) + $":{score:0.000}:{solved}:{s}";
                 var card = Hud.Get(ckey, cw + (int)(8 * s), (int)(400 * s), g =>

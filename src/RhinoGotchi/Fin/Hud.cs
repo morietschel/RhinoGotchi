@@ -1,3 +1,4 @@
+#pragma warning disable CA1416 // System.Drawing.Bitmap: Rhino provides it on every platform it runs on
 using System;
 using System.Collections.Generic;
 using System.IO;

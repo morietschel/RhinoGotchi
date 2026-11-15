@@ -94,6 +94,19 @@ was used.
   their own, which is also editable under
   **Settings** on the home page and stored in the plugin settings.
 
+## Games tab
+
+Every game is a row on the **Games** tab: the four dailies (Build Order, What Made This?, Deep Cut,
+Blocked!), then the level games with a tag that counts cleared levels.
+
+| Game | What it is | Code |
+| --- | --- | --- |
+| Water Run | Gumball levels, see below | `Water/` |
+| Drone School | Mouse lessons: zoom, pan, orbit, fly | `Drone/` |
+| Klosterneuburg | Twelve command tutorials that add up to one building; a chapter of the Learning Campaign | `Tutorials/` |
+| Fin Facade | Six levels that build a box wrapped in fins (was the separate FinGotchi plugin) | `FinFacade/`, shared look in `Fin/` |
+| Rhino on the Street | A tutorial in its own floating viewport; also the `RhinoOnTheStreet` command | `Tutorials/RhinoOnTheStreet/` |
+
 ## Water Run (Gumball levels)
 
 Thirteen levels that teach the Gumball: water pours from a fountain and has to reach the goal, and

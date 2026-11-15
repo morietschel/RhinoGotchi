@@ -133,6 +133,27 @@ namespace RhinoGotchi.UI
                 TagDone = learned >= lessons,
             });
 
+            // Klosterneuburg: twelve command tutorials that add up to one building (a chapter of the campaign).
+            const string chapter = "KLOSTERNEUBURG";
+            int cards = LessonCatalog.All.Count(l => l.Chapter == chapter), built = GotchiState.Game.Progress.ChapterDone(chapter);
+            _tabContent.Items.Add(new ListRow("Klosterneuburg", "", Glyph.Blocks, 3, _host.ShowLessons)
+            {
+                TagText = built >= cards ? "DONE" : built == 0 ? "PLAY" : $"{built}/{cards}",
+                TagDone = built >= cards && cards > 0,
+            });
+
+            // Fin Facade: six levels, a box wrapped in fins.
+            _tabContent.Items.Add(new ListRow("Fin Facade", "", Glyph.Chart, 4, () => _host.Navigate(new FinFacadeView(_host)))
+            {
+                TagText = "PLAY",
+            });
+
+            // Rhino on the Street plays in its own floating viewport, so it is started as a command.
+            _tabContent.Items.Add(new ListRow("Rhino on the Street", "", Glyph.Curve, 0, () => RhinoActions.Run(RhinoOnTheStreetCommand.Name))
+            {
+                TagText = "PLAY",
+            });
+
             // Trophies, the leaderboard and stats have their own tab at the bottom.
             _tabContent.Items.Add(Theme.Grid(2,
                 Theme.Button("Settings", () => _host.Navigate(new SettingsView(_host))),
