@@ -40,6 +40,14 @@ namespace RhinoGotchi.Lessons
         public int BestStreak;
         public int DailyWins;
         public int TotalXp;
+
+        // Daily-game wins, per game (practice rounds don't count).
+        public int OrderWins;
+        public int ShapeWins;
+        public int DeepWins;
+        public int BlockedWins;
+        /// <summary>1 once all four dailies were won on the same day.</summary>
+        public int AllDailiesOneDay;
     }
 
     public sealed class Achievement
@@ -89,20 +97,18 @@ namespace RhinoGotchi.Lessons
 
     public static class Achievements
     {
-        private static int Zero(AchievementStats s) => 0;
-
-        /// <summary>The canvas achievements; each unlocks one of the nine hats.</summary>
+        /// <summary>Achievements that unlock the nine hats, from lessons and the four daily games.</summary>
         public static readonly IReadOnlyList<Achievement> Hats = new[]
         {
-            new Achievement("first", "First Steps", "Earn your first command card", 1, Zero, Hat.HardHat, rewardName: "Hard hat", comingWith: "Every Single Command"),
+            new Achievement("first", "First Steps", "Finish your first lesson", 1, s => s.LevelsDone, Hat.HardHat, rewardName: "Hard hat"),
             new Achievement("par", "Par Excellence", "Win a daily puzzle", 1, s => s.DailyWins, Hat.Beret, rewardName: "Beret"),
             new Achievement("streak", "Hot Streak", "3-day daily streak", 3, s => s.BestStreak, Hat.Flame, rewardName: "Flame"),
-            new Achievement("oml", "One and Done", "5 One More Line in a row", 5, Zero, Hat.Cowboy, rewardName: "Cowboy", comingWith: "One More Line"),
-            new Achievement("undo", "No Take-Backs", "Solve without Undo", 1, Zero, Hat.Wizard, rewardName: "Wizard", comingWith: "Missing Command"),
-            new Achievement("scholar", "Scholar", "Finish one command tab", 1, Zero, Hat.Grad, rewardName: "Grad cap", comingWith: "Every Single Command"),
-            new Achievement("topped", "Topped Out", "Finish a campaign tower", 1, Zero, Hat.Tree, rewardName: "Tree", comingWith: "Skyline"),
-            new Achievement("skyline", "Skyline", "Finish all 10 towers", 10, Zero, Hat.Crown, rewardName: "Crown", comingWith: "Skyline"),
-            new Achievement("quiz", "Know-It-All", "Score 4/4 on a quiz", 4, Zero, Hat.Propeller, rewardName: "Propeller", comingWith: "Quiz"),
+            new Achievement("order", "Order Up", "Win Build Order 5 times", 5, s => s.OrderWins, Hat.Cowboy, rewardName: "Cowboy"),
+            new Achievement("blocked", "Workaround", "Win Blocked!", 1, s => s.BlockedWins, Hat.Wizard, rewardName: "Wizard"),
+            new Achievement("scholar", "Scholar", "Finish all 10 levels", 10, s => s.LevelsDone, Hat.Grad, rewardName: "Grad cap"),
+            new Achievement("deep", "Deep Roots", "Win Deep Cut", 1, s => s.DeepWins, Hat.Tree, rewardName: "Tree"),
+            new Achievement("sweep", "Clean Sweep", "Win all four dailies on one day", 1, s => s.AllDailiesOneDay, Hat.Crown, rewardName: "Crown"),
+            new Achievement("shape", "Know-It-All", "Win What Made This? 5 times", 5, s => s.ShapeWins, Hat.Propeller, rewardName: "Propeller"),
         };
 
         /// <summary>Learning Campaign achievements; each unlocks a piece of clothing.</summary>

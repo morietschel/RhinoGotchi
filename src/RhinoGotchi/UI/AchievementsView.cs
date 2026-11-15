@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Eto.Drawing;
 using Eto.Forms;
+using RhinoGotchi.Core;
 using RhinoGotchi.Lessons;
 
 namespace RhinoGotchi.UI
@@ -27,8 +28,11 @@ namespace RhinoGotchi.UI
         private Rectangle _petArea;
         private float _ox;
 
+        private readonly RhinoGotchiPanel _host;
+
         public AchievementsView(RhinoGotchiPanel host)
         {
+            _host = host;
             Height = 900;
             _timer.Elapsed += (s, e) => { if (_petArea.Width > 0) Invalidate(_petArea); else Invalidate(); };
             LoadComplete += (s, e) => _timer.Start();
@@ -137,6 +141,8 @@ namespace RhinoGotchi.UI
             g.DrawText(Ui.Regular(10), p.SubtleText, Pad, y, Ui.Ellipsize(Ui.Regular(10), $"{unlocked} of {Achievements.All.Count} unlocked · hats and clothes", w - 2 * Pad));
             y += Ui.Regular(10).LineHeight + 14;
 
+            y = LeaderboardRow(g, p, w, y) + 16;
+
             // Wearing card
             float cardH = 118;
             var card = new RectangleF(Pad, y, w - 2 * Pad, cardH);
@@ -200,6 +206,13 @@ namespace RhinoGotchi.UI
             y += 20;
             foreach (var a in Achievements.All)
                 y = AchievementRow(g, p, w, y, a, stats) + 8;
+
+            // My stats (daily games only; practice rounds don't count)
+            y += 10;
+            Ui.Eyebrow(g, "MY STATS · DAILY GAMES", Pad, y, p.SubtleText);
+            y += 20;
+            foreach (var daily in Games.All)
+                y = StatsRow(g, p, w, y, daily) + 8;
             return y + Pad;
         }
 
@@ -242,6 +255,29 @@ namespace RhinoGotchi.UI
             _hits.Add((rect, id, () => Wear(hat)));
         }
 
+        /// <summary>The leaderboard lives on the Trophies page: one row that opens the boards.</summary>
+        private float LeaderboardRow(Graphics g, Palette p, float w, float y)
+        {
+            const string id = "leaderboard";
+            var rect = new RectangleF(Pad, y, w - 2 * Pad, 64);
+            bool hover = _hover == id, pressed = _pressed == id;
+            Ui.Chunky(g, rect, 14, hover ? p.TileHover : p.TileFace, p.Ink, lip: 4, lift: pressed ? 3 : 0);
+            float lift = pressed ? 3 : 0;
+            var tile = new RectangleF(rect.X + 12, rect.Y + 10 + lift, 40, 40);
+            g.FillPath(p.Ink, GraphicsPath.GetRoundRect(tile, 12));
+            Ui.Trophy(g, new PointF(tile.X + 20, tile.Y + 20), 1f, p.OnInk);
+
+            string right = $"{Leaderboard.Total:N0} pts";
+            Font rf = Ui.Bold(10);
+            float rw = rf.MeasureString(right).Width;
+            g.DrawText(rf, p.AccentText, rect.Right - 14 - rw, rect.Y + 22 + lift, right);
+            float tx = tile.Right + 12, tw = rect.Right - 14 - rw - 10 - tx;
+            g.DrawText(Ui.Bold(11.5f), p.Text, tx, rect.Y + 14 + lift, Ui.Ellipsize(Ui.Bold(11.5f), Leaderboard.HasProfile ? "Leaderboard" : "Join the leaderboard", tw));
+            g.DrawText(Ui.Regular(9.5f), p.SubtleText, tx, rect.Y + 32 + lift, Ui.Ellipsize(Ui.Regular(9.5f), "Global and per-game boards", tw));
+            _hits.Add((rect, id, () => _host.Navigate(new LeaderboardView(_host))));
+            return rect.Bottom;
+        }
+
         private void ClothesTile(Graphics g, Palette p, RectangleF rect, Clothes piece, AchievementStats stats)
         {
             string id = "clothes:" + piece;
@@ -272,6 +308,24 @@ namespace RhinoGotchi.UI
             SizeF s = f.MeasureString(label);
             g.DrawText(f, locked ? p.DisabledText : on ? p.AccentText : p.Text, rect.X + (rect.Width - s.Width) / 2, rect.Bottom - 4 - 8 - s.Height + lift, label);
             _hits.Add((rect, id, () => ToggleClothes(piece)));
+        }
+
+        private static float StatsRow(Graphics g, Palette p, float w, float y, string game)
+        {
+            var s = Core.Progress.Get(game);
+            int winRate = s.Played == 0 ? 0 : (int)Math.Round(100.0 * s.Wins / s.Played);
+            bool last = s.LastResult.Length > 0;
+            float rowH = last ? 66 : 50;
+            var rect = new RectangleF(Pad, y, w - 2 * Pad, rowH);
+            Ui.Chunky(g, rect, 14, p.TileFace, p.Border, lip: 3);
+            float tx = rect.X + 14, tw = rect.Width - 28;
+            g.DrawText(Ui.Bold(11), p.Text, tx, rect.Y + 9, Ui.Ellipsize(Ui.Bold(11), Games.Title(game), tw));
+            g.DrawText(Ui.Regular(9.5f), p.SubtleText, tx, rect.Y + 27,
+                Ui.Ellipsize(Ui.Regular(9.5f), $"Played {s.Played} · Won {winRate}% · Streak {s.CurrentStreak} · Best {s.BestStreak}", tw));
+            if (last)
+                g.DrawText(Ui.Regular(9.5f), p.SubtleText, tx, rect.Y + 43,
+                    Ui.Ellipsize(Ui.Regular(9.5f), $"Last ({s.LastPlayedDay}): {s.LastResult}", tw));
+            return y + rowH;
         }
 
         private static float AchievementRow(Graphics g, Palette p, float w, float y, Achievement a, AchievementStats stats)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Eto.Forms;
 using RhinoGotchi.Lessons;
@@ -30,7 +31,33 @@ namespace RhinoGotchi.UI
         public static AchievementStats StatsFor(Lessons.Progress progress)
         {
             var games = Core.Games.All.Select(Core.Progress.Get).ToList();
-            return progress.Stats(games.Sum(s => s.Wins), games.Count == 0 ? 0 : games.Max(s => s.BestStreak));
+            var stats = progress.Stats(games.Sum(s => s.Wins), games.Count == 0 ? 0 : games.Max(s => s.BestStreak));
+            stats.OrderWins = Core.Progress.Get(Core.Games.Order).Wins;
+            stats.ShapeWins = Core.Progress.Get(Core.Games.Shape).Wins;
+            stats.DeepWins = Core.Progress.Get(Core.Games.Deep).Wins;
+            stats.BlockedWins = Core.Progress.Get(Core.Games.Blocked).Wins;
+            stats.AllDailiesOneDay = AllDailiesWonOnOneDay(games) ? 1 : 0;
+            return stats;
+        }
+
+        private const string AllDailiesKey = "ach.allDailiesOneDay";
+
+        /// <summary>
+        /// True once every daily was won on the same day. Remembered in the plugin settings,
+        /// since each game only keeps its last win day.
+        /// </summary>
+        private static bool AllDailiesWonOnOneDay(List<Core.GameStats> games)
+        {
+            var settings = RhinoGotchiPlugin.Instance?.Settings;
+            if (settings?.GetBool(AllDailiesKey, false) == true)
+                return true;
+            bool today = games.Count > 0 && games.All(g => g.LastWinDay == Core.Daily.TodayKey);
+            if (today && settings != null)
+            {
+                settings.SetBool(AllDailiesKey, true);
+                RhinoGotchiPlugin.Instance?.SaveSettings();
+            }
+            return today;
         }
 
         /// <summary>Current streak across lessons and daily games.</summary>

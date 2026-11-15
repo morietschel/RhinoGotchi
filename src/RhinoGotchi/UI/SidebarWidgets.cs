@@ -10,7 +10,6 @@ namespace RhinoGotchi.UI
     {
         Home,
         Trophies,
-        Stats,
     }
 
     /// <summary>Small drawing helpers shared by the sidebar widgets.</summary>
@@ -481,14 +480,13 @@ namespace RhinoGotchi.UI
         }
     }
 
-    /// <summary>Bottom navigation: Home · Trophies · Stats.</summary>
+    /// <summary>Bottom navigation: Home · Trophies.</summary>
     internal sealed class NavBar : Drawable
     {
         private static readonly (NavTab Tab, string Label)[] Items =
         {
             (NavTab.Home, "Home"),
             (NavTab.Trophies, "Trophies"),
-            (NavTab.Stats, "Stats"),
         };
 
         private int _hover = -1;
@@ -538,8 +536,7 @@ namespace RhinoGotchi.UI
                 switch (tab)
                 {
                     case NavTab.Home: Ui.House(g, c, 0.95f, ink); break;
-                    case NavTab.Trophies: Ui.Trophy(g, c, 0.95f, ink); break;
-                    default: Ui.Bars(g, c, 0.95f, ink); break;
+                    default: Ui.Trophy(g, c, 0.95f, ink); break;
                 }
                 Font f = on ? Ui.Bold(9) : Ui.Regular(9);
                 SizeF s = f.MeasureString(label);

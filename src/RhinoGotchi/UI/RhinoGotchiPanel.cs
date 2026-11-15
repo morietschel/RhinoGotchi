@@ -52,7 +52,6 @@ namespace RhinoGotchi.UI
                 switch (tab)
                 {
                     case NavTab.Trophies: ShowTrophies(); break;
-                    case NavTab.Stats: Navigate(new StatsView(this)); break;
                     default: ShowHome(); break;
                 }
             };

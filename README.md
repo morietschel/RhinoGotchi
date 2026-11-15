@@ -139,16 +139,17 @@ panel is resized; on a wide panel the lessons keep a centered column.
   (grass, leaves, apple, banana...) when you tap it or finish a lesson.
 - **Home:** Gotchi's card (it breathes and naps when you haven't played today), with chips
   for your streak, unlocks and questions solved. Below it, two tabs: **Learning** (Learning
-  Campaign, Command Library, Recipes, tip of the day) and **Games** (the daily puzzles).
-- **Coming soon:** modes from the canvas that aren't built yet have a row with a **SOON** tag
-  and a page explaining how they'll play: Every Single Command, Quiz, Missing Command,
-  One More Line, Skyline, Office Tower and Level Builder (`Content/UpcomingGames.cs`).
-- **Bottom bar:** Home · Trophies · Stats.
-- **Trophies:** the canvas's 9 achievements unlock the 9 hats (Hot Streak and Par Excellence
-  work today; the other 7 come with their games). Four Learning Campaign achievements unlock
+  Campaign, Command Library, tip of the day) and **Games** (the four daily puzzles).
+- **Bottom bar:** Home · Trophies.
+- **Trophies:** the leaderboard (global and per-game boards) at the top, then the hat and
+  clothes wardrobes, every achievement, and your daily-game stats at the bottom. Nine
+  achievements unlock the nine hats: First Steps (first lesson), Par Excellence (win a daily),
+  Hot Streak (3 days in a row), Scholar (all 10 levels), Order Up (5 Build Order wins),
+  Know-It-All (5 What Made This? wins), Deep Roots (win Deep Cut), Workaround (win Blocked!)
+  and Clean Sweep (all four dailies in one day). Four Learning Campaign achievements unlock
   clothes: gold chain (placement test), tracksuit (flawless lesson), bomber (5 levels) and
-  jeans (1,000 XP). Tap a hat or garment in the wardrobe to wear it; new unlocks also appear
-  on the lesson-complete screen with a **Wear it** button.
+  jeans (1,000 XP). Tap a hat or garment to wear it; new unlocks also appear on the
+  lesson-complete screen with a **Wear it** button.
 
 ## The Learning Campaign
 
