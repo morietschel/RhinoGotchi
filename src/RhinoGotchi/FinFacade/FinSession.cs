@@ -61,6 +61,7 @@ namespace GotchiFins
 
         private static bool? _savedOsnap;
         private static OsnapModes _savedOsnapModes;
+        private static bool _savedSnapToOccluded;
         private static (bool Enabled, bool ShadowOnly, bool AutoAltitude, double Altitude)? _savedGround;
         private static bool _toolbarShown;
 
@@ -1049,9 +1050,13 @@ namespace GotchiFins
             {
                 _savedOsnap = ModelAidSettings.Osnap;
                 _savedOsnapModes = ModelAidSettings.OsnapModes;
+                _savedSnapToOccluded = ModelAidSettings.SnapToOccluded;
             }
             ModelAidSettings.Osnap = true;
             ModelAidSettings.OsnapModes = _savedOsnapModes | OsnapModes.Point;
+            // The yellow points sit on the ground and inside the facade's grey ghost; with "snap to occluded"
+            // off Rhino treats them as hidden and won't snap to them.
+            ModelAidSettings.SnapToOccluded = true;
         }
 
         private static void RestoreSnapping()
@@ -1060,6 +1065,7 @@ namespace GotchiFins
                 return;
             ModelAidSettings.Osnap = _savedOsnap.Value;
             ModelAidSettings.OsnapModes = _savedOsnapModes;
+            ModelAidSettings.SnapToOccluded = _savedSnapToOccluded;
             _savedOsnap = null;
         }
 

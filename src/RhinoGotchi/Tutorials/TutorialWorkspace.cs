@@ -35,7 +35,7 @@ namespace RhinoGotchi.Tutorials
         private readonly ReferenceFingerprint _fingerprint;
         private int _previousLayer = -1;
         private bool _settingUp;
-        private (bool On, Rhino.ApplicationSettings.OsnapModes Modes)? _savedSnaps;
+        private (bool On, Rhino.ApplicationSettings.OsnapModes Modes, bool Occluded)? _savedSnaps;
 
         private TutorialWorkspace(RhinoDoc doc, Tutorial tutorial)
         {
@@ -231,7 +231,10 @@ namespace RhinoGotchi.Tutorials
         {
             try
             {
-                _savedSnaps = (Rhino.ApplicationSettings.ModelAidSettings.Osnap, Rhino.ApplicationSettings.ModelAidSettings.OsnapModes);
+                _savedSnaps = (Rhino.ApplicationSettings.ModelAidSettings.Osnap, Rhino.ApplicationSettings.ModelAidSettings.OsnapModes,
+                    Rhino.ApplicationSettings.ModelAidSettings.SnapToOccluded);
+                // Snap points can sit inside the building or under the ghosts: snap to them anyway.
+                Rhino.ApplicationSettings.ModelAidSettings.SnapToOccluded = true;
                 Rhino.ApplicationSettings.ModelAidSettings.Osnap = true;
                 Rhino.ApplicationSettings.ModelAidSettings.OsnapModes |=
                     Rhino.ApplicationSettings.OsnapModes.Point | Rhino.ApplicationSettings.OsnapModes.End;
@@ -250,6 +253,7 @@ namespace RhinoGotchi.Tutorials
             {
                 Rhino.ApplicationSettings.ModelAidSettings.OsnapModes = _savedSnaps.Value.Modes;
                 Rhino.ApplicationSettings.ModelAidSettings.Osnap = _savedSnaps.Value.On;
+                Rhino.ApplicationSettings.ModelAidSettings.SnapToOccluded = _savedSnaps.Value.Occluded;
             }
             catch (Exception ex)
             {
