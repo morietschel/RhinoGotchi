@@ -162,7 +162,7 @@ namespace RhinoGotchi.UI
     /// </summary>
     internal sealed class PetCard : Drawable
     {
-        private const float PetSize = 76;
+        private const float PetSize = 54; // kept small so the home page header stays slim
         private readonly UITimer _timer = new UITimer { Interval = 1 / 24.0 };
         private readonly DateTime _born = DateTime.Now;
         private DateTime _hopStart = DateTime.MinValue;
@@ -176,7 +176,7 @@ namespace RhinoGotchi.UI
 
         public PetCard()
         {
-            Height = 100;
+            Height = 72;
             _timer.Elapsed += (s, e) => Invalidate();
             LoadComplete += (s, e) => _timer.Start();
             UnLoad += (s, e) => _timer.Stop();
@@ -210,9 +210,9 @@ namespace RhinoGotchi.UI
         {
             var p = Palette.Current;
             float x = TextX, right = width - 14, w = right - x;
-            float y = 14;
+            float y = 9;
             if (w < 60)
-                return 100;
+                return 72;
 
             // Name + status
             if (g != null)
@@ -232,7 +232,7 @@ namespace RhinoGotchi.UI
                 g?.DrawText(Ui.Regular(10), p.SubtleText, x, y, line);
                 y += Ui.Regular(10).LineHeight;
             }
-            y += 6;
+            y += 2;
 
             // Chips, wrapping
             float cx = x;
@@ -248,8 +248,8 @@ namespace RhinoGotchi.UI
                     Ui.Chip(g, cx, y, _chips[i], p.Background, i == _accentChip ? p.AccentText : p.Text);
                 cx += cw + 6;
             }
-            y += 22 + 14;
-            return Math.Max(PetSize + 22, y) + 4; // + lip
+            y += 22 + 9;
+            return Math.Max(PetSize + 12, y) + 4; // + lip
         }
 
         private void Relayout()

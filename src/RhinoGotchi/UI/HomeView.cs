@@ -26,8 +26,8 @@ namespace RhinoGotchi.UI
         public HomeView(RhinoGotchiPanel host)
         {
             _host = host;
-            Padding = new Padding(16, 12, 16, 16);
-            Spacing = 12;
+            Padding = new Padding(14, 10, 14, 10);
+            Spacing = 10;
             HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
             UpdatePet();
@@ -37,7 +37,8 @@ namespace RhinoGotchi.UI
             var tabs = new ArtTabSwitch(_lastTab);
             tabs.SelectedChanged += (s, e) => ShowTab(tabs.Selected);
             Items.Add(tabs);
-            Items.Add(_tabContent);
+            // The tab content takes whatever height is left, so the Games grid can fit the panel without scrolling.
+            Items.Add(new StackLayoutItem(_tabContent, true));
             ShowTab(_lastTab);
         }
 
@@ -69,16 +70,15 @@ namespace RhinoGotchi.UI
 
         // ---------------- Learning ----------------
 
+        /// <summary>Two painted cards (Learn Projects, Learn Commands) and the tip of the day.</summary>
         private void LearningTab()
         {
-            _tabContent.Items.Add(new SectionLabel("LEARN RHINO"));
-            _tabContent.Items.Add(new ListRow("Learn Projects", "Road · facade · building", Glyph.Star, 0, _host.ShowProjects));
-
-            var cats = CommandCatalog.Categories;
-            int commands = cats.Sum(c => c.Commands.Count);
-            int demos = cats.Sum(c => c.Commands.Count(e => e.HasDemo));
-            _tabContent.Items.Add(new ListRow("Learn Commands", $"{commands} commands · {demos} demos", Glyph.Book, 1,
-                () => _host.Navigate(new LibraryView(_host, 0))));
+            var tiles = new[]
+            {
+                new GameTile("card-learn-projects", "Learn Projects", _host.ShowProjects),
+                new GameTile("card-learn-commands", "Learn Commands", () => _host.Navigate(new LibraryView(_host, 0))),
+            };
+            _tabContent.Items.Add(new GameGrid(tiles));
 
             var tip = new TipCard("TIP OF THE DAY", Tips.All[_tip]);
             tip.MouseUp += (s, e) =>
@@ -92,12 +92,12 @@ namespace RhinoGotchi.UI
         // ---------------- Games ----------------
 
         /// <summary>
-        /// A two-column grid of game cards: a click on a card opens the game (there are no Play buttons).
+        /// A two-column grid of game cards that fills the rest of the panel, so the page never scrolls.
+        /// A click on a card opens the game; a green check marks a game done today (or fully done).
         /// Settings and Reset live on the My Gotchi tab.
         /// </summary>
         private void GamesTab()
         {
-            // Water Run is played level by level and Drone School lesson by lesson, so they count progress.
             int levels = Water.WaterLevelCatalog.All.Count;
             int cleared = Water.WaterLevelCatalog.All.Count(l => Water.WaterGame.IsDone(l.Number));
             int lessons = Drone.SchoolLevels.All.Length, learned = Drone.DroneProgress.DoneCount;
@@ -106,23 +106,16 @@ namespace RhinoGotchi.UI
             {
                 DailyTile(Games.Order, "card-build-order", () => _host.Navigate(new BuildOrderView(_host, practice: false))),
                 DailyTile(Games.Shape, "card-what-made-this", () => _host.Navigate(new ShapeQuizView(_host, practice: false))),
-                DailyTile(Games.Deep, "card-deep-cut", () => _host.Navigate(new DeepCutView(_host, practice: false)), timed: true),
+                DailyTile(Games.Deep, "card-deep-cut", () => _host.Navigate(new DeepCutView(_host, practice: false))),
                 DailyTile(Games.Blocked, "card-blocked", () => _host.Navigate(new BlockedView(_host, practice: false))),
-                new GameTile("card-water-run", "Water Run", cleared >= levels ? "All levels done" : $"{cleared} of {levels} levels",
-                    () => _host.Navigate(new WaterLabView(_host))) { StatusDone = cleared >= levels },
-                new GameTile("card-drone-school", "Drone School", learned >= lessons ? "All lessons done" : $"{learned} of {lessons} lessons",
-                    () => _host.Navigate(new DroneSchoolView(_host))) { StatusDone = learned >= lessons },
+                new GameTile("card-water-run", "Water Run", () => _host.Navigate(new WaterLabView(_host))) { Done = cleared >= levels },
+                new GameTile("card-drone-school", "Drone School", () => _host.Navigate(new DroneSchoolView(_host))) { Done = learned >= lessons },
             };
-            _tabContent.Items.Add(new GameGrid(tiles));
+            _tabContent.Items.Add(new StackLayoutItem(new GameGrid(tiles, fillHeight: true), true));
         }
 
-        /// <summary>A daily game's card: "Done today" once today's round is played; Deep Cut also says it is timed.</summary>
-        private static GameTile DailyTile(string game, string card, Action open, bool timed = false)
-        {
-            bool done = Core.Progress.Get(game).PlayedToday;
-            string status = done ? "Done today" : timed ? "Daily · 30 s timer" : "Daily";
-            return new GameTile(card, Games.Title(game), status, open) { StatusDone = done, StatusTimed = timed && !done };
-        }
+        private static GameTile DailyTile(string game, string card, Action open) =>
+            new GameTile(card, Games.Title(game), open) { Done = Core.Progress.Get(game).PlayedToday };
 
         /// <summary>Asks, then clears the daily-game stats and streaks; <paramref name="after"/> refreshes the page.</summary>
         internal static void ConfirmReset(Action after)

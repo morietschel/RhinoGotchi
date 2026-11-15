@@ -34,14 +34,13 @@ namespace RhinoGotchi.UI
         }
     }
 
-    /// <summary>One game in the <see cref="GameGrid"/>: its card picture, a short status line and what a click opens.</summary>
+    /// <summary>One card in a <see cref="GameGrid"/>: its picture and what a click opens.</summary>
     internal sealed class GameTile
     {
-        public GameTile(string card, string title, string status, Action open)
+        public GameTile(string card, string title, Action open)
         {
             Card = card;
             Title = title;
-            Status = status;
             Open = open;
         }
 
@@ -51,29 +50,32 @@ namespace RhinoGotchi.UI
         /// <summary>Drawn only if the picture is missing (the card art already carries the name).</summary>
         public string Title { get; }
 
-        public string Status { get; }
-        public bool StatusDone { get; set; }
-        public bool StatusTimed { get; set; }
+        /// <summary>Today's round is played (or every level is done): a small green check on the card.</summary>
+        public bool Done { get; set; }
+
         public Action Open { get; }
     }
 
     /// <summary>
-    /// The Games tab: a two-column grid of game cards. The whole card is the button (no Play button);
-    /// a status line sits under each card. Its height follows its width, so the cards keep their shape.
+    /// A two-column grid of painted cards (the Games and Learning tabs). The whole card is the button;
+    /// there are no Play buttons or captions. Normally its height follows its width. With
+    /// <see cref="FillHeight"/> it takes the height it is given and shrinks the cards to fit inside it, so
+    /// the page never has to scroll.
     /// </summary>
     internal sealed class GameGrid : Drawable
     {
         private const float Gap = 10;
-        private const float LabelH = 22;
         private const float CardRatio = 500f / 700f;
 
         private readonly IReadOnlyList<GameTile> _tiles;
         private int _hover = -1, _pressed = -1;
 
-        public GameGrid(IReadOnlyList<GameTile> tiles)
+        public GameGrid(IReadOnlyList<GameTile> tiles, bool fillHeight = false)
         {
             _tiles = tiles;
-            Height = 300;
+            FillHeight = fillHeight;
+            // Filling: start small so the page fits the panel; the layout then hands over the free height.
+            Height = fillHeight ? 120 : 140;
             SizeChanged += (s, e) => { FitHeight(); Invalidate(); };
             MouseMove += (s, e) =>
             {
@@ -97,33 +99,47 @@ namespace RhinoGotchi.UI
             };
         }
 
-        private float CardW => Math.Max(1, (Width - Gap) / 2f);
+        public bool FillHeight { get; }
+
+        private int Rows => (_tiles.Count + 1) / 2;
+
+        /// <summary>Card width: half the width, or less when filling a height that can't hold that.</summary>
+        private float CardW
+        {
+            get
+            {
+                float byWidth = Math.Max(1, (Width - Gap) / 2f);
+                if (!FillHeight || Height <= 0)
+                    return byWidth;
+                float byHeight = (Height - (Rows - 1) * Gap) / Rows / CardRatio;
+                return Math.Max(1, Math.Min(byWidth, byHeight));
+            }
+        }
+
         private float CardH => CardW * CardRatio;
 
         private void FitHeight()
         {
-            if (Width <= 0)
+            if (FillHeight || Width <= 0)
                 return;
-            int rows = (_tiles.Count + 1) / 2;
-            int h = (int)Math.Ceiling(rows * (CardH + LabelH) + Math.Max(0, rows - 1) * Gap);
+            int h = (int)Math.Ceiling(Rows * CardH + (Rows - 1) * Gap);
             if (Math.Abs(Height - h) > 1)
                 Application.Instance.AsyncInvoke(() => Height = h);
         }
 
         private RectangleF CardRect(int i)
         {
+            float w = CardW, h = CardH;
+            float left = (Width - (2 * w + Gap)) / 2; // centred when the cards are height-limited
             int col = i % 2, row = i / 2;
-            return new RectangleF(col * (CardW + Gap), row * (CardH + LabelH + Gap), CardW, CardH);
+            return new RectangleF(left + col * (w + Gap), row * (h + Gap), w, h);
         }
 
         private int IndexAt(PointF p)
         {
             for (int i = 0; i < _tiles.Count; i++)
-            {
-                var r = CardRect(i);
-                if (new RectangleF(r.X, r.Y, r.Width, r.Height + LabelH).Contains(p))
+                if (CardRect(i).Contains(p))
                     return i;
-            }
             return -1;
         }
 
@@ -162,12 +178,15 @@ namespace RhinoGotchi.UI
                 if (i == _hover)
                     g.DrawPath(new Pen(p.Ink, 2.5f), GraphicsPath.GetRoundRect(new RectangleF(card.X - 1, card.Y - 1, card.Width + 2, card.Height + 2), 13));
 
-                if (tile.Status.Length > 0)
+                if (tile.Done)
                 {
-                    Font f = Ui.Bold(9);
-                    Color ink = tile.StatusDone ? p.GreenText : tile.StatusTimed ? p.AccentText : p.SubtleText;
-                    string text = Ui.Ellipsize(f, tile.Status, r.Width - 4);
-                    g.DrawText(f, ink, r.X + 3, r.Bottom + 4, text);
+                    // A small green check in the top-left corner (the sky there is empty on every card).
+                    float d = Math.Max(16, Math.Min(22, card.Width * 0.11f));
+                    var dot = new RectangleF(card.X + 6, card.Y + 6, d, d);
+                    g.FillEllipse(p.Green, dot);
+                    g.DrawEllipse(new Pen(Colors.White, 1.5f), dot);
+                    var pen = new Pen(Colors.White, Math.Max(2, d * 0.13f)) { LineCap = PenLineCap.Round, LineJoin = PenLineJoin.Round };
+                    g.DrawLines(pen, new PointF(dot.X + d * 0.27f, dot.Y + d * 0.52f), new PointF(dot.X + d * 0.44f, dot.Y + d * 0.68f), new PointF(dot.X + d * 0.74f, dot.Y + d * 0.34f));
                 }
             }
         }
