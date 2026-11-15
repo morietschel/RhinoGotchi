@@ -6,6 +6,28 @@
   "version": "0.2.0",
   "configurations": [
     {
+      // Same as the .NET 7+ config, then runs the RhinoOnTheStreet tutorial as soon as Rhino opens.
+      "name": "RhinoOnTheStreet tutorial (.NET 7+) - Mac / Windows",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build net7.0",
+      "osx": {
+        "program": "/Applications/Rhino 8.app/Contents/MacOS/Rhinoceros",
+        "args": ["-nosplash", "-runscript=_RhinoOnTheStreet"]
+      },
+      "windows": {
+        "program": "C:\\Program Files\\Rhino 8\\System\\Rhino.exe",
+        "args": ["/netcore", "/nosplash", "/runscript=_RhinoOnTheStreet"]
+      },
+      "env": {
+        "RHINO_PACKAGE_DIRS": "${workspaceFolder}/src/RhinoGotchi/bin/Debug/net7.0"
+      },
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "justMyCode": true
+    },
+    {
       // Mac, and Windows on the default .NET 7+ runtime.
       "name": "Rhino 8 (.NET 7+) - Mac / Windows",
       "type": "coreclr",
