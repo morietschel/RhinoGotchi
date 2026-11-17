@@ -1,9 +1,253 @@
+<div align="center">
+
+<img src="yak/icon.png" width="120" alt="RhinoGotchi icon">
+
 # RhinoGotchi
 
-A RhinoCommon plugin for **Rhino 8 and Rhino 9 (Windows and Mac)**, based on McNeel's
-[Your First Plugin](https://developer.rhino3d.com/guides/rhinocommon/your-first-plugin-windows/) guide.
+**A pet in your Rhino that teaches you Rhino.**
 
-## RhinoGotchi panel: What Made This?
+Lessons, a command library and daily games in one side panel.
+Play a round, keep your streak, dress your Gotchi and climb the leaderboard.
+
+Rhino 8 and Rhino 9 · Windows and Mac · type `RhinoGotchi` to open it
+
+<img src="video/1%20-%20winning%20streak%20rhinogotchi.png" width="170" alt="Gotchi hopping">
+<img src="video/2%20-%20standby%20rhinogotchi.png" width="170" alt="Gotchi sleeping">
+<img src="video/3%20-%20losing%20rhinogotchi.png" width="170" alt="Gotchi fainted">
+<img src="video/4%20-%20final%20rhinogotchi.png" width="170" alt="Gotchi celebrating">
+
+</div>
+
+## What's inside
+
+| | |
+| --- | --- |
+| **[Learn Projects](#learn-projects)** | Build a road, a facade and a building with Rhino's real commands, checked live |
+| **[Learn Commands](#learn-commands)** | 113 commands with step-by-step demos and a map of where each button lives |
+| **[What Made This?](#what-made-this)** | Daily game: see the geometry, pick the command that made it |
+| **[Build Order](#build-order)** | Daily game: put a recipe's commands in the right order |
+| **[More games](#more-games)** | Deep Cut, Blocked!, Water Run, Drone School |
+| **[My Gotchi](#my-gotchi)** | A pixel rhino with a wardrobe of unlockable hats and clothes |
+| **[Leaderboard](#leaderboard)** | Global and per-game boards |
+| **[Off the screen](#off-the-screen)** | Gotchi as a 3D-printed handheld |
+
+## Learn Projects
+
+Three projects that are built with Rhino's real commands: **Build a road**, **Build a facade**
+and **Build a building**, twelve commands that add up to the Klosterneuburg pavilion. Each
+level sets up its own geometry, shows where to click and checks your result after every
+command.
+
+<p align="center">
+<img src="video/LearnProject_BuildABuilding.gif" width="820" alt="Learn Projects: Build a building">
+</p>
+
+**Build a facade** is six levels that wrap one box in fins:
+
+<p align="center">
+<img src="video/Fin%20Gotchi%2020s%20%28small%29.gif" width="820" alt="Learn Projects: Build a facade">
+</p>
+
+## Learn Commands
+
+A library of 113 commands in **Curves**, **Solids** and **Transform**. Each one has its
+icon, a description, a **Try it!** button and a help link. Core commands have a **How it
+works** demo drawn in the viewport, one numbered pick at a time, and every page shows where
+the button sits in Rhino's toolbars.
+
+<p align="center">
+<img src="video/LearnCommand.gif" width="820" alt="Learn Commands: the Line and Cylinder demos">
+</p>
+
+## What Made This?
+
+Five rounds a day. Each one draws real geometry in the viewport: the starting curves or
+solids in orange, the result in blue. Pick the command that made it (Loft, Revolve, Sweep1,
+Pipe, FilletEdge, Contour...). Every answer explains the command and has **Try** and
+**Help page** buttons.
+
+<p align="center">
+<img src="video/What%20made%20this%20%28small%29.gif" width="820" alt="What Made This? game">
+</p>
+
+## Build Order
+
+The viewport shows a finished object. Pick its commands from a shuffled bank, with decoys,
+in the right order. Slots turn teal (right place), gold (used elsewhere) or gray (not used).
+Four tries, one hint, then watch it get built step by step.
+
+<p align="center">
+<img src="video/Build%20Order%20%28small%29.gif" width="820" alt="Build Order game">
+</p>
+
+## More games
+
+| Game | What it is |
+| --- | --- |
+| **Deep Cut** | Daily: a real model from the McNeel forum. Name a command that built it; rarer commands score more |
+| **Blocked!** | Daily: build the ghost shape while the obvious command is banned, so you have to find another route |
+| **Water Run** | Thirteen levels that teach the Gumball: get the water from the fountain to the goal |
+| **Drone School** | Mouse lessons: zoom, pan, orbit, fly |
+
+Deep Cut: five models a day, 30 seconds and one guess each.
+
+<p align="center">
+<img src="video/Deep%20Cut%20%28small%29.gif" width="820" alt="Deep Cut game">
+</p>
+
+## My Gotchi
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### Wardrobe
+
+Gotchi wears one face item, one hat and one clothing item. Face items are free; hats and
+clothes unlock as you play: finish a lesson, win a daily, keep a streak.
+
+<img src="video/wardrobe%20lab.gif" width="340" alt="Gotchi's wardrobe">
+
+</td>
+<td width="50%" valign="top">
+
+### Leaderboard
+
+Every game has a board with each player's best round, and **Global** adds them together.
+Pick a name and use your dressed Gotchi as your icon.
+
+<img src="video/Leaderboard.gif" width="340" alt="Leaderboard">
+
+</td>
+</tr>
+</table>
+
+## Off the screen
+
+Gotchi also lives in a 3D-printed handheld with its own small screen.
+
+<p align="center">
+<img src="video/20261115_112014.jpg" width="220" alt="Handheld RhinoGotchi: sleeping">
+<img src="video/20261115_112022.jpg" width="220" alt="Handheld RhinoGotchi: hopping">
+<img src="video/20261115_112039.jpg" width="220" alt="Handheld RhinoGotchi: celebrating">
+</p>
+
+## Get started
+
+### Requirements
+
+- .NET SDK 7 or newer (`dotnet --list-sdks`)
+- Rhino 8 or Rhino 9
+
+### Build
+
+```bash
+dotnet build RhinoGotchi.sln -c Release
+```
+
+Output:
+
+- `src/RhinoGotchi/bin/Release/net7.0/RhinoGotchi.rhp`
+- `src/RhinoGotchi/bin/Release/net48/RhinoGotchi.rhp`
+
+One project builds two targets:
+
+| Target | Runs in |
+| --- | --- |
+| `net7.0` | Rhino 9 Mac (.NET 10), Rhino 8 Mac, Rhino 8 Windows (default .NET Core runtime) |
+| `net48` | Rhino 8 Windows started with `SetDotNetRuntime` = .NET Framework |
+
+### Load and run
+
+- **Mac (recommended for development):** `./tools/dev-install.sh` links Rhino 9's package
+  folder to `bin/Debug/net7.0`, so Rhino loads your latest build at every start (no drag and
+  drop, no F5). Restart Rhino after running it. `./tools/dev-install.sh 8.0` does the same for
+  Rhino 8, and `--remove` undoes it. Uninstall any Package Manager copy first; after a full
+  clean, run it again to restore the package's `manifest.yml`.
+- **Mac (manual):** drag `bin/<Config>/net7.0/RhinoGotchi.rhp` onto the Rhino window,
+  or run `PluginManager` → Install.
+- **Windows:** drag the `.rhp` that matches your runtime onto Rhino 8
+  (`net7.0` by default, `net48` if you switched with `SetDotNetRuntime`).
+
+The plugin loads at startup and registers the **RhinoGotchi** panel. Type `RhinoGotchi` to open it,
+or open it from the panel tabs menu.
+
+## How it was built
+
+RhinoGotchi was built over one weekend, 14 and 15 November 2026.
+
+- **Code:** Moritz Reitschel, Matthew Kam, Ryoyang Chen, Eesha Jain, Mytreyi Metta
+- **Art:** Tamaho Shigemura, Anthony Samaha, Isandro Malik
+
+<p align="center">
+<img src="docs/rhinogotchi-branch-graph.png" width="700" alt="Branch graph of the weekend">
+</p>
+
+<details>
+<summary>Full timeline</summary>
+
+<p align="center">
+<img src="docs/rhinogotchi-timeline.png" width="600" alt="Timeline of the weekend">
+</p>
+
+</details>
+
+---
+
+# Reference
+
+The rest of this page is the detailed documentation of each part.
+
+## One sidebar: Learning and Games
+
+Everything lives in the single **RhinoGotchi** panel: clean black and white with a muted
+green for right answers, orange for selection and streaks, and Duolingo-style chunky
+buttons and cards. It follows Rhino's dark mode (the ink inverts) and reflows when the
+panel is resized; on a wide panel the lessons keep a centered column.
+
+- **Gotchi** is the 1-bit pixel rhino, built the Wardrobe Lab way (`Resources/Pet`,
+  `UI/MascotWardrobe.g.cs`): idle, celebrate, sleeping and fainted poses, and an outfit of
+  **one face item, one hat and one clothing item** drawn at each pose's placement points.
+  The outfit stays on through hops and the "feeding time" animation (grass, leaf, branch,
+  twig, apple, banana, watermelon) when you tap Gotchi or finish a lesson.
+- **Home:** Gotchi's card (it breathes and naps when you haven't played today), with chips
+  for your streak, unlocks and questions solved. Below it, two tabs: **Learning** (Learn
+  Projects, Learn Commands, tip of the day) and **Games** (the other games). Rows show progress
+  (3/12, DONE) once something is started; there are no PLAY tags.
+- **Bottom bar:** Home · My Gotchi.
+- **My Gotchi:** the leaderboard at the top, then the **wardrobe room**: Gotchi eats on a
+  loop in its outfit, with **Surprise me** and **Undress**, and Face · Hat · Clothes tabs.
+  Each tile shows Gotchi with that item swapped in; locked ones show how to unlock them.
+  Below: every achievement and your daily-game stats.
+  - **Face** (free): snorkel mask, visor, ninja mask, shutter shades.
+  - **Hats:** First Steps (first lesson), Par Excellence (win a daily), Hot Streak (3 days in
+    a row), Scholar (all 10 levels), Order Up (5 Build Order wins), Know-It-All (5 What Made
+    This? wins), Deep Roots (win Deep Cut), Workaround (win Blocked!), Clean Sweep (all four
+    dailies in one day).
+  - **Clothes:** big gold chain (placement test), leather jacket (flawless lesson), jeans in
+    both styles (5 levels), bow + pearls (1,000 XP).
+  - New unlocks also appear on the lesson-complete screen with a **Wear it** button.
+- **Leaderboard icon:** My profile → **Use my Gotchi** draws your dressed Gotchi as your icon.
+
+## Learn Projects in detail
+
+The first row on the Learning tab (or type `Gotchi`). Three projects, in this order:
+
+| Project | What it is | Clean-up |
+| --- | --- | --- |
+| **Build a road** | Rhino on the Street: draw the street (Curve), then the archway (Line, Arc). Plays in one maximized Perspective viewport; your layout and camera come back afterwards. | Everything it made is deleted when the whole game ends (a few seconds after the end card, or when you quit). |
+| **Build a facade** | Fin Facade: six levels, one box wrapped in fins. | The levels build on each other, so it clears when you leave it. A finished facade is remembered (DONE). |
+| **Build a building** | The twelve Klosterneuburg levels (below), opened straight at your next level. The Klosterneuburg model is built into the plugin and added to the document when you start. | Each level's geometry (inputs, guides and what you made) is deleted when you move on; leaving removes the model again. |
+
+Only what a game made is deleted: anything already in the document stays. The other games
+clear the same way: Blocked! a few seconds after a challenge is solved or when you leave, Water
+Run when a level ends or you leave (not while editing a level), Drone School removes its drone,
+and the puzzle games only ever draw previews.
+
+Build a building needs a document in metres: an empty document is switched to metres; one in
+other units with work in it asks you to start a new metre file.
+
+## What Made This? and the Command Library
 
 The **RhinoGotchi** side panel has a daily game for learning Rhino commands.
 Each of five rounds draws real geometry in a perspective viewport: the starting
@@ -38,45 +282,6 @@ Nothing is added to your model, and your view is restored when you leave the gam
 Everyone gets the same rounds each day; daily scores and streaks are saved in the
 plugin settings, and practice rounds don't count. The panel home page also has a
 tip of the day, stats, and a reset action.
-
-## Leaderboard
-
-Each board shows every player's best round in that game, and the **Global** board adds a
-player's bests together. Players pick a public name and a small icon to appear.
-
-| Game | Score for a round |
-| --- | --- |
-| What Made This? | 20 per right answer (max 100) |
-| Build Order | 100 for a first-try solve, 20 fewer per extra try, 10 fewer with the hint |
-| Deep Cut | the round's points (up to 5,000) |
-| Water Run | each level: 100 for the clear + up to 100 time bonus; the board shows the sum of your level bests (up to 2,600) |
-
-When a round, daily or practice, beats the player's best for that game, the new best is
-saved and pushed straight away. Bests and the profile are kept in the plugin settings and
-pushed in full each time, so a failed upload is made up for by the next one.
-
-**One-time setup.** The backend is a free Firebase Realtime Database (Spark plan, no card):
-
-1. [console.firebase.google.com](https://console.firebase.google.com) → Add project → Build → Realtime Database → Create database.
-2. Rules tab → paste `firebase/database.rules.json` → Publish.
-3. Copy the database URL (like `https://my-project-default-rtdb.firebaseio.com`) into
-   `DatabaseUrl` in `Core/Leaderboard.cs`. While it is empty the leaderboard stays offline.
-   For a debug session you can set the `RHINOGOTCHI_LEADERBOARD_URL` environment variable instead.
-
-There is no login: anyone can write a row, so scores can be faked. The rules only limit
-the shape and size of what is written.
-
-**Data layout** (plain REST, so other games can share the same database):
-
-```
-boards/{board}/{playerId} = { "s": score, "n": name, "i": iconVersion, "t": serverTime }
-icons/{playerId}          = "base64 PNG or JPEG, 48×48"
-```
-
-`board` is a game key or `global`. To add a game: add its key to `Games` in
-`Core/Progress.cs` and call `Leaderboard.Report(game, score)` when a round ends.
-`Core/LeaderboardClient.cs` and `Core/MiniJson.cs` have no Rhino dependencies and can be
-copied into another project as is.
 
 ## Deep Cut game
 
@@ -160,118 +365,44 @@ the only tool is the Gumball. Open it from **Games → Water Run**, or type `Got
   it must still win most of the time when the pieces are placed sloppily. Add a level number to run
   one, and `-render <folder>` for pictures.
 
-One project builds two targets:
+## Leaderboard backend
 
-| Target | Runs in |
+Each board shows every player's best round in that game, and the **Global** board adds a
+player's bests together. Players pick a public name and a small icon to appear.
+
+| Game | Score for a round |
 | --- | --- |
-| `net7.0` | Rhino 9 Mac (.NET 10), Rhino 8 Mac, Rhino 8 Windows (default .NET Core runtime) |
-| `net48` | Rhino 8 Windows started with `SetDotNetRuntime` = .NET Framework |
+| What Made This? | 20 per right answer (max 100) |
+| Build Order | 100 for a first-try solve, 20 fewer per extra try, 10 fewer with the hint |
+| Deep Cut | the round's points (up to 5,000) |
+| Water Run | each level: 100 for the clear + up to 100 time bonus; the board shows the sum of your level bests (up to 2,600) |
 
-## Requirements
+When a round, daily or practice, beats the player's best for that game, the new best is
+saved and pushed straight away. Bests and the profile are kept in the plugin settings and
+pushed in full each time, so a failed upload is made up for by the next one.
 
-- .NET SDK 7 or newer (`dotnet --list-sdks`)
-- Rhino 8 or Rhino 9
+**One-time setup.** The backend is a free Firebase Realtime Database (Spark plan, no card):
 
-## Build
+1. [console.firebase.google.com](https://console.firebase.google.com) → Add project → Build → Realtime Database → Create database.
+2. Rules tab → paste `firebase/database.rules.json` → Publish.
+3. Copy the database URL (like `https://my-project-default-rtdb.firebaseio.com`) into
+   `DatabaseUrl` in `Core/Leaderboard.cs`. While it is empty the leaderboard stays offline.
+   For a debug session you can set the `RHINOGOTCHI_LEADERBOARD_URL` environment variable instead.
 
-```bash
-dotnet build RhinoGotchi.sln -c Release
+There is no login: anyone can write a row, so scores can be faked. The rules only limit
+the shape and size of what is written.
+
+**Data layout** (plain REST, so other games can share the same database):
+
+```
+boards/{board}/{playerId} = { "s": score, "n": name, "i": iconVersion, "t": serverTime }
+icons/{playerId}          = "base64 PNG or JPEG, 48×48"
 ```
 
-Output:
-
-- `src/RhinoGotchi/bin/Release/net7.0/RhinoGotchi.rhp`
-- `src/RhinoGotchi/bin/Release/net48/RhinoGotchi.rhp`
-
-## Package Manager (Yak)
-
-```bash
-./tools/build-yak.sh
-```
-
-builds the two packages for Rhino's Package Manager into `dist/`, under the name **Rhinogotchi**:
-
-| Package | Installs in | Contains |
-| --- | --- | --- |
-| `rhinogotchi-<version>-rh8_0-any.yak` | Rhino 8, Windows and Mac | `net7.0/` and `net48/` |
-| `rhinogotchi-<version>-rh9_0-any.yak` | Rhino 9, Windows and Mac | the `net7.0` build |
-
-The version comes from `<Version>` in `RhinoGotchi.csproj`; the name, description and icon from
-`yak/`.
-
-To publish, raise the version (a published version can't be replaced), then:
-
-```bash
-./tools/yak-login.sh        # once: sign in with your Rhino account
-./tools/deploy.sh --test    # optional rehearsal on test.yak.rhino3d.com
-./tools/deploy.sh           # build, confirm, push both packages
-```
-
-On Windows, run the scripts from Git Bash.
-
-## Load and run
-
-- **Mac (recommended for development):** `./tools/dev-install.sh` links Rhino 9's package
-  folder to `bin/Debug/net7.0`, so Rhino loads your latest build at every start (no drag and
-  drop, no F5). Restart Rhino after running it. `./tools/dev-install.sh 8.0` does the same for
-  Rhino 8, and `--remove` undoes it. Uninstall any Package Manager copy first; after a full
-  clean, run it again to restore the package's `manifest.yml`.
-- **Mac (manual):** drag `bin/<Config>/net7.0/RhinoGotchi.rhp` onto the Rhino window,
-  or run `PluginManager` → Install.
-- **Windows:** drag the `.rhp` that matches your runtime onto Rhino 8
-  (`net7.0` by default, `net48` if you switched with `SetDotNetRuntime`).
-
-The plugin loads at startup and registers the **RhinoGotchi** panel. Type `RhinoGotchi` to open it,
-or open it from the panel tabs menu.
-
-## One sidebar: Learning and Games
-
-Everything lives in the single **RhinoGotchi** panel: clean black and white with a muted
-green for right answers, orange for selection and streaks, and Duolingo-style chunky
-buttons and cards. It follows Rhino's dark mode (the ink inverts) and reflows when the
-panel is resized; on a wide panel the lessons keep a centered column.
-
-- **Gotchi** is the 1-bit pixel rhino, built the Wardrobe Lab way (`Resources/Pet`,
-  `UI/MascotWardrobe.g.cs`): idle, celebrate, sleeping and fainted poses, and an outfit of
-  **one face item, one hat and one clothing item** drawn at each pose's placement points.
-  The outfit stays on through hops and the "feeding time" animation (grass, leaf, branch,
-  twig, apple, banana, watermelon) when you tap Gotchi or finish a lesson.
-- **Home:** Gotchi's card (it breathes and naps when you haven't played today), with chips
-  for your streak, unlocks and questions solved. Below it, two tabs: **Learning** (Learn
-  Projects, Learn Commands, tip of the day) and **Games** (the other games). Rows show progress
-  (3/12, DONE) once something is started; there are no PLAY tags.
-- **Bottom bar:** Home · Trophies.
-- **Trophies:** the leaderboard at the top, then the **wardrobe room**: Gotchi eats on a
-  loop in its outfit, with **Surprise me** and **Undress**, and Face · Hat · Clothes tabs.
-  Each tile shows Gotchi with that item swapped in; locked ones show how to unlock them.
-  Below: every achievement and your daily-game stats.
-  - **Face** (free): snorkel mask, visor, ninja mask, shutter shades.
-  - **Hats:** First Steps (first lesson), Par Excellence (win a daily), Hot Streak (3 days in
-    a row), Scholar (all 10 levels), Order Up (5 Build Order wins), Know-It-All (5 What Made
-    This? wins), Deep Roots (win Deep Cut), Workaround (win Blocked!), Clean Sweep (all four
-    dailies in one day).
-  - **Clothes:** big gold chain (placement test), leather jacket (flawless lesson), jeans in
-    both styles (5 levels), bow + pearls (1,000 XP).
-  - New unlocks also appear on the lesson-complete screen with a **Wear it** button.
-- **Leaderboard icon:** My profile → **Use my Gotchi** draws your dressed Gotchi as your icon.
-
-## Learn Projects
-
-The first row on the Learning tab (or type `Gotchi`). Three projects, in this order:
-
-| Project | What it is | Clean-up |
-| --- | --- | --- |
-| **Build a road** | Rhino on the Street: draw the street (Curve), then the archway (Line, Arc). Plays in one maximized Perspective viewport; your layout and camera come back afterwards. | Everything it made is deleted when the whole game ends (a few seconds after the end card, or when you quit). |
-| **Build a facade** | Fin Facade: six levels, one box wrapped in fins. | The levels build on each other, so it clears when you leave it. A finished facade is remembered (DONE). |
-| **Build a building** | The twelve Klosterneuburg levels (below), opened straight at your next level. The Klosterneuburg model is built into the plugin and added to the document when you start. | Each level's geometry (inputs, guides and what you made) is deleted when you move on; leaving removes the model again. |
-
-Only what a game made is deleted: anything already in the document stays. The other games
-clear the same way: Blocked! a few seconds after a challenge is solved or when you leave, Water
-Run when a level ends or you leave (not while editing a level), Drone School removes its drone,
-and the puzzle games only ever draw previews.
-
-Build a building needs a document in metres: an empty document is switched to metres; one in
-other units with work in it asks you to start a new metre file.
+`board` is a game key or `global`. To add a game: add its key to `Games` in
+`Core/Progress.cs` and call `Leaderboard.Report(game, score)` when a round ends.
+`Core/LeaderboardClient.cs` and `Core/MiniJson.cs` have no Rhino dependencies and can be
+copied into another project as is.
 
 ## The Learning Campaign (hidden)
 
@@ -369,6 +500,31 @@ Code: `Lessons/LessonCatalog.cs` (the chapter), `Tutorials/Content/Cards.cs` (th
 (the viewport HUD), `UI/LessonCanvas.Tutorial.cs` (the level page), `UI/TutorialDemos.cs`
 (the demos), `Fin/` (FinGotchi's cards, fonts, palette and pixel pet).
 
+## RhinoOnTheStreet tutorial
+
+Type `RhinoOnTheStreet` in Rhino. A floating Perspective view pops out over the
+viewports, the camera flies down onto a ghosted street that ends at an archway,
+and two lessons follow, played with Rhino's real commands:
+
+1. **Curve**: type `Curve`, click the five coloured rings, press Enter.
+2. **Arch**: `Line` for the left pillar, Enter to repeat Line for the right one,
+   then `Arc`, `S` (Start option), and click start, end and crown.
+
+Targets are colour-coded red → green → blue (the order of Rhino's X, Y, Z axes).
+The rhino dances when a lesson is complete, dozes after 5 s without a click,
+falls over when a lesson is incomplete (a missed ring, Enter too early, Esc),
+and does its final dance if the whole run had zero misses. A finale walks it
+through the arch into a blue horizon.
+
+While it runs, Osnap is on with Point snap, and locked target points sit on a
+`RhinoOnTheStreet` layer. Run `RhinoOnTheStreet` again for SkipIntro,
+RestartLesson, ReplayFinale, RestartTutorial or Quit. Quit restores your Osnap
+settings, removes the targets and closes the view; the street and arch stay.
+
+A browser preview of the same tutorial is in `tutorial/RhinoOnTheStreet.html`.
+
+# Development
+
 ## Debug in VS Code (Mac and Windows)
 
 1. Install the recommended extensions (VS Code prompts you): **C#** and **C# Dev Kit**.
@@ -392,28 +548,31 @@ If Rhino 8 is installed somewhere else, edit `program` in `.vscode/launch.json`.
 `src/RhinoGotchi/Properties/launchSettings.json` has the same three profiles.
 Pick one and press F5.
 
-## RhinoOnTheStreet tutorial
+## Package Manager (Yak)
 
-Type `RhinoOnTheStreet` in Rhino. A floating Perspective view pops out over the
-viewports, the camera flies down onto a ghosted street that ends at an archway,
-and two lessons follow, played with Rhino's real commands:
+```bash
+./tools/build-yak.sh
+```
 
-1. **Curve**: type `Curve`, click the five coloured rings, press Enter.
-2. **Arch**: `Line` for the left pillar, Enter to repeat Line for the right one,
-   then `Arc`, `S` (Start option), and click start, end and crown.
+builds the two packages for Rhino's Package Manager into `dist/`, under the name **Rhinogotchi**:
 
-Targets are colour-coded red → green → blue (the order of Rhino's X, Y, Z axes).
-The rhino dances when a lesson is complete, dozes after 5 s without a click,
-falls over when a lesson is incomplete (a missed ring, Enter too early, Esc),
-and does its final dance if the whole run had zero misses. A finale walks it
-through the arch into a blue horizon.
+| Package | Installs in | Contains |
+| --- | --- | --- |
+| `rhinogotchi-<version>-rh8_0-any.yak` | Rhino 8, Windows and Mac | `net7.0/` and `net48/` |
+| `rhinogotchi-<version>-rh9_0-any.yak` | Rhino 9, Windows and Mac | the `net7.0` build |
 
-While it runs, Osnap is on with Point snap, and locked target points sit on a
-`RhinoOnTheStreet` layer. Run `RhinoOnTheStreet` again for SkipIntro,
-RestartLesson, ReplayFinale, RestartTutorial or Quit. Quit restores your Osnap
-settings, removes the targets and closes the view; the street and arch stay.
+The version comes from `<Version>` in `RhinoGotchi.csproj`; the name, description and icon from
+`yak/`.
 
-A browser preview of the same tutorial is in `tutorial/RhinoOnTheStreet.html`.
+To publish, raise the version (a published version can't be replaced), then:
+
+```bash
+./tools/yak-login.sh        # once: sign in with your Rhino account
+./tools/deploy.sh --test    # optional rehearsal on test.yak.rhino3d.com
+./tools/deploy.sh           # build, confirm, push both packages
+```
+
+On Windows, run the scripts from Git Bash.
 
 ## Layout
 
